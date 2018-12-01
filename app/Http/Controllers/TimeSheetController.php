@@ -41,7 +41,7 @@ class TimeSheetController extends Controller
       $date = jdate('now')->format('%Y/%m/%d');
       $day = jdate('now')->format('l');
 
-
+//test
       $tdl = TimeSheet::create([
         'day' => $day,
         'date' => $date,
