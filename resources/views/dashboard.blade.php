@@ -113,15 +113,14 @@ tspan{
 
             </div>
 
-            <div  style=""  class="form-group row last">
+
+            <div  class="form-group row last">
               <label class="col-md-3 label-control" for="assignerAttachment">فایل ضمیمه</label>
               <div class="col-md-9">
-                <div class="custom-file">
-                  <input type="file" name="assignerAttachment" class="custom-file-input" id="assignerAttachment">
-                  <label class="custom-file-label" style="min-width: 450px" for="assignerAttachment">جهت ضمیمه فایل اینجا کنیک کنید.</label>
-              </div>
+                <input type="file" id="assignerAttachment" class="form-control" name="assignerAttachment">
               </div>
             </div>
+
 
 
           </div>
@@ -150,7 +149,7 @@ tspan{
 
 
 
-<!--  Start Edit Task -->
+<!--  Start Edit Task Assigned to Me -->
 @foreach($tdlsAssignedToThisUser as $tdlAssignedToThisUser)
 <div style="font-family:Byekan" class="modal fade text-left" id="editTdl{{ $tdlAssignedToThisUser->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{ $tdlAssignedToThisUser->id }}" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
@@ -229,15 +228,15 @@ tspan{
               </div>
             </div>
 
-            <div  style=""  class="form-group row ">
-              <label class="col-md-3 label-control" for="assignerAttachment">فایل ضمیمه</label>
+
+            <div  class="form-group row last">
+              <label class="col-md-3 label-control" for="doerAttachment">فایل ضمیمه</label>
               <div class="col-md-9">
-                <div class="custom-file">
-                  <input type="file" name="doerAttachment" class="custom-file-input" id="doerAttachment">
-                  <label class="custom-file-label" style="min-width: 450px" for="doerAttachment">جهت ضمیمه فایل اینجا کنیک کنید.</label>
-              </div>
+                <input type="file" id="doerAttachment" class="form-control" name="doerAttachment">
               </div>
             </div>
+
+
 
 
 
@@ -288,7 +287,170 @@ tspan{
   </div>
 </div>
 @endforeach
-<!--  End Edit Task -->
+<!--  End Edit Task Assigned to Me -->
+
+
+
+
+
+<!--  Start Edit Task Assigned to Other -->
+@foreach($tdlsAssignedToOther as $tdlAssignedToOther)
+<div class="modal fade text-left" id="EditOtherTask{{ $tdlAssignedToOther->id }}" tabindex="-1" role="dialog" aria-labelledby="EditOtherTask{{ $tdlAssignedToOther->id }}" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div   class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel17">بروزرسانی فعالیت</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div style="font-family:Byekan; direction: rtl" class="modal-body">
+
+        <form  style="vertical-align:center;text-align:center" method="post" enctype="multipart/form-data" action="/Tdl/updateAssignedToOther" class="form form-horizontal form-bordered striped-rows">
+          @csrf
+          <div class="form-body">
+
+
+            <div class="form-group row">
+              <label class="col-md-3 label-control" for="name">نام فعالیت <sup style="color: red; font-size: 18px" >*</sup> </label>
+              <div class="col-md-9">
+                <input type="text" id="name" value=" {{ $tdlAssignedToOther->name  }} "  class="form-control" name="name">
+              </div>
+            </div>
+
+            <input style="display: none" value="{{  $tdlAssignedToOther->id }}" name="id" hidden type="text">
+
+            <div class="form-group row">
+              <label class="col-md-3 label-control" for="description">شرح </label>
+              <div class="col-md-9">
+                <textarea class="form-control" name="description" rows="3" cols="30">{{ $tdlAssignedToOther->description  }}</textarea>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 label-control" for="assignedTo">متولی انجام <sup style="color: red; font-size: 18px" >*</sup> </label>
+              <div class="col-md-9">
+
+                <select id="selectize-state" name="assignedTo" class="selectize-event required">
+                  <option class="" value="">انتخاب متولی</option>
+                  @foreach($users as $user)
+                    <option value="{{ $user->id }}" {{ $tdlAssignedToOther->user_id == $user->id ? "selected"  : "" }} >{{ $user->name . " " . $user->family }} | {{ $user->position }}</option>
+                  @endforeach
+                </select>
+
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 label-control" for="priority">اهمیت <sup style="color: red; font-size: 18px" >*</sup> </label>
+              <div class="col-md-9">
+                <select class="form-control" name="priority" >
+                  <option class="form-control" {{  $tdlAssignedToOther->priority == "عادی" ? "selected"  : ""  }}  value="عادی">عادی</option>
+                  <option class="form-control" {{  $tdlAssignedToOther->priority == "متوسط" ? "selected"  : ""  }} value="متوسط">متوسط</option>
+                  <option class="form-control" {{  $tdlAssignedToOther->priority == "آنی" ? "selected"  : ""  }} value="آنی">آنی</option>
+                  <option class="form-control" {{  $tdlAssignedToOther->priority == "فوری" ? "selected"  : ""  }} value="فوری">فوری</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div  class="form-group row last">
+              <label class="col-md-3 label-control" for="assignerAttachment">فایل ضمیمه</label>
+              <div class="col-md-9">
+                <input type="file" id="assignerAttachment" class="form-control" name="assignerAttachment">
+              </div>
+            </div>
+
+
+
+          </div>
+
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success">
+              <i class="fa fa-check-square-o"></i> افزودن فعالیت
+            </button>
+
+
+            <button type="button" class="btn btn-warning mr-1">
+              <i class="ft-x"></i> لغو
+            </button>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
+<!--  End Edit Task Assigned to Other -->
+
+
+
+<!--  Start ReferralsTdl -->
+@foreach($tdlsAssignedToThisUser as $tdlAssignedToThisUser)
+<div style="font-family:Byekan" class="modal fade text-left" id="ReferralsTdl{{ $tdlAssignedToThisUser->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{ $tdlAssignedToThisUser->id }}" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div style="text-align: center!important;" class="modal-header">
+        <h4 style="text-align: center!important;" class="modal-title" id="ReferralsTdl{{ $tdlAssignedToThisUser->id }}">ارجاع فعالیت به دیگران</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div  style=" direction: rtl;" class="modal-body">
+        <form style="vertical-align:center;text-align:center" method="post" action="Tdl/updateDoer"  enctype="multipart/form-data" class="form form-horizontal form-bordered striped-rows">
+          @csrf
+          <div class="form-body">
+
+            <div style="display:none" class="form-group row">
+              <label class="col-md-3 label-control" for="id">ردیف</label>
+              <div class="col-md-9">
+                <input type="text" id="id" value="{{ $tdlAssignedToThisUser->id }}" class="form-control" name="id" >
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 label-control" for="assignedTo">متولی انجام <sup style="color: red; font-size: 18px" >*</sup> </label>
+              <div class="col-md-9">
+
+                <select id="selectize-state" name="assignedTo" class="selectize-event required">
+                  <option class="" value="">انتخاب متولی</option>
+                  @foreach($users as $user)
+                  <option value="{{ $user->id }}">{{ $user->name . " " . $user->family }} | {{ $user->position }}</option>
+                  @endforeach
+                </select>
+
+              </div>
+            </div>
+
+
+
+
+          </div>
+
+
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success">
+              <i class="fa fa-check-square-o"></i> بروزرسانی
+            </button>
+
+            <button type="button" class="btn btn-warning mr-1">
+              <i class="ft-x"></i> لغو
+            </button>
+
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
+<!--  End ReferralsTdl -->
 
 
 
@@ -317,7 +479,7 @@ tspan{
             <div class="card-content">
               <div class="card-body">
                 <div class="row">
-                  <div class="col-lg-2 col-sm-12 border-right-blue-grey border-right-lighten-5">
+                  <div class="col-lg-3 col-sm-12 border-right-blue-grey border-right-lighten-5">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
                         <i class="ft-clipboard font-large-1 blue-grey float-left mt-1"></i>
@@ -331,7 +493,7 @@ tspan{
                       <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
-                  <div class="col-lg-2 col-sm-12 border-right-blue-grey border-right-lighten-5">
+                  <div class="col-lg-3 col-sm-12 border-right-blue-grey border-right-lighten-5">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
                         <i class="ft-check-circle font-large-1 blue-grey float-left mt-1"></i>
@@ -345,35 +507,10 @@ tspan{
                       <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
-                  <div class="col-lg-2 col-sm-12 border-right-blue-grey border-right-lighten-5">
-                    <div class="pb-1">
-                      <div class="clearfix mb-1">
-                        <i class="ft-clipboard font-large-1 blue-grey float-left mt-1"></i>
-                        <span class="font-large-1 text-bold-300 success float-right">0</span>
-                      </div>
-                      <div style="text-align: center;font-size: 18px;" class="clearfix">
-                        <span class="text-muted">فعالیت های محول شده این هفته به شما</span>
-                      </div>
-                    </div>
-                    <div class="progress mb-0" style="height: 7px;">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 col-sm-12">
-                    <div class="pb-1">
-                      <div class="clearfix mb-1">
-                        <i class="ft-check-circle font-large-1 blue-grey float-left mt-1"></i>
-                        <span class="font-large-1 text-bold-300 success float-right"> 0 </span>
-                      </div>
-                      <div style="text-align: center;font-size: 18px;" class="clearfix">
-                        <span class="text-muted">فعالیت های انجام شده این هفته شما</span>
-                      </div>
-                    </div>
-                    <div class="progress mb-0" style="height: 7px;">
-                      <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 col-sm-12">
+
+
+
+                  <div class="col-lg-3 col-sm-12">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
                         <i class="ft-check-circle font-large-1 blue-grey float-left mt-1"></i>
@@ -387,7 +524,7 @@ tspan{
                       <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
-                  <div class="col-lg-2 col-sm-12">
+                  <div class="col-lg-3 col-sm-12">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
                         <i class="ft-clipboard font-large-1 blue-grey float-left mt-1"></i>
@@ -505,7 +642,7 @@ tspan{
                         <th>مستندات متولی انجام</th>
                         <th>تاریخ ایجاد</th>
                         <th>آخرین بروزرسانی</th>
-                        <th>حذف</th>
+                        <th>بروزرسانی</th>
                       </tr>
                     </thead>
                     <tbody style="text-align: center" >
@@ -525,7 +662,7 @@ tspan{
                         <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tdlAssignedToOther->doerAttachment }}"> {!! $tdlAssignedToOther->doerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
                         <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->created_at) }}</td>
                         <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->updated_at) }}</td>
-                        <td style="text-align:center;color: red" > <a href="/Tdl/delete/{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px;color: red" class="ft-x-square"></i></a>  </td>
+                        <td style="text-align:center;" > <a href="/Tdl/delete/{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px;color: red" class="ft-x-square"></i></a>   <a data-toggle="modal" data-target="#EditOtherTask{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px; color: #3BAFDA" class="ft-edit"></i></a>  </td>
 
                       </tr>
                       @endforeach
@@ -596,6 +733,7 @@ tspan{
                               <th>ارجاع دهنده</th>
                               <th>اهمیت</th>
                               <th>آخرین وضعیت</th>
+                              <th>ارجاع </th>
                               <th>دلیل عدم تحقق</th>
                               <th>نتیجه</th>
                               <th>مستندات ارجاع دهنده</th>
@@ -615,6 +753,7 @@ tspan{
                               <td>{{ $tdlAssignedToThisUser->assignerName }}</td>
                               <td><span class="badge badge-danger">{{ $tdlAssignedToThisUser->priority }}</span></td>
                               <td><span class="badge {{ $tdlAssignedToThisUser->status == 'انجام شده' ? 'badge-success' : 'badge-warning' }}">{{ $tdlAssignedToThisUser->status }}</span></td>
+                              <td style="text-align:center;color: #3BAFDA" > <a data-toggle="modal" data-target="#ReferralsTdl{{ $tdlAssignedToThisUser->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>  </td>
                               <td>{{ $tdlAssignedToThisUser->holdPoint }}</td>
                               <td>{{ $tdlAssignedToThisUser->doerDescription }}</td>
                               <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tdlAssignedToThisUser->assignerAttachment }}"> {!! $tdlAssignedToThisUser->assignerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
@@ -638,6 +777,7 @@ tspan{
                               <th>ارجاع دهنده</th>
                               <th>اهمیت</th>
                               <th>آخرین وضعیت</th>
+                              <th>ارجاع</th>
                               <th>دلیل عدم تحقق</th>
                               <th>نتیجه</th>
                               <th>مستندات ارجاع دهنده</th>

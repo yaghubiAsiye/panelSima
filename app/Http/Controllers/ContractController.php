@@ -41,20 +41,26 @@ class ContractController extends Controller
       $attachmentFileName = time() . "_" . $attachmentFile->getClientOriginalName();
       $attachmentFile->move('storage/Contracts', $attachmentFileName);
 
-      Contract::create([
-        'name' => $request->name,
-        'description' => $request->description,
-        'contractor' => $request->contractor,
+      Contract::forceCreate([
+        'onvan' => $request->onvan,
+        'mozoo' => $request->mozoo,
+        'peymankar' => $request->peymankar,
+        'mablagh' => $request->mablagh,
+        'pardakht' => $request->pardakht,
+        'moddat' => $request->moddat,
         'from' => $request->from,
         'to' => $request->to,
-        'file' => 'storage/Contracts/' . $attachmentFileName,
+        'tazmin' => $request->tazmin,
+        'nazer' => $request->nazer,
+        'description' => $request->description,
+        'contractorFile' => 'storage/Contracts/' . $attachmentFileName,
       ]);
 
       \Session::flash('updateUser', array(
-        'flash_title' => 'Seccessfully',
-        'flash_message' => 'Contract Created Successfully',
+        'flash_title' => 'انجام شد',
+        'flash_message' => 'قرارداد باموفقیت در سیستم ثبت شد',
         'flash_level' => 'success',
-        'flash_button' => 'Okay'
+        'flash_button' => 'بستن'
       ));
 
       return redirect()->back();
@@ -105,7 +111,16 @@ class ContractController extends Controller
     {
       $contract = Contract::findOrFail($id);
       $contract->delete();
+
+      \Session::flash('updateUser', array(
+        'flash_title' => 'انجام شد',
+        'flash_message' => 'قرارداد مورد نظر باموفقیت از سیستم حذف شد.',
+        'flash_level' => 'success',
+        'flash_button' => 'بستن'
+      ));
+
       return redirect()->back();
+
 
     }
 }

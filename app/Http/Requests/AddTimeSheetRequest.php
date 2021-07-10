@@ -24,7 +24,19 @@ class AddTimeSheetRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'description' => 'required',
+            'assignment' => 'required',
+            'kaarfarma' => 'required',
+            'projectName' => 'required',
+            'startHour' => 'required',
+            'endHour' => 'required',
+            'minutes' => 'required',
+            'holdpoint' => 'nullable',
+            'result' => 'required',
+            'attach1' => 'nullable|mimes:doc,docx,xls,xlsx,pdf,jpg,JPG,png,PNG,jpeg',
+            'attach2' =>'nullable',
+            'tdl_id' => 'nullable',
+
         ];
     }
 }

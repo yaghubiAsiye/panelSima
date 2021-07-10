@@ -15,12 +15,18 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('description');
-            $table->string('contractor');
+            $table->string('onvan');
+            $table->string('mozoo')->nullable();
+            $table->string('peymankar');
+            $table->string('mablagh')->nullable();;
+            $table->string('pardakht')->nullable();;
+            $table->string('moddat');
             $table->string('from');
             $table->string('to');
-            $table->string('file');
+            $table->string('tazmin')->nullable();;
+            $table->string('nazer')->nullable();;
+            $table->string('description')->nullable();;
+            $table->string('contractorFile')->nullable();;
             $table->timestamps();
         });
     }

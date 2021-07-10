@@ -37,6 +37,8 @@ Route::post('profile/updateAvatar','UserController@updateAvatar')->middleware('a
 
 // TodoList
 Route::post('/Tdl/updateFromDoer','TdlController@updateFromDoer')->middleware('auth');
+Route::post('/Tdl/updateDoer','TdlController@updateDoer')->middleware('auth');
+Route::post('/Tdl/updateAssignedToOther','TdlController@updateAssignedToOther')->middleware('auth');
 Route::post('/Tdl/addTdl','TdlController@store')->middleware('auth');
 Route::get('/Tdl/delete/{id}','TdlController@destroy')->middleware('auth');
 
@@ -45,3 +47,61 @@ Route::get('/Tdl/delete/{id}','TdlController@destroy')->middleware('auth');
 Route::get('/timesheet','TimeSheetController@index')->middleware('auth');
 Route::post('/timesheet/add','TimeSheetController@store')->middleware('auth');
 Route::get('/timesheet/delete/{id}','TimeSheetController@destroy')->middleware('auth');
+
+
+// Projects
+Route::get('/projects','ProjectController@index')->middleware('auth');
+
+//Avl
+Route::get('avl','AvlController@index')->middleware('auth');
+Route::post('avl','AvlController@store')->middleware('auth');
+Route::get('avl/delete/{id}','AvlController@destroy')->middleware('auth');
+
+
+//ContractsKarfarmayan
+Route::get('contracts','ContractController@index')->middleware('auth');
+Route::post('contracts','ContractController@store')->middleware('auth');
+Route::get('contracts/delete/{id}','ContractController@destroy')->middleware('auth');
+
+
+//ContractsSellers
+Route::get('SellersContracts','SellerContractController@index')->middleware('auth');
+Route::post('SellersContracts','SellerContractController@store')->middleware('auth');
+Route::get('SellerContract/delete/{id}','SellerContractController@destroy')->middleware('auth');
+
+
+//Proceeding
+Route::get('ProceedingsApi','ProceedingController@indexApi');
+Route::get('Proceedings','ProceedingController@index')->middleware('auth');
+Route::post('Proceedings','ProceedingController@store')->middleware('auth');
+Route::post('Proceedings/update','ProceedingController@update')->middleware('auth');
+Route::get('Proceedings/delete/{id}','ProceedingController@destroy')->middleware('auth');
+
+
+//Certificates
+Route::get('Certificates','CertificatesController@index')->middleware('auth');
+Route::post('Certificates','CertificatesController@store')->middleware('auth');
+Route::get('Certificates/delete/{id}','CertificatesController@destroy')->middleware('auth');
+
+
+
+
+//Suggestions
+Route::get('Suggestions','SuggestionController@index')->middleware('auth');
+Route::post('Suggestions','SuggestionController@store')->middleware('auth');
+Route::get('Suggestions/delete/{id}','SuggestionController@destroy')->middleware('auth');
+
+
+
+//Income Contracts
+Route::get('IncomeContracts','IncomeContractController@index')->middleware('auth');
+Route::post('IncomeContracts','IncomeContractController@store')->middleware('auth');
+Route::get('IncomeContracts/delete/{id}','IncomeContractController@destroy')->middleware('auth');
+
+
+//Tenders
+Route::get('tenders','TenderController@index')->middleware('auth');
+Route::post('tenders','TenderController@store')->middleware('auth');
+Route::get('tenders/edit/{id}','TenderController@edit')->middleware('auth')->name('tenders.edit');
+Route::post('tenders/update/{id}','TenderController@update')->middleware('auth')->name('tenders.update');
+Route::get('tenders/delete/{id}','TenderController@destroy')->middleware('auth');

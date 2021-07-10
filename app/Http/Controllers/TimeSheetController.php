@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\TimeSheet;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddTimeSheetRequest;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 
 
 class TimeSheetController extends Controller
@@ -17,7 +19,20 @@ class TimeSheetController extends Controller
     public function index()
     {
         $timesheets = TimeSheet::where('user_id', \Auth::user()->id)->get();
-        return view('dashboards.timesheet', compact('timesheets'));
+
+        if(\Auth::user()->email === 'rahmani@persiatc.com'){
+            $personnelTimesheets = $timesheets = TimeSheet::all();
+        }elseif(\Auth::user()->email === 'torkaman@persiatc.com'){
+            $personnelTimesheets = DB::table('time_sheets')->where('user_id', 25)->orWhere('user_id', 23)->get();
+        }elseif(\Auth::user()->email === 'khanbeigi@persiatc.com'){
+            $personnelTimesheets = DB::table('time_sheets')->where('user_id', 20)->orWhere('user_id', 32)->orWhere('user_id', 30)->orWhere('user_id', 26)->get();
+        }elseif(\Auth::user()->email === 'tavakoli@persiatc.com'){
+            $personnelTimesheets = DB::table('time_sheets')->where('user_id', 39)->orWhere('user_id', 33)->orWhere('user_id', 28)->orWhere('user_id', 31)->orWhere('user_id', 22)->orWhere('user_id', 43)->orWhere('user_id', 19)->get();
+        }else{
+            $personnelTimesheets = '';
+        }
+
+        return view('dashboards.timesheet', compact('timesheets', 'personnelTimesheets'));
     }
 
     /**
@@ -38,23 +53,38 @@ class TimeSheetController extends Controller
      */
     public function store(AddTimeSheetRequest $request)
     {
-      $date = jdate('now')->format('%Y/%m/%d');
-      $day = jdate('now')->format('l');
-
-//test
-      $tdl = TimeSheet::create([
-        'day' => $day,
-        'date' => $date,
-        'description' => $request->description,
-        'startHour' => $request->startHour,
-        'endHour' => $request->endHour,
-        'result' => $request->result,
-        'tdl_id' => $request->tdl_id,
-        'user_id' => \Auth::user()->id,
-      ]);
+        if ($request->file('attach1'))
+        {
+            $attach1 = $this->uploadFile($request->file('attach1'));
+        }else{
+            $attach1 = 'nothing';
+        }
+        if ($request->file('attach2'))
+        {
+            $attach2 = $this->uploadFile($request->file('attach2'));
+        }else{
+            $attach2 = 'nothing';
+        }
 
 
-      \Session::flash('updateUser', array(
+        $tdl = TimeSheet::create([
+            'description' => $request->description,
+            'assignment' => $request->assignment,
+            'kaarfarma' => $request->kaarfarma,
+            'projectName' => $request->projectName,
+            'startHour' => $request->startHour,
+            'endHour' => $request->endHour,
+            'minutes' => $request->minutes,
+            'holdpoint' => $request->holdpoint,
+            'result' => $request->result,
+            'attach1' => $attach1,
+            'attach2' => $attach2,
+            'tdl_id' => $request->tdl_id,
+            'user_id' => \Auth::user()->id,
+        ]);
+
+
+        \Session::flash('updateUser', array(
         'flash_title' => 'انجام شد',
         'flash_message' => 'فعالیت با موفقیت به سیستم اضافه شد',
         'flash_level' => 'success',

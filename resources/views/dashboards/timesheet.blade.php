@@ -67,7 +67,7 @@ tspan{
       </div>
       <div style="font-family:Byekan; direction: rtl" class="modal-body">
 
-        <form  style="vertical-align:center;text-align:center" method="post"  action="timesheet/add" class="form form-horizontal form-bordered striped-rows">
+        <form  style="vertical-align:center;text-align:center" method="post"  action="timesheet/add" enctype="multipart/form-data" class="form form-horizontal form-bordered striped-rows">
           @csrf
           <div class="form-body">
 
@@ -79,6 +79,43 @@ tspan{
               </div>
             </div>
 
+
+            <div class="form-group row">
+              <label class="col-md-3 label-control" for="description">نحوه ارجاع کار <sup style="color: red; font-size: 18px" >*</sup> </label>
+              <div class="col-md-9">
+                <select class="form-control" name="assignment">
+                  <option value="اتوماسیون">اتوماسیون</option>
+                  <option value="مدیر مافوق">مدیر مافوق</option>
+                  <option value="همکار">همکار</option>
+                  <option value="خودم">خودم</option>
+                  <option value="مدیرعامل">مدیرعامل</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label class="col-md-3 label-control"  for="startHour">نام کارفرما <sup style="color: red; font-size: 18px" >*</sup></label>
+              <div class="col-md-9">
+                <input type="text" id="kaarfarma" class="form-control" name="kaarfarma">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 label-control"  for="startHour">نام پروژه <sup style="color: red; font-size: 18px" >*</sup></label>
+              <div class="col-md-9">
+                <input type="text" id="projectName" class="form-control" name="projectName">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 label-control" for="result">اسناد کارفرما </label>
+              <div class="col-md-9">
+                <input type="file" name="attach1" id="">
+              </div>
+            </div>
+
+
             <div class="form-group row">
               <label class="col-md-3 label-control"  for="startHour">ساعت شروع <sup style="color: red; font-size: 18px" >*</sup></label>
               <div class="col-md-9">
@@ -89,20 +126,48 @@ tspan{
             <div class="form-group row">
               <label class="col-md-3 label-control"  for="endHour">ساعت پایان <sup style="color: red; font-size: 18px" >*</sup> </label>
               <div class="col-md-9">
-
                 <input type="text" id="endHour"  placeholder="مثال: 10:25" class="form-control" name="endHour">
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label class="col-md-3 label-control"  for="endHour">مدت زمان صرف شده به دقیقه <sup style="color: red; font-size: 18px" >*</sup> </label>
+              <div class="col-md-9">
+
+                <input type="text" id="minutes"  placeholder="مثال: 125" class="form-control" name="minutes">
 
               </div>
             </div>
+
 
             <div class="form-group row">
               <label class="col-md-3 label-control" for="result">نتیجه <sup style="color: red; font-size: 18px" >*</sup> </label>
               <div class="col-md-9">
                 <textarea name="result" class="form-control" rows="3" cols="80"></textarea>
               </div>
-
             </div>
 
+
+            <div class="form-group row">
+              <label class="col-md-3 label-control"  for="endHour">علت عدم تحقق </label>
+              <div class="col-md-9">
+
+                <input type="text" id="holdpoint"  placeholder="" class="form-control" name="holdpoint">
+
+              </div>
+            </div>
+
+
+
+
+
+            <div class="form-group row">
+              <label class="col-md-3 label-control" for="result">اسناد ارسالی  </label>
+              <div class="col-md-9">
+                <input type="file" name="attach2" id="">
+              </div>
+            </div>
 
 
 
@@ -182,12 +247,18 @@ tspan{
                     <thead>
                       <tr style="text-align: center;">
                         <th>ردیف</th>
-                        <th>روز</th>
-                        <th>تاریخ</th>
+                        <th>تاریخ و زمان ثبت</th>
                         <th>شرح فعالیت</th>
+                        <th>نحوه ارجاع کار</th>
+                        <th>نام کارفرما</th>
+                        <th>نام پروژه</th>
                         <th>ساعت شروع</th>
                         <th>ساعت پایان</th>
+                        <th>مدت زمان صرف شده به دقیقه</th>
                         <th>نتیجه</th>
+                        <th>علت عدم تحقق</th>
+                        <th>فایل ضمیمه ۱</th>
+                        <th>فایل ضمیمه 2</th>
                         <th>حذف</th>
                       </tr>
                     </thead>
@@ -196,32 +267,24 @@ tspan{
                       @foreach($timesheets as $timesheet)
                       <tr>
                         <td>{{ $timesheet->id }}</td>
-                        <td>{{ $timesheet->day }}</td>
-                        <td>{{ $timesheet->date }}</td>
+                        <td>{{ $timesheet->created_at }}</td>
                         <td>{{ $timesheet->description }}</td>
+                        <td>{{ $timesheet->assignment }}</td>
+                        <td>{{ $timesheet->kaarfarma }}</td>
+                        <td>{{ $timesheet->projectName }}</td>
                         <td>{{ $timesheet->startHour }}</td>
                         <td>{{ $timesheet->endHour }}</td>
+                        <td>{{ $timesheet->minutes }}</td>
                         <td>{{ $timesheet->result }}</td>
+                        <td>{{ $timesheet->holdpoint }}</td>
+                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $timesheet->attach1 }}"> {!! $timesheet->attach1 !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
+                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $timesheet->attach2 }}"> {!! $timesheet->attach2 !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
                         <td style="text-align:center;color: red" > <a href="/timesheet/delete/{{ $timesheet->id }}" ><i style="font-size: 20px;color: red" class="ft-x-square"></i></a>  </td>
                       </tr>
                       @endforeach
 
 
-
-
                     </tbody>
-                    <tfoot>
-                      <tr style="text-align: center;">
-                        <th>ردیف</th>
-                        <th>روز</th>
-                        <th>تاریخ</th>
-                        <th>شرح فعالیت</th>
-                        <th>ساعت شروع</th>
-                        <th>ساعت پایان</th>
-                        <th>نتیجه</th>
-                        <th>حذف</th>
-                      </tr>
-                    </tfoot>
                   </table>
                 </div>
               </div>
@@ -234,6 +297,86 @@ tspan{
       <!-- End TimeSheet Table -->
 
 
+
+
+
+@if(\Auth::user()->email === 'rahmani@persiatc.com' OR \Auth::user()->email === 'tavakoli@persiatc.com' OR \Auth::user()->email === 'torkaman@persiatc.com' OR \Auth::user()->email === 'khanbeigi@persiatc.com' )
+      <!-- Start Personnels TimeSheet Table -->
+      <section>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">فعالیت های پرسنل</h4>
+                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                    <li><a data-action="close"><i class="ft-x"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-content collapse show">
+                <div class="card-body card-dashboard">
+                  <table style="font-family:Byekan;direction: rtl; width: 100%" class="table display nowrap table-striped table-bordered scroll-horizontal file-export ">
+                    <thead>
+                    <tr style="text-align: center;">
+                      <th>ردیف</th>
+                      <th>نام و نام خانوادگی</th>
+                      <th>تاریخ و زمان ثبت</th>
+                      <th>شرح فعالیت</th>
+                      <th>نحوه ارجاع کار</th>
+                      <th>نام کارفرما</th>
+                      <th>نام پروژه</th>
+                      <th>اسناد کارفرما</th>
+                      <th>ساعت شروع</th>
+                      <th>ساعت پایان</th>
+                      <th>مدت زمان صرف شده به دقیقه</th>
+                      <th>نتیجه</th>
+                      <th>علت عدم تحقق</th>
+                      <th>اسناد ارسالی</th>
+                      <th>حذف</th>
+                    </tr>
+                    </thead>
+                    <tbody style="text-align: center" >
+
+                    @foreach($personnelTimesheets as $personnelTimesheet)
+                      <tr>
+                        <td>{{ $personnelTimesheet->id }}</td>
+                        <td>{{ \App\User::where('id', $personnelTimesheet->user_id)->get()->pluck('name')->first() . ' ' . \App\User::where('id', $personnelTimesheet->user_id)->get()->pluck('family')->first() }}</td>
+                        <td>{{ jdate($personnelTimesheet->created_at) }}</td>
+                        <td>{{ $personnelTimesheet->description }}</td>
+                        <td>{{ $personnelTimesheet->assignment }}</td>
+                        <td>{{ $personnelTimesheet->kaarfarma }}</td>
+                        <td>{{ $personnelTimesheet->projectName }}</td>
+                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $personnelTimesheet->attach1 }}"> {!! $personnelTimesheet->attach1 !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
+                        <td>{{ $personnelTimesheet->startHour }}</td>
+                        <td>{{ $personnelTimesheet->endHour }}</td>
+                        <td>{{ $personnelTimesheet->minutes }}</td>
+                        <td>{{ $personnelTimesheet->result }}</td>
+                        <td>{{ $personnelTimesheet->holdpoint }}</td>
+                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $personnelTimesheet->attach2 }}"> {!! $personnelTimesheet->attach2 !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
+                        <td style="text-align:center;color: red" > <a href="/timesheet/delete/{{ $personnelTimesheet->id }}" ><i style="font-size: 20px;color: red" class="ft-x-square"></i></a>  </td>
+                      </tr>
+                    @endforeach
+
+
+
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </section>
+      <!-- End Personnels TimeSheet Table -->
+@endif
 
 
 

@@ -31,6 +31,7 @@ class AuthServiceProvider extends ServiceProvider
             return \Auth::user()->isAdmin == 1;
         });
 
+
         \Gate::define('dataEntry', function(){
             return \Auth::user()->isDataEntry == 1;
         });

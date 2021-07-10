@@ -15,12 +15,17 @@ class CreateTimeSheetsTable extends Migration
     {
         Schema::create('time_sheets', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('day');
-            $table->string('date');
-            $table->string('description');
+            $table->text('description');
+            $table->string('assignment');
+            $table->string('kaarfarma');
+            $table->string('projectName');
             $table->string('startHour');
             $table->string('endHour');
-            $table->string('result');
+            $table->string('minutes');
+            $table->string('holdpoint');
+            $table->text('result');
+            $table->text('attach1');
+            $table->text('attach2');
             $table->unsignedInteger('tdl_id')->nullable();
             $table->unsignedInteger('user_id');
             $table->timestamps();

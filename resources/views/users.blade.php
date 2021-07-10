@@ -1,10 +1,8 @@
 @extends('layouts/dashboard')
 
 @section('headerscripts')
+<link rel="stylesheet" type="text/css" href="/vendors/css/tables/datatable/datatables.min.css">
 <link rel="stylesheet" type="text/css" href="/vendors/css/forms/toggle/switchery.min.css">
-<link rel="stylesheet" type="text/css" href="/vendors/css/tables/jsgrid/jsgrid-theme.min.css">
-<link rel="stylesheet" type="text/css" href="/vendors/css/tables/jsgrid/jsgrid.min.css">
-<meta name="csrf-token" content="{{ csrf_token() }}">
 
 
 @endsection
@@ -12,131 +10,363 @@
 @section('content')
 
 
-
-
-<div class="app-content content">
-  <div class="content-wrapper">
-    <div class="content-header row">
-    </div>
-    <div class="content-body"><!-- project stats -->
-
-      <div class="row">
-        <div class="col-xl-3 col-lg-6 col-12">
-          <div class="card bg-warning">
-            <div class="card-content">
-              <div class="card-body">
-                <div class="media d-flex">
-                  <div class="media-body text-white text-left">
-                    <h3 class="text-white">278</h3>
-                    <span>New Projects</span>
-                  </div>
-                  <div class="align-self-center">
-                    <i class="icon-rocket text-white font-large-2 float-right"></i>
-                  </div>
+<div class="modal fade text-left" id="addUserlllllllllllllll" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+                <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel17">افزودن کاربر</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
                 </div>
-              </div>
-            </div>
-          </div>
+                <div class="modal-body">
+                  @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                        </ul>
+                    </div>
+                  @endif
+
+                  <form style="vertical-align:center;text-align:center" method="post" action="users/addUser" class="form form-horizontal form-bordered striped-rows">
+                    @csrf
+                  <div class="form-body">
+                    <h4 class="form-section"><i class="ft-user"></i> Personal Info</h4>
+                    <div class="form-group row">
+                          <label class="col-md-3 label-control" for="fullName">Full Name</label>
+                          <div class="col-md-9">
+                            <input type="text" id="fullName" class="form-control" placeholder="Full Name" name="fullName">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-md-3 label-control" for="email">Email Address</label>
+                            <div class="col-md-9">
+                            <input type="text" id="email" class="form-control" placeholder="Email Address" name="email">
+                          </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                          <label class="col-md-3 label-control" for="password">Password</label>
+                            <div class="col-md-9">
+                            <input type="password" id="password" class="form-control" placeholder="Passowrd" name="password">
+                          </div>
+                      </div>
+
+
+
+
+
+                      <div class="form-group row last">
+                          <label class="col-md-3 label-control" for="Position">Position</label>
+                          <div class="col-md-9">
+                            <input type="text" id="Position" class="form-control" placeholder="Position" name="position">
+                          </div>
+                      </div>
+
+
+
+                      <div class="form-group row last">
+                          <label class="col-md-3 label-control" for="Mobile Number">Mobile Number</label>
+                          <div class="col-md-9">
+                            <input type="text" id="Mobile Number" class="form-control" placeholder="Mobile Number" name="mobileNumber">
+                          </div>
+                      </div>
+
+
+                      <div class="form-group row last">
+                          <label class="col-md-3 label-control" for="User Administrator">User Administrator ?</label>
+                          <div class="col-md-9">
+                            <fieldset>
+                                <div class="float-left">
+                                  <input type="checkbox" name="isAdmin" value="1" class="switch"   >
+
+                                </div>
+                            </fieldset>
+                          </div>
+                      </div>
+                      <div class="form-group row last">
+                          <label class="col-md-3 label-control" name="isDataEntry" for="UserDataEntry">User Data Entry ?</label>
+                          <div class="col-md-9">
+                            <fieldset>
+                                <div class="float-left">
+                                  <input type="checkbox" name="isDataEntry" value="1" class="switch" >
+                                </div>
+                            </fieldset>
+                          </div>
+                      </div>
+                      <div class="form-group row last">
+                          <label class="col-md-3 label-control" for="User Activation">User Activation ?</label>
+                          <div class="col-md-9">
+                            <fieldset>
+                                <div class="float-left">
+                                  <input type="checkbox" name="Active" value="1" class="switch" >
+                                </div>
+                            </fieldset>
+                          </div>
+                      </div>
+
+
+
+
+
+
         </div>
-        <div class="col-xl-3 col-lg-6 col-12">
-          <div class="card bg-success">
-            <div class="card-content">
-              <div class="card-body">
-                <div class="media d-flex">
-                  <div class="media-body text-white text-left">
-                    <h3 class="text-white">156</h3>
-                    <span>New Clients</span>
-                  </div>
-                  <div class="align-self-center">
-                    <i class="icon-user text-white font-large-2 float-right"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-xl-3 col-lg-6 col-12">
-          <div class="card bg-danger">
-            <div class="card-content">
-              <div class="card-body">
-                <div class="media d-flex">
-                  <div class="media-body text-white text-left">
-                    <h3 class="text-white">64.89 %</h3>
-                    <span>Conversion Rate</span>
-                  </div>
-                  <div class="align-self-center">
-                    <i class="icon-pie-chart text-white font-large-2 float-right"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-warning mr-1">
+                          <i class="ft-x"></i> Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-check-square-o"></i> Save
+                        </button>
+                    </div>
+                </form>
+
+
           </div>
+      </div>
+</div>
+</div>
+
+
+
+
+
+
+    <div class="app-content content">
+      <div class="content-wrapper">
+        <div class="content-header row">
         </div>
-        <div class="col-xl-3 col-lg-6 col-12">
-          <div class="card bg-info">
-            <div class="card-content">
-              <div class="card-body">
-                <div class="media d-flex">
-                  <div class="media-body text-white text-left">
-                    <h3 class="text-white">423</h3>
-                    <span>Support Tickets</span>
-                  </div>
-                  <div class="align-self-center">
-                    <i class="icon-support text-white font-large-2 float-right"></i>
-                  </div>
+        <div class="content-body"><!-- project stats -->
+
+
+
+
+
+          <section>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">لیست تمامی کاربران سامانه</h4>
+                                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                        <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-content collapse show">
+                              <button  style="float: right;margin-right: 40px!important;font-family:Byekan!important"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="icon-plus"></i>  افزودن کاربر به سیستم  </span></button>
+                                <div class="card-body card-dashboard">
+                                  <table style="font-family:Byekan;width: 100%" class="table display nowrap table-striped table-bordered scroll-horizontal file-export ">
+                                        <thead>
+                                            <tr>
+                                                <th>نام</th>
+                                                <th>نام خانوادگی</th>
+                                                <th>ایمیل</th>
+                                                <th>کد ملی</th>
+                                                <th>واحد</th>
+                                                <th>سمت</th>
+                                                <th>شماره موبایل</th>
+                                                <th>آخرین ورود</th>
+                                                <th>آخرین فعالیت</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                          @foreach($users as $user)
+                                          <tr>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->family }}</td>
+                                            <td style="font-family:Arial; direction: ltr; text-align: left" >{{ $user->email }}</td>
+                                            <td>{{ $user->nationalCode }}</td>
+                                            <td>{{ $user->groupName }}</td>
+                                            <td>{{ $user->position }}</td>
+                                            <td>{{ $user->mobileNumber }}</td>
+                                            <td style="direction: ltr" >{{ $user->lastLogin == 0 ? "عدم ورود" : jdate( $user->lastLogin) }}</td>
+                                            <td style="direction: ltr" > {{ $user->lastAction == 0 ? "عدم فعالیت" : jdate( $user->lastAction) }}</td>
+                                          </tr>
+                                          @endforeach
+
+
+
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                              <th>نام</th>
+                                              <th>نام خانوادگی</th>
+                                              <th>ایمیل</th>
+                                              <th>کد ملی</th>
+                                              <th>واحد</th>
+                                              <th>سمت</th>
+                                              <th>شماره موبایل</th>
+                                              <th>آخرین ورود</th>
+                                              <th>آخرین فعالیت</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+
+
+
+
+              @foreach($users as $user)
+                <div class="modal fade text-left" id="editUser{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{ $user->id }}" aria-hidden="true">
+                      <div class="modal-dialog modal-lg" role="document">
+                          <div class="modal-content">
+                                <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel{{ $user->id }}">Change User Settings</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                  @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                          @foreach ($errors->all() as $error)
+                                              <li>{{ $error }}</li>
+                                          @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+
+                                  <form style="vertical-align:center;text-align:center" method="post" action="users/editUser" class="form form-horizontal form-bordered striped-rows">
+                                    @csrf
+                                  <div class="form-body">
+                                    <h4 class="form-section"><i class="ft-user"></i> Personal Info</h4>
+                                    <div class="form-group row">
+                                          <label class="col-md-3 label-control" for="fullName">Full Name</label>
+                                          <div class="col-md-9">
+                                            <input type="text" id="fullName" value="{{ $user->fullName }}" class="form-control" placeholder="Full Name" name="fullName">
+                                          </div>
+                                      </div>
+                                      <div class="form-group row">
+                                          <label class="col-md-3 label-control" for="email">Email Address</label>
+                                            <div class="col-md-9">
+                                            <input type="text" id="email" value="{{ $user->email }}" class="form-control" placeholder="Email Address" name="email">
+                                          </div>
+                                      </div>
+
+
+
+
+
+                                      <div class="form-group row last">
+                                          <label class="col-md-3 label-control" for="Position">Position</label>
+                                          <div class="col-md-9">
+                                            <input type="text" id="Position" class="form-control" value="{{ $user->position }}" placeholder="Position" name="position">
+                                          </div>
+                                      </div>
+
+
+
+                                      <div class="form-group row last">
+                                          <label class="col-md-3 label-control" for="Mobile Number">Mobile Number</label>
+                                          <div class="col-md-9">
+                                            <input type="text" id="Mobile Number" value="{{ $user->mobileNumber }}" class="form-control" placeholder="Mobile Number" name="mobileNumber">
+                                          </div>
+                                      </div>
+
+
+                                      <div class="form-group row last">
+                                          <label class="col-md-3 label-control" for="User Administrator">User Administrator ?</label>
+                                          <div class="col-md-9">
+                                            <fieldset>
+                                                <div class="float-left">
+                                                  <input type="checkbox" name="isAdmin" value="1" class="switch"  {{ $user->isAdmin == 1 ? "checked" : "" }} >
+                                                </div>
+                                            </fieldset>
+                                          </div>
+                                      </div>
+                                      <div class="form-group row last">
+                                          <label class="col-md-3 label-control" for="UserDataEntry">User Data Entry ?</label>
+                                          <div class="col-md-9">
+                                            <fieldset>
+                                                <div class="float-left">
+                                                  <input type="checkbox" name="isDataEntry" value="1" class="switch" {{ $user->isDataEntry == 1 ? "checked" : "" }} >
+                                                </div>
+                                            </fieldset>
+                                          </div>
+                                      </div>
+                                      <div class="form-group row last">
+                                          <label class="col-md-3 label-control" for="User Activation">User Activation ?</label>
+                                          <div class="col-md-9">
+                                            <fieldset>
+                                                <div class="float-left">
+                                                  <input type="checkbox" name="Active" value="1" class="switch" {{ $user->Active == 1 ? "checked" : "" }}>
+                                                </div>
+                                            </fieldset>
+                                          </div>
+                                      </div>
+
+
+
+
+
+
+                        </div>
+
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-warning mr-1">
+                                          <i class="ft-x"></i> Cancel
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fa fa-check-square-o"></i> Save
+                                        </button>
+                                    </div>
+                                </form>
+
+
+                          </div>
+                      </div>
+                </div>
             </div>
-          </div>
+    @endforeach
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
         </div>
       </div>
-
-
-
-      <section>
-
-
-        <!-- Basic scenario start -->
-        <section id="basic">
-          <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <h4 class="card-title">مدیریت کاربران سامانه</h4>
-                  <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-                  <div class="heading-elements">
-                    <ul class="list-inline mb-0">
-                      <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                      <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                      <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                      <li><a data-action="close"><i class="ft-x"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="card-content collapse show">
-                  <div class="card-body card-dashboard ">
-                    <div style="font-family:Byekan;text-align:center" id="basicScenario"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- Basic scenario end -->
-
-
-
-
-
-
-
-      </section>
-
-
     </div>
-  </div>
-</div>
 
 
 
@@ -153,173 +383,11 @@
 
 
 @section('footerscripts')
+<script src="/vendors/js/tables/datatable/datatables.min.js" type="text/javascript"></script>
 <script src="/vendors/js/forms/toggle/bootstrap-switch.min.js" type="text/javascript"></script>
 <script src="/vendors/js/forms/toggle/bootstrap-checkbox.min.js" type="text/javascript"></script>
 <script src="/vendors/js/forms/toggle/switchery.min.js" type="text/javascript"></script>
 <script src="/js/scripts/forms/switch.js" type="text/javascript"></script>
-
-<script src="/vendors/js/tables/jsgrid/jsgrid.min.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-(function() {
-
-  var db = {
-
-    loadData: function(filter) {
-      return $.grep(this.clients, function(client) {
-        return (!filter.residingName || client.residingName.indexOf(filter.residingName) > -1)
-        && (!filter.tower || client.tower.indexOf(filter.tower) > -1)
-        && (!filter.floor || client.floor.indexOf(filter.floor) > -1)
-        && (!filter.unit || client.unit.indexOf(filter.unit) > -1)
-        && (!filter.residingNationalCode || client.residingNationalCode.indexOf(filter.residingNationalCode) > -1)
-        && (!filter.residingMobileNumber || client.residingMobileNumber.indexOf(filter.residingMobileNumber) > -1)
-        && (!filter.warehouseCode || client.warehouseCode.indexOf(filter.warehouseCode) > -1)
-        && (!filter.warehouseSize || client.warehouseSize.indexOf(filter.warehouseSize) > -1)
-        && (!filter.parkingCode1 || client.parkingCode1.indexOf(filter.parkingCode1) > -1)
-        && (!filter.parkingCode2 || client.parkingCode2.indexOf(filter.parkingCode2) > -1)
-        && (!filter.parkingCode3 || client.parkingCode3.indexOf(filter.parkingCode3) > -1)
-        && (!filter.parkingCode4 || client.parkingCode4.indexOf(filter.parkingCode4) > -1)
-        && (!filter.ownerName || client.ownerName.indexOf(filter.ownerName) > -1)
-        && (!filter.ownerNationalCode || client.ownerNationalCode.indexOf(filter.ownerNationalCode) > -1)
-        && (!filter.ownerMobileNumber || client.ownerMobileNumber.indexOf(filter.ownerMobileNumber) > -1)
-        && (!filter.homePhoneNumber1 || client.homePhoneNumber1.indexOf(filter.homePhoneNumber1) > -1)
-        && (!filter.homePhoneNumber2 || client.homePhoneNumber2.indexOf(filter.homePhoneNumber2) > -1)
-        && (!filter.homePhoneNumber3 || client.homePhoneNumber3.indexOf(filter.homePhoneNumber3) > -1)
-        && (!filter.email || client.email.indexOf(filter.email) > -1);
-      });
-    },
-
-    insertItem: function(item) {
-      // return $.ajax({
-      //   url: '/users/editUser/',
-      //   type: 'POST',
-      //   data:item
-      // });
-    },
-
-    updateItem: function(updatingClient) {
-
-      $.ajaxSetup({
-        headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-      });
-
-      return $.ajax({
-        url: '/users/editUser',
-        type: 'POST',
-        data:updatingClient
-      });
-
-    },
-
-    deleteItem: function(deletingClient) {
-      var clientIndex = $.inArray(deletingClient, this.clients);
-      this.clients.splice(clientIndex, 1);
-    }
-
-  };
-
-  window.db = db;
-
-  db.clients = [
-
-    @foreach($users as $user)
-    {
-      "id": "{{ $user->id }}",
-      "residingName": "{{ $user->residingName }}",
-      "tower": "{{ $user->tower }}",
-      "floor": "{{ $user->floor }}",
-      "unit": "{{ $user->unit }}",
-      "residingNationalCode": "{{ $user->residingNationalCode }}",
-      "residingMobileNumber": "{{ $user->residingMobileNumber }}",
-      "warehouseCode": "{{ $user->warehouseCode }}",
-      "warehouseSize": "{{ $user->warehouseSize }}",
-      "parkingCode1": "{{ $user->parkingCode1 }}",
-      "parkingCode2": "{{ $user->parkingCode2 }}",
-      "parkingCode3": "{{ $user->parkingCode3 }}",
-      "parkingCode4": "{{ $user->parkingCode4 }}",
-      "ownerName": "{{ $user->ownerName }}",
-      "ownerNationalCode": "{{ $user->ownerNationalCode }}",
-      "ownerMobileNumber": "{{ $user->ownerMobileNumber }}",
-      "homePhoneNumber1": "{{ $user->homePhoneNumber1 }}",
-      "homePhoneNumber2": "{{ $user->homePhoneNumber2 }}",
-      "homePhoneNumber3": "{{ $user->homePhoneNumber3 }}",
-      "email": "{{ $user->email }}",
-    },
-    @endforeach
-
-
-
-
-  ];
-
-}());
-$("#basicScenario").jsGrid({
-  width: "100%",
-  filtering: true,
-  editing: true,
-  inserting: true,
-  sorting: true,
-  paging: true,
-  autoload: true,
-  pageSize: 10,
-  pageButtonCount: 5,
-  deleteConfirm: "آیا از حذف اطلاعات اطمینان دارید ؟",
-  controller: db,
-  fields: [
-    { name: "id", type: "number", width: 0 },
-    { name: "residingName", type: "text", width: 200 },
-    { name: "tower", type: "text", width: 100 },
-    { name: "floor", type: "number", width: 80 },
-    { name: "unit", type: "number", width: 80 },
-    { name: "residingNationalCode", type: "text", width: 150 },
-    { name: "residingMobileNumber", type: "text", width: 150 },
-    { name: "warehouseCode", type: "text", width: 150 },
-    { name: "warehouseSize", type: "text", width: 80 },
-    { name: "parkingCode1", type: "text", width: 150 },
-    { name: "parkingCode2", type: "text", width: 150 },
-    { name: "parkingCode3", type: "text", width: 150 },
-    { name: "parkingCode4", type: "text", width: 150 },
-    { name: "ownerName", type: "text", width: 200 },
-    { name: "ownerNationalCode", type: "text", width: 150 },
-    { name: "ownerMobileNumber", type: "text", width: 150 },
-    { name: "homePhoneNumber1", type: "text", width: 150 },
-    { name: "homePhoneNumber2", type: "text", width: 150 },
-    { name: "homePhoneNumber3", type: "text", width: 150 },
-    { name: "email", type: "text", width: 200 },
-
-    { type: "control", width: 80}
-  ]
-});
-
-
-$('.jsgrid-header-cell').each(function() {
-  $(this).text($(this).text().replace('residingName', 'نام و نام خانوادگی ساکن'));
-  $(this).text($(this).text().replace('tower', 'برج'));
-  $(this).text($(this).text().replace('floor', 'طبقه'));
-  $(this).text($(this).text().replace('unit', 'واحد'));
-  $(this).text($(this).text().replace('residingNationalCode', 'کد ملی ساکن'));
-  $(this).text($(this).text().replace('residingMobileNumber', 'شماره موبایل ساکن'));
-  $(this).text($(this).text().replace('warehouseCode', 'کد انباری'));
-  $(this).text($(this).text().replace('warehouseSize', 'متراژ انباری'));
-  $(this).text($(this).text().replace('parkingCode1', 'کد پارکینگ ۱'));
-  $(this).text($(this).text().replace('parkingCode2', 'کد پارکینگ ۲'));
-  $(this).text($(this).text().replace('parkingCode3', 'کد پارکینگ ۳'));
-  $(this).text($(this).text().replace('parkingCode4', 'کد پارکینگ ۴'));
-  $(this).text($(this).text().replace('ownerName', 'نام و نام خانوادگی مالک'));
-  $(this).text($(this).text().replace('ownerNationalCode', 'کد ملی مالک'));
-  $(this).text($(this).text().replace('ownerMobileNumber', 'شماره همراه مالک'));
-  $(this).text($(this).text().replace('homePhoneNumber1', 'تلفن ثابت ۱'));
-  $(this).text($(this).text().replace('homePhoneNumber2', 'تلفن ثابت ۲'));
-  $(this).text($(this).text().replace('homePhoneNumber3', 'تلفن ثابت ۳'));
-  $(this).text($(this).text().replace('email', 'آدرس ایمیل'));
-});
-// $('td:nth-child(1),th:nth-child(1)').hide();
-
-
-</script>
-
 
 
 

@@ -44,13 +44,13 @@
             <div class="form-group row">
               <label class="col-md-3 label-control" for="name">عنوان قرارداد</label>
               <div class="col-md-9">
-                <input type="text" id="name" class="form-control" placeholder="عنوان قرارداد" name="name">
+                <input type="text" id="name" class="form-control" placeholder="عنوان قرارداد" name="onvan">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-md-3 label-control" for="description">موضوع قرارداد</label>
               <div class="col-md-9">
-                <input type="text" id="description" class="form-control" placeholder="موضوع قرارداد" name="description">
+                <input type="text" id="description" class="form-control" placeholder="موضوع قرارداد" name="mozoo">
               </div>
             </div>
 
@@ -58,7 +58,7 @@
             <div class="form-group row">
               <label class="col-md-3 label-control" for="contractor">نام پیمانکار</label>
               <div class="col-md-9">
-                <input type="text" id="contractor" class="form-control" placeholder="نام پیمانکار" name="contractor">
+                <input type="text" id="contractor" class="form-control" placeholder="نام پیمانکار" name="peymankar">
               </div>
             </div>
 
@@ -66,14 +66,14 @@
             <div class="form-group row last">
               <label class="col-md-3 label-control" for="from">مبلغ قرارداد </label>
               <div class="col-md-9">
-                <input type="text" id="from" class="form-control" placeholder="مثال: ۳۰۰۰۰۰۰" name="from">
+                <input type="text" id="from" class="form-control" placeholder="مثال: ۳۰۰۰۰۰۰" name="mablagh">
               </div>
             </div>
 
             <div class="form-group row last">
               <label class="col-md-3 label-control" for="from">نحوه پرداخت </label>
               <div class="col-md-9">
-                <input type="text" id="from" class="form-control" placeholder="مثال: چک" name="from">
+                <input type="text" id="from" class="form-control" placeholder="مثال: چک" name="pardakht">
               </div>
             </div>
 
@@ -83,7 +83,7 @@
             <div class="form-group row last">
               <label class="col-md-3 label-control" for="from">مدت قرارداد </label>
               <div class="col-md-9">
-                <input type="text" id="from" class="form-control" placeholder="مثال: یکساله" name="from">
+                <input type="text" id="from" class="form-control" placeholder="مثال: یکساله" name="moddat">
               </div>
             </div>
 
@@ -108,14 +108,14 @@
             <div class="form-group row last">
               <label class="col-md-3 label-control" for="from">نوع تضمین </label>
               <div class="col-md-9">
-                <input type="text" id="from" class="form-control" placeholder="مثال: ضمانت بانکی" name="from">
+                <input type="text" id="from" class="form-control" placeholder="مثال: ضمانت بانکی" name="tazmin">
               </div>
             </div>
 
             <div class="form-group row last">
               <label class="col-md-3 label-control" for="from">ناظر قرارداد </label>
               <div class="col-md-9">
-                <input type="text" id="from" class="form-control" placeholder="مثال: شرکت ..." name="from">
+                <input type="text" id="from" class="form-control" placeholder="مثال: شرکت ..." name="nazer">
               </div>
             </div>
 
@@ -123,11 +123,11 @@
             <div class="form-group row last">
               <label class="col-md-3 label-control" for="from">توضیحات</label>
               <div class="col-md-9">
-                <textarea name="name" rows="8"  class="form-control" cols="80"></textarea>
+                <textarea name="description" rows="8"  class="form-control" cols="80"></textarea>
               </div>
             </div>
 
-            <div  style="display:none"  class="form-group row last">
+            <div  class="form-group row last">
               <label class="col-md-3 label-control" for="contractorFile">آپلود فایل قرارداد</label>
               <div class="col-md-9">
                 <input type="file" id="contractorFile" class="form-control" name="contractorFile">
@@ -167,7 +167,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title">لیست قرارداد های جاری برج</h4>
+              <h4 class="card-title">لیست قرارداد های جاری </h4>
               <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
               <div class="heading-elements">
                 <ul class="list-inline mb-0">
@@ -185,13 +185,19 @@
                   <thead>
                     <tr style="text-align: center" >
                       <th>ردیف</th>
-                      <th>نام قرارداد</th>
-                      <th>توضیحات</th>
-                      <th>پیمانکار</th>
+                      <th>عنوان قرارداد</th>
+                      <th>موضوع قرارداد</th>
+                      <th>نام پیمانکار</th>
+                      <th>مبلغ قرارداد</th>
+                      <th>نحوه پرداخت </th>
+                      <th>مدت قرارداد</th>
                       <th>تاریخ شروع</th>
                       <th>تاریخ پایان</th>
-                      <th  style="display:none"  >تصویر قرارداد</th>
-                      <th>تغییرات</th>
+                      <th>نوع تضمین</th>
+                      <th>ناظر قرارداد </th>
+                      <th>توضیحات</th>
+                      <th>فایل</th>
+                      <th>حذف</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -199,13 +205,19 @@
                   @foreach($contracts as $contract)
                     <tr>
                       <td>{{ $contract->id }}</td>
-                      <td>{{ $contract->name }}</td>
-                      <td>{{ $contract->description }}</td>
-                      <td>{{ $contract->contractor }}</td>
+                      <td>{{ $contract->onvan }}</td>
+                      <td>{{ $contract->mozoo }}</td>
+                      <td>{{ $contract->peymankar }}</td>
+                      <td>{{ $contract->mablagh }}</td>
+                      <td>{{ $contract->pardakht }}</td>
+                      <td>{{ $contract->moddat }}</td>
                       <td>{{ $contract->from }}</td>
                       <td>{{ $contract->to }}</td>
-                      <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;display:none" ><a href="{{ $contract->file }}"> <i class="ft-file-text" ></i> </a></td>
-                      <td style="text-align:center;color: #3BAFDA"><a href="/delete/{{ $contract->id }} "><i style="font-size: 20px" class="ft-edit"></i></a> <a href="contracts/delete/{{ $contract->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i>  </a> </td>
+                      <td>{{ $contract->tazmin }}</td>
+                      <td>{{ $contract->nazer }}</td>
+                      <td>{{ $contract->description }}</td>
+                      <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" ><a href="{{ $contract->contractorFile }}"> <i class="ft-file-text" ></i> </a></td>
+                      <td style="text-align:center;color: #3BAFDA"> <a href="contracts/delete/{{ $contract->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i>  </a> </td>
                     </tr>
                   @endforeach
 
@@ -214,13 +226,19 @@
                   <tfoot>
                     <tr style="text-align: center" >
                       <th>ردیف</th>
-                      <th>نام قرارداد</th>
-                      <th>توضیحات</th>
-                      <th>پیمانکار</th>
+                      <th>عنوان قرارداد</th>
+                      <th>موضوع قرارداد</th>
+                      <th>نام پیمانکار</th>
+                      <th>مبلغ قرارداد</th>
+                      <th>نحوه پرداخت </th>
+                      <th>مدت قرارداد</th>
                       <th>تاریخ شروع</th>
                       <th>تاریخ پایان</th>
-                      <th  style="display:none"  >تصویر قرارداد</th>
-                      <th>تغییرات</th>
+                      <th>نوع تضمین</th>
+                      <th>ناظر قرارداد </th>
+                      <th>توضیحات</th>
+                      <th>فایل</th>
+                      <th>حذف</th>
                     </tr>
                   </tfoot>
                 </table>
