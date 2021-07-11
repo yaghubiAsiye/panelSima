@@ -140,7 +140,7 @@
                       <th>مدت اعتبار </th>
                       <th>تاریخ اتمام</th>
                       <th>فایل</th>
-                      <th>حذف</th>
+                      <th>عملیات</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -154,7 +154,13 @@
                       <td>{{ $Certificate->moddateEtebar }}</td>
                       <td>{{ $Certificate->dateEnd }}</td>
                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" ><a target="_blank" href="{{ $Certificate->file }}"> <i class="ft-file-text" ></i> </a></td>
-                      <td style="text-align:center;color: #3BAFDA"><a href="Certificates/delete/{{ $Certificate->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i>  </a> </td>
+                      <td style="text-align:center;color: #3BAFDA">
+
+                          <a href="Certificates/delete/{{ $Certificate->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i>  </a>
+                          <a href="Certificates/edit/{{ $Certificate->id }} ">
+                              <i style="font-size: 20px" class="ft-edit primary"></i>
+                          </a>
+                      </td>
                     </tr>
                     @endforeach
 

@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Avl;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class AvlController extends Controller
 {
@@ -31,7 +35,7 @@ class AvlController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -64,24 +68,39 @@ class AvlController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Avl  $avl
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Application|Factory|View
      */
-    public function edit(Avl $avl)
+    public function edit($id)
     {
-        //
+        $avl = Avl::findOrFail($id);
+        return view('dashboards.avl.edit', compact('avl'));
+
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Avl  $avl
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return RedirectResponse
      */
-    public function update(Request $request, Avl $avl)
+    public function update(Request $request, $id): RedirectResponse
     {
-        //
+        $request = $request->all();
+        $avl = Avl::findOrFail($id);
+        $avl->fill($request)->save();
+
+        \Session::flash('updateUser', array(
+            'flash_title' => 'انجام شد',
+            'flash_message' => 'تامین کننده باموفقیت در سیستم ویرایش شد',
+            'flash_level' => 'success',
+            'flash_button' => 'بستن'
+        ));
+
+        return redirect()->back();
+
+//        return redirect(url('avl'));
     }
 
     /**

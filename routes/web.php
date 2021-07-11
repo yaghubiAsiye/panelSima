@@ -56,18 +56,25 @@ Route::get('/projects','ProjectController@index')->middleware('auth');
 Route::get('avl','AvlController@index')->middleware('auth');
 Route::post('avl','AvlController@store')->middleware('auth');
 Route::get('avl/delete/{id}','AvlController@destroy')->middleware('auth');
+Route::get('avl/edit/{id}','AvlController@edit')->middleware('auth');
+Route::post('avl/update/{id}','AvlController@update')->middleware('auth');
+
 
 
 //ContractsKarfarmayan
 Route::get('contracts','ContractController@index')->middleware('auth');
 Route::post('contracts','ContractController@store')->middleware('auth');
 Route::get('contracts/delete/{id}','ContractController@destroy')->middleware('auth');
+Route::get('contracts/edit/{id}','ContractController@edit')->middleware('auth');
+Route::post('contracts/update/{id}','ContractController@update')->middleware('auth');
 
 
 //ContractsSellers
 Route::get('SellersContracts','SellerContractController@index')->middleware('auth');
 Route::post('SellersContracts','SellerContractController@store')->middleware('auth');
 Route::get('SellerContract/delete/{id}','SellerContractController@destroy')->middleware('auth');
+Route::get('SellerContract/edit/{id}','SellerContractController@edit')->middleware('auth');
+Route::post('SellerContract/update/{id}','SellerContractController@update')->middleware('auth');
 
 
 //Proceeding
@@ -82,6 +89,8 @@ Route::get('Proceedings/delete/{id}','ProceedingController@destroy')->middleware
 Route::get('Certificates','CertificatesController@index')->middleware('auth');
 Route::post('Certificates','CertificatesController@store')->middleware('auth');
 Route::get('Certificates/delete/{id}','CertificatesController@destroy')->middleware('auth');
+Route::get('Certificates/edit/{id}','CertificatesController@edit')->middleware('auth');
+Route::post('Certificates/update/{id}','CertificatesController@update')->middleware('auth');
 
 
 

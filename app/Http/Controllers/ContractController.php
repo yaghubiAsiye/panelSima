@@ -3,14 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Contract;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 
 class ContractController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -21,7 +27,7 @@ class ContractController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -31,8 +37,8 @@ class ContractController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -71,7 +77,7 @@ class ContractController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Contract  $contract
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show(Contract $contract)
     {
@@ -81,31 +87,70 @@ class ContractController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Contract  $contract
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Application|Factory|View
      */
-    public function edit(Contract $contract)
+    public function edit($id)
     {
-        //
+        $contract = Contract::findOrFail($id);
+        return  view('dashboards.contracts.edit', compact('contract'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Contract  $contract
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return Application|RedirectResponse|Redirector
      */
-    public function update(Request $request, Contract $contract)
+    public function update(Request $request, $id)
     {
-        //
+        $contract = Contract::findOrFail($id);
+        if($request->file('contractorFile'))
+        {
+            $attachmentFile = $request->file('contractorFile');
+
+            $attachmentFileName = time() . "_" . $attachmentFile->getClientOriginalName();
+            $attachmentFile->move('storage/Contracts', $attachmentFileName);
+
+            if (file_exists(($contract->contractorFile)))
+                unlink($contract->contractorFile);
+
+            $contract->contractorFile = 'storage/Contracts/' . $attachmentFileName;
+
+        }
+
+        $contract->onvan = $request->onvan;
+        $contract->mozoo = $request->mozoo;
+        $contract->peymankar = $request->peymankar;
+        $contract->mablagh = $request->mablagh;
+        $contract->pardakht = $request->pardakht;
+        $contract->moddat = $request->moddat;
+        $contract->from = $request->from;
+        $contract->to = $request->to;
+        $contract->tazmin = $request->tazmin;
+        $contract->nazer = $request->nazer;
+        $contract->description = $request->description;
+
+        $contract->update();
+
+        \Session::flash('updateUser', array(
+            'flash_title' => 'انجام شد',
+            'flash_message' => 'قرارداد باموفقیت در سیستم آپدیت شد',
+            'flash_level' => 'success',
+            'flash_button' => 'بستن'
+        ));
+        return redirect()->back();
+
+//        return redirect(url('contracts'));
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Contract  $contract
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {

@@ -353,19 +353,19 @@
             <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="/contracts"><i
                             class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با کارفرمایان</span></a>
             </li>
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="SellersContracts"><i
+            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="/SellersContracts"><i
                             class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با پیمانکاران</span></a>
             </li>
             <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="/"><i class="icon-speech"></i><span
                             class="menu-title" data-i18n="nav.dash.main">آیین نامه ها و دستور العملها</span></a></li>
-            <li style="" class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="Proceedings"><i
+            <li style="" class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="/Proceedings"><i
                             class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.dash.main">صورتجلسات</span></a>
             </li>
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="Certificates"><i
+            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="/Certificates"><i
                             class="icon-badge"></i><span class="menu-title" data-i18n="nav.dash.main">رتبه ها و گواهینامه ها</span></a>
             </li>
 
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="Certificates"><i
+            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="/Certificates"><i
                             class="icon-phone"></i><span class="menu-title" data-i18n="nav.dash.main">دفترچه تلفن</span></a>
             </li>
 

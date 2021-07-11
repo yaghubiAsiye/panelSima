@@ -18,7 +18,8 @@ class TimeSheetController extends Controller
      */
     public function index()
     {
-        $timesheets = TimeSheet::where('user_id', \Auth::user()->id)->get();
+        $timesheets = TimeSheet::select('id', 'created_at', 'description', 'assignment', 'kaarfarma', 'projectName' , 'startHour', 'endHour', 'minutes', 'result', 'holdpoint', 'attach1', 'attach2')
+        ->where('user_id', \Auth::user()->id)->get();
 
         if(\Auth::user()->email === 'rahmani@persiatc.com'){
             $personnelTimesheets = $timesheets = TimeSheet::all();

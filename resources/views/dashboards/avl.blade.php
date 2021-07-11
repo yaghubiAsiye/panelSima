@@ -207,7 +207,8 @@
                       <th>برند</th>
                       <th>ایمیل</th>
                       <th>وبسایت</th>
-                      <th>حذف</th>
+                      <th>عملیات</th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -228,7 +229,15 @@
                       <td>{{ $avl->brand }}</td>
                       <td>{{ $avl->email }}</td>
                       <td>{{ $avl->website }}</td>
-                      <td style="text-align:center;color: #3BAFDA"><a href="avl/delete/{{ $avl->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i>  </a> </td>
+                      <td style="text-align:center;color: #3BAFDA">
+
+                          <a href="avl/delete/{{ $avl->id }}"><i style="font-size: 20px" class="ft-x-square danger"></i>  </a>
+                          <a href="avl/edit/{{ $avl->id }}">
+                              <i style="font-size: 20px" class="ft-edit primary"></i>
+                          </a>
+                      </td>
+
+
                     </tr>
                   @endforeach
 

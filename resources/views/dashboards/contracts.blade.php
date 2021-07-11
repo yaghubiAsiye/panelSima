@@ -197,7 +197,8 @@
                       <th>ناظر قرارداد </th>
                       <th>توضیحات</th>
                       <th>فایل</th>
-                      <th>حذف</th>
+                      <th>عملیات</th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -217,7 +218,14 @@
                       <td>{{ $contract->nazer }}</td>
                       <td>{{ $contract->description }}</td>
                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" ><a href="{{ $contract->contractorFile }}"> <i class="ft-file-text" ></i> </a></td>
-                      <td style="text-align:center;color: #3BAFDA"> <a href="contracts/delete/{{ $contract->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i>  </a> </td>
+                      <td style="text-align:center;color: #3BAFDA">
+
+                          <a href="contracts/delete/{{ $contract->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i>  </a>
+                          <a href="contracts/edit/{{ $contract->id }} ">
+                              <i style="font-size: 20px" class="ft-edit primary"></i>
+                          </a>
+                      </td>
+
                     </tr>
                   @endforeach
 
