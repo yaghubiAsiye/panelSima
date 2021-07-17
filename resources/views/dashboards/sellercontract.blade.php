@@ -180,25 +180,25 @@
               </div>
             </div>
             <div class="card-content collapse show">
-              <button  style="float: right;margin-right: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="icon-plus"></i> افزودن </span></button>
+              <button  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i> افزودن </span></button>
               <div class="card-body card-dashboard"><br><br>
                 <table style="font-family:Byekan;width: 100%" class="table display nowrap table-striped table-bordered scroll-horizontal file-export ">
                   <thead>
                     <tr style="text-align: center" >
                       <th>ردیف</th>
                       <th>عنوان قرارداد</th>
-                      <th>موضوع قرارداد</th>
+{{--                      <th>موضوع قرارداد</th>--}}
                       <th>طرف دوم قرارداد</th>
-                      <th>مبلغ ماهیانه</th>
-                      <th>مبلغ سالیانه</th>
+{{--                      <th>مبلغ ماهیانه</th>--}}
+{{--                      <th>مبلغ سالیانه</th>--}}
                       <th>مدت قرارداد</th>
                       <th>تاریخ شروع</th>
                       <th>تاریخ پایان</th>
-                      <th>نحوه پرداخت </th>
-                      <th>داور مرضی الطرفین</th>
-                      <th>توضیحات</th>
+{{--                      <th>نحوه پرداخت </th>--}}
+{{--                      <th>داور مرضی الطرفین</th>--}}
+{{--                      <th>توضیحات</th>--}}
                       <th>فایل قرارداد</th>
-                      <th>تغییرات</th>
+                      <th>عملیات</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -206,17 +206,17 @@
                   @foreach($contracts as $contract)
                     <tr>
                       <td>{{ $contract->id }}</td>
-                      <td>{{ $contract->onvan }}</td>
-                      <td>{{ $contract->mozoo }}</td>
+                        <td style="white-space: normal"><a href="{{ url('SellerContract/show/' . $contract->id) }}">{{ $contract->onvan }}</a></td>
+{{--                      <td>{{ $contract->mozoo }}</td>--}}
                       <td>{{ $contract->tarafedovvom }}</td>
-                      <td>{{ $contract->mablaghMahiane }}</td>
-                      <td>{{ $contract->mablaghSaliane }}</td>
-                      <td>{{ $contract->moddat }}</td>
-                      <td>{{ $contract->from }}</td>
-                      <td>{{ $contract->to }}</td>
-                      <td>{{ $contract->pardakht }}</td>
-                      <td>{{ $contract->davar }}</td>
-                      <td>{{ $contract->description }}</td>
+{{--                      <td>{{ $contract->mablaghMahiane }}</td>--}}
+{{--                      <td>{{ $contract->mablaghSaliane }}</td>--}}
+                      <td style="white-space: normal">{{ $contract->moddat }}</td>
+                      <td style="white-space: normal">{{ $contract->from }}</td>
+                      <td style="white-space: normal">{{ $contract->to }}</td>
+{{--                      <td>{{ $contract->pardakht }}</td>--}}
+{{--                      <td>{{ $contract->davar }}</td>--}}
+{{--                      <td>{{ $contract->description }}</td>--}}
                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" ><a href="{{ $contract->contractorFile }}"> <i class="ft-file-text" ></i> </a></td>
                       <td style="text-align:center;color: #3BAFDA"><a href="SellerContract/edit/{{ $contract->id }}"><i style="font-size: 20px" class="ft-edit"></i></a> <a href="SellerContract/delete/{{ $contract->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i>  </a> </td>
                     </tr>
@@ -224,24 +224,24 @@
 
 
                   </tbody>
-                  <tfoot>
-                    <tr style="text-align: center" >
-                      <th>ردیف</th>
-                      <th>عنوان قرارداد</th>
-                      <th>موضوع قرارداد</th>
-                      <th>طرف دوم قرارداد</th>
-                      <th>مبلغ ماهیانه</th>
-                      <th>مبلغ سالیانه</th>
-                      <th>مدت قرارداد</th>
-                      <th>تاریخ شروع</th>
-                      <th>تاریخ پایان</th>
-                      <th>نحوه پرداخت </th>
-                      <th>داور مرضی الطرفین</th>
-                      <th>توضیحات</th>
-                      <th>فایل قرارداد</th>
-                      <th>تغییرات</th>
-                    </tr>
-                  </tfoot>
+{{--                  <tfoot>--}}
+{{--                    <tr style="text-align: center" >--}}
+{{--                      <th>ردیف</th>--}}
+{{--                      <th>عنوان قرارداد</th>--}}
+{{--                      <th>موضوع قرارداد</th>--}}
+{{--                      <th>طرف دوم قرارداد</th>--}}
+{{--                      <th>مبلغ ماهیانه</th>--}}
+{{--                      <th>مبلغ سالیانه</th>--}}
+{{--                      <th>مدت قرارداد</th>--}}
+{{--                      <th>تاریخ شروع</th>--}}
+{{--                      <th>تاریخ پایان</th>--}}
+{{--                      <th>نحوه پرداخت </th>--}}
+{{--                      <th>داور مرضی الطرفین</th>--}}
+{{--                      <th>توضیحات</th>--}}
+{{--                      <th>فایل قرارداد</th>--}}
+{{--                      <th>تغییرات</th>--}}
+{{--                    </tr>--}}
+{{--                  </tfoot>--}}
                 </table>
               </div>
             </div>

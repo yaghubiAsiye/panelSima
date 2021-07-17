@@ -30,14 +30,14 @@
   font-size: 16px!important;
   width: 100%!important;
   direction: ltr!important;
-  font-family: Byekan!important;
+  font-family: 'Byekan'!important;
   height: 500px!important;
 }
 #OTY {
   font-size: 16px!important;
   width: 100%!important;
   direction: ltr!important;
-  font-family: Byekan!important;
+    font-family: 'Byekan', serif !important;
   height: 500px!important;
 }
 
@@ -241,24 +241,24 @@ tspan{
                 </div>
               </div>
               <div class="card-content collapse show">
-                <button  style="float: right;margin-right: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addTask" data-toggle="modal" ><span class="ladda-label">  <i class="icon-plus"></i>  افزودن فعالیت  </span></button><br><br>
+                <button  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addTask" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i>  افزودن فعالیت  </span></button><br><br>
                 <div class="card-body card-dashboard">
-                  <table style="font-family:Byekan;direction: rtl; width: 100%" class="table display nowrap table-striped table-bordered scroll-horizontal file-export ">
+                  <table style="font-family:Byekan;direction: rtl; width: 100%" class="table display  table-striped table-bordered scroll-horizontal file-export ">
                     <thead>
                       <tr style="text-align: center;">
                         <th>ردیف</th>
-                        <th>تاریخ و زمان ثبت</th>
-                        <th>شرح فعالیت</th>
+{{--                        <th>تاریخ و زمان ثبت</th>--}}
+{{--                        <th>شرح فعالیت</th>--}}
                         <th>نحوه ارجاع کار</th>
                         <th>نام کارفرما</th>
                         <th>نام پروژه</th>
                         <th>ساعت شروع</th>
                         <th>ساعت پایان</th>
-                        <th>مدت زمان صرف شده به دقیقه</th>
-                        <th>نتیجه</th>
-                        <th>علت عدم تحقق</th>
-                        <th>فایل ضمیمه ۱</th>
-                        <th>فایل ضمیمه 2</th>
+{{--                        <th>مدت زمان صرف شده به دقیقه</th>--}}
+{{--                        <th>نتیجه</th>--}}
+{{--                        <th>علت عدم تحقق</th>--}}
+{{--                        <th>فایل ضمیمه ۱</th>--}}
+{{--                        <th>فایل ضمیمه 2</th>--}}
                         <th>حذف</th>
                       </tr>
                     </thead>
@@ -267,18 +267,18 @@ tspan{
                       @foreach($timesheets as $timesheet)
                       <tr>
                         <td>{{ $timesheet->id }}</td>
-                        <td>{{ $timesheet->created_at }}</td>
-                        <td>{{ $timesheet->description }}</td>
-                        <td>{{ $timesheet->assignment }}</td>
-                        <td>{{ $timesheet->kaarfarma }}</td>
+{{--                        <td>{{ jdate($timesheet->created_at) }}</td>--}}
+{{--                        <td>{{ $timesheet->description }}</td>--}}
+                        <td><a href="{{ url('timesheet/show/' . $timesheet->id) }}">{{ $timesheet->assignment }}</a></td>
+                          <td><a href="{{ url('timesheet/show/' . $timesheet->id) }}">{{ $timesheet->kaarfarma }}</a></td>
                         <td>{{ $timesheet->projectName }}</td>
                         <td>{{ $timesheet->startHour }}</td>
                         <td>{{ $timesheet->endHour }}</td>
-                        <td>{{ $timesheet->minutes }}</td>
-                        <td>{{ $timesheet->result }}</td>
-                        <td>{{ $timesheet->holdpoint }}</td>
-                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $timesheet->attach1 }}"> {!! $timesheet->attach1 !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
-                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $timesheet->attach2 }}"> {!! $timesheet->attach2 !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
+{{--                        <td>{{ $timesheet->minutes }}</td>--}}
+{{--                        <td>{{ $timesheet->result }}</td>--}}
+{{--                        <td>{{ $timesheet->holdpoint }}</td>--}}
+{{--                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $timesheet->attach1 }}"> {!! $timesheet->attach1 !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
+{{--                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $timesheet->attach2 }}"> {!! $timesheet->attach2 !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
                         <td style="text-align:center;color: red" > <a href="/timesheet/delete/{{ $timesheet->id }}" ><i style="font-size: 20px;color: red" class="ft-x-square"></i></a>  </td>
                       </tr>
                       @endforeach
@@ -325,18 +325,18 @@ tspan{
                     <tr style="text-align: center;">
                       <th>ردیف</th>
                       <th>نام و نام خانوادگی</th>
-                      <th>تاریخ و زمان ثبت</th>
-                      <th>شرح فعالیت</th>
+{{--                      <th>تاریخ و زمان ثبت</th>--}}
+{{--                      <th>شرح فعالیت</th>--}}
                       <th>نحوه ارجاع کار</th>
                       <th>نام کارفرما</th>
-                      <th>نام پروژه</th>
-                      <th>اسناد کارفرما</th>
+{{--                      <th>نام پروژه</th>--}}
+{{--                      <th>اسناد کارفرما</th>--}}
                       <th>ساعت شروع</th>
                       <th>ساعت پایان</th>
-                      <th>مدت زمان صرف شده به دقیقه</th>
-                      <th>نتیجه</th>
-                      <th>علت عدم تحقق</th>
-                      <th>اسناد ارسالی</th>
+{{--                      <th>مدت زمان صرف شده به دقیقه</th>--}}
+{{--                      <th>نتیجه</th>--}}
+{{--                      <th>علت عدم تحقق</th>--}}
+{{--                      <th>اسناد ارسالی</th>--}}
                       <th>حذف</th>
                     </tr>
                     </thead>
@@ -345,19 +345,19 @@ tspan{
                     @foreach($personnelTimesheets as $personnelTimesheet)
                       <tr>
                         <td>{{ $personnelTimesheet->id }}</td>
-                        <td>{{ \App\User::where('id', $personnelTimesheet->user_id)->get()->pluck('name')->first() . ' ' . \App\User::where('id', $personnelTimesheet->user_id)->get()->pluck('family')->first() }}</td>
-                        <td>{{ jdate($personnelTimesheet->created_at) }}</td>
-                        <td>{{ $personnelTimesheet->description }}</td>
+                          <td><a href="{{ url('timesheet/show/' . $personnelTimesheet->id) }}">{{ \App\User::where('id', $personnelTimesheet->user_id)->get()->pluck('name')->first() . ' ' . \App\User::where('id', $personnelTimesheet->user_id)->get()->pluck('family')->first() }}</a></td>
+{{--                        <td>{{ jdate($personnelTimesheet->created_at) }}</td>--}}
+{{--                        <td>{{ $personnelTimesheet->description }}</td>--}}
                         <td>{{ $personnelTimesheet->assignment }}</td>
                         <td>{{ $personnelTimesheet->kaarfarma }}</td>
-                        <td>{{ $personnelTimesheet->projectName }}</td>
-                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $personnelTimesheet->attach1 }}"> {!! $personnelTimesheet->attach1 !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
+{{--                        <td>{{ $personnelTimesheet->projectName }}</td>--}}
+{{--                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $personnelTimesheet->attach1 }}"> {!! $personnelTimesheet->attach1 !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
                         <td>{{ $personnelTimesheet->startHour }}</td>
                         <td>{{ $personnelTimesheet->endHour }}</td>
-                        <td>{{ $personnelTimesheet->minutes }}</td>
-                        <td>{{ $personnelTimesheet->result }}</td>
-                        <td>{{ $personnelTimesheet->holdpoint }}</td>
-                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $personnelTimesheet->attach2 }}"> {!! $personnelTimesheet->attach2 !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
+{{--                        <td>{{ $personnelTimesheet->minutes }}</td>--}}
+{{--                        <td>{{ $personnelTimesheet->result }}</td>--}}
+{{--                        <td>{{ $personnelTimesheet->holdpoint }}</td>--}}
+{{--                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $personnelTimesheet->attach2 }}"> {!! $personnelTimesheet->attach2 !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
                         <td style="text-align:center;color: red" > <a href="/timesheet/delete/{{ $personnelTimesheet->id }}" ><i style="font-size: 20px;color: red" class="ft-x-square"></i></a>  </td>
                       </tr>
                     @endforeach
@@ -386,7 +386,7 @@ tspan{
   </div>
 </div>
 
-
+@endsection
 @section('footerscripts')
 <script src="vendors/timetables/js/jquery.min.js"></script>
 <script src="vendors/timetables/js/jquery.magnific-popup.js"></script>

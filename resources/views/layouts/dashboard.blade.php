@@ -49,6 +49,7 @@
     <link rel="stylesheet" type="text/css" href="/css-rtl/pages/users.css">
     <link rel="stylesheet" type="text/css" href="/css-rtl/plugins/extensions/toastr.css">
     <style media="screen">
+
         @font-face {
             font-family: 'BBardiya';
             src: url('/css-rtl/fontsFA/BBardiya.eot');
@@ -65,13 +66,13 @@
             font-style: normal;
         }
 
-        @font-face {
-            font-family: 'BYekan';
-            src: url('/css-rtl/fontsFA/BYekan.eot');
-            src: url('/css-rtl/fontsFA/BYekan.eot') format('embedded-opentype'), url('/css-rtl/fontsFA/BYekan.eot') format('woff'), url('/css-rtl/fontsFA/BYekan.eot') format('truetype'), url('/css-rtl/fontsFA/BYekan.eot') format('svg');
-            font-weight: normal;
-            font-style: normal;
-        }
+        /*@font-face {*/
+        /*    font-family: 'BYekan';*/
+        /*    src: url('/css-rtl/fontsFA/BYekan.eot');*/
+        /*    src: url('/css-rtl/fontsFA/BYekan.eot') format('embedded-opentype'), url('/css-rtl/fontsFA/BYekan.eot') format('woff'), url('/css-rtl/fontsFA/BYekan.eot') format('truetype'), url('/css-rtl/fontsFA/BYekan.eot') format('svg');*/
+        /*    font-weight: normal;*/
+        /*    font-style: normal;*/
+        /*}*/
 
         @font-face {
             font-family: 'Rezvan';
@@ -104,24 +105,24 @@
         }
 
         a, span, p, h1, h2, h3, h4, h5, h6, label, input, button {
-            font-family: Byekan !important;
+            font-family: 'Byekan' !important;
         }
 
         .dataTables_info {
-            font-family: Byekan !important;
+            font-family: 'Byekan' !important;
         }
 
         .dow {
-            font-family: Byekan !important;
+            font-family: 'Byekan' !important;
         }
 
         .pdp-header {
-            font-family: Byekan !important;
+            font-family: 'Byekan' !important;
             height: 25px !important;
         }
 
         .days {
-            font-family: Byekan !important;
+            font-family: 'Byekan' !important;
         }
 
         .c-search > .form-control {
@@ -199,6 +200,15 @@
             padding: 5px 10px;
             font-size: 1.25em;
         }
+
+    /*    asiye added*/
+        .main-menu.menu-dark .navigation > li.active > a {
+            background: #206496;
+        }
+        .app-content .content-wrapper{
+            background: #eee !important;
+        }
+
     </style>
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
@@ -232,7 +242,7 @@
 <!-- fixed-top-->
 <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-semi-dark navbar-shadow">
     <div class="navbar-wrapper">
-        <div class="navbar-header">
+        <div class="navbar-header" style="background: #206496;">
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item mobile-menu d-md-none mr-auto"><a
                             class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
@@ -240,7 +250,7 @@
                 <li class="nav-item"><a class="navbar-brand" href="/dashboard"><img style="display:inline"
                                                                                     class="brand-logo" alt="PersiaTC"
                                                                                     src="/images/logo/logo-light-sm.png">
-                        <h3 style="font-family:Byekan" class="brand-text">سیما</h3></a></li>
+                        <h3 style="font-family:'Byekan'; color: #8cff94" class="brand-text">سیما</h3></a></li>
                 <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse"
                                                   data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a></li>
             </ul>
@@ -251,7 +261,7 @@
                     <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs"
                                                               href="#"><i class="ft-menu"> </i></a></li>
 
-                    <h3 style="margin: auto">شرکت ارتباطات پرشیا</h3>
+                    <h3 style="margin: auto;color: #de0d0d;">شرکت ارتباطات پرشیا</h3>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav float-right">
@@ -310,7 +320,7 @@
                                     class="avatar avatar-online"><img
                                         src="{{ \Auth::user()->avatar ? \Auth::user()->avatar : '/images/logo/logo.png'}}"
                                         alt="avatar"><i></i></span><span
-                                    class="user-name"> {{ \Auth::user()->name . " " . \Auth::user()->family }} </span></a>
+                                    class="user-name"  style="color: #de0d0d"> {{ \Auth::user()->name . " " . \Auth::user()->family }} </span></a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="/profile"><i class="ft-user"></i> تنظیمات حساب کاربری</a>
                             <div class="dropdown-divider"></div>
@@ -327,20 +337,22 @@
 
 
 <div class="main-menu menu-fixed menu-dark menu-accordion    menu-shadow " data-scroll-to-active="true">
-    <div class="main-menu-content">
-        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+    <div class="main-menu-content" style="background: #023154;">
+        <ul style="background: #043a62;" class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li class=" navigation-header"><span data-i18n="nav.category.layouts">ماژول های سامانه</span><i
                         class="ft-more-horizontal ft-minus" data-toggle="tooltip" data-placement="right"
                         data-original-title="داشبورد"></i>
             </li>
 
-            <li class=" {{{ (Request::is('dashboard') ? 'active' : '') }}} nav-item"><a href="/dashboard"><i
-                            class="icofont icofont-dashboard-web"></i><span class="menu-title"
-                                                                            data-i18n="nav.dash.main">کارتابل من</span></a>
-            </li>
+
             <li class=" {{{ (Request::is('timesheet') ? 'active' : '') }}} nav-item"><a href="/timesheet"><i
                             class="ft-clipboard"></i><span class="menu-title"
-                                                           data-i18n="nav.dash.main">تایم شیت من</span></a></li>
+                                                           data-i18n="nav.dash.main">تایم شیت من</span></a>
+            </li>
+            <li class=" {{{ (Request::is('dashboard') ? 'active' : '') }}} nav-item"><a href="/dashboard"><i
+                        class="icofont icofont-dashboard-web"></i><span class="menu-title"
+                                                                        data-i18n="nav.dash.main">فعالیت های ارجاع شده من</span></a>
+            </li>
 
 
 

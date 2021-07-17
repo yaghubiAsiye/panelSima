@@ -167,10 +167,10 @@
                                 </div>
                             </div>
                             <div class="card-content collapse show">
-                                <button style="float: right;margin-right: 40px!important;"
+                                <button style="float: left;margin-left: 40px!important;"
                                         class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"
                                         data-target="#addUser" data-toggle="modal"><span class="ladda-label">  <i
-                                                class="icon-plus"></i> افزودن </span></button>
+                                                class="ft-plus"></i> افزودن </span></button>
                                 <div class="card-body card-dashboard"><br><br>
                                     <table style="font-family:Byekan;width: 100%"
                                            class="table display nowrap table-striped table-bordered scroll-horizontal file-export ">
@@ -218,22 +218,22 @@
 
 
                                         </tbody>
-                                        <tfoot>
-                                        <tr style="text-align: center">
-                                            <th>ردیف</th>
-                                            <th>تاریخ جلسه</th>
-                                            <th>شماره جلسه</th>
-                                            <th>نوع جلسه</th>
-                                            <th>ردیف مصوبه</th>
-                                            <th>شرح مصوبه</th>
-                                            <th>اقدام کنده</th>
-                                            <th>مهلت اقدام</th>
-                                            <th>نتیجه</th>
-                                            <th>فایل صورتجلسه</th>
-                                            <th>مستندات</th>
-                                            <th>حذف</th>
-                                        </tr>
-                                        </tfoot>
+{{--                                        <tfoot>--}}
+{{--                                        <tr style="text-align: center">--}}
+{{--                                            <th>ردیف</th>--}}
+{{--                                            <th>تاریخ جلسه</th>--}}
+{{--                                            <th>شماره جلسه</th>--}}
+{{--                                            <th>نوع جلسه</th>--}}
+{{--                                            <th>ردیف مصوبه</th>--}}
+{{--                                            <th>شرح مصوبه</th>--}}
+{{--                                            <th>اقدام کنده</th>--}}
+{{--                                            <th>مهلت اقدام</th>--}}
+{{--                                            <th>نتیجه</th>--}}
+{{--                                            <th>فایل صورتجلسه</th>--}}
+{{--                                            <th>مستندات</th>--}}
+{{--                                            <th>حذف</th>--}}
+{{--                                        </tr>--}}
+{{--                                        </tfoot>--}}
                                     </table>
                                 </div>
                             </div>

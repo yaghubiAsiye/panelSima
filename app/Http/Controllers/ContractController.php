@@ -76,12 +76,14 @@ class ContractController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Contract  $contract
-     * @return Response
+     * @param $id
+     * @return Application|Factory|View
      */
-    public function show(Contract $contract)
+    public function show($id)
     {
-        //
+        $contract = Contract::findOrFail($id);
+        return  view('dashboards.contracts.show', compact('contract'));
+
     }
 
     /**

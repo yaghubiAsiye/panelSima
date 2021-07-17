@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\TimeSheet;
 use App\Tdl;
 use App\User;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddTdlRequest;
 use App\Http\Requests\UpdateTdlRequest;
+use Illuminate\View\View;
 
 class TdlController extends Controller
 {
@@ -79,18 +82,20 @@ class TdlController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Tdl $tdl
-     * @return \Illuminate\Http\Response
+     * @param Tdl $tdl
+     * @return Factory|Application|View
      */
-    public function show(Tdl $tdl)
+    public function show($id)
     {
-        //
+        $tld = Tdl::find($id);
+        return view('dashboards.tdl.show', compact('tld'));
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Tdl $tdl
+     * @param Tdl $tdl
      * @return \Illuminate\Http\Response
      */
     public function edit(Tdl $tdl)
@@ -102,7 +107,7 @@ class TdlController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  \App\Tdl $tdl
+     * @param Tdl $tdl
      * @return \Illuminate\Http\Response
      */
     public function updateFromDoer(UpdateTdlRequest $request, Tdl $tdl)
@@ -222,7 +227,7 @@ class TdlController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Tdl $tdl
+     * @param Tdl $tdl
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

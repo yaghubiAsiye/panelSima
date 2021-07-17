@@ -295,10 +295,10 @@
                                 </div>
                             </div>
                             <div class="card-content collapse show">
-                                <button style="float: right;margin-right: 40px!important;"
+                                <button style="float: left;margin-left: 40px!important;"
                                         class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"
                                         data-target="#addUser" data-toggle="modal"><span class="ladda-label">  <i
-                                                class="icon-plus"></i> افزودن </span></button>
+                                                class="ft-plus"></i> افزودن </span></button>
                                 <div class="card-body card-dashboard"><br><br>
                                     <table style="font-family:Byekan;width: 100%"
                                            class="table display nowrap table-striped table-bordered scroll-horizontal file-export ">
@@ -311,70 +311,71 @@
                                             <th>نحوده دریافت</th>
                                             <th>مناقصه گذار</th>
                                             <th>موضوع یا نام  پروژه </th>
-                                            <th>کد شناسایی مناقصه گذار</th>
-                                            <th>کد شناسایی سامانه ستاد ایران</th>
-                                            <th>تاریخ دریافت </th>
-                                            <th>فایل پیوست دریافتی</th>
-                                            <th>زمان جلسه پرسش و پاسخ</th>
-                                            <th>مهلت ارسال پاسخ </th>
-                                            <th>تاریخ بازگشایی</th>
-                                            <th>نام و شماره تماس کارشناس کارفرما</th>
-                                            <th>مبلغ ضمانت شرکت در مناقصه</th>
-                                            <th>مدت قرارداد</th>
-                                            <th>نظریه کمیسیون توان </th>
-                                            <th>کارشناس پیگیری و ارسال مستندات</th>
-                                            <th>مبلغ استعلام بها</th>
-                                            <th>تصویر ضمانت</th>
-                                            <th>تصویر پیشنهاد فنی و اسناد ارزیابی</th>
-                                            <th>تصویر پیشنهاد قیمت</th>
-                                            <th>فایل پیوست ارسالی</th>
-                                            <th>نتیجه مناقصه</th>
-                                            <th>پاسخ کارفرما</th>
-                                            <th>آخرین اقدامات</th>
-                                            <th>تاریخ استرداد ضمانتنامه</th>
-                                            <th>تاریخ ایجاد</th>
-                                            <th>تاریخ آخرین ویرایش</th>
-                                            <th>ویرایش</th>
-                                            <th>حذف</th>
+{{--                                            <th>کد شناسایی مناقصه گذار</th>--}}
+{{--                                            <th>کد شناسایی سامانه ستاد ایران</th>--}}
+{{--                                            <th>تاریخ دریافت </th>--}}
+{{--                                            <th>فایل پیوست دریافتی</th>--}}
+{{--                                            <th>زمان جلسه پرسش و پاسخ</th>--}}
+{{--                                            <th>مهلت ارسال پاسخ </th>--}}
+{{--                                            <th>تاریخ بازگشایی</th>--}}
+{{--                                            <th>نام و شماره تماس کارشناس کارفرما</th>--}}
+{{--                                            <th>مبلغ ضمانت شرکت در مناقصه</th>--}}
+{{--                                            <th>مدت قرارداد</th>--}}
+{{--                                            <th>نظریه کمیسیون توان </th>--}}
+{{--                                            <th>کارشناس پیگیری و ارسال مستندات</th>--}}
+{{--                                            <th>مبلغ استعلام بها</th>--}}
+{{--                                            <th>تصویر ضمانت</th>--}}
+{{--                                            <th>تصویر پیشنهاد فنی و اسناد ارزیابی</th>--}}
+{{--                                            <th>تصویر پیشنهاد قیمت</th>--}}
+{{--                                            <th>فایل پیوست ارسالی</th>--}}
+{{--                                            <th>نتیجه مناقصه</th>--}}
+{{--                                            <th>پاسخ کارفرما</th>--}}
+{{--                                            <th>آخرین اقدامات</th>--}}
+{{--                                            <th>تاریخ استرداد ضمانتنامه</th>--}}
+{{--                                            <th>تاریخ ایجاد</th>--}}
+{{--                                            <th>تاریخ آخرین ویرایش</th>--}}
+                                            <th>عملیات</th>
                                         </tr>
                                         </thead>
                                         <tbody>
 
                                         @foreach($tenders as $tender)
                                             <tr>
-                                                <td>{{ $tender->user->name . ' ' . $tender->user->family}}</td>
+                                                <td><a href="{{ url('tenders/show/' . $tender->id) }}">{{ $tender->user->name . ' ' . $tender->user->family}}</a></td>
                                                 <td>{{ $tender->id }}</td>
                                                 <td>{{ $tender->type }}</td>
                                                 <td>{{ $tender->karshenasDaryaft }}</td>
                                                 <td>{{ $tender->nahveDaryaft }}</td>
-                                                <td>{{ $tender->monagheseGozar }}</td>
-                                                <td>{{ $tender->mozoo }}</td>
-                                                <td>{{ $tender->codeMonagheseGozar }}</td>
-                                                <td>{{ $tender->codeSamaneSetadIran }}</td>
-                                                <td>{{ $tender->dateRecieved }}</td>
-                                                <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tender->peyvastDaryafti }}"> {!! $tender->peyvastDaryafti !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
-                                                <td>{{ $tender->timeJalasePorseshPasokh }}</td>
-                                                <td>{{ $tender->mohlat }}</td>
-                                                <td>{{ $tender->tarikhBazgoshaei }}</td>
-                                                <td>{{ $tender->namePhoneKarfarma }}</td>
-                                                <td>{{ $tender->mablaghZemanat }}</td>
-                                                <td>{{ $tender->moddatGharardad }}</td>
-                                                <td>{{ $tender->nazarieKomisionTavan }}</td>
-                                                <td>{{ $tender->karshenasPaygiri }}</td>
-                                                <td>{{ $tender->mablaghEstelam }}</td>
-                                                <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tender->tasvirZemanat }}"> {!! $tender->tasvirZemanat !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
-                                                <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tender->tasvirPishnahadFanni }}"> {!! $tender->tasvirPishnahadFanni !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
-                                                <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tender->tasvirPishnahadGheymat }}"> {!! $tender->tasvirPishnahadGheymat !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
-                                                <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tender->attachmentErsali }}"> {!! $tender->attachmentErsali !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
-                                                <td>{{ $tender->natijeMonaghese }}</td>
-                                                <td>{{ $tender->paasokhKarfarma }}</td>
-                                                <td>{{ $tender->akharinEghdamat }}</td>
-                                                <td>{{ $tender->tarikhEsterdadZemanat }}</td>
-                                                <td>{{ $tender->created_at }}</td>
-                                                <td>{{ $tender->updated_at }}</td>
+                                                <td style="white-space: normal">{{ $tender->monagheseGozar }}</td>
+                                                <td style="white-space: normal">{{ $tender->mozoo }}</td>
+{{--                                                <td>{{ $tender->codeMonagheseGozar }}</td>--}}
+{{--                                                <td>{{ $tender->codeSamaneSetadIran }}</td>--}}
+{{--                                                <td>{{ $tender->dateRecieved }}</td>--}}
+{{--                                                <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tender->peyvastDaryafti }}"> {!! $tender->peyvastDaryafti !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
+{{--                                                <td>{{ $tender->timeJalasePorseshPasokh }}</td>--}}
+{{--                                                <td>{{ $tender->mohlat }}</td>--}}
+{{--                                                <td>{{ $tender->tarikhBazgoshaei }}</td>--}}
+{{--                                                <td>{{ $tender->namePhoneKarfarma }}</td>--}}
+{{--                                                <td>{{ $tender->mablaghZemanat }}</td>--}}
+{{--                                                <td>{{ $tender->moddatGharardad }}</td>--}}
+{{--                                                <td>{{ $tender->nazarieKomisionTavan }}</td>--}}
+{{--                                                <td>{{ $tender->karshenasPaygiri }}</td>--}}
+{{--                                                <td>{{ $tender->mablaghEstelam }}</td>--}}
+{{--                                                <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tender->tasvirZemanat }}"> {!! $tender->tasvirZemanat !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
+{{--                                                <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tender->tasvirPishnahadFanni }}"> {!! $tender->tasvirPishnahadFanni !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
+{{--                                                <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tender->tasvirPishnahadGheymat }}"> {!! $tender->tasvirPishnahadGheymat !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
+{{--                                                <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tender->attachmentErsali }}"> {!! $tender->attachmentErsali !== "nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
+{{--                                                <td>{{ $tender->natijeMonaghese }}</td>--}}
+{{--                                                <td>{{ $tender->paasokhKarfarma }}</td>--}}
+{{--                                                <td>{{ $tender->akharinEghdamat }}</td>--}}
+{{--                                                <td>{{ $tender->tarikhEsterdadZemanat }}</td>--}}
+{{--                                                <td>{{ jdate($tender->created_at) }}</td>--}}
+{{--                                                <td>{{ jdate($tender->updated_at) }}</td>--}}
 
-                                                <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;"><a href="{{ route('tenders.edit', $tender->id) }}"> <i class="fa fa-edit"></i> </a></td>
-                                                <td style="text-align:center;color: #3BAFDA"><a href="tenders/delete/{{ $tender->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i></a></td>
+                                                <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;">
+                                                    <a href="{{ route('tenders.edit', $tender->id) }}"> <i class="fa fa-edit"></i> </a>
+                                                    <a href="tenders/delete/{{ $tender->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i></a>
+                                                </td>
                                             </tr>
                                         @endforeach
 

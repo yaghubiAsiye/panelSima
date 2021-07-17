@@ -188,7 +188,7 @@
               </div>
             </div>
             <div class="card-content collapse show">
-              <button  style="float: right;margin-right: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="icon-plus"></i> افزودن </span></button>
+              <button  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i> افزودن </span></button>
               <div class="card-body card-dashboard"><br><br>
                 <table style="font-family:Byekan;width: 100%" class="table display nowrap table-striped table-bordered scroll-horizontal file-export ">
                   <thead>
@@ -198,15 +198,15 @@
                       <th>اولویت</th>
                       <th>نام شرکت</th>
                       <th>نام رابط</th>
-                      <th>آدرس</th>
-                      <th>کد پستی</th>
+{{--                      <th>آدرس</th>--}}
+{{--                      <th>کد پستی</th>--}}
                       <th>تلفن</th>
-                      <th>فکس</th>
-                      <th>نام مدیر عامل</th>
-                      <th>همراه</th>
-                      <th>برند</th>
-                      <th>ایمیل</th>
-                      <th>وبسایت</th>
+{{--                      <th>فکس</th>--}}
+{{--                      <th>نام مدیر عامل</th>--}}
+{{--                      <th>همراه</th>--}}
+{{--                      <th>برند</th>--}}
+{{--                      <th>ایمیل</th>--}}
+{{--                      <th>وبسایت</th>--}}
                       <th>عملیات</th>
 
                     </tr>
@@ -216,19 +216,19 @@
                   @foreach($avls as $avl)
                     <tr>
                       <td>{{ $avl->id }}</td>
-                      <td>{{ $avl->noefaAliat }}</td>
+                        <td style="white-space: normal"><a href="{{ url('avl/show/' . $avl->id) }}">{{ $avl->noefaAliat }}</a></td>
                       <td>{{ $avl->olaviat }}</td>
                       <td>{{ $avl->namesherkat }}</td>
-                      <td>{{ $avl->namerabet }}</td>
-                      <td>{{ $avl->address }}</td>
-                      <td>{{ $avl->codeposti }}</td>
+                      <td style="white-space: normal">{{ $avl->namerabet }}</td>
+{{--                      <td>{{ $avl->address }}</td>--}}
+{{--                      <td>{{ $avl->codeposti }}</td>--}}
                       <td>{{ $avl->tel }}</td>
-                      <td>{{ $avl->fax }}</td>
-                      <td>{{ $avl->namemodiramel }}</td>
-                      <td>{{ $avl->hamrah }}</td>
-                      <td>{{ $avl->brand }}</td>
-                      <td>{{ $avl->email }}</td>
-                      <td>{{ $avl->website }}</td>
+{{--                      <td>{{ $avl->fax }}</td>--}}
+{{--                      <td>{{ $avl->namemodiramel }}</td>--}}
+{{--                      <td>{{ $avl->hamrah }}</td>--}}
+{{--                      <td>{{ $avl->brand }}</td>--}}
+{{--                      <td>{{ $avl->email }}</td>--}}
+{{--                      <td>{{ $avl->website }}</td>--}}
                       <td style="text-align:center;color: #3BAFDA">
 
                           <a href="avl/delete/{{ $avl->id }}"><i style="font-size: 20px" class="ft-x-square danger"></i>  </a>
@@ -243,25 +243,25 @@
 
 
                   </tbody>
-                  <tfoot>
-                    <tr style="text-align: center" >
-                      <th>ردیف</th>
-                      <th>نوع فعالیت</th>
-                      <th>اولویت</th>
-                      <th>نام شرکت</th>
-                      <th>نام رابط</th>
-                      <th>آدرس</th>
-                      <th>کد پستی</th>
-                      <th>تلفن</th>
-                      <th>فکس</th>
-                      <th>نام مدیر عامل</th>
-                      <th>همراه</th>
-                      <th>برند</th>
-                      <th>ایمیل</th>
-                      <th>وبسایت</th>
-                      <th>حذف</th>
-                    </tr>
-                  </tfoot>
+{{--                  <tfoot>--}}
+{{--                    <tr style="text-align: center" >--}}
+{{--                      <th>ردیف</th>--}}
+{{--                      <th>نوع فعالیت</th>--}}
+{{--                      <th>اولویت</th>--}}
+{{--                      <th>نام شرکت</th>--}}
+{{--                      <th>نام رابط</th>--}}
+{{--                      <th>آدرس</th>--}}
+{{--                      <th>کد پستی</th>--}}
+{{--                      <th>تلفن</th>--}}
+{{--                      <th>فکس</th>--}}
+{{--                      <th>نام مدیر عامل</th>--}}
+{{--                      <th>همراه</th>--}}
+{{--                      <th>برند</th>--}}
+{{--                      <th>ایمیل</th>--}}
+{{--                      <th>وبسایت</th>--}}
+{{--                      <th>حذف</th>--}}
+{{--                    </tr>--}}
+{{--                  </tfoot>--}}
                 </table>
               </div>
             </div>

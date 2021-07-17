@@ -41,12 +41,14 @@ Route::post('/Tdl/updateDoer','TdlController@updateDoer')->middleware('auth');
 Route::post('/Tdl/updateAssignedToOther','TdlController@updateAssignedToOther')->middleware('auth');
 Route::post('/Tdl/addTdl','TdlController@store')->middleware('auth');
 Route::get('/Tdl/delete/{id}','TdlController@destroy')->middleware('auth');
+Route::get('/Tdl/show/{id}','TdlController@show')->middleware('auth');
 
 
 // TimeSheet
 Route::get('/timesheet','TimeSheetController@index')->middleware('auth');
 Route::post('/timesheet/add','TimeSheetController@store')->middleware('auth');
 Route::get('/timesheet/delete/{id}','TimeSheetController@destroy')->middleware('auth');
+Route::get('/timesheet/show/{id}','TimeSheetController@show')->middleware('auth');
 
 
 // Projects
@@ -58,6 +60,7 @@ Route::post('avl','AvlController@store')->middleware('auth');
 Route::get('avl/delete/{id}','AvlController@destroy')->middleware('auth');
 Route::get('avl/edit/{id}','AvlController@edit')->middleware('auth');
 Route::post('avl/update/{id}','AvlController@update')->middleware('auth');
+Route::get('avl/show/{id}','AvlController@show')->middleware('auth');
 
 
 
@@ -67,6 +70,7 @@ Route::post('contracts','ContractController@store')->middleware('auth');
 Route::get('contracts/delete/{id}','ContractController@destroy')->middleware('auth');
 Route::get('contracts/edit/{id}','ContractController@edit')->middleware('auth');
 Route::post('contracts/update/{id}','ContractController@update')->middleware('auth');
+Route::get('contracts/show/{id}','ContractController@show')->middleware('auth');
 
 
 //ContractsSellers
@@ -75,6 +79,7 @@ Route::post('SellersContracts','SellerContractController@store')->middleware('au
 Route::get('SellerContract/delete/{id}','SellerContractController@destroy')->middleware('auth');
 Route::get('SellerContract/edit/{id}','SellerContractController@edit')->middleware('auth');
 Route::post('SellerContract/update/{id}','SellerContractController@update')->middleware('auth');
+Route::get('SellerContract/show/{id}','SellerContractController@show')->middleware('auth');
 
 
 //Proceeding
@@ -114,3 +119,4 @@ Route::post('tenders','TenderController@store')->middleware('auth');
 Route::get('tenders/edit/{id}','TenderController@edit')->middleware('auth')->name('tenders.edit');
 Route::post('tenders/update/{id}','TenderController@update')->middleware('auth')->name('tenders.update');
 Route::get('tenders/delete/{id}','TenderController@destroy')->middleware('auth');
+Route::get('tenders/show/{id}','TenderController@show')->middleware('auth');

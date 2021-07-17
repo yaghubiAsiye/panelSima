@@ -128,7 +128,7 @@
               </div>
             </div>
             <div class="card-content collapse show">
-              <button  style="float: right;margin-right: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="icon-plus"></i> افزودن </span></button>
+              <button  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i> افزودن </span></button>
               <div class="card-body card-dashboard"><br><br>
                 <table style="font-family:Byekan;width: 100%" class="table display nowrap table-striped table-bordered scroll-horizontal file-export ">
                   <thead>
@@ -148,8 +148,8 @@
                     @foreach($Certificates as $Certificate)
                     <tr>
                       <td>{{ $Certificate->id }}</td>
-                      <td>{{ $Certificate->name }}</td>
-                      <td>{{ $Certificate->saderKonandeh }}</td>
+                      <td style="white-space: normal">{{ $Certificate->name }}</td>
+                      <td style="white-space: normal">{{ $Certificate->saderKonandeh }}</td>
                       <td>{{ $Certificate->dateStart }}</td>
                       <td>{{ $Certificate->moddateEtebar }}</td>
                       <td>{{ $Certificate->dateEnd }}</td>
@@ -166,18 +166,18 @@
 
 
                   </tbody>
-                  <tfoot>
-                    <tr style="text-align: center" >
-                      <th>ردیف</th>
-                      <th>نام رتبه یا گواهینامه</th>
-                      <th>صادر کننده</th>
-                      <th>تاریخ صدور</th>
-                      <th>مدت اعتبار </th>
-                      <th>تاریخ اتمام</th>
-                      <th>فایل</th>
-                      <th>حذف</th>
-                    </tr>
-                  </tfoot>
+{{--                  <tfoot>--}}
+{{--                    <tr style="text-align: center" >--}}
+{{--                      <th>ردیف</th>--}}
+{{--                      <th>نام رتبه یا گواهینامه</th>--}}
+{{--                      <th>صادر کننده</th>--}}
+{{--                      <th>تاریخ صدور</th>--}}
+{{--                      <th>مدت اعتبار </th>--}}
+{{--                      <th>تاریخ اتمام</th>--}}
+{{--                      <th>فایل</th>--}}
+{{--                      <th>حذف</th>--}}
+{{--                    </tr>--}}
+{{--                  </tfoot>--}}
                 </table>
               </div>
             </div>

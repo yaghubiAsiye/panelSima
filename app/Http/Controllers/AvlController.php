@@ -57,12 +57,14 @@ class AvlController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Avl  $avl
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Application|Factory|View
      */
-    public function show(Avl $avl)
+    public function show($id)
     {
-        //
+        $avl = Avl::findOrFail($id);
+        return view('dashboards.avl.show', compact('avl'));
+
     }
 
     /**

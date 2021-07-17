@@ -30,14 +30,14 @@
   font-size: 16px!important;
   width: 100%!important;
   direction: ltr!important;
-  font-family: Byekan!important;
+  font-family: 'Byekan'!important;
   height: 500px!important;
 }
 #OTY {
   font-size: 16px!important;
   width: 100%!important;
   direction: ltr!important;
-  font-family: Byekan!important;
+  font-family: 'Byekan'!important;
   height: 500px!important;
 }
 
@@ -477,16 +477,16 @@ tspan{
         <div class="col-12">
           <div class="card">
             <div class="card-content">
-              <div class="card-body">
+              <div class="card-body" style="box-shadow: 4px 4px 15px 0px #000;background-color: #136ca2;">
                 <div class="row">
                   <div class="col-lg-3 col-sm-12 border-right-blue-grey border-right-lighten-5">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
-                        <i class="ft-clipboard font-large-1 blue-grey float-left mt-1"></i>
+                        <i class="ft-clipboard font-large-1 float-left mt-1 text-white"></i>
                         <span class="font-large-1 text-bold-300 info float-right">{{ $box['1'] }}</span>
                       </div>
                       <div style="text-align: center;font-size: 18px;" class="clearfix">
-                        <span class="text-muted">فعالیت های محول شده امروز به شما</span>
+                        <span class="text-white">فعالیت های محول شده امروز شما</span>
                       </div>
                     </div>
                     <div class="progress mb-0" style="height: 7px;">
@@ -496,11 +496,11 @@ tspan{
                   <div class="col-lg-3 col-sm-12 border-right-blue-grey border-right-lighten-5">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
-                        <i class="ft-check-circle font-large-1 blue-grey float-left mt-1"></i>
+                        <i class="ft-check-circle font-large-1 float-left text-white mt-1"></i>
                         <span class="font-large-1 text-bold-300 info float-right">{{ $box['2'] }}</span>
                       </div>
                       <div style="text-align: center;font-size: 18px;" class="clearfix">
-                        <span class="text-muted">فعالیت های انجام شده امروز شما</span>
+                        <span class="text-white">فعالیت های انجام شده امروز شما</span>
                       </div>
                     </div>
                     <div class="progress mb-0" style="height: 7px;">
@@ -510,14 +510,14 @@ tspan{
 
 
 
-                  <div class="col-lg-3 col-sm-12">
+                  <div class="col-lg-3 col-sm-12 border-right-blue-grey border-right-lighten-5">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
-                        <i class="ft-check-circle font-large-1 blue-grey float-left mt-1"></i>
+                        <i class="ft-check-circle font-large-1 text-white float-left mt-1"></i>
                         <span class="font-large-1 text-bold-300 warning float-right"> {{ $box['5'] }} </span>
                       </div>
                       <div style="text-align: center;font-size: 18px;" class="clearfix">
-                        <span class="text-muted">فعالیت های محول شده این ماه به شما</span>
+                        <span class="text-white">فعالیت های محول شده این ماه شما</span>
                       </div>
                     </div>
                     <div class="progress mb-0" style="height: 7px;">
@@ -527,11 +527,11 @@ tspan{
                   <div class="col-lg-3 col-sm-12">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
-                        <i class="ft-clipboard font-large-1 blue-grey float-left mt-1"></i>
+                        <i class="ft-clipboard font-large-1 text-white float-left mt-1"></i>
                         <span class="font-large-1 text-bold-300 warning float-right"> {{ $box['6'] }} </span>
                       </div>
                       <div style="text-align: center;font-size: 18px;" class="clearfix">
-                        <span class="text-muted">فعالیت های انجام شده این ماه شما</span>
+                        <span class="text-white">فعالیت های انجام شده این ماه شما</span>
                       </div>
                     </div>
                     <div class="progress mb-0" style="height: 7px;">
@@ -546,56 +546,7 @@ tspan{
       </div>
 
 
-      <!-- Start Chart -->
-      <section>
-        <div  class="row">
-          <div class="col-6">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">وضعیت فعالیت های ارجاع شده به شما</h4>
-                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-                <div class="heading-elements">
-                  <ul class="list-inline mb-0">
-                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                    <li><a data-action="close"><i class="ft-x"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="card-content collapse show">
-                <div class="card-body card-dashboard">
-                  <div style="direction: ltr!important;" id="OTY"></div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col-6">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">وضعیت فعالیت های ایجاد شده توسط شما</h4>
-                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
-                <div class="heading-elements">
-                  <ul class="list-inline mb-0">
-                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                    <li><a data-action="close"><i class="ft-x"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="card-content collapse show">
-                <div class="card-body card-dashboard">
-                  <div style="direction: ltr!important;" id="YTO"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-      <!--  End Chart -->
 
 
 
@@ -623,7 +574,7 @@ tspan{
                 </div>
               </div>
               <div class="card-content collapse show">
-                <button  style="float: right;margin-right: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addTask" data-toggle="modal" ><span class="ladda-label">  <i class="icon-plus"></i>  افزودن فعالیت  </span></button><br><br>
+                <button  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addTask" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i>  افزودن فعالیت  </span></button><br><br>
                 <div class="card-body card-dashboard">
                   <p class="card-text">در این قسمت میتوانید فعالیت هایی که به دیگران ارجاع داده اید را بررسی نمایید.</p>
                   <table style="font-family:Byekan;direction: rtl" class="table display nowrap table-striped table-bordered scroll-horizontal file-export ">
@@ -631,18 +582,18 @@ tspan{
                       <tr style="text-align: center;">
                         <th>ردیف</th>
                         <th>نام فعالیت</th>
-                        <th>شرح</th>
+{{--                        <th>شرح</th>--}}
                         <th>ارجاع دهنده</th>
                         <th>متولی انجام</th>
                         <th>اهمیت</th>
                         <th>آخرین وضعیت</th>
-                        <th>دلیل عدم تحقق</th>
-                        <th>نتیجه</th>
-                        <th>مستندات ارجاع دهنده</th>
-                        <th>مستندات متولی انجام</th>
-                        <th>تاریخ ایجاد</th>
-                        <th>آخرین بروزرسانی</th>
-                        <th>بروزرسانی</th>
+{{--                        <th>دلیل عدم تحقق</th>--}}
+{{--                        <th>نتیجه</th>--}}
+{{--                        <th>مستندات ارجاع دهنده</th>--}}
+{{--                        <th>مستندات متولی انجام</th>--}}
+{{--                        <th>تاریخ ایجاد</th>--}}
+{{--                        <th>آخرین بروزرسانی</th>--}}
+                        <th>عملیات</th>
                       </tr>
                     </thead>
                     <tbody style="text-align: center" >
@@ -650,18 +601,20 @@ tspan{
                       @foreach($tdlsAssignedToOther as $tdlAssignedToOther)
                       <tr>
                         <td>{{ $tdlAssignedToOther->id }}</td>
-                        <td>{{ $tdlAssignedToOther->name }}</td>
-                        <td>{{ $tdlAssignedToOther->description }}</td>
+                          <td><a href="{{ url('Tdl/show/' . $tdlAssignedToOther->id) }}">{{ $tdlAssignedToOther->name }}</a></td>
+{{--                        <td>{{ $tdlAssignedToOther->description }}</td>--}}
                         <td>{{ $tdlAssignedToOther->assignerName }}</td>
                         <td>{{ $tdlAssignedToOther->user->name . " " . $tdlAssignedToOther->user->family }}</td>
                         <td><span class="badge badge-danger">{{ $tdlAssignedToOther->priority }}</span></td>
-                        <td><span class="badge {{ $tdlAssignedToOther->status == 'انجام شده' ? 'badge-success' : 'badge-warning' }}">{{ $tdlAssignedToOther->status }}</span></td>
-                        <td>{{ $tdlAssignedToOther->holdPoint }}</td>
-                        <td>{{ $tdlAssignedToOther->doerDescription }}</td>
-                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tdlAssignedToOther->assignerAttachment }}"> {!! $tdlAssignedToOther->assignerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
-                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tdlAssignedToOther->doerAttachment }}"> {!! $tdlAssignedToOther->doerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
-                        <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->created_at) }}</td>
-                        <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->updated_at) }}</td>
+                        <td>
+                            <span class="badge {{ $tdlAssignedToOther->status == 'انجام شده' ? 'badge-success' : 'badge-warning' }}">{{ $tdlAssignedToOther->status }}</span>
+                        </td>
+{{--                        <td>{{ $tdlAssignedToOther->holdPoint }}</td>--}}
+{{--                        <td>{{ $tdlAssignedToOther->doerDescription }}</td>--}}
+{{--                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tdlAssignedToOther->assignerAttachment }}"> {!! $tdlAssignedToOther->assignerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
+{{--                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tdlAssignedToOther->doerAttachment }}"> {!! $tdlAssignedToOther->doerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
+{{--                        <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->created_at) }}</td>--}}
+{{--                        <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->updated_at) }}</td>--}}
                         <td style="text-align:center;" > <a href="/Tdl/delete/{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px;color: red" class="ft-x-square"></i></a>   <a data-toggle="modal" data-target="#EditOtherTask{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px; color: #3BAFDA" class="ft-edit"></i></a>  </td>
 
                       </tr>
@@ -671,24 +624,24 @@ tspan{
 
 
                     </tbody>
-                    <tfoot>
-                      <tr style="text-align: center;">
-                        <th>ردیف</th>
-                        <th>نام فعالیت</th>
-                        <th>شرح</th>
-                        <th>ارجاع دهنده</th>
-                        <th>متولی انجام</th>
-                        <th>اهمیت</th>
-                        <th>آخرین وضعیت</th>
-                        <th>دلیل عدم تحقق</th>
-                        <th>نتیجه</th>
-                        <th>مستندات ارجاع دهنده</th>
-                        <th>مستندات متولی انجام</th>
-                        <th>تاریخ ایجاد</th>
-                        <th>آخرین بروزرسانی</th>
-                        <th>حذف</th>
-                      </tr>
-                    </tfoot>
+{{--                    <tfoot>--}}
+{{--                      <tr style="text-align: center;">--}}
+{{--                        <th>ردیف</th>--}}
+{{--                        <th>نام فعالیت</th>--}}
+{{--                        <th>شرح</th>--}}
+{{--                        <th>ارجاع دهنده</th>--}}
+{{--                        <th>متولی انجام</th>--}}
+{{--                        <th>اهمیت</th>--}}
+{{--                        <th>آخرین وضعیت</th>--}}
+{{--                        <th>دلیل عدم تحقق</th>--}}
+{{--                        <th>نتیجه</th>--}}
+{{--                        <th>مستندات ارجاع دهنده</th>--}}
+{{--                        <th>مستندات متولی انجام</th>--}}
+{{--                        <th>تاریخ ایجاد</th>--}}
+{{--                        <th>آخرین بروزرسانی</th>--}}
+{{--                        <th>حذف</th>--}}
+{{--                      </tr>--}}
+{{--                    </tfoot>--}}
                   </table>
                 </div>
               </div>
@@ -769,24 +722,24 @@ tspan{
 
 
                           </tbody>
-                          <tfoot>
-                            <tr style="text-align: center;">
-                              <th>ردیف</th>
-                              <th>نام فعالیت</th>
-                              <th>شرح</th>
-                              <th>ارجاع دهنده</th>
-                              <th>اهمیت</th>
-                              <th>آخرین وضعیت</th>
-                              <th>ارجاع</th>
-                              <th>دلیل عدم تحقق</th>
-                              <th>نتیجه</th>
-                              <th>مستندات ارجاع دهنده</th>
-                              <th>مستندات متولی انجام</th>
-                              <th>تاریخ ایجاد</th>
-                              <th>آخرین بروزرسانی</th>
-                              <th>بروزرسانی</th>
-                            </tr>
-                          </tfoot>
+{{--                          <tfoot>--}}
+{{--                            <tr style="text-align: center;">--}}
+{{--                              <th>ردیف</th>--}}
+{{--                              <th>نام فعالیت</th>--}}
+{{--                              <th>شرح</th>--}}
+{{--                              <th>ارجاع دهنده</th>--}}
+{{--                              <th>اهمیت</th>--}}
+{{--                              <th>آخرین وضعیت</th>--}}
+{{--                              <th>ارجاع</th>--}}
+{{--                              <th>دلیل عدم تحقق</th>--}}
+{{--                              <th>نتیجه</th>--}}
+{{--                              <th>مستندات ارجاع دهنده</th>--}}
+{{--                              <th>مستندات متولی انجام</th>--}}
+{{--                              <th>تاریخ ایجاد</th>--}}
+{{--                              <th>آخرین بروزرسانی</th>--}}
+{{--                              <th>بروزرسانی</th>--}}
+{{--                            </tr>--}}
+{{--                          </tfoot>--}}
                         </table>
                       </div>
                     </div>
@@ -800,6 +753,56 @@ tspan{
 
 
 
+        <!-- Start Chart -->
+        <section>
+            <div  class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">وضعیت فعالیت های ارجاع شده به شما</h4>
+                            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                    <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collapse show">
+                            <div class="card-body card-dashboard">
+                                <div style="direction: ltr!important;" id="OTY"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">وضعیت فعالیت های ایجاد شده توسط شما</h4>
+                            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                    <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collapse show">
+                            <div class="card-body card-dashboard">
+                                <div style="direction: ltr!important;" id="YTO"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!--  End Chart -->
 
 
 

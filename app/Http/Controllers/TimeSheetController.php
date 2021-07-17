@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\TimeSheet;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddTimeSheetRequest;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 
 class TimeSheetController extends Controller
@@ -94,15 +97,18 @@ class TimeSheetController extends Controller
       return redirect()->back();
 
     }
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\TimeSheet  $timeSheet
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Factory|Application|View
      */
-    public function show(TimeSheet $timeSheet)
+    public function show($id)
     {
-        //
+        $TimeSheet = TimeSheet::find($id);
+        return view('dashboards.timesheet.show', compact('TimeSheet'));
+
     }
 
     /**

@@ -179,23 +179,23 @@
               </div>
             </div>
             <div class="card-content collapse show">
-              <button  style="float: right;margin-right: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="icon-plus"></i> افزودن </span></button>
+              <button  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i> افزودن </span></button>
               <div class="card-body card-dashboard"><br><br>
                 <table style="font-family:Byekan;width: 100%" class="table display nowrap table-striped table-bordered scroll-horizontal file-export ">
                   <thead>
                     <tr style="text-align: center" >
                       <th>ردیف</th>
                       <th>عنوان قرارداد</th>
-                      <th>موضوع قرارداد</th>
+{{--                      <th>موضوع قرارداد</th>--}}
                       <th>نام پیمانکار</th>
                       <th>مبلغ قرارداد</th>
-                      <th>نحوه پرداخت </th>
-                      <th>مدت قرارداد</th>
-                      <th>تاریخ شروع</th>
-                      <th>تاریخ پایان</th>
-                      <th>نوع تضمین</th>
-                      <th>ناظر قرارداد </th>
-                      <th>توضیحات</th>
+{{--                      <th>نحوه پرداخت </th>--}}
+{{--                      <th>مدت قرارداد</th>--}}
+{{--                      <th>تاریخ شروع</th>--}}
+{{--                      <th>تاریخ پایان</th>--}}
+{{--                      <th>نوع تضمین</th>--}}
+{{--                      <th>ناظر قرارداد </th>--}}
+{{--                      <th>توضیحات</th>--}}
                       <th>فایل</th>
                       <th>عملیات</th>
 
@@ -206,17 +206,17 @@
                   @foreach($contracts as $contract)
                     <tr>
                       <td>{{ $contract->id }}</td>
-                      <td>{{ $contract->onvan }}</td>
-                      <td>{{ $contract->mozoo }}</td>
+                        <td style="white-space: normal"><a href="{{ url('contracts/show/' . $contract->id) }}">{{ $contract->onvan }}</a></td>
+{{--                      <td>{{ $contract->mozoo }}</td>--}}
                       <td>{{ $contract->peymankar }}</td>
                       <td>{{ $contract->mablagh }}</td>
-                      <td>{{ $contract->pardakht }}</td>
-                      <td>{{ $contract->moddat }}</td>
-                      <td>{{ $contract->from }}</td>
-                      <td>{{ $contract->to }}</td>
-                      <td>{{ $contract->tazmin }}</td>
-                      <td>{{ $contract->nazer }}</td>
-                      <td>{{ $contract->description }}</td>
+{{--                      <td>{{ $contract->pardakht }}</td>--}}
+{{--                      <td>{{ $contract->moddat }}</td>--}}
+{{--                      <td>{{ $contract->from }}</td>--}}
+{{--                      <td>{{ $contract->to }}</td>--}}
+{{--                      <td>{{ $contract->tazmin }}</td>--}}
+{{--                      <td>{{ $contract->nazer }}</td>--}}
+{{--                      <td>{{ $contract->description }}</td>--}}
                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" ><a href="{{ $contract->contractorFile }}"> <i class="ft-file-text" ></i> </a></td>
                       <td style="text-align:center;color: #3BAFDA">
 
@@ -231,24 +231,24 @@
 
 
                   </tbody>
-                  <tfoot>
-                    <tr style="text-align: center" >
-                      <th>ردیف</th>
-                      <th>عنوان قرارداد</th>
-                      <th>موضوع قرارداد</th>
-                      <th>نام پیمانکار</th>
-                      <th>مبلغ قرارداد</th>
-                      <th>نحوه پرداخت </th>
-                      <th>مدت قرارداد</th>
-                      <th>تاریخ شروع</th>
-                      <th>تاریخ پایان</th>
-                      <th>نوع تضمین</th>
-                      <th>ناظر قرارداد </th>
-                      <th>توضیحات</th>
-                      <th>فایل</th>
-                      <th>حذف</th>
-                    </tr>
-                  </tfoot>
+{{--                  <tfoot>--}}
+{{--                    <tr style="text-align: center" >--}}
+{{--                      <th>ردیف</th>--}}
+{{--                      <th>عنوان قرارداد</th>--}}
+{{--                      <th>موضوع قرارداد</th>--}}
+{{--                      <th>نام پیمانکار</th>--}}
+{{--                      <th>مبلغ قرارداد</th>--}}
+{{--                      <th>نحوه پرداخت </th>--}}
+{{--                      <th>مدت قرارداد</th>--}}
+{{--                      <th>تاریخ شروع</th>--}}
+{{--                      <th>تاریخ پایان</th>--}}
+{{--                      <th>نوع تضمین</th>--}}
+{{--                      <th>ناظر قرارداد </th>--}}
+{{--                      <th>توضیحات</th>--}}
+{{--                      <th>فایل</th>--}}
+{{--                      <th>حذف</th>--}}
+{{--                    </tr>--}}
+{{--                  </tfoot>--}}
                 </table>
               </div>
             </div>

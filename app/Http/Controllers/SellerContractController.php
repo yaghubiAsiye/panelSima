@@ -77,12 +77,14 @@ class SellerContractController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\SellerContract  $sellerContract
-     * @return Response
+     * @param $id
+     * @return Application|Factory|View
      */
-    public function show(SellerContract $sellerContract)
+    public function show($id)
     {
-        //
+        $contract = SellerContract::findOrFail($id);
+        return view('dashboards.sellercontract.show', compact('contract'));
+
     }
 
     /**

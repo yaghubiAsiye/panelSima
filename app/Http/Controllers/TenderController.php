@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TenderRequest;
 use App\Tender;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class TenderController extends Controller
 {
@@ -117,12 +120,14 @@ class TenderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Tender  $tender
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Factory|Application|View
      */
-    public function show(Tender $tender)
+    public function show($id)
     {
-        //
+        $tender = Tender::findOrFail($id);
+        return view('dashboards.tenders.show', compact('tender'));
+
     }
 
     /**

@@ -163,13 +163,13 @@
                                 </div>
                             </div>
                             <div class="card-content collapse show">
-                              <button  style="float: right;margin-right: 40px!important;font-family:Byekan!important"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="icon-plus"></i>  افزودن کاربر به سیستم  </span></button>
+                              <button  style="float: left;margin-left: 40px!important;font-family:Byekan!important"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i>  افزودن کاربر به سیستم  </span></button>
                                 <div class="card-body card-dashboard">
                                   <table style="font-family:Byekan;width: 100%" class="table display nowrap table-striped table-bordered scroll-horizontal file-export ">
                                         <thead>
                                             <tr>
                                                 <th>نام</th>
-                                                <th>نام خانوادگی</th>
+{{--                                                <th>نام خانوادگی</th>--}}
                                                 <th>ایمیل</th>
                                                 <th>کد ملی</th>
                                                 <th>واحد</th>
@@ -183,12 +183,12 @@
 
                                           @foreach($users as $user)
                                           <tr>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->family }}</td>
+                                            <td> {{ $user->name . " " . $user->family ?? ''}}</td>
+{{--                                            <td>{{ $user->family }}</td>--}}
                                             <td style="font-family:Arial; direction: ltr; text-align: left" >{{ $user->email }}</td>
                                             <td>{{ $user->nationalCode }}</td>
                                             <td>{{ $user->groupName }}</td>
-                                            <td>{{ $user->position }}</td>
+                                            <td style="white-space: normal">{{ $user->position }}</td>
                                             <td>{{ $user->mobileNumber }}</td>
                                             <td style="direction: ltr" >{{ $user->lastLogin == 0 ? "عدم ورود" : jdate( $user->lastLogin) }}</td>
                                             <td style="direction: ltr" > {{ $user->lastAction == 0 ? "عدم فعالیت" : jdate( $user->lastAction) }}</td>
@@ -199,19 +199,19 @@
 
 
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                              <th>نام</th>
-                                              <th>نام خانوادگی</th>
-                                              <th>ایمیل</th>
-                                              <th>کد ملی</th>
-                                              <th>واحد</th>
-                                              <th>سمت</th>
-                                              <th>شماره موبایل</th>
-                                              <th>آخرین ورود</th>
-                                              <th>آخرین فعالیت</th>
-                                            </tr>
-                                        </tfoot>
+{{--                                        <tfoot>--}}
+{{--                                            <tr>--}}
+{{--                                              <th>نام</th>--}}
+{{--                                              <th>نام خانوادگی</th>--}}
+{{--                                              <th>ایمیل</th>--}}
+{{--                                              <th>کد ملی</th>--}}
+{{--                                              <th>واحد</th>--}}
+{{--                                              <th>سمت</th>--}}
+{{--                                              <th>شماره موبایل</th>--}}
+{{--                                              <th>آخرین ورود</th>--}}
+{{--                                              <th>آخرین فعالیت</th>--}}
+{{--                                            </tr>--}}
+{{--                                        </tfoot>--}}
                                     </table>
                                 </div>
                             </div>
