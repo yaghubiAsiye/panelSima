@@ -355,7 +355,7 @@
             </li>
 
             <li class=" {{{ (Request::is('dashboard') ? 'active' : '') }}} nav-item">
-                <a class="orangeColor" href="/dashboard"><i class="icofont icofont-dashboard-web"></i><span class="menu-title" data-i18n="nav.dash.main">فعالیت های ارجاع شده من</span></a>
+                <a class="orangeColor" href="/dashboard"><i class="icofont icofont-dashboard-web"></i><span class="menu-title" data-i18n="nav.dash.main">فعالیت ارجاع شده من</span></a>
             </li>
 
 
@@ -396,7 +396,7 @@
 
 
             <li style="" class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/Suggestions"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.dash.main">نظام پیشنهادات و انتقادات</span></a>
+                <a class="orangeColor" href="/Suggestions"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.dash.main"> پیشنهادات و انتقادات</span></a>
             </li>
 
 
