@@ -208,6 +208,9 @@
         .app-content .content-wrapper{
             background: #eee !important;
         }
+        .orangeColor{
+            color: #f99420 !important;
+        }
 
     </style>
     <!-- END Page Level CSS-->
@@ -242,7 +245,7 @@
 <!-- fixed-top-->
 <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-semi-dark navbar-shadow">
     <div class="navbar-wrapper">
-        <div class="navbar-header" style="background: #206496;">
+        <div class="navbar-header" style="background: #132e6b;">
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item mobile-menu d-md-none mr-auto"><a
                             class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
@@ -250,18 +253,18 @@
                 <li class="nav-item"><a class="navbar-brand" href="/dashboard"><img style="display:inline"
                                                                                     class="brand-logo" alt="PersiaTC"
                                                                                     src="/images/logo/logo-light-sm.png">
-                        <h3 style="font-family:'Byekan'; color: #8cff94" class="brand-text">سیما</h3></a></li>
+                        <h3 style="font-family:'Byekan'; color: #f99420" class="brand-text">سیما</h3></a></li>
                 <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse"
                                                   data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a></li>
             </ul>
         </div>
-        <div class="navbar-container content">
+        <div class="navbar-container content" style="background: #132e6b">
             <div class="collapse navbar-collapse" id="navbar-mobile">
                 <ul class="nav navbar-nav mr-auto float-left">
-                    <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs"
+                    <li class="nav-item d-none d-md-block"><a style="color: #f99420;" class="nav-link nav-menu-main menu-toggle hidden-xs"
                                                               href="#"><i class="ft-menu"> </i></a></li>
 
-                    <h3 style="margin: auto;color: #de0d0d;">شرکت ارتباطات پرشیا</h3>
+                    <h3 style="margin: auto;color: #f99420;">شرکت ارتباطات پرشیا</h3>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav float-right">
@@ -280,7 +283,7 @@
                     </li>
 
 
-                    <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#"
+                    <li class="dropdown dropdown-notification nav-item"><a style="color:#f99420" class="nav-link nav-link-label" href="#"
                                                                            data-toggle="dropdown"><i
                                     class="ficon ft-phone"></i></a>
                         <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
@@ -315,13 +318,15 @@
                     </li>
 
 
-                    <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link"
-                                                                   href="#" data-toggle="dropdown"><span
-                                    class="avatar avatar-online"><img
-                                        src="{{ \Auth::user()->avatar ? \Auth::user()->avatar : '/images/logo/logo.png'}}"
-                                        alt="avatar"><i></i></span><span
-                                    class="user-name"  style="color: #de0d0d"> {{ \Auth::user()->name . " " . \Auth::user()->family }} </span></a>
-                        <div class="dropdown-menu dropdown-menu-right">
+                    <li class="dropdown dropdown-user nav-item">
+                        <a style="color: #f99420" class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+                            <span class="avatar avatar-online">
+                                <img src="{{ \Auth::user()->avatar ? \Auth::user()->avatar : '/images/logo/logo.png'}}"
+                                        alt="avatar"><i></i>
+                            </span><span
+                                    class="user-name"  style="color: #f99420"> {{ \Auth::user()->name . " " . \Auth::user()->family }} </span></a>
+                        <div class="dropdown-menu dropdown-menu-right" style="border: 1px solid #f99420;">
+
                             <a class="dropdown-item" href="/profile"><i class="ft-user"></i> تنظیمات حساب کاربری</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/logout"><i class="ft-power"></i> خروج از سامانه</a>
@@ -337,66 +342,76 @@
 
 
 <div class="main-menu menu-fixed menu-dark menu-accordion    menu-shadow " data-scroll-to-active="true">
-    <div class="main-menu-content" style="background: #023154;">
-        <ul style="background: #043a62;" class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" navigation-header"><span data-i18n="nav.category.layouts">ماژول های سامانه</span><i
+    <div class="main-menu-content" style="background: #132e6b;">
+        <ul style="background: #132e6b;" class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li class=" navigation-header" style="color: #f99420;"><span data-i18n="nav.category.layouts">ماژول های سامانه</span><i
                         class="ft-more-horizontal ft-minus" data-toggle="tooltip" data-placement="right"
                         data-original-title="داشبورد"></i>
             </li>
 
 
-            <li class=" {{{ (Request::is('timesheet') ? 'active' : '') }}} nav-item"><a href="/timesheet"><i
-                            class="ft-clipboard"></i><span class="menu-title"
-                                                           data-i18n="nav.dash.main">تایم شیت من</span></a>
-            </li>
-            <li class=" {{{ (Request::is('dashboard') ? 'active' : '') }}} nav-item"><a href="/dashboard"><i
-                        class="icofont icofont-dashboard-web"></i><span class="menu-title"
-                                                                        data-i18n="nav.dash.main">فعالیت های ارجاع شده من</span></a>
+            <li class=" {{{ (Request::is('timesheet') ? 'active' : '') }}} nav-item">
+                <a class="orangeColor" href="/timesheet"><i class="ft-clipboard"></i><span class="menu-title" data-i18n="nav.dash.main">تایم شیت من</span></a>
             </li>
 
-
-
-            <li class="{{{ (Request::is('*tenders*') ? 'active' : '') }}}  nav-item"><a href="/tenders"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.dash.main">کار پذیری</span></a>
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="/avl"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.dash.main">تامین کنندگان کالا و خدمات</span></a>
-
+            <li class=" {{{ (Request::is('dashboard') ? 'active' : '') }}} nav-item">
+                <a class="orangeColor" href="/dashboard"><i class="icofont icofont-dashboard-web"></i><span class="menu-title" data-i18n="nav.dash.main">فعالیت های ارجاع شده من</span></a>
             </li>
 
 
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="/contracts"><i
-                            class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با کارفرمایان</span></a>
-            </li>
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="/SellersContracts"><i
-                            class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با پیمانکاران</span></a>
-            </li>
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="/"><i class="icon-speech"></i><span
-                            class="menu-title" data-i18n="nav.dash.main">آیین نامه ها و دستور العملها</span></a></li>
-            <li style="" class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="/Proceedings"><i
-                            class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.dash.main">صورتجلسات</span></a>
-            </li>
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="/Certificates"><i
-                            class="icon-badge"></i><span class="menu-title" data-i18n="nav.dash.main">رتبه ها و گواهینامه ها</span></a>
+
+            <li class="{{{ (Request::is('*tenders*') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/tenders"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.dash.main">کار پذیری</span></a>
             </li>
 
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="/Certificates"><i
-                            class="icon-phone"></i><span class="menu-title" data-i18n="nav.dash.main">دفترچه تلفن</span></a>
+            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/avl"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.dash.main">تامین کنندگان کالا  </span></a>
+
             </li>
 
 
-            <li style="" class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item"><a href="/Suggestions"><i
-                            class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.dash.main">نظام پیشنهادات و انتقادات</span></a>
+            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/contracts"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با کارفرمایان</span></a>
+            </li>
+
+            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/SellersContracts"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با پیمانکاران</span></a>
+            </li>
+
+            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/"><i class="icon-speech"></i><span class="menu-title" data-i18n="nav.dash.main">آیین نامه ها</span></a>
+            </li>
+
+            <li style="" class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/Proceedings"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.dash.main">صورتجلسات</span></a>
+            </li>
+
+            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/Certificates"><i class="icon-badge"></i><span class="menu-title" data-i18n="nav.dash.main">رتبه ها و گواهینامه ها</span></a>
+            </li>
+
+            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/Certificates"><i class="icon-phone"></i><span class="menu-title" data-i18n="nav.dash.main">دفترچه تلفن</span></a>
+            </li>
+
+
+            <li style="" class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/Suggestions"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.dash.main">نظام پیشنهادات و انتقادات</span></a>
             </li>
 
 
             @can('administrator')
-                <li class="{{{ (Request::is('settings') ? 'active' : '') }}}   nav-item has-sub"><a href="#"><i
-                                class="ft-settings"></i><span class="menu-title" data-i18n="nav.templates.main">تنظیمات سیستم</span></a>
+                <li class="{{{ (Request::is('settings') ? 'active' : '') }}}   nav-item has-sub">
+                    <a class="orangeColor" href="#"><i class="ft-settings"></i><span class="menu-title" data-i18n="nav.templates.main">تنظیمات سیستم</span></a>
+
                     <ul class="menu-content" style="">
-                        <li style="" class="{{{ (Request::is('timesheet/admin') ? 'active' : '') }}}  nav-item"><a
-                                    class="menu-item" href="users" data-i18n="nav.templates.vert.classic_menu">مدیریت
-                                کاربران</a></li>
-                        <li style="" class="{{{ (Request::is('timesheet/admin') ? 'active' : '') }}}  nav-item"><a
-                                    class="menu-item" href="" data-i18n="nav.templates.vert.classic_menu">مدیریت تایم
-                                شیت کارکنان</a></li>
+                        <li style="" class="{{{ (Request::is('timesheet/admin') ? 'active' : '') }}}  nav-item">
+                            <a class="menu-item orangeColor" href="users" data-i18n="nav.templates.vert.classic_menu">مدیریت کاربران</a>
+                        </li>
+
+                        <li style="" class="{{{ (Request::is('timesheet/admin') ? 'active' : '') }}}  nav-item">
+                            <a class="menu-item orangeColor" href="" data-i18n="nav.templates.vert.classic_menu">مدیریت تایم شیت کارکنان</a>
+                        </li>
 
 
                     </ul>

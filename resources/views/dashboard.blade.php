@@ -477,16 +477,16 @@ tspan{
         <div class="col-12">
           <div class="card">
             <div class="card-content">
-              <div class="card-body" style="box-shadow: 4px 4px 15px 0px #000;background-color: #136ca2;">
+              <div class="card-body" style="box-shadow: 4px 4px 15px 0px #000;background-color: #132e6b;">
                 <div class="row">
                   <div class="col-lg-3 col-sm-12 border-right-blue-grey border-right-lighten-5">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
-                        <i class="ft-clipboard font-large-1 float-left mt-1 text-white"></i>
+                        <i class="ft-clipboard font-large-1 float-left mt-1 text-white orangeColor"></i>
                         <span class="font-large-1 text-bold-300 info float-right">{{ $box['1'] }}</span>
                       </div>
                       <div style="text-align: center;font-size: 18px;" class="clearfix">
-                        <span class="text-white">فعالیت های محول شده امروز شما</span>
+                        <span class="text-white orangeColor">فعالیت های محول شده امروز شما</span>
                       </div>
                     </div>
                     <div class="progress mb-0" style="height: 7px;">
@@ -496,11 +496,11 @@ tspan{
                   <div class="col-lg-3 col-sm-12 border-right-blue-grey border-right-lighten-5">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
-                        <i class="ft-check-circle font-large-1 float-left text-white mt-1"></i>
+                        <i class="ft-check-circle font-large-1 float-left text-white mt-1 orangeColor"></i>
                         <span class="font-large-1 text-bold-300 info float-right">{{ $box['2'] }}</span>
                       </div>
                       <div style="text-align: center;font-size: 18px;" class="clearfix">
-                        <span class="text-white">فعالیت های انجام شده امروز شما</span>
+                        <span class="text-white orangeColor">فعالیت های انجام شده امروز شما</span>
                       </div>
                     </div>
                     <div class="progress mb-0" style="height: 7px;">
@@ -513,11 +513,11 @@ tspan{
                   <div class="col-lg-3 col-sm-12 border-right-blue-grey border-right-lighten-5">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
-                        <i class="ft-check-circle font-large-1 text-white float-left mt-1"></i>
+                        <i class="ft-check-circle font-large-1 text-white float-left mt-1 orangeColor"></i>
                         <span class="font-large-1 text-bold-300 warning float-right"> {{ $box['5'] }} </span>
                       </div>
                       <div style="text-align: center;font-size: 18px;" class="clearfix">
-                        <span class="text-white">فعالیت های محول شده این ماه شما</span>
+                        <span class="text-white orangeColor">فعالیت های محول شده این ماه شما</span>
                       </div>
                     </div>
                     <div class="progress mb-0" style="height: 7px;">
@@ -527,11 +527,11 @@ tspan{
                   <div class="col-lg-3 col-sm-12">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
-                        <i class="ft-clipboard font-large-1 text-white float-left mt-1"></i>
+                        <i class="ft-clipboard font-large-1 text-white float-left mt-1 orangeColor"></i>
                         <span class="font-large-1 text-bold-300 warning float-right"> {{ $box['6'] }} </span>
                       </div>
                       <div style="text-align: center;font-size: 18px;" class="clearfix">
-                        <span class="text-white">فعالیت های انجام شده این ماه شما</span>
+                        <span class="text-white orangeColor">فعالیت های انجام شده این ماه شما</span>
                       </div>
                     </div>
                     <div class="progress mb-0" style="height: 7px;">
