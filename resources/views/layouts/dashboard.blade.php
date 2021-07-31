@@ -252,7 +252,7 @@
                                 class="ft-menu font-large-1"></i></a></li>
                 <li class="nav-item"><a class="navbar-brand" href="/dashboard"><img style="display:inline"
                                                                                     class="brand-logo" alt="PersiaTC"
-                                                                                    src="/images/logo/logo-light-sm.png">
+                                                                                    src="/images/logo/logo-light-sm.jpg">
                         <h3 style="font-family:'Byekan'; color: #f99420" class="brand-text">سیما</h3></a></li>
                 <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse"
                                                   data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a></li>
@@ -321,7 +321,7 @@
                     <li class="dropdown dropdown-user nav-item">
                         <a style="color: #f99420" class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                             <span class="avatar avatar-online">
-                                <img src="{{ \Auth::user()->avatar ? \Auth::user()->avatar : '/images/logo/logo.png'}}"
+                                <img src="{{ \Auth::user()->avatar ? \Auth::user()->avatar : '/images/logo/logo-light-sm.jpg'}}"
                                         alt="avatar"><i></i>
                             </span><span
                                     class="user-name"  style="color: #f99420"> {{ \Auth::user()->name . " " . \Auth::user()->family }} </span></a>
@@ -379,19 +379,35 @@
             </li>
 
             <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/"><i class="icon-speech"></i><span class="menu-title" data-i18n="nav.dash.main">آیین نامه ها</span></a>
+                <a class="orangeColor" href="regulations"><i class="icon-speech"></i><span class="menu-title" data-i18n="nav.dash.main">آیین نامه ها</span></a>
             </li>
 
-            <li style="" class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/Proceedings"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.dash.main">صورتجلسات</span></a>
+            <li class="{{{ (Request::is('settings') ? 'active' : '') }}}   nav-item has-sub">
+                <a class="orangeColor" href="#"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.templates.main">  هیات مدیره</span></a>
+
+                <ul class="menu-content" style="">
+                    <li style="" class="{{{ (Request::is('archives') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor" href="archives" data-i18n="nav.templates.vert.classic_menu"> صورتجلسات</a>
+                    </li>
+
+                    <li style="" class="{{{ (Request::is('Proceedings') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor" href="Proceedings" data-i18n="nav.templates.vert.classic_menu"> شورای مدیران  </a>
+                    </li>
+
+
+                </ul>
             </li>
+
+            {{--<li style="" class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">--}}
+                {{--<a class="orangeColor" href="/Proceedings"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.dash.main">صورتجلسات</span></a>--}}
+            {{--</li>--}}
 
             <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/Certificates"><i class="icon-badge"></i><span class="menu-title" data-i18n="nav.dash.main">رتبه ها و گواهینامه ها</span></a>
             </li>
 
             <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/Certificates"><i class="icon-phone"></i><span class="menu-title" data-i18n="nav.dash.main">دفترچه تلفن</span></a>
+                <a class="orangeColor" href="/phoneBooks"><i class="icon-phone"></i><span class="menu-title" data-i18n="nav.dash.main">دفترچه تلفن</span></a>
             </li>
 
 

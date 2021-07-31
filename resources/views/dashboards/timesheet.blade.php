@@ -247,7 +247,7 @@ tspan{
                     <thead>
                       <tr style="text-align: center;">
                         <th>ردیف</th>
-{{--                        <th>تاریخ و زمان ثبت</th>--}}
+                        <th>تاریخ و زمان ثبت</th>
 {{--                        <th>شرح فعالیت</th>--}}
                         <th>نحوه ارجاع کار</th>
                         <th>نام کارفرما</th>
@@ -267,7 +267,7 @@ tspan{
                       @foreach($timesheets as $timesheet)
                       <tr>
                         <td>{{ $timesheet->id }}</td>
-{{--                        <td>{{ jdate($timesheet->created_at) }}</td>--}}
+                        <td>{{ jdate($timesheet->created_at) }}</td>
 {{--                        <td>{{ $timesheet->description }}</td>--}}
                         <td><a href="{{ url('timesheet/show/' . $timesheet->id) }}">{{ $timesheet->assignment }}</a></td>
                           <td><a href="{{ url('timesheet/show/' . $timesheet->id) }}">{{ $timesheet->kaarfarma }}</a></td>
@@ -325,7 +325,7 @@ tspan{
                     <tr style="text-align: center;">
                       <th>ردیف</th>
                       <th>نام و نام خانوادگی</th>
-{{--                      <th>تاریخ و زمان ثبت</th>--}}
+                      <th>تاریخ و زمان ثبت</th>
 {{--                      <th>شرح فعالیت</th>--}}
                       <th>نحوه ارجاع کار</th>
                       <th>نام کارفرما</th>
@@ -346,7 +346,7 @@ tspan{
                       <tr>
                         <td>{{ $personnelTimesheet->id }}</td>
                           <td><a href="{{ url('timesheet/show/' . $personnelTimesheet->id) }}">{{ \App\User::where('id', $personnelTimesheet->user_id)->get()->pluck('name')->first() . ' ' . \App\User::where('id', $personnelTimesheet->user_id)->get()->pluck('family')->first() }}</a></td>
-{{--                        <td>{{ jdate($personnelTimesheet->created_at) }}</td>--}}
+                        <td>{{ jdate($personnelTimesheet->created_at) }}</td>
 {{--                        <td>{{ $personnelTimesheet->description }}</td>--}}
                         <td>{{ $personnelTimesheet->assignment }}</td>
                         <td>{{ $personnelTimesheet->kaarfarma }}</td>

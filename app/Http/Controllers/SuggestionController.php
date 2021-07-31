@@ -6,6 +6,8 @@ use App\Suggestion;
 use App\User;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\AddSuggestionRequest;
+
 class SuggestionController extends Controller
 {
   /**
@@ -22,7 +24,7 @@ class SuggestionController extends Controller
       }
 
       $managers = User::where('position', 'like', '%مدیر%')->get();
-      return view('dashboards.Suggestions', compact('suggestions', 'managers'));
+      return view('dashboards.suggestion.index', compact('suggestions', 'managers'));
 
   }
 
@@ -42,9 +44,8 @@ class SuggestionController extends Controller
   * @param  \Illuminate\Http\Request  $request
   * @return \Illuminate\Http\Response
   */
-  public function store(Request $request)
+  public function store(AddSuggestionRequest $request)
   {
-
 
     if($request->file('attachment')){
       $attachmentFile = $request->file('attachment');

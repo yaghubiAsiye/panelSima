@@ -139,7 +139,7 @@
                                                                 <div class="form-group row last">
                                                                     <label class="col-md-3 label-control" for="description">لینک فایل</label>
                                                                     <div class="col-md-9">
-                                                                        @if($Certificate->contractorFile)
+                                                                        @if($contract->contractorFile)
                                                                             <a href="{{ $contract->contractorFile }}" target="_blank"> <i class="ft-file-text" ></i> دانلود فایل</a>
                                                                         @endif
                                                                     </div>

@@ -120,3 +120,22 @@ Route::get('tenders/edit/{id}','TenderController@edit')->middleware('auth')->nam
 Route::post('tenders/update/{id}','TenderController@update')->middleware('auth')->name('tenders.update');
 Route::get('tenders/delete/{id}','TenderController@destroy')->middleware('auth');
 Route::get('tenders/show/{id}','TenderController@show')->middleware('auth');
+
+
+//phone book
+Route::get('phoneBooks','PhoneBookController@index')->middleware('auth');
+Route::post('phoneBooks','PhoneBookController@store')->middleware('auth');
+Route::get('phoneBook/delete/{id}','PhoneBookController@destroy')->middleware('auth');
+Route::post('phoneBook/update/{id}','PhoneBookController@update')->middleware('auth');
+
+//archives
+Route::get('archives','ArchiveController@index')->middleware('auth');
+Route::post('archives','ArchiveController@store')->middleware('auth');
+Route::get('archive/delete/{id}','ArchiveController@destroy')->middleware('auth');
+Route::post('archive/update/{id}','ArchiveController@update')->middleware('auth');
+
+//regulartions
+Route::get('regulations','RegulationController@index')->middleware('auth');
+Route::post('regulations','RegulationController@store')->middleware('auth');
+Route::get('regulation/delete/{id}','RegulationController@destroy')->middleware('auth');
+Route::post('regulation/update/{id}','RegulationController@update')->middleware('auth');

@@ -577,7 +577,7 @@ tspan{
                 <button  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addTask" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i>  افزودن فعالیت  </span></button><br><br>
                 <div class="card-body card-dashboard">
                   <p class="card-text">در این قسمت میتوانید فعالیت هایی که به دیگران ارجاع داده اید را بررسی نمایید.</p>
-                  <table style="font-family:Byekan;direction: rtl" class="table display nowrap table-striped table-bordered scroll-horizontal file-export ">
+                  <table style="width: 100%;font-family:Byekan;direction: rtl" class="table display nowrap table-striped table-bordered scroll-horizontal file-export ">
                     <thead>
                       <tr style="text-align: center;">
                         <th>ردیف</th>
@@ -615,7 +615,9 @@ tspan{
 {{--                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tdlAssignedToOther->doerAttachment }}"> {!! $tdlAssignedToOther->doerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
 {{--                        <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->created_at) }}</td>--}}
 {{--                        <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->updated_at) }}</td>--}}
-                        <td style="text-align:center;" > <a href="/Tdl/delete/{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px;color: red" class="ft-x-square"></i></a>   <a data-toggle="modal" data-target="#EditOtherTask{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px; color: #3BAFDA" class="ft-edit"></i></a>  </td>
+                        <td style="text-align:center;" > <a href="/Tdl/delete/{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px;color: red" class="ft-x-square"></i></a>
+                          <a data-toggle="modal" data-target="#EditOtherTask{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px; color: #3BAFDA" class="ft-edit"></i></a>
+                        </td>
 
                       </tr>
                       @endforeach

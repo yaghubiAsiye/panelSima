@@ -179,6 +179,8 @@ return [
       'attachmentErsali' => 'فایل پیوست ارسالی',
       'attachmentErsali' => 'فایل پیوست ارسالی',
       'attachmentErsali' => 'فایل پیوست ارسالی',
+        'phone1' => 'شماره تلفن',
+        'personName' => ' نام فرد',
     ],
 
 ];

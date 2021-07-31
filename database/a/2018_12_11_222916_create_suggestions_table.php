@@ -20,7 +20,7 @@ class CreateSuggestionsTable extends Migration
           $table->string('addedById');
           $table->string('addedByName');
           $table->string('scope');
-          $table->string('status');
+          $table->string('status')->nullable();
           $table->string('attachment')->nullable();
           $table->string('doerDescription')->nullable();
           $table->timestamps();

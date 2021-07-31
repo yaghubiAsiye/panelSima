@@ -21,6 +21,10 @@ public function ResidenceMembers(){
   return $this->hasMany('App\ResidenceMember');
 }
 
+    public function regulations(){
+        return $this->hasMany('App\Regulation');
+    }
+
   // public static function isAdmin(){
   //   return $this->isAdmin;
   // }
