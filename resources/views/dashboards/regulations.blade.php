@@ -212,10 +212,7 @@
                                                 </td>
                                                 <td style="direction: ltr;">{{ jdate($archive->created_at) }}</td>
 
-                                                <td>
-                                                    {{ $archive->title }}
-                                                </td>
-
+                                             
                                                 <td>
                                                     {{ $archive->user->name . " " . $archive->user->family }}<
                                                 </td>
