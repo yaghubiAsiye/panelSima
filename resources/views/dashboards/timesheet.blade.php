@@ -117,14 +117,14 @@ tspan{
 
 
             <div class="form-group row">
-              <label class="col-md-3 label-control"  for="startHour">ساعت شروع <sup style="color: red; font-size: 18px" >*</sup></label>
+              <label class="col-md-3 label-control"  for="startHour">ساعت شروع </label>
               <div class="col-md-9">
                 <input type="text" id="startHour"  placeholder="مثال: 12:10" class="form-control" name="startHour">
               </div>
             </div>
 
             <div class="form-group row">
-              <label class="col-md-3 label-control"  for="endHour">ساعت پایان <sup style="color: red; font-size: 18px" >*</sup> </label>
+              <label class="col-md-3 label-control"  for="endHour">ساعت پایان </label>
               <div class="col-md-9">
                 <input type="text" id="endHour"  placeholder="مثال: 10:25" class="form-control" name="endHour">
               </div>

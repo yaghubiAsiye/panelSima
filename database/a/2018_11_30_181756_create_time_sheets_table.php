@@ -19,8 +19,8 @@ class CreateTimeSheetsTable extends Migration
             $table->string('assignment');
             $table->string('kaarfarma');
             $table->string('projectName');
-            $table->string('startHour');
-            $table->string('endHour');
+            $table->string('startHour')->nullable();
+            $table->string('endHour')->nullable();
             $table->string('minutes');
             $table->string('holdpoint');
             $table->text('result');
