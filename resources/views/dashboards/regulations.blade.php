@@ -212,7 +212,7 @@
                                                 </td>
                                                 <td style="direction: ltr;">{{ jdate($archive->created_at) }}</td>
 
-                                             
+
                                                 <td>
                                                     {{ $archive->user->name . " " . $archive->user->family }}<
                                                 </td>
@@ -230,7 +230,7 @@
 
 
                                                     <a onclick="return confirm('آیا برای حذف اطمینان دارید؟');"
-                                                       href="archive/delete/{{ $archive->id }} "><i
+                                                       href="regulation/delete/{{ $archive->id }} "><i
                                                                 style="font-size: 20px" class="ft-x-square danger"></i>
                                                     </a></td>
                                             </tr>

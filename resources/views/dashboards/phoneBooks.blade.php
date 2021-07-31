@@ -312,7 +312,7 @@
 
 
                                                     <a onclick="return confirm('آیا برای حذف اطمینان دارید؟');"
-                                                       href="phoneBooks/delete/{{ $phoneBook->id }} "><i
+                                                       href="phoneBook/delete/{{ $phoneBook->id }} "><i
                                                                 style="font-size: 20px" class="ft-x-square danger"></i>
                                                     </a></td>
                                             </tr>
