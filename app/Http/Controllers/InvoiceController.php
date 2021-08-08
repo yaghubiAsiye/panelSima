@@ -6,6 +6,7 @@ use App\Invoice;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Http\Requests\AddInvoiceRequest;
 
 class InvoiceController extends Controller
 {
@@ -37,7 +38,7 @@ class InvoiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddInvoiceRequest $request)
     {
 //        dd($request);
         $total = 0;
