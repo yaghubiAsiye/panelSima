@@ -45,6 +45,8 @@ class PhoneBookController extends Controller
             'address' => $request->address,
             'personName' => $request->personName,
             'company' => $request->company,
+            'type_company' => $request->type_company,
+
             'phone1' => $request->phone1,
             'phone2' => $request->phone2,
             'phone3' => $request->phone3,
@@ -106,6 +108,7 @@ class PhoneBookController extends Controller
         $phoneBook->phone1 = $request->phone1;
         $phoneBook->phone2 = $request->phone2;
         $phoneBook->phone3 = $request->phone3;
+        $phoneBook->type_company = $request->type_company;
 
         $phoneBook->update();
 

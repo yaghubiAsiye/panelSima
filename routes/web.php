@@ -129,7 +129,7 @@ Route::get('phoneBook/delete/{id}','PhoneBookController@destroy')->middleware('a
 Route::post('phoneBook/update/{id}','PhoneBookController@update')->middleware('auth');
 
 //archives
-Route::get('archives','ArchiveController@index')->middleware('auth');
+Route::get('archives/{type}','ArchiveController@index')->middleware('auth');
 Route::post('archives','ArchiveController@store')->middleware('auth');
 Route::get('archive/delete/{id}','ArchiveController@destroy')->middleware('auth');
 Route::post('archive/update/{id}','ArchiveController@update')->middleware('auth');
@@ -139,3 +139,15 @@ Route::get('regulations','RegulationController@index')->middleware('auth');
 Route::post('regulations','RegulationController@store')->middleware('auth');
 Route::get('regulation/delete/{id}','RegulationController@destroy')->middleware('auth');
 Route::post('regulation/update/{id}','RegulationController@update')->middleware('auth');
+
+
+//invoices
+Route::get('invoices','InvoiceController@index')->middleware('auth');
+Route::post('invoices','InvoiceController@store')->middleware('auth');
+Route::get('invoice/create','InvoiceController@create')->middleware('auth');
+Route::get('invoice/delete/{id}','InvoiceController@destroy')->middleware('auth');
+Route::post('invoice/update/{id}','InvoiceController@update')->middleware('auth');
+
+//excel
+Route::get('downloadExcel/{id}', 'ExcelController@downloadExcel');
+Route::get('invoiceExcel/{id}', 'ExcelController@viewExcel');

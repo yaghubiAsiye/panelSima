@@ -18,8 +18,10 @@ class CreateArchivesTable extends Migration
             $table->string('type')->nullable();
             $table->string('number')->nullable();
             $table->string('file')->nullable();
-            $table->string('meetingDate')->nullable();
-            $table->timestamp('date')->nullable();
+//            $table->string('meetingDate')->nullable();
+            $table->timestamp('meetingDate')->nullable();
+
+//            $table->timestamp('date')->nullable();
 
 
             $table->timestamps();

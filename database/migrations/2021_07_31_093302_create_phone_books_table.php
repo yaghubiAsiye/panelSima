@@ -17,6 +17,8 @@ class CreatePhoneBooksTable extends Migration
             $table->increments('id');
             $table->string('personName')->nullable();
             $table->string('company')->nullable();
+            $table->string('type_company')->nullable();
+
             $table->string('fax')->nullable();
             $table->string('email')->nullable();
             $table->string('address')->nullable();

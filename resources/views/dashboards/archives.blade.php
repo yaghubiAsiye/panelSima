@@ -42,7 +42,7 @@
 
 
                     <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post"
-                          action="archives" class="form form-horizontal form-bordered striped-rows">
+                          action="{{ url('archives') }}" class="form form-horizontal form-bordered striped-rows">
                         @csrf
 
 
@@ -50,29 +50,37 @@
 
 
                             <div class="form-group row">
-                                <label class="col-md-3 label-control" for="number">تاریخ جلسه  </label>
+                                <label class="col-md-3 label-control" for="date">تاریخ جلسه</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="meetingDate">
-
+                                    <input style="font-family:Byekan" class="form-control" style="" placeholder="کلیک کنید" name="date" type="text" id="input1"/>
                                 </div>
                             </div>
 
+                            {{--<div class="form-group row">--}}
+                                {{--<label class="col-md-3 label-control" for="number">تاریخ جلسه  </label>--}}
+                                {{--<div class="col-md-9">--}}
+                                    {{--<input type="text" class="form-control" name="meetingDate">--}}
 
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="type"> نوع جلسه </label>
-                                <div class="col-md-9">
-                                    <select type="text" class="form-control" name="type">
-                                        <option value="هیات مدیره">هیات مدیره</option>
-                                        <option value="شورای مدیران">شورای مدیران</option>
-                                        <option value="جلسه با مدیربازرگانی">جلسه با مدیربازرگانی</option>
-                                        <option value="جلسه با مدیر فنی">جلسه با مدیر فنی</option>
-                                        <option value="جلسه با مدیر مالی">جلسه با مدیر مالی</option>
-                                        <option value="سایر">سایر</option>
+                                {{--</div>--}}
+                            {{--</div>--}}
 
 
-                                    </select>
-                                </div>
-                            </div>
+                            <input type="hidden" name="type" value="{{ $type }}">
+                            {{--<div class="form-group row">--}}
+                                {{--<label class="col-md-3 label-control" for="type"> نوع جلسه </label>--}}
+                                {{--<div class="col-md-9">--}}
+                                    {{--<select type="text" class="form-control" name="type">--}}
+                                        {{--<option value="هیات مدیره">هیات مدیره</option>--}}
+                                        {{--<option value="شورای مدیران">شورای مدیران</option>--}}
+                                        {{--<option value="جلسه با مدیربازرگانی">جلسه با مدیربازرگانی</option>--}}
+                                        {{--<option value="جلسه با مدیر فنی">جلسه با مدیر فنی</option>--}}
+                                        {{--<option value="جلسه با مدیر مالی">جلسه با مدیر مالی</option>--}}
+                                        {{--<option value="سایر">سایر</option>--}}
+
+
+                                    {{--</select>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
 
 
@@ -136,28 +144,37 @@
                             @csrf
                             <div class="form-body">
 
-                                <div  class="form-group row">
-                                    <label class="col-md-3 label-control" for="id"> تاریخ جلسه</label>
-                                    <div class="col-md-9">
-                                        <input type="text"  value="{{ $phoneBook->meetingDate }}" class="form-control" name="meetingDate" >
-                                    </div>
-                                </div>
 
                                 <div class="form-group row">
-                                    <label class="col-md-3 label-control" for="id">نوع جلسه</label>
+                                    <label class="col-md-3 label-control" for="date">تاریخ جلسه</label>
                                     <div class="col-md-9">
-                                        <select type="text" class="form-control" name="type">
-                                            <option {{  $phoneBook->priority == "هیات مدیره" ? "selected"  : ""  }}  value="هیات مدیره">هیات مدیره</option>
-                                            <option {{  $phoneBook->priority == "شورای مدیران" ? "selected"  : ""  }}  value="شورای مدیران">شورای مدیران</option>
-                                            <option {{  $phoneBook->priority == "جلسه با مدیربازرگانی" ? "selected"  : ""  }}  value="جلسه با مدیربازرگانی">جلسه با مدیربازرگانی</option>
-                                            <option {{  $phoneBook->priority == "جلسه با مدیر فنی" ? "selected"  : ""  }}  value="جلسه با مدیر فنی">جلسه با مدیر فنی</option>
-                                            <option {{  $phoneBook->priority == "جلسه با مدیر مالی" ? "selected"  : ""  }} value="جلسه با مدیر مالی">جلسه با مدیر مالی</option>
-                                            <option {{  $phoneBook->priority == "سایر" ? "selected"  : ""  }} value="سایر">سایر</option>
-
-                                        </select>
-
+                                        <input style="font-family:Byekan" class="form-control" style="" placeholder="کلیک کنید" name="date" type="text" id="input1"/>
                                     </div>
                                 </div>
+                                <input type="hidden" name="type" value="{{ $type }}">
+
+                                {{--<div  class="form-group row">--}}
+                                    {{--<label class="col-md-3 label-control" for="id"> تاریخ جلسه</label>--}}
+                                    {{--<div class="col-md-9">--}}
+                                        {{--<input type="text"  value="{{ $phoneBook->meetingDate }}" class="form-control" name="meetingDate" >--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+
+                                {{--<div class="form-group row">--}}
+                                    {{--<label class="col-md-3 label-control" for="id">نوع جلسه</label>--}}
+                                    {{--<div class="col-md-9">--}}
+                                        {{--<select type="text" class="form-control" name="type">--}}
+                                            {{--<option {{  $phoneBook->priority == "هیات مدیره" ? "selected"  : ""  }}  value="هیات مدیره">هیات مدیره</option>--}}
+                                            {{--<option {{  $phoneBook->priority == "شورای مدیران" ? "selected"  : ""  }}  value="شورای مدیران">شورای مدیران</option>--}}
+                                            {{--<option {{  $phoneBook->priority == "جلسه با مدیربازرگانی" ? "selected"  : ""  }}  value="جلسه با مدیربازرگانی">جلسه با مدیربازرگانی</option>--}}
+                                            {{--<option {{  $phoneBook->priority == "جلسه با مدیر فنی" ? "selected"  : ""  }}  value="جلسه با مدیر فنی">جلسه با مدیر فنی</option>--}}
+                                            {{--<option {{  $phoneBook->priority == "جلسه با مدیر مالی" ? "selected"  : ""  }} value="جلسه با مدیر مالی">جلسه با مدیر مالی</option>--}}
+                                            {{--<option {{  $phoneBook->priority == "سایر" ? "selected"  : ""  }} value="سایر">سایر</option>--}}
+
+                                        {{--</select>--}}
+
+                                    {{--</div>--}}
+                                {{--</div>--}}
 
                                 <div  class="form-group row">
 
@@ -225,7 +242,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> صورتجلسات</h4>
+                                <h4 class="card-title"> صورتجلسات  {{ $type }} </h4>
                                 <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -248,7 +265,7 @@
                                             <th>  شماره جلسه</th>
                                             <th> تاریخ جلسه</th>
                                             <th>مشاهده فایل</th>
-                                            <th> نوع جلسه</th>
+                                            {{--<th> نوع جلسه</th>--}}
                                             <th>عملیات</th>
                                         </tr>
                                         </thead>
@@ -260,12 +277,17 @@
                                                 <td>
                                                     {{ $archive->number }}
                                                 </td>
-                                                <td>{{ $archive->meetingDate }}</td>
+                                                <td>{{ jdate($archive->meetingDate) }}</td>
                                                 <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " >
-                                                    <a target="_blank" href="{{ $archive->file }}"> {!! $archive->file !== "storage/archive/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
+                                                    @if($archive->file == "storage/archive/nothing")
+                                                        ---
+                                                    @else
+                                                        <a target="_blank" href="/{{ $archive->file }}"> {!! $archive->file !== "storage/archive/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a>
+                                                    @endif
+                                                </td>
 
 
-                                                <td>{{ $archive->type }}</td>
+{{--                                                <td>{{ $archive->type }}</td>--}}
 
 
 

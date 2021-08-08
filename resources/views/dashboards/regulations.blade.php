@@ -214,7 +214,7 @@
 
 
                                                 <td>
-                                                    {{ $archive->user->name . " " . $archive->user->family }}<
+                                                    {{ $archive->user->name . " " . $archive->user->family }}
                                                 </td>
 
                                                 <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " >

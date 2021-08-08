@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Archive;
+use Morilog\Jalali\CalendarUtils;
 
 class ArchiveController extends Controller
 {
@@ -12,10 +13,10 @@ class ArchiveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($type)
     {
-        $archives = Archive::all();
-        return view('dashboards.archives', compact('archives'));
+        $archives = Archive::where('type', $type)->get();
+        return view('dashboards.archives', compact('archives', 'type'));
 
     }
 
@@ -37,6 +38,16 @@ class ArchiveController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->date);
+//        $Jalalian = '1400/5/10';
+
+//        $dateTime = \Morilog\Jalali\CalendarUtils::createDatetimeFromFormat('Y/n/j', $request->date);
+//
+//        dd($dateTime);
+//        dd(\Morilog\Jalali\CalendarUtils::toGregorian(1395, 2, 18));
+//        dd(Morilog\Jalali\Facades\jDate::toGregorian($request->date));
+//        dd($request->date);
+
 
         if($request->file('file')){
             $file = $request->file('file');
@@ -49,8 +60,8 @@ class ArchiveController extends Controller
         $phoneBook = Archive::forceCreate([
             'type' => $request->type,
             'number' => $request->number,
-            'file' => $fileName,
-            'meetingDate' => $request->meetingDate,
+            'file' => 'storage/archive/' .$fileName,
+            'meetingDate' => \Morilog\Jalali\CalendarUtils::createDatetimeFromFormat('Y/n/j', $request->date),
 
         ]);
 
@@ -64,6 +75,8 @@ class ArchiveController extends Controller
         ));
 
         return redirect()->back();
+
+//        return redirect()->url('archives/' . $request->type);
 
     }
 
@@ -101,6 +114,7 @@ class ArchiveController extends Controller
         $phoneBook = Archive::findOrFail($id);
 
 
+
         if($request->file('file'))
         {
             $attachmentFile = $request->file('file');
@@ -118,7 +132,8 @@ class ArchiveController extends Controller
         $phoneBook->type = $request->type;
         $phoneBook->number = $request->number;
         $phoneBook->file = $request->file;
-        $phoneBook->meetingDate = $request->meetingDate;
+        $phoneBook->meetingDate = toGregorian($request->date);
+
 
         $phoneBook->update();
 

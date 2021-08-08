@@ -45,19 +45,26 @@
                         @csrf
                         <div style="font-family:byekan" class="form-body">
 
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="number">نام فرد </label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="personName">
 
+                            <div class="form-group row">
+                                {{--<label class="col-md-3 label-control" for="number">  شرکت یا کارفرما </label>--}}
+                                <div class="col-md-3 label-control">
+                                    <select type="text" class="form-control" name="type_company">
+                                        <option value="شرکت">نام شرکت</option>
+                                        <option value="کارفرما"> نام کارفرما</option>
+                                        <option value="پیمانکار">نام پیمانکار</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="company">
                                 </div>
                             </div>
 
-
                             <div class="form-group row">
-                                <label class="col-md-3 label-control" for="number">  شرکت یا کارفرما </label>
+                                <label class="col-md-3 label-control" for="number">نام نماینده </label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="company">
+                                    <input type="text" class="form-control" name="personName">
+
                                 </div>
                             </div>
 
@@ -146,17 +153,26 @@
                             @csrf
                             <div class="form-body">
 
+
+
+                                <div class="form-group row">
+                                    {{--<label class="col-md-3 label-control" for="id"> شرکت یا کارفرما</label>--}}
+                                    <div class="col-md-3 label-control">
+                                        <select type="text" class="form-control" name="type_company">
+                                            <option {{  $phoneBook->type_company == "شرکت" ? "selected"  : ""  }} value="شرکت">نام شرکت</option>
+                                            <option {{  $phoneBook->type_coشرکتmpany == "کارفرما" ? "selected"  : ""  }} value="کارفرما"> نام کارفرما</option>
+                                            <option {{  $phoneBook->type_company == "پیمانکار" ? "selected"  : ""  }} value="پیمانکار">نام پیمانکار</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text"  value="{{ $phoneBook->company }}" class="form-control" name="company" >
+                                    </div>
+                                </div>
+
                                 <div  class="form-group row">
                                     <label class="col-md-3 label-control" for="id">نام فرد</label>
                                     <div class="col-md-9">
                                         <input type="text"  value="{{ $phoneBook->personName }}" class="form-control" name="personName" >
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label class="col-md-3 label-control" for="id"> شرکت یا کارفرما</label>
-                                    <div class="col-md-9">
-                                        <input type="text"  value="{{ $phoneBook->company }}" class="form-control" name="company" >
                                     </div>
                                 </div>
 
@@ -273,9 +289,10 @@
                                            class="table display nowrap table-striped table-bordered scroll-horizontal">
                                         <thead style="text-align:center">
                                         <tr style="text-align:center">
-                                            <th>نام فرد</th>
+
+                                            <th> شرکت/کارفرما/پیمانکار</th>
+                                            <th>نام نماینده</th>
                                             <th>  تلفن</th>
-                                            <th> شرکت /کارفرما</th>
                                             <th>فکس</th>
                                             <th> ایمیل</th>
                                             <th> آدرس</th>
@@ -285,6 +302,8 @@
                                         <tbody>
                                         @foreach($phoneBooks as $phoneBook)
                                             <tr>
+
+                                                <td>{{ $phoneBook->type_company }} {{ $phoneBook->company }}</td>
 
                                                 <td style="white-space: normal;">{{ $phoneBook->personName }}</td>
                                                 <td>
@@ -297,7 +316,6 @@
                                                     <br>
 
                                                 </td>
-                                                <td>{{ $phoneBook->company }}</td>
                                                 <td>{{ $phoneBook->fax }}</td>
                                                 <td>{{ $phoneBook->email }}</td>
                                                 <td>{{ $phoneBook->address }}</td>
