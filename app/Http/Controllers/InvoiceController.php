@@ -63,7 +63,7 @@ class InvoiceController extends Controller
         foreach ($rows as $row)
         {
 
-            $total_price = $row['unit_price'] * $row['unit'];
+            $total_price = $row['unit_price'] * $row['number'];
             $total += $total_price;
 
             $objects[] = [

@@ -15,10 +15,10 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('number')->nullable()->comment('تعداد');
+            $table->integer('number')->nullable()->comment('تعداد');
             $table->string('unit')->nullable()->comment('واحد');
-            $table->string('unit_price')->nullable()->comment('قیمت واحد');
-            $table->string('total_price')->nullable()->comment('جمع');
+            $table->bigInteger('unit_price')->nullable()->comment('قیمت واحد');
+            $table->bigInteger('total_price')->nullable()->comment('جمع');
             $table->text('description')->nullable()->comment('شرح کالا');
             $table->bigInteger('invoice_id')->nullable();
             $table->foreign('invoice_id')->references('id')->on('invoices');
