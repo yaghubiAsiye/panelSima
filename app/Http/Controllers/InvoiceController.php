@@ -54,7 +54,7 @@ class InvoiceController extends Controller
             'postal_code' => $request->postal_code,
             'national_code' => $request->national_code,
             'registration_number' => $request->registration_number,
-            'discount' => $request->discount,
+//            'discount' => $request->discount,
 
         ]);
 

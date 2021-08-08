@@ -127,11 +127,11 @@
                                                                     <input type="text" id="registration_number" class="form-control" name="registration_number">
                                                                 </div>
 
-                                                                <div class="col-md-1"></div>
-                                                                <label style="padding-top:0px;" class="col-md-2 label-control" >تخفیف: </label>
-                                                                <div class="col-md-9" style="padding-top:0px;">
-                                                                    <input type="text" id="discount" class="form-control" name="discount" placeholder="بدون درصد وارد شود">
-                                                                </div>
+                                                                {{--<div class="col-md-1"></div>--}}
+                                                                {{--<label style="padding-top:0px;" class="col-md-2 label-control" >تخفیف: </label>--}}
+                                                                {{--<div class="col-md-9" style="padding-top:0px;">--}}
+                                                                    {{--<input type="text" id="discount" class="form-control" name="discount" placeholder="بدون درصد وارد شود">--}}
+                                                                {{--</div>--}}
 
                                                             </div>
 
