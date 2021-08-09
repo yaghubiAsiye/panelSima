@@ -329,7 +329,7 @@
 
                                                 <td style="text-align:center;color: #3BAFDA">
 
-                                                    <a href="{{ url('downloadExcel/' . $invoice->id) }}" ><i style="font-size: 20px" class="ft-download-cloud"></i></a>
+                                                    <a href="{{ URL::to('downloadExcel/xlsx/' . $invoice->id) }}" ><i style="font-size: 20px" class="ft-download-cloud"></i></a>
 
                                                     {{--<a data-toggle="modal" data-target="#ReferralsTdl{{ $invoice->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>--}}
 
