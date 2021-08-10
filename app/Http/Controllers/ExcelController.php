@@ -27,11 +27,18 @@ class ExcelController extends Controller
         $invoice =  Invoice::findOrFail($id);
 
 //        $type2 = 'xls';
+
+        dd(Excel::create('invoice', function($excel) use ($invoice) {
+            $excel->sheet('mysheet', function($sheet) use($invoice) {
+                $sheet->loadView('dashboards.invoices.invoiceExcel')->with('invoice', $invoice);
+            });
+        }));
+
         return Excel::create('invoice', function($excel) use ($invoice) {
            $excel->sheet('mysheet', function($sheet) use($invoice) {
               $sheet->loadView('dashboards.invoices.invoiceExcel')->with('invoice', $invoice);
            });
-        })->download('xls');
+            })->download('xls');
 
     }
 }
