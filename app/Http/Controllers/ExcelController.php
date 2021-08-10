@@ -31,7 +31,7 @@ class ExcelController extends Controller
            $excel->sheet('mysheet', function($sheet) use($invoice) {
               $sheet->loadView('dashboards.invoices.invoiceExcel')->with('invoice', $invoice);
            });
-        })->download('csv');
+        })->download('xlsx');
 
     }
 }
