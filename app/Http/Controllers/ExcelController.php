@@ -23,7 +23,7 @@ class ExcelController extends Controller
     public function downloadExcel($id)
     {
 
-        dd($id);
+//        dd($id);
         $invoice =  Invoice::findOrFail($id);
 
 //        $type2 = 'xls';
