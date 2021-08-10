@@ -149,5 +149,5 @@ Route::get('invoice/delete/{id}','InvoiceController@destroy')->middleware('auth'
 Route::post('invoice/update/{id}','InvoiceController@update')->middleware('auth');
 
 //excel
-Route::get('downloadExcel/{type}/{id}', 'ExcelController@downloadExcel');
+Route::get('downloadExcel/{id}', 'ExcelController@downloadExcel');
 Route::get('invoiceExcel/{id}', 'ExcelController@viewExcel');

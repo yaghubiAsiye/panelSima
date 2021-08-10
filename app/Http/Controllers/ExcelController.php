@@ -20,13 +20,12 @@ class ExcelController extends Controller
         return view('dashboards.invoices.invoiceExcel', compact('invoice'));
     }
 
-    public function downloadExcel($type, $id)
+    public function downloadExcel($id)
     {
 
-        dd($type);
         $invoice =  Invoice::findOrFail($id);
 
-        $type2 = 'xls';
+//        $type2 = 'xls';
         return Excel::create('invoice', function($excel) use ($invoice) {
            $excel->sheet('mysheet', function($sheet) use($invoice) {
               $sheet->loadView('dashboards.invoices.invoiceExcel')->with('invoice', $invoice);
