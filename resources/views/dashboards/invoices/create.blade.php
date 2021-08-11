@@ -150,6 +150,9 @@
                                                                 <div class="col-md-9">
                                                                     <select type="text" id="unit" class="form-control" name="row[0][unit]">
                                                                         <option value="عدد">عدد</option>
+                                                                        <option value="متر">متر</option>
+                                                                        <option value="دستگاه">دستگاه</option>
+
                                                                     </select>
                                                                 </div>
                                                                 <label class="col-md-3 label-control" > قیمت واحد  </label>

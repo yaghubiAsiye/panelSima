@@ -167,7 +167,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title">لیست قرارداد های جاری </h4>
+              <h4 class="card-title">لیست قرارداد با کارفرمایان </h4>
               <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
               <div class="heading-elements">
                 <ul class="list-inline mb-0">
@@ -187,12 +187,12 @@
                       <th>ردیف</th>
                       <th>عنوان قرارداد</th>
 {{--                      <th>موضوع قرارداد</th>--}}
-                      <th>نام پیمانکار</th>
-                      <th>مبلغ قرارداد</th>
+                      <th>نام کارفرما</th>
+                      {{--<th>مبلغ قرارداد</th>--}}
 {{--                      <th>نحوه پرداخت </th>--}}
-{{--                      <th>مدت قرارداد</th>--}}
-{{--                      <th>تاریخ شروع</th>--}}
-{{--                      <th>تاریخ پایان</th>--}}
+                      <th>مدت قرارداد</th>
+                      <th>تاریخ شروع</th>
+                      <th>تاریخ پایان</th>
 {{--                      <th>نوع تضمین</th>--}}
 {{--                      <th>ناظر قرارداد </th>--}}
 {{--                      <th>توضیحات</th>--}}
@@ -208,12 +208,12 @@
                       <td>{{ $contract->id }}</td>
                         <td style="white-space: normal"><a href="{{ url('contracts/show/' . $contract->id) }}">{{ $contract->onvan }}</a></td>
 {{--                      <td>{{ $contract->mozoo }}</td>--}}
-                      <td>{{ $contract->peymankar }}</td>
-                      <td>{{ $contract->mablagh }}</td>
+                      <td style="white-space: normal">{{ $contract->peymankar }}</td>
+                      {{--<td>{{ $contract->mablagh }}</td>--}}
 {{--                      <td>{{ $contract->pardakht }}</td>--}}
-{{--                      <td>{{ $contract->moddat }}</td>--}}
-{{--                      <td>{{ $contract->from }}</td>--}}
-{{--                      <td>{{ $contract->to }}</td>--}}
+                      <td style="white-space: normal">{{ $contract->moddat }}</td>
+                      <td style="white-space: normal">{{ $contract->from }}</td>
+                      <td style="white-space: normal">{{ $contract->to }}</td>
 {{--                      <td>{{ $contract->tazmin }}</td>--}}
 {{--                      <td>{{ $contract->nazer }}</td>--}}
 {{--                      <td>{{ $contract->description }}</td>--}}

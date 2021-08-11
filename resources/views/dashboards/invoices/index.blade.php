@@ -278,6 +278,8 @@
                                             {{--<th> شناسه ملی</th>--}}
                                             {{--<th> شماره ثبت</th>--}}
                                             <th> مبلغ کل</th>
+                                            <th> صادرکننده</th>
+
                                             <th>دانلود اکسل</th>
                                         </tr>
                                         </thead>
@@ -291,7 +293,9 @@
                                                     {{ $invoice->No }}
                                                 </td>
 
-                                                <td style="direction: ltr;">{{ jdate($invoice->date) }}</td>
+                                                <td style="direction: ltr;">
+                                                    {{ jdate($invoice->date) }}
+                                                </td>
 
                                                 <td>
                                                     <a data-toggle="modal" data-target="#ReferralsTdl{{ $invoice->id }}" >
@@ -324,13 +328,17 @@
                                                 <td>
                                                     {{ $invoice->final_total }}
                                                 </td>
-
+                                                <td>
+                                                    {{ $invoice->user->name ?? ''. " " . $invoice->user->family ?? ''}}
+                                                </td>
 
 
                                                 <td style="text-align:center;color: #3BAFDA">
 
-                                                    <a href="{{ URL::to('downloadExcel/' . $invoice->id) }}" ><i style="font-size: 20px" class="ft-download-cloud"></i></a>
-
+{{--                                                    <a href="{{ URL::to('downloadExcel/' . $invoice->id) }}" ><i style="font-size: 20px" class="ft-download-cloud"></i></a>--}}
+                                                    <a href="{{ URL::to('downloadExcel/xls/'. $invoice->id) }}" class="btn btn-success"> xls</a>
+                                                    <a href="{{ URL::to('downloadExcel/xlsx/'. $invoice->id) }}" class="btn btn-success"> xlsx</a>
+                                                    <a href="{{ URL::to('downloadExcel/csv/'. $invoice->id) }}" class="btn btn-success"> CSV</a>
                                                     {{--<a data-toggle="modal" data-target="#ReferralsTdl{{ $invoice->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>--}}
 
 

@@ -12,7 +12,7 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ExcelController extends Controller
 {
-    public function viewExcel($id)
+    public function viewExcel( $id)
     {
 
         $invoice =  Invoice::findOrFail($id);
@@ -20,25 +20,19 @@ class ExcelController extends Controller
         return view('dashboards.invoices.invoiceExcel', compact('invoice'));
     }
 
-    public function downloadExcel($id)
+    public function downloadExcel($type, $id)
     {
 
-//        dd($id);
         $invoice =  Invoice::findOrFail($id);
 
 //        $type2 = 'xls';
 
-        dd(Excel::create('invoice', function($excel) use ($invoice) {
-            $excel->sheet('mysheet', function($sheet) use($invoice) {
-                $sheet->loadView('dashboards.invoices.invoiceExcel')->with('invoice', $invoice);
-            });
-        }));
 
         return Excel::create('invoice', function($excel) use ($invoice) {
            $excel->sheet('mysheet', function($sheet) use($invoice) {
               $sheet->loadView('dashboards.invoices.invoiceExcel')->with('invoice', $invoice);
            });
-            })->download('xls');
+            })->download($type);
 
     }
 }

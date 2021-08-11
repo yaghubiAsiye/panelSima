@@ -56,9 +56,9 @@
 
 
             <div class="form-group row">
-              <label class="col-md-3 label-control" for="contractor">طرف دوم قرارداد </label>
+              <label class="col-md-3 label-control" for="contractor">نام پیمانکار </label>
               <div class="col-md-9">
-                <input type="text" id="contractor" class="form-control" placeholder="طرف دوم قرارداد" name="tarafedovvom">
+                <input type="text" id="contractor" class="form-control" placeholder="نام پیمانکار" name="tarafedovvom">
               </div>
             </div>
 
@@ -168,7 +168,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title">لیست قرارداد های فروشندگان</h4>
+              <h4 class="card-title">لیست قرارداد با فروشندگان یا پیمانکاران</h4>
               <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
               <div class="heading-elements">
                 <ul class="list-inline mb-0">
@@ -188,7 +188,7 @@
                       <th>ردیف</th>
                       <th>عنوان قرارداد</th>
 {{--                      <th>موضوع قرارداد</th>--}}
-                      <th>طرف دوم قرارداد</th>
+                      <th>نام پیمانکار</th>
 {{--                      <th>مبلغ ماهیانه</th>--}}
 {{--                      <th>مبلغ سالیانه</th>--}}
                       <th>مدت قرارداد</th>

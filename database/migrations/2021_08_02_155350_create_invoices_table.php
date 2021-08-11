@@ -27,6 +27,7 @@ class CreateInvoicesTable extends Migration
             $table->string('national_code')->nullable()->comment('شناسه ملی');
             $table->string('registration_number')->nullable()->comment('شماره ثبت');
             $table->bigInteger('tax')->nullable()->comment('مالیاات بر ارزش افزوده');
+            $table->unsignedInteger('user_id');
 
             $table->bigInteger('total')->nullable()->comment(' جمع به ریال');
             $table->bigInteger('final_total')->nullable()->comment('مبلغ کل پس از اعمال ارزش افزوده به ریال');
