@@ -391,7 +391,7 @@
 
                 <ul class="menu-content" style="">
                     <li style="" class="{{{ (Request::is('archives') ? 'active' : '') }}}  nav-item">
-                        <a class="menu-item orangeColor" href="{{ url('archives/هیات مدیره') }}" data-i18n="nav.templates.vert.classic_menu"> هیئت مدیره</a>
+                        <a class="menu-item orangeColor" href="{{ url('archives/هیئت مدیره') }}" data-i18n="nav.templates.vert.classic_menu"> هیات مدیره</a>
                     </li>
 
                     <li style="" class="{{{ (Request::is('archives') ? 'active' : '') }}}  nav-item">
