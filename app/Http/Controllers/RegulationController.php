@@ -47,7 +47,7 @@ class RegulationController extends Controller
 
         $phoneBook = Regulation::forceCreate([
             'title' => $request->title,
-            'file' => $fileName,
+            'file' => 'storage/regulations/' .$fileName,
             'user_id' => \Auth::user()->id,
 
         ]);
