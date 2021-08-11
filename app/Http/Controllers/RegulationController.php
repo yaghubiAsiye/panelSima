@@ -106,7 +106,7 @@ class RegulationController extends Controller
             $attachmentFile->move('storage/regulations', $attachmentFileName);
 
             if (file_exists(($phoneBook->file)))
-                unlink($phoneBook->contractorFile);
+                unlink($phoneBook->file);
 
             $phoneBook->file = 'storage/regulations/' . $attachmentFileName;
 
