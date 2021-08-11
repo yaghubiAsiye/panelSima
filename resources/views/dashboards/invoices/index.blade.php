@@ -329,7 +329,7 @@
                                                     {{ $invoice->final_total }}
                                                 </td>
                                                 <td>
-                                                    {{ $invoice->user->name ?? ''. " " . $invoice->user->family ?? ''}}
+                                                    {{ $invoice->user->name . " " . $invoice->user->family }}
                                                 </td>
 
 
