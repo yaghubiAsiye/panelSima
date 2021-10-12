@@ -292,15 +292,22 @@
 
 
                                                 <td style="text-align:center;color: #3BAFDA">
-                                                    <a data-toggle="modal" data-target="#ReferralsTdl{{ $archive->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>
+                                                    <a style="display:inline" data-toggle="modal" data-target="#ReferralsTdl{{ $archive->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>
 
 
+                                                    <form style="display:inline" class="" action="{{url('archive/delete', $archive->id)}}" method="post">
+                                                        {{csrf_field()}}
+                                                        {{method_field('delete')}}
+                                                        <button style="display:inline; border: none" onclick="return confirm('آیا برای حذف اطمینان دارید؟');" type="submit">
+                                                            <i style="font-size: 20px" class="ft-x-square danger"></i>
+                                                        </button>
+                                                      </form>
 
-
-                                                    <a onclick="return confirm('آیا برای حذف اطمینان دارید؟');"
-                                                       href="archive/delete/{{ $archive->id }} "><i
+                                                    {{-- <a onclick="return confirm('آیا برای حذف اطمینان دارید؟');"
+                                                       href="archive/delete/{{ $archive->id }}"><i
                                                                 style="font-size: 20px" class="ft-x-square danger"></i>
-                                                    </a></td>
+                                                    </a> --}}
+                                                </td>
                                             </tr>
                                         @endforeach
 

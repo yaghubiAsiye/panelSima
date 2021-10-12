@@ -156,15 +156,25 @@ class ArchiveController extends Controller
      */
     public function destroy($id)
     {
-        $contract = Archive::findOrFail($id);
-        $contract->delete();
+        if (\Auth::user()->id == 6 OR \Auth::user()->id == 36){
 
-        \Session::flash('updateUser', array(
-            'flash_title' => 'انجام شد',
-            'flash_message' => 'صورتجلسه مورد نظر باموفقیت از سیستم حذف شد.',
-            'flash_level' => 'success',
-            'flash_button' => 'بستن'
-        ));
+            $contract = Archive::findOrFail($id);
+            $contract->delete();
+
+            \Session::flash('updateUser', array(
+                'flash_title' => 'انجام شد',
+                'flash_message' => 'صورتجلسه مورد نظر باموفقیت از سیستم حذف شد.',
+                'flash_level' => 'success',
+                'flash_button' => 'بستن'
+            ));
+        } else{
+            \Session::flash('updateUser', array(
+                'flash_title' => 'خطا',
+                'flash_message' => 'شما دسترسی لازم را ندارید',
+                'flash_level' => 'error',
+                'flash_button' => 'بستن'
+            ));
+        }
 
         return redirect()->back();
     }

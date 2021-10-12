@@ -131,7 +131,7 @@ Route::post('phoneBook/update/{id}','PhoneBookController@update')->middleware('a
 //archives
 Route::get('archives/{type}','ArchiveController@index')->middleware('auth');
 Route::post('archives','ArchiveController@store')->middleware('auth');
-Route::get('archive/delete/{id}','ArchiveController@destroy')->middleware('auth');
+Route::delete('archive/delete/{id}','ArchiveController@destroy')->middleware('auth')->name('archive.delete');
 Route::post('archive/update/{id}','ArchiveController@update')->middleware('auth');
 
 //regulartions
