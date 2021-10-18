@@ -138,8 +138,8 @@ class TdlController extends Controller
             $date = jdate('now')->format('%Y/%m/%d');
             $day = jdate('now')->format('l');
             $tdl = TimeSheet::create([
-                'day' => $day,
-                'date' => $date,
+                // 'day' => $day,
+                // 'date' => $date,
                 'description' => $updatedTdl->name,
                 'startHour' => $request->startHour,
                 'endHour' => $request->endHour,
