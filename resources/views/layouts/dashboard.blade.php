@@ -374,9 +374,11 @@
             </li>
 
 
+            @if(auth()->user()->id == 6 || auth()->user()->id == 34 || auth()->user()->id == 40 || auth()->user()->id == 39 || auth()->user()->id == 35)
             <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/contracts"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با کارفرمایان</span></a>
             </li>
+            @endif
 
             <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/SellersContracts"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با پیمانکاران</span></a>
