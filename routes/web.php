@@ -151,3 +151,10 @@ Route::post('invoice/update/{id}','InvoiceController@update')->middleware('auth'
 //excel
 Route::get('downloadExcel/{type}/{id}', 'ExcelController@downloadExcel');
 Route::get('invoiceExcel/{id}', 'ExcelController@viewExcel');
+
+
+// FinancialGuarantee
+Route::get('financialGuarantes','FinancialGuaranteeController@index')->middleware('auth');
+Route::post('financialGuarantee‍','FinancialGuaranteeController@store')->middleware('auth')->name('financialGuarantee.store');
+Route::get('financialGuarantee/delete/{id}','FinancialGuaranteeController@destroy')->middleware('auth');
+Route::post('financialGuarantee/update/{id}','FinancialGuaranteeController@update')->middleware('auth');

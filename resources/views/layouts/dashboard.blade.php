@@ -203,13 +203,13 @@
 
     /*    asiye added*/
         .main-menu.menu-dark .navigation > li.active > a {
-            background: #262c50;
+            background: #007bff;
         }
         .app-content .content-wrapper{
             background: #eee !important;
         }
         .orangeColor{
-            color:  #f5de49 !important;
+            color:  #c2c7d0 !important;
             font-weight: bold !important;
         }
 
@@ -246,7 +246,7 @@
 <!-- fixed-top-->
 <nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-semi-dark navbar-shadow">
     <div class="navbar-wrapper">
-        <div class="navbar-header" style="background: #132e6b;">
+        <div class="navbar-header" style="background: #343a40;">
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item mobile-menu d-md-none mr-auto"><a
                             class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
@@ -259,22 +259,25 @@
                                                   data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a></li>
             </ul>
         </div>
-        <div class="navbar-container content" style="background: #132e6b">
+        <div class="navbar-container content" style="background: #343a40">
             <div class="collapse navbar-collapse" id="navbar-mobile">
                 <ul class="nav navbar-nav mr-auto float-left">
-                    <li class="nav-item d-none d-md-block"><a style="color: #c096f6;" class="nav-link nav-menu-main menu-toggle hidden-xs"
+                    <li class="nav-item d-none d-md-block"><a style="color: #DCDCDC;" class="nav-link nav-menu-main menu-toggle hidden-xs"
                                                               href="#"><i class="ft-menu"> </i></a></li>
 
-                    <h3 style="margin: auto;color: #c096f6;">شرکت ارتباطات پرشیا</h3>
+                    <h3 style="margin: auto;color: #DCDCDC;">شرکت ارتباطات پرشیا </h3>
+
                     </li>
                 </ul>
                 <ul class="nav navbar-nav float-right">
                     <li style="Display:none;" class="dropdown dropdown-language nav-item">
 
                         <a class="dropdown-toggle nav-link" id="dropdown-flag" href="/dahsboard/en"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                    class="flag-icon flag-icon-gb"></i><span>English</span><span
-                                    class="selected-language"></span></a>
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <i class="flag-icon flag-icon-gb"></i>
+                           <span>English</span>
+                           <span class="selected-language"></span>
+                        </a>
 
 
                         <div class="dropdown-menu" aria-labelledby="dropdown-flag">
@@ -284,9 +287,57 @@
                     </li>
 
 
-                    <li class="dropdown dropdown-notification nav-item"><a style="color:#c096f6" class="nav-link nav-link-label" href="#"
-                                                                           data-toggle="dropdown"><i
-                                    class="ficon ft-phone"></i></a>
+                    <li class="dropdown dropdown-notification nav-item">
+                        <a style="color:#DCDCDC" class="nav-link nav-link-label" href="#" data-toggle="dropdown">
+                            <i class="ficon ft-bell" style="color: #007bff"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
+                            {{-- <li class="dropdown-menu-header">
+                                <h6 class="dropdown-header m-0"><span class="grey darken-2">دفترچه تلفن</span></h6>
+                                <br><br>
+                            </li> --}}
+                            <li class="scrollable-container media-list w-100"><a href="javascript:void(0)">
+
+
+                                    <ul class="list-group" id="contact-list">
+
+                                        <li class="list-group-item">
+                                            <div class="col-xs-12">
+                                            </div>
+                                            <div class="col-xs-12 col-sm-9">
+                                                <br/><br/>
+                                                <span class="">
+                                                    <span class="text-muted">
+                                                            <b> فعالیت محول شده امروز شما </b>
+                                                            <span>{{ $box['1']  ?? ''}}</span>
+                                                    </span>
+                                                    <br/><br/>
+                                                </span>
+                                                <span class="">
+                                                    <span class="text-muted">
+                                                            <b>فعالیت انجام شده امروز شما</b>
+                                                            <span>{{ $box['2']  ?? ''}}</span>
+
+                                                    </span>
+                                                    <br/><br/>
+                                                </span>
+
+
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </li>
+
+
+                                    </ul>
+
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown dropdown-notification nav-item">
+                        <a style="color:#DCDCDC" class="nav-link nav-link-label" href="#" data-toggle="dropdown">
+                            <i class="ficon ft-phone"></i>
+                        </a>
                         <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                             <li class="dropdown-menu-header">
                                 <h6 class="dropdown-header m-0"><span class="grey darken-2">دفترچه تلفن</span></h6>
@@ -320,13 +371,13 @@
 
 
                     <li class="dropdown dropdown-user nav-item">
-                        <a style="color: #c096f6" class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+                        <a style="color: #DCDCDC" class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                             <span class="avatar avatar-online">
                                 <img src="{{ \Auth::user()->avatar ? \Auth::user()->avatar : '/images/logo/logo-light-sm.jpg'}}"
                                         alt="avatar"><i></i>
                             </span><span
-                                    class="user-name"  style="color: #c096f6"> {{ \Auth::user()->name . " " . \Auth::user()->family }} </span></a>
-                        <div class="dropdown-menu dropdown-menu-right" style="border: 1px solid #c096f6;">
+                                    class="user-name"  style="color: #DCDCDC"> {{ \Auth::user()->name . " " . \Auth::user()->family }} </span></a>
+                        <div class="dropdown-menu dropdown-menu-right" style="border: 1px solid #DCDCDC;">
 
                             <a class="dropdown-item" href="/profile"><i class="ft-user"></i> تنظیمات حساب کاربری</a>
                             <div class="dropdown-divider"></div>
@@ -343,9 +394,9 @@
 
 
 <div class="main-menu menu-fixed menu-dark menu-accordion    menu-shadow " data-scroll-to-active="true">
-    <div class="main-menu-content" style="background: #132e6b;">
-        <ul style="background: #132e6b;" class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" navigation-header" style="color: #c096f6;"><span data-i18n="nav.category.layouts">ماژول های سامانه</span><i
+    <div class="main-menu-content" style="background: #343a40;">
+        <ul style="background: #343a40;" class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li class=" navigation-header" style="color: #DCDCDC;"><span data-i18n="nav.category.layouts">ماژول های سامانه</span><i
                         class="ft-more-horizontal ft-minus" data-toggle="tooltip" data-placement="right"
                         data-original-title="داشبورد"></i>
             </li>
@@ -368,65 +419,69 @@
                 <a class="orangeColor" href="/tenders"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.dash.main">کار پذیری</span></a>
             </li>
 
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/avl"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.dash.main">تامین کنندگان کالا  </span></a>
+            <li class="{{{ (Request::is('avl') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/avl"><i class="icon-basket"></i><span class="menu-title" data-i18n="nav.dash.main">تامین کنندگان کالا  </span></a>
 
             </li>
 
 
             @if(auth()->user()->id == 51 || auth()->user()->id == 6 || auth()->user()->id == 34 || auth()->user()->id == 40 || auth()->user()->id == 39 || auth()->user()->id == 35)
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/contracts"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با کارفرمایان</span></a>
+            <li class="{{{ (Request::is('contracts') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/contracts"><i class="icon-notebook"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با کارفرمایان</span></a>
             </li>
             @endif
 
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
+            <li class="{{{ (Request::is('SellersContracts') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/SellersContracts"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با پیمانکاران</span></a>
             </li>
 
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
+            <li class="{{{ (Request::is('regulations') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="regulations"><i class="icon-speech"></i><span class="menu-title" data-i18n="nav.dash.main">آیین نامه ها</span></a>
             </li>
 
-            <li class="{{{ (Request::is('settings') ? 'active' : '') }}}   nav-item has-sub">
+            <li class="{{{ (Request::is('*archives*') ? 'active' : '') }}}   nav-item has-sub">
                 <a class="orangeColor" href="#"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.templates.main"> صورتجلسات</span></a>
 
                 <ul class="menu-content" style="">
-                    <li style="" class="{{{ (Request::is('archives') ? 'active' : '') }}}  nav-item">
-                        <a class="menu-item orangeColor" href="{{ url('archives/هیئت مدیره') }}" data-i18n="nav.templates.vert.classic_menu"> هیات مدیره</a>
+                    <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}} nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/هیئت مدیره') }}" data-i18n="nav.templates.vert.classic_menu"> هیات مدیره</a>
                     </li>
 
-                    <li style="" class="{{{ (Request::is('archives') ? 'active' : '') }}}  nav-item">
-                        <a class="menu-item orangeColor" href="{{ url('archives/شورای مدیران') }}" data-i18n="nav.templates.vert.classic_menu"> شورای مدیران  </a>
+                    <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/شورای مدیران') }}" data-i18n="nav.templates.vert.classic_menu"> شورای مدیران  </a>
                     </li>
-                    <li style="" class="{{{ (Request::is('archives') ? 'active' : '') }}}  nav-item">
-                        <a class="menu-item orangeColor" href="{{ url('archives/بخش فنی') }}" data-i18n="nav.templates.vert.classic_menu"> بخش فنی  </a>
+                    <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/بخش فنی') }}" data-i18n="nav.templates.vert.classic_menu"> بخش فنی  </a>
                     </li>
-                    <li style="" class="{{{ (Request::is('archives') ? 'active' : '') }}}  nav-item">
-                        <a class="menu-item orangeColor" href="{{ url('archives/بازرگانی') }}" data-i18n="nav.templates.vert.classic_menu"> بازرگانی  </a>
+                    <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/بازرگانی') }}" data-i18n="nav.templates.vert.classic_menu"> بازرگانی  </a>
                     </li>
-                    <li style="" class="{{{ (Request::is('archives') ? 'active' : '') }}}  nav-item">
-                        <a class="menu-item orangeColor" href="{{ url('archives/مالی') }}" data-i18n="nav.templates.vert.classic_menu"> مالی  </a>
+                    <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/مالی') }}" data-i18n="nav.templates.vert.classic_menu"> مالی  </a>
                     </li>
 
                 </ul>
             </li>
 
-            <li style="" class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/Proceedings"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.dash.main">مصوبات</span></a>
+            <li style="" class="{{{ (Request::is('financialGuarantes') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/financialGuarantes"><i class="icon-wallet"></i><span class="menu-title" data-i18n="nav.dash.main">ضمانت نامه مالی</span></a>
             </li>
 
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
+            <li style="" class="{{{ (Request::is('Proceedings') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/Proceedings"><i class="icon-magnet"></i><span class="menu-title" data-i18n="nav.dash.main">مصوبات</span></a>
+            </li>
+
+            <li class="{{{ (Request::is('Certificates') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/Certificates"><i class="icon-badge"></i><span class="menu-title" data-i18n="nav.dash.main">رتبه ها و گواهینامه ها</span></a>
             </li>
 
-            <li class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
+            <li class="{{{ (Request::is('phoneBooks') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/phoneBooks"><i class="icon-phone"></i><span class="menu-title" data-i18n="nav.dash.main">دفترچه تلفن</span></a>
             </li>
 
 
-            <li style="" class="{{{ (Request::is('') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/Suggestions"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.dash.main"> پیشنهادات و انتقادات</span></a>
+            <li style="" class="{{{ (Request::is('Suggestions') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/Suggestions"><i class="icon-feed"></i><span class="menu-title" data-i18n="nav.dash.main"> پیشنهادات و انتقادات</span></a>
             </li>
 
 

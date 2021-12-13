@@ -49,6 +49,11 @@ tspan{
   direction: rtl;
 }
 
+/* asiye added */
+.witheColor{
+    color: #6c757d !important;
+}
+
 
 </style>
 @endsection
@@ -477,34 +482,34 @@ tspan{
         <div class="col-12">
           <div class="card">
             <div class="card-content">
-              <div class="card-body" style="box-shadow: 4px 4px 15px 0px #000;background-color: #132e6b;">
+              <div class="card-body" style="box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);border-radius: 0.25rem;background-color: #f8f9fa;">
                 <div class="row">
                   <div class="col-lg-3 col-sm-12 border-right-blue-grey border-right-lighten-5">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
-                        <i class="ft-clipboard font-large-1 float-left mt-1 text-white orangeColor"></i>
-                        <span class="font-large-1 text-bold-300 info float-right">{{ $box['1'] }}</span>
+                        <i class="ft-clipboard font-large-1 float-left mt-1 text-white witheColor"></i>
+                        <span class="font-large-1 text-bold-300 info float-right" style="color:#007bff !important">{{ $box['1'] }}</span>
                       </div>
                       <div style="text-align: center;font-size: 18px;" class="clearfix">
-                        <span class="text-white orangeColor">فعالیت های محول شده امروز شما</span>
+                        <span class="text-white witheColor">فعالیت های محول شده امروز شما</span>
                       </div>
                     </div>
                     <div class="progress mb-0" style="height: 7px;">
-                      <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 100%; background-color:#007bff !important" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
                   <div class="col-lg-3 col-sm-12 border-right-blue-grey border-right-lighten-5">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
-                        <i class="ft-check-circle font-large-1 float-left text-white mt-1 orangeColor"></i>
-                        <span class="font-large-1 text-bold-300 info float-right">{{ $box['2'] }}</span>
+                        <i class="ft-check-circle font-large-1 float-left text-white mt-1 witheColor"></i>
+                        <span class="font-large-1 text-bold-300 info float-right" style="color:#007bff !important">{{ $box['2'] }}</span>
                       </div>
                       <div style="text-align: center;font-size: 18px;" class="clearfix">
-                        <span class="text-white orangeColor">فعالیت های انجام شده امروز شما</span>
+                        <span class="text-white witheColor">فعالیت های انجام شده امروز شما</span>
                       </div>
                     </div>
                     <div class="progress mb-0" style="height: 7px;">
-                      <div class="progress-bar bg-info" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 100%; background-color:#007bff !important" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
 
@@ -513,11 +518,11 @@ tspan{
                   <div class="col-lg-3 col-sm-12 border-right-blue-grey border-right-lighten-5">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
-                        <i class="ft-check-circle font-large-1 text-white float-left mt-1 orangeColor"></i>
+                        <i class="ft-check-circle font-large-1 text-white float-left mt-1 witheColor"></i>
                         <span class="font-large-1 text-bold-300 warning float-right"> {{ $box['5'] }} </span>
                       </div>
                       <div style="text-align: center;font-size: 18px;" class="clearfix">
-                        <span class="text-white orangeColor">فعالیت های محول شده این ماه شما</span>
+                        <span class="text-white witheColor">فعالیت های محول شده این ماه شما</span>
                       </div>
                     </div>
                     <div class="progress mb-0" style="height: 7px;">
@@ -527,11 +532,11 @@ tspan{
                   <div class="col-lg-3 col-sm-12">
                     <div class="pb-1">
                       <div class="clearfix mb-1">
-                        <i class="ft-clipboard font-large-1 text-white float-left mt-1 orangeColor"></i>
+                        <i class="ft-clipboard font-large-1 text-white float-left mt-1 witheColor"></i>
                         <span class="font-large-1 text-bold-300 warning float-right"> {{ $box['6'] }} </span>
                       </div>
                       <div style="text-align: center;font-size: 18px;" class="clearfix">
-                        <span class="text-white orangeColor">فعالیت های انجام شده این ماه شما</span>
+                        <span class="text-white witheColor">فعالیت های انجام شده این ماه شما</span>
                       </div>
                     </div>
                     <div class="progress mb-0" style="height: 7px;">
@@ -611,12 +616,12 @@ tspan{
                         </td>
 {{--                        <td>{{ $tdlAssignedToOther->holdPoint }}</td>--}}
 {{--                        <td>{{ $tdlAssignedToOther->doerDescription }}</td>--}}
-{{--                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tdlAssignedToOther->assignerAttachment }}"> {!! $tdlAssignedToOther->assignerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
-{{--                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tdlAssignedToOther->doerAttachment }}"> {!! $tdlAssignedToOther->doerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
+{{--                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #007bff; " ><a target="_blank" href="{{ $tdlAssignedToOther->assignerAttachment }}"> {!! $tdlAssignedToOther->assignerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
+{{--                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #007bff; " ><a target="_blank" href="{{ $tdlAssignedToOther->doerAttachment }}"> {!! $tdlAssignedToOther->doerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
 {{--                        <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->created_at) }}</td>--}}
 {{--                        <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->updated_at) }}</td>--}}
                         <td style="text-align:center;" > <a href="/Tdl/delete/{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px;color: red" class="ft-x-square"></i></a>
-                          <a data-toggle="modal" data-target="#EditOtherTask{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px; color: #3BAFDA" class="ft-edit"></i></a>
+                          <a data-toggle="modal" data-target="#EditOtherTask{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px; color: #007bff" class="ft-edit"></i></a>
                         </td>
 
                       </tr>
@@ -708,14 +713,14 @@ tspan{
                               <td>{{ $tdlAssignedToThisUser->assignerName }}</td>
                               <td><span class="badge badge-danger">{{ $tdlAssignedToThisUser->priority }}</span></td>
                               <td><span class="badge {{ $tdlAssignedToThisUser->status == 'انجام شده' ? 'badge-success' : 'badge-warning' }}">{{ $tdlAssignedToThisUser->status }}</span></td>
-                              <td style="text-align:center;color: #3BAFDA" > <a data-toggle="modal" data-target="#ReferralsTdl{{ $tdlAssignedToThisUser->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>  </td>
+                              <td style="text-align:center;color: #007bff" > <a data-toggle="modal" data-target="#ReferralsTdl{{ $tdlAssignedToThisUser->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>  </td>
                               <td>{{ $tdlAssignedToThisUser->holdPoint }}</td>
                               <td>{{ $tdlAssignedToThisUser->doerDescription }}</td>
-                              <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tdlAssignedToThisUser->assignerAttachment }}"> {!! $tdlAssignedToThisUser->assignerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
-                              <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " ><a target="_blank" href="{{ $tdlAssignedToThisUser->doerAttachment }}"> {!! $tdlAssignedToThisUser->doerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
+                              <td style="text-align: center;vertical-align: center;font-size: 20px;color: #007bff; " ><a target="_blank" href="{{ $tdlAssignedToThisUser->assignerAttachment }}"> {!! $tdlAssignedToThisUser->assignerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
+                              <td style="text-align: center;vertical-align: center;font-size: 20px;color: #007bff; " ><a target="_blank" href="{{ $tdlAssignedToThisUser->doerAttachment }}"> {!! $tdlAssignedToThisUser->doerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
                               <td style="direction: ltr" >{{ jdate($tdlAssignedToThisUser->created_at) }}</td>
                               <td style="direction: ltr" >{{ jdate($tdlAssignedToThisUser->updated_at) }}</td>
-                              <td style="text-align:center;color: #3BAFDA" > <a data-toggle="modal" data-target="#editTdl{{ $tdlAssignedToThisUser->id }}" ><i style="font-size: 20px" class="ft-edit"></i></a>  </td>
+                              <td style="text-align:center;color: #007bff" > <a data-toggle="modal" data-target="#editTdl{{ $tdlAssignedToThisUser->id }}" ><i style="font-size: 20px" class="ft-edit"></i></a>  </td>
 
                             </tr>
                             @endforeach
