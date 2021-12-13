@@ -410,7 +410,7 @@
                 <a class="orangeColor" href="/dashboard"><i class="icofont icofont-dashboard-web"></i><span class="menu-title" data-i18n="nav.dash.main">فعالیت ارجاع شده من</span></a>
             </li>
 
-            <li class="{{{ (Request::is('*tenders*') ? 'active' : '') }}}  nav-item">
+            <li class="{{{ (Request::is('invoices') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/invoices"><i class="ft-bar-chart"></i><span class="menu-title" data-i18n="nav.dash.main">پیش فاکتورهای صادرشده </span></a>
             </li>
 
