@@ -25,7 +25,7 @@ class TimeSheetController extends Controller
         ->where('user_id', \Auth::user()->id)->get();
 
         if(\Auth::user()->email === 'rahmani@persiatc.com'){
-            $personnelTimesheets = $timesheets = TimeSheet::select('id', 'created_at', 'projectName', 'assignment', 'startHour', 'endHour');
+            $personnelTimesheets = $timesheets = TimeSheet::select('id', 'created_at', 'projectName', 'assignment', 'startHour', 'endHour')->get();
         }elseif(\Auth::user()->email === 'torkaman@persiatc.com'){
             $personnelTimesheets = DB::table('time_sheets')->where('user_id', 25)->orWhere('user_id', 23)->get();
         }elseif(\Auth::user()->email === 'khanbeigi@persiatc.com'){
@@ -48,6 +48,7 @@ class TimeSheetController extends Controller
     {
         //
     }
+
 
     /**
      * Store a newly created resource in storage.
