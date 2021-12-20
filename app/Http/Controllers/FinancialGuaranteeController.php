@@ -37,7 +37,7 @@ class FinancialGuaranteeController extends Controller
      */
     public function store(Request $request)
     {
-        // dd('ok');
+        
         if($request->file('image')){
             $file = $request->file('image');
             $fileName = time() . "_" . $file->getClientOriginalName();
@@ -47,6 +47,12 @@ class FinancialGuaranteeController extends Controller
         }
 
         $phoneBook = FinancialGuarantee::forceCreate([
+            'type' => $request->type,
+            'subject' => $request->subject,
+            'status' => $request->status,
+            'active_status' => $request->active_status,
+            'validity_duration' => $request->validity_duration,
+
             'name_of_issuing_bank' => $request->name_of_issuing_bank,
             'beneficiary_name' => $request->beneficiary_name,
             'price' => $request->price,

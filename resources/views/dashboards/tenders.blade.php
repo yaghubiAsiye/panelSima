@@ -1,6 +1,12 @@
 @extends('layouts/dashboard')
 
 @section('headerscripts')
+<link rel="stylesheet" type="text/css" href="/css/plugins/forms/wizard.css">
+<link rel="stylesheet" type="text/css" href="/vendors/css/forms/selects/selectize.css">
+<link rel="stylesheet" type="text/css" href="/vendors/css/forms/selects/selectize.default.css">
+<link rel="stylesheet" type="text/css" href="/css/plugins/forms/selectize/selectize.css">
+
+<link rel="stylesheet" type="text/css" href="/css/plugins/forms/selectize/selectize.css">
     <style media="screen">
 
         .amcharts-legend-value {
@@ -159,6 +165,22 @@
                                     <input type="text" id="number" class="form-control" name="moddatGharardad">
                                 </div>
                             </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-3 label-control" for="assignedTo">ارجاع به
+                                    {{-- <sup style="color: red; font-size: 18px" >*</sup> --}}
+                                </label>
+                                <div class="col-md-9">
+
+                                  <select id="selectize-state" name="assignedTo" class="form-control selectize-event required">
+                                    <option class="" value="">انتخاب متولی</option>
+                                    @foreach($users as $user)
+                                    <option value="{{ $user->id }}">{{ $user->name . " " . $user->family }} | {{ $user->position }}</option>
+                                    @endforeach
+                                  </select>
+
+                                </div>
+                              </div>
 
                             <div class="form-group row">
                                 <label class="col-md-3 label-control" for="number">نظریه کمیسیون توان</label>

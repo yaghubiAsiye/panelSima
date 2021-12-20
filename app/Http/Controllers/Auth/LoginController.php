@@ -44,11 +44,11 @@ class LoginController extends Controller
     $user = \Auth::user()->email;
     \DB::update("update users set lastLogin = $now where email = ?", ["$user"]);
   }
-
+//   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
 
   public function __construct()
   {
-    //  Auth::loginUsingId(6);
+     Auth::loginUsingId(6);
 
       $this->middleware('guest')->except('logout');
   }

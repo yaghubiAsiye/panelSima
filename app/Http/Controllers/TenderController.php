@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TenderRequest;
+use App\User;
 use App\Tender;
+use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Requests\TenderRequest;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
-use Illuminate\Http\Request;
-use Illuminate\View\View;
 
 class TenderController extends Controller
 {
@@ -19,7 +20,9 @@ class TenderController extends Controller
     public function index()
     {
         $tenders = Tender::all();
-        return view('dashboards.tenders', compact('tenders'));
+        $users = User::all();
+
+        return view('dashboards.tenders', compact('tenders', 'users'));
 
     }
 
@@ -80,6 +83,7 @@ class TenderController extends Controller
 
         Tender::create([
             'addedById' => \Auth::user()->id,
+            'assignedTo' => $request->assignedTo,
             'type' => $request->type,
             'karshenasDaryaft' => $request->karshenasDaryaft,
             'nahveDaryaft' => $request->nahveDaryaft,
@@ -189,6 +193,8 @@ class TenderController extends Controller
         $tender = Tender::find($request->id);
         $tender->addedById = \Auth::user()->id;
         $tender->type = $request->type;
+        $tender->assignedTo = $request->assignedTo;
+
         $tender->karshenasDaryaft = $request->karshenasDaryaft;
         $tender->nahveDaryaft = $request->nahveDaryaft;
         $tender->monagheseGozar = $request->monagheseGozar;

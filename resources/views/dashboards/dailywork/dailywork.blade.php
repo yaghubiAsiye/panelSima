@@ -33,7 +33,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel17"> افزودن ضمانت نامه مالی </h4>
+                    <h4 class="modal-title" id="myModalLabel17"> افزودن  کار امروز </h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -42,95 +42,60 @@
 
 
                     <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post"
-                          action="{{ route('financialGuarantee.store') }}" class="form form-horizontal form-bordered striped-rows">
+                          action="{{ route('dailyWork.store') }}" class="form form-horizontal form-bordered striped-rows">
                         @csrf
 
 
                         <div style="font-family:byekan" class="form-body">
 
                             <div class="form-group row">
-                                <label class="col-md-3 label-control" for="subject"> موضوع قرارداد </label>
+                                <label class="col-md-3 label-control" for="start_time"> ساعت شروع </label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" name="subject">
+                                    <input type="time" class="form-control" name="start_time">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-3 label-control" for="type"> نوع ضمانت نامه </label>
+                                <label class="col-md-3 label-control" for="end_time">ساعت خاتمه </label>
                                 <div class="col-md-9">
-                                    <select class="form-control" name="type">
-                                        <option value="پیش پرداخت">پیش پرداخت</option>
-                                        <option value="حسن انجام کار "> حسن انجام کار</option>
-                                        <option value="شرکت در مناقصه">شرکت درمناقصه</option>
-                                        <option value="حسن انجام تعهدات">حسن انجام تعهدات</option>
-                                      </select>
+                                    <input type="time" class="form-control" name="end_time">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-3 label-control" for="validity_duration"> مدت اعتبار </label>
+                                <label class="col-md-3 label-control" for="time">مدت زمان انجام (به دقیقه ) </label>
                                 <div class="col-md-9">
-                                    <select class="form-control" name="validity_duration">
-                                        <option value="سه ماه">سه ماه</option>
-                                        <option value="شش ماه ">شش ماه </option>
-                                        <option value="یک سال">یک سال</option>
-
-                                      </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="status"> آخرین وضعیت </label>
-                                <div class="col-md-9">
-                                    <select class="form-control" name="status">
-                                        <option value="تمدید شده">تمدید شده</option>
-                                        <option value="تمدید نشده ">تمدید نشده </option>
-
-                                      </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="active_status">  وضعیت فعال </label>
-                                <div class="col-md-9">
-                                    <select class="form-control" name="active_status">
-                                        <option value="گرفته شده">گرفته شده</option>
-                                        <option value="تحویل بانک ">تحویل بانک </option>
-
-                                      </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="name_of_issuing_bank"> نام بانک صادر کننده </label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="name_of_issuing_bank">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="beneficiary_name">نام ذینفع </label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="beneficiary_name">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="price">مبلغ </label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="price">
+                                    <input type="text" class="form-control" name="time">
                                 </div>
                             </div>
 
 
+
                             <div class="form-group row">
-                                <label class="col-md-3 label-control" for="end_date">تاریخ اتمام</label>
+                                <label class="col-md-3 label-control" for="assignment">مربوط به کجا </label>
                                 <div class="col-md-9">
-                                    <input style="font-family:Byekan" class="form-control" style="" placeholder="کلیک کنید" name="end_date" type="text" id="input1"/>
+                                    <input type="text" class="form-control" name="assignment">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-md-3 label-control" for="description">شرح فعالیت </label>
+                                <div class="col-md-9">
+                                    <textarea name="description" class="form-control" rows="3" cols="80"></textarea>
+
+                                    {{-- <input type="text" class="form-control" name="description"> --}}
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 label-control" for="result">نتیجه </label>
+                                <div class="col-md-9">
+                                    <textarea name="result" class="form-control" rows="3" cols="80"></textarea>
+
+                                    {{-- <input type="text" class="form-control" name="result"> --}}
                                 </div>
                             </div>
 
 
-                            <div class="form-group row">
-                                <label class="col-md-3 label-control" for="image">تصویر </label>
-                                <div class="col-md-9">
-                                    <input type="file" id="fileMostanadat" class="form-control" name="image">
-                                </div>
-                            </div>
+
+
 
 
 
@@ -262,7 +227,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> ضمانت نامه های مالی  </h4>
+                                <h4 class="card-title"> کارهای روزانه من  </h4>
                                 <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -282,12 +247,13 @@
                                         <thead style="text-align:center">
                                         <tr style="text-align:center">
                                             <th> ردیف</th>
-                                            <th>  نام بانک صادر کننده</th>
-                                            <th> نام ذینفع</th>
-                                            <th> مبلغ</th>
-                                            <th>  تاریخ اتمام</th>
-                                            <th>مشاهده تصویر</th>
-                                            <th>عملیات</th>
+                                            <th>  تاریخ</th>
+                                            <th> ساعت شروع</th>
+                                            <th> ساعت خاتمه</th>
+                                            <th>  شرح فعالیت</th>
+                                            <th>مربوط به کجا</th>
+                                            <th>نتیجه</th>
+                                            <th>مدت زمان صرف شده</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -296,29 +262,22 @@
 
                                                 <td style="white-space: normal;">{{ $archive->id }}</td>
                                                 <td>
-                                                    {{ $archive->name_of_issuing_bank }}
+                                                    {{ jdate($archive->created_at) }}
                                                 </td>
                                                 <td>
-                                                    {{ $archive->beneficiary_name }}
+                                                    {{ $archive->start_time }}
                                                 </td>
                                                 <td>
-                                                    {{ $archive->price }}
+                                                    {{ $archive->end_time }}
                                                 </td>
-                                                <td>{{ jdate($archive->end_date) }}</td>
-                                                <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " >
-                                                    @if($archive->image == "storage/FinancialGuarantee/nothing")
-                                                        ---
-                                                    @else
-                                                        <a target="_blank" href="/{{ $archive->image }}"> {!! $archive->image !== "storage/FinancialGuarantee/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a>
-                                                    @endif
-                                                </td>
+                                                <td>{{ $archive->description }}</td>
+                                                <td>{{ $archive->assignment }}</td>
+                                                <td>{{ $archive->result }}</td>
+
+                                                <td>{{ $archive->time }}</td>
 
 
-{{--                                                <td>{{ $archive->type }}</td>--}}
-
-
-
-                                                <td style="text-align:center;color: #3BAFDA">
+                                                {{-- <td style="text-align:center;color: #3BAFDA">
                                                     <a style="display:inline" data-toggle="modal" data-target="#ReferralsTdl{{ $archive->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>
 
 
@@ -331,7 +290,7 @@
                                                       </form>
 
 
-                                                </td>
+                                                </td> --}}
                                             </tr>
                                         @endforeach
 

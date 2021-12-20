@@ -46,7 +46,11 @@
                             <div class="form-group row">
                                 <label class="col-md-3 label-control" for="date">تاریخ جلسه</label>
                                 <div class="col-md-9">
-                                    <input style="font-family:Byekan" class="form-control" style="" placeholder="کلیک کنید" name="date" type="text" id="input1"/>
+                                    {{-- <input type="text" class="bs-timepicker" /> --}}
+                                    {{-- <input type="time" class="bs-timepicker" /> --}}
+
+
+                                    <input style="font-family:Byekan" class="form-control" style="" placeholder="کلیک کنید" autocomplete="off" name="date" type="text" id="input1"/>
                                 </div>
                             </div>
                             <div class="form-group row">

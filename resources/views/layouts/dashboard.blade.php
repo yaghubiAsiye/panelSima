@@ -48,6 +48,10 @@
     <link rel="stylesheet" type="text/css" href="/css-rtl/core/colors/palette-climacon.css">
     <link rel="stylesheet" type="text/css" href="/css-rtl/pages/users.css">
     <link rel="stylesheet" type="text/css" href="/css-rtl/plugins/extensions/toastr.css">
+
+
+
+
     <style media="screen">
 
         @font-face {
@@ -235,6 +239,9 @@
     <link rel="stylesheet" href="/vendors/datepicker/css/persianDatepicker-melon.css"/>
     <link rel="stylesheet" href="/vendors/datepicker/css/persianDatepicker-lightorang.css"/>
     <script src="/vendors/datepicker/js/prism.js"></script>
+
+    {{-- <link rel="stylesheet" href="/timePicker/user-friendly-time-picker/dist/css/timepicker.min.css" />
+    <script src="/timePicker/user-friendly-time-picker/dist/js/timepicker.min.js"></script> --}}
 
 @yield('headerscripts')
 <!-- END Custom CSS-->
@@ -484,17 +491,20 @@
                 <a class="orangeColor" href="/Suggestions"><i class="icon-feed"></i><span class="menu-title" data-i18n="nav.dash.main"> پیشنهادات و انتقادات</span></a>
             </li>
 
+            <li style="" class="{{{ (Request::is('dailyWork') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/dailyWork"><i class="icon-feed"></i><span class="menu-title" data-i18n="nav.dash.main"> گزارش روزانه</span></a>
+            </li>
 
             @can('administrator')
-                <li class="{{{ (Request::is('settings') ? 'active' : '') }}}   nav-item has-sub">
+                <li class="{{{ (Request::is('users') ? 'active' : '') }}}   nav-item has-sub">
                     <a class="orangeColor" href="#"><i class="ft-settings"></i><span class="menu-title" data-i18n="nav.templates.main">تنظیمات سیستم</span></a>
 
                     <ul class="menu-content" style="">
-                        <li style="" class="{{{ (Request::is('timesheet/admin') ? 'active' : '') }}}  nav-item">
+                        <li style="" class="{{{ (Request::is('users') ? 'active' : '') }}}  nav-item">
                             <a class="menu-item orangeColor" href="users" data-i18n="nav.templates.vert.classic_menu">مدیریت کاربران</a>
                         </li>
 
-                        <li style="" class="{{{ (Request::is('timesheet/admin') ? 'active' : '') }}}  nav-item">
+                        <li style="" class="{{{ (Request::is('users') ? 'active' : '') }}}  nav-item">
                             <a class="menu-item orangeColor" href="" data-i18n="nav.templates.vert.classic_menu">مدیریت تایم شیت کارکنان</a>
                         </li>
 
@@ -539,12 +549,26 @@
 <script src="/js/scripts/pages/dashboard-project.js" type="text/javascript"></script>
 <script src="/vendors/datepicker/js/persianDatepicker.js"></script>
 <script type="text/javascript">
+
+
+
+
     $(function () {
-        $("#input1, #span1").persianDatepicker();
+        $("#input1, #span1").persianDatepicker({
+            theme: 'dark',
+            formatDate: "YYYY/MM/DD"
+
+        // formatDate: "YYYY/MM/DD hh:mm:ss:ms"
+    });
     });
 
     $(function () {
-        $(".date").persianDatepicker();
+        $(".date").persianDatepicker({
+            theme: 'dark',
+            formatDate: "YYYY/MM/DD"
+
+        // formatDate: "YYYY/MM/DD hh:mm:ss:ms"
+    });
     });
 
 </script>
