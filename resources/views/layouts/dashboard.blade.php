@@ -492,7 +492,7 @@
             </li>
 
             <li style="" class="{{{ (Request::is('dailyWork') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/dailyWork"><i class="icon-feed"></i><span class="menu-title" data-i18n="nav.dash.main"> گزارش روزانه</span></a>
+                <a class="orangeColor" href="/dailyWork"><i class="ft-tablet"></i><span class="menu-title" data-i18n="nav.dash.main"> گزارش روزانه</span></a>
             </li>
 
             @can('administrator')
@@ -504,10 +504,13 @@
                             <a class="menu-item orangeColor" href="users" data-i18n="nav.templates.vert.classic_menu">مدیریت کاربران</a>
                         </li>
 
-                        <li style="" class="{{{ (Request::is('users') ? 'active' : '') }}}  nav-item">
+                        {{-- <li style="" class="{{{ (Request::is('users') ? 'active' : '') }}}  nav-item">
                             <a class="menu-item orangeColor" href="" data-i18n="nav.templates.vert.classic_menu">مدیریت تایم شیت کارکنان</a>
-                        </li>
+                        </li> --}}
 
+                        <li style="" class="{{{ (Request::is('dailyWorkAllUser') ? 'active' : '') }}}  nav-item">
+                            <a class="menu-item orangeColor" href="/dailyWorkAllUser" data-i18n="nav.templates.vert.classic_menu">مدیریت فعالیت های کارکنان</a>
+                        </li>
 
                     </ul>
                 </li>

@@ -158,10 +158,13 @@ Route::get('financialGuarantes','FinancialGuaranteeController@index')->middlewar
 Route::post('financialGuarantee‍','FinancialGuaranteeController@store')->middleware('auth')->name('financialGuarantee.store');
 Route::get('financialGuarantee/delete/{id}','FinancialGuaranteeController@destroy')->middleware('auth');
 Route::post('financialGuarantee/update/{id}','FinancialGuaranteeController@update')->middleware('auth');
+Route::post('financialGuarantee/updateEndDate/{id}','FinancialGuaranteeController@updateEndDate')->middleware('auth');
 
 
 // DailyWork
 Route::get('dailyWork','DailyWorkController@index')->middleware('auth');
+Route::get('dailyWorkAllUser','DailyWorkController@dailyAlluser')->middleware('auth');
+
 Route::post('dailyWork','DailyWorkController@store')->middleware('auth')->name('dailyWork.store');
 // Route::get('financialGuarantee/delete/{id}','DailyWorkController@destroy')->middleware('auth');
 // Route::post('financialGuarantee/update/{id}','DailyWorkController@update')->middleware('auth');

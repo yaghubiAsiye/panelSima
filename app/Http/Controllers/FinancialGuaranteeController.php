@@ -37,7 +37,7 @@ class FinancialGuaranteeController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         if($request->file('image')){
             $file = $request->file('image');
             $fileName = time() . "_" . $file->getClientOriginalName();
@@ -141,6 +141,24 @@ class FinancialGuaranteeController extends Controller
         return redirect()->back();
     }
 
+    public function updateEndDate(Request $request, $id)
+    {
+
+        $phoneBook = FinancialGuarantee::findOrFail($id);
+        $phoneBook->end_date = \Morilog\Jalali\CalendarUtils::createDatetimeFromFormat('Y/n/j', $request->end_date);
+        $phoneBook->update();
+
+
+
+        \Session::flash('updateUser', array(
+            'flash_title' => 'انجام شد',
+            'flash_message' => 'ضمانت نامه مالی باموفقیت در سیستم تمدید شد',
+            'flash_level' => 'success',
+            'flash_button' => 'بستن'
+        ));
+        return redirect()->back();
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -156,7 +174,7 @@ class FinancialGuaranteeController extends Controller
 
             \Session::flash('updateUser', array(
                 'flash_title' => 'انجام شد',
-                'flash_message' => 'ضمانت نامه مالی مورد نظر باموفقیت از سیستم حذف شد.',
+                'flash_message' => '  نامه مالی مورد نظر باموفقیت از سیستم حذف شد.',
                 'flash_level' => 'success',
                 'flash_button' => 'بستن'
             ));

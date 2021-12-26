@@ -345,7 +345,9 @@ tspan{
                     @foreach($personnelTimesheets as $personnelTimesheet)
                       <tr>
                         <td>{{ $personnelTimesheet->id }}</td>
-                          <td><a href="{{ url('timesheet/show/' . $personnelTimesheet->id) }}">{{ \App\User::where('id', $personnelTimesheet->user_id)->get()->pluck('name')->first() . ' ' . \App\User::where('id', $personnelTimesheet->user_id)->get()->pluck('family')->first() }}</a></td>
+                          <td><a href="{{ url('timesheet/show/' . $personnelTimesheet->id) }}">
+                            {{ \App\User::where('id', $personnelTimesheet->user_id)->get()->pluck('name')->first() . ' ' . \App\User::where('id', $personnelTimesheet->user_id)->get()->pluck('family')->first() }}
+                        </a></td>
                         <td>{{ jdate($personnelTimesheet->created_at) }}</td>
 {{--                        <td>{{ $personnelTimesheet->description }}</td>--}}
                         <td>{{ $personnelTimesheet->assignment }}</td>

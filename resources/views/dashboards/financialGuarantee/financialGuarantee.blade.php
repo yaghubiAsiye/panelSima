@@ -92,11 +92,9 @@
                                     <select class="form-control" name="active_status">
                                         <option value="گرفته شده">گرفته شده</option>
                                         <option value="تحویل بانک ">تحویل بانک </option>
-
-                                      </select>
+                                    </select>
                                 </div>
                             </div>
-
                             <div class="form-group row">
                                 <label class="col-md-3 label-control" for="name_of_issuing_bank"> نام بانک صادر کننده </label>
                                 <div class="col-md-9">
@@ -120,7 +118,7 @@
                             <div class="form-group row">
                                 <label class="col-md-3 label-control" for="end_date">تاریخ اتمام</label>
                                 <div class="col-md-9">
-                                    <input style="font-family:Byekan" class="form-control" style="" placeholder="کلیک کنید" name="end_date" type="text" id="input1"/>
+                                    <input style="font-family:Byekan" autocomplete="off" class="form-control"  placeholder="کلیک کنید" name="end_date" type="text" id="input1"/>
                                 </div>
                             </div>
 
@@ -240,6 +238,58 @@
     <!--  End Edit $phoneBooks -->
 
 
+     <!--  Start Edit $change active date -->
+
+
+    @foreach($archives as $phoneBook)
+        <div style="font-family:Byekan" class="modal fade text-left" id="endDateAdd{{ $phoneBook->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{ $phoneBook->id }}" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div style="text-align: center!important;" class="modal-header">
+                        <h4 style="text-align: center!important;" class="modal-title" id="endDateAdd{{ $phoneBook->id }}">تمدید ضمانت نامه مالی {{ $phoneBook->subject }}</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div  style=" direction: rtl;" class="modal-body">
+
+
+                        <form style="vertical-align:center;text-align:center" method="post" action="financialGuarantee/updateEndDate/{{ $phoneBook->id }}"  class="form form-horizontal form-bordered striped-rows">
+                            @csrf
+                            <div class="form-body">
+
+                                <div class="form-group row">
+                                    <label class="col-md-3 label-control" for="end_date">تاریخ اتمام</label>
+                                    <div class="col-md-9">
+                                        <input style="font-family:Byekan" autocomplete="off" class="form-control" style="" placeholder="کلیک کنید" name="end_date" type="text" id="input1"/>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fa fa-check-square-o"></i> بروزرسانی
+                                </button>
+
+                                <button type="button" class="btn btn-warning mr-1">
+                                    <i class="ft-x"></i> لغو
+                                </button>
+
+                            </div>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endforeach
+
+    <!--  End Edit $change active date -->
+
 
     <div class="app-content content">
         <div class="content-wrapper">
@@ -282,6 +332,12 @@
                                         <thead style="text-align:center">
                                         <tr style="text-align:center">
                                             <th> ردیف</th>
+                                            <th> موضوع قرارداد</th>
+                                            <th> نوع ضمانت نامه</th>
+                                            <th> مدت اعتبار</th>
+                                            <th> آخرین وضعیت</th>
+                                            <th> وضعیت فعال</th>
+
                                             <th>  نام بانک صادر کننده</th>
                                             <th> نام ذینفع</th>
                                             <th> مبلغ</th>
@@ -295,6 +351,25 @@
                                             <tr>
 
                                                 <td style="white-space: normal;">{{ $archive->id }}</td>
+                                                <td>
+                                                    {{ $archive->subject }}
+                                                </td>
+                                                <td>
+                                                    {{ $archive->type }}
+                                                </td>
+                                                <td>
+                                                    {{ $archive->validity_duration }}
+                                                </td>
+                                                <td>
+                                                    {{ $archive->status }}
+                                                </td>
+                                                <td>
+                                                    <span class="{{ $archive->active_status == 'تحویل بانک' ? 'badge-success' : 'badge-warning' }}">
+                                                        {{ $archive->active_status }}
+                                                    </span>
+
+                                                </td>
+
                                                 <td>
                                                     {{ $archive->name_of_issuing_bank }}
                                                 </td>
@@ -319,8 +394,9 @@
 
 
                                                 <td style="text-align:center;color: #3BAFDA">
-                                                    <a style="display:inline" data-toggle="modal" data-target="#ReferralsTdl{{ $archive->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>
+                                                    {{-- <a style="display:inline" data-toggle="modal" data-target="#ReferralsTdl{{ $archive->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a> --}}
 
+                                                    <a style="display:inline" title="تمدید" data-toggle="modal" data-target="#endDateAdd{{ $archive->id }}" ><i style="font-size: 20px" class="ft-clock"></i></a>
 
                                                     <form style="display:inline" class="" action="{{url('archive/delete', $archive->id)}}" method="post">
                                                         {{csrf_field()}}

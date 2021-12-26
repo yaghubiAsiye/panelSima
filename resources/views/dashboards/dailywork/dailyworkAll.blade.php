@@ -227,7 +227,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> کارهای روزانه من  </h4>
+                                <h4 class="card-title"> کارهای روزانه همه کارکنان  </h4>
                                 <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -239,7 +239,7 @@
                                 </div>
                             </div>
                             <div class="card-content collapse show">
-                                <button  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i> افزودن </span></button>
+                                {{-- <button  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i> افزودن </span></button> --}}
 
                                 <div class="card-body card-dashboard">
                                     <table style="font-family: Byekan;text-align: center; width: 100%"
@@ -247,6 +247,8 @@
                                         <thead style="text-align:center">
                                         <tr style="text-align:center">
                                             <th> ردیف</th>
+                                            <th> نام</th>
+
                                             <th>  تاریخ</th>
                                             <th> ساعت شروع</th>
                                             <th> ساعت خاتمه</th>
@@ -262,11 +264,15 @@
 
                                                 <td style="white-space: normal;">{{ $archive->id }}</td>
                                                 <td>
-                                                    {{ jdate( $archive->created_at)->format('l j F   Y') }}
+                                                    {{ \App\User::where('id', $archive->user_id)->get()->pluck('name')->first() . ' ' . \App\User::where('id', $archive->user_id)->get()->pluck('family')->first() }}
+
+                                                </td>
+                                                <td>
+                                                    {{ jdate($archive->created_at)->format('l j F   Y') }}
                                                 </td>
                                                 <td>
                                                     {{ $archive->start_time }}
-                                                </td>
+                                                </td> 
                                                 <td>
                                                     {{ $archive->end_time }}
                                                 </td>
