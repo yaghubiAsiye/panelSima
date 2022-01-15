@@ -15,7 +15,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title"> ویرایش   رتبه یا گواهینامه با نام     {{ $Certificate->name ?? ''}} </h4>
+                                <h4 class="card-title"> ویرایش   سند با نام     {{ $Certificate->name ?? ''}} </h4>
                                 <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -34,7 +34,7 @@
                                         <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel17">ویرایش  رتبه یا گواهینامه</h4>
+                                                    <h4 class="modal-title" id="myModalLabel17">ویرایش   اسناد </h4>
 
                                                 </div>
                                                 <div class="modal-body">
@@ -48,11 +48,11 @@
                                                         </div>
                                                     @endif
 
-                                                        <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="{{url('Certificates/update/' . $Certificate->id)}}" class="form form-horizontal form-bordered striped-rows">
+                                                        <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="{{url('Dokumentation/update/' . $Certificate->id)}}" class="form form-horizontal form-bordered striped-rows">
                                                             @csrf
                                                             <div style="font-family:byekan" class="form-body">
                                                                 <div class="form-group row">
-                                                                    <label class="col-md-3 label-control" for="name">نام رتبه یا گواهینامه</label>
+                                                                    <label class="col-md-3 label-control" for="name">نام سند  </label>
                                                                     <div class="col-md-9">
                                                                         <input type="text" id="name" value="{{ $Certificate->name ?? '' }}" class="form-control" name="name">
                                                                     </div>
@@ -88,7 +88,7 @@
                                                                 </div>
 
                                                                 <div class="form-group row last">
-                                                                    <label class="col-md-3 label-control" for="description"> ۱ لینک فایل</label>
+                                                                    <label class="col-md-3 label-control" for="description">لینک فایل</label>
                                                                     <div class="col-md-9">
                                                                         @if($Certificate->file)
                                                                             <a href="{{ $Certificate->file }}" target="_blank"> <i class="ft-file-text" ></i> دانلود فایل</a>
@@ -97,25 +97,9 @@
                                                                 </div>
 
                                                                 <div  class="form-group row last">
-                                                                    <label class="col-md-3 label-control" for="file"> ۱ فایل</label>
+                                                                    <label class="col-md-3 label-control" for="file">فایل</label>
                                                                     <div class="col-md-9">
                                                                         <input type="file" id="file"  class="form-control" name="file">
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="form-group row last">
-                                                                    <label class="col-md-3 label-control" for="description"> ۲ لینک فایل</label>
-                                                                    <div class="col-md-9">
-                                                                        @if($Certificate->file2)
-                                                                            <a href="{{ $Certificate->file2 }}" target="_blank"> <i class="ft-file-text" ></i> دانلود فایل</a>
-                                                                        @endif
-                                                                    </div>
-                                                                </div>
-
-                                                                <div  class="form-group row last">
-                                                                    <label class="col-md-3 label-control" for="file"> ۲ فایل</label>
-                                                                    <div class="col-md-9">
-                                                                        <input type="file" id="file2"  class="form-control" name="file2">
                                                                     </div>
                                                                 </div>
 

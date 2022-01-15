@@ -421,6 +421,10 @@
                 <a class="orangeColor" href="/invoices"><i class="ft-bar-chart"></i><span class="menu-title" data-i18n="nav.dash.main">پیش فاکتورهای صادرشده </span></a>
             </li>
 
+            <li class="{{{ (Request::is('Dokumentation') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/Dokumentation"><i class=" icon-picture"></i><span class="menu-title" data-i18n="nav.dash.main">مستندات </span></a>
+            </li>
+
 
             <li class="{{{ (Request::is('*tenders*') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/tenders"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.dash.main">کار پذیری</span></a>
@@ -444,6 +448,10 @@
 
             <li class="{{{ (Request::is('regulations') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="regulations"><i class="icon-speech"></i><span class="menu-title" data-i18n="nav.dash.main">آیین نامه ها</span></a>
+            </li>
+
+            <li class="{{{ (Request::is('instructions') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="instructions"><i class="icon-rocket"></i><span class="menu-title" data-i18n="nav.dash.main">دستورالعمل ها  </span></a>
             </li>
 
             <li class="{{{ (Request::is('*archives*') ? 'active' : '') }}}   nav-item has-sub">

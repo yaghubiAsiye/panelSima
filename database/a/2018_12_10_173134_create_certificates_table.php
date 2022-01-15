@@ -21,6 +21,8 @@ class CreateCertificatesTable extends Migration
             $table->string('moddateEtebar')->nullable();
             $table->string('dateEnd')->nullable();
             $table->string('file')->nullable();
+            $table->string('file2')->nullable();
+
             $table->timestamps();
         });
     }

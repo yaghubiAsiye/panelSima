@@ -98,6 +98,13 @@ Route::get('Certificates/edit/{id}','CertificatesController@edit')->middleware('
 Route::post('Certificates/update/{id}','CertificatesController@update')->middleware('auth');
 
 
+//Dokumentation
+Route::get('Dokumentation','DokumentationController@index')->middleware('auth');
+Route::post('Dokumentation','DokumentationController@store')->middleware('auth');
+Route::get('Dokumentation/delete/{id}','DokumentationController@destroy')->middleware('auth');
+Route::get('Dokumentation/edit/{id}','DokumentationController@edit')->middleware('auth');
+Route::post('Dokumentation/update/{id}','DokumentationController@update')->middleware('auth');
+
 
 
 //Suggestions
@@ -139,6 +146,13 @@ Route::get('regulations','RegulationController@index')->middleware('auth');
 Route::post('regulations','RegulationController@store')->middleware('auth');
 Route::get('regulation/delete/{id}','RegulationController@destroy')->middleware('auth');
 Route::post('regulation/update/{id}','RegulationController@update')->middleware('auth');
+
+
+//Instructions
+Route::get('instructions','InstructionController@index')->middleware('auth');
+Route::post('instructions','InstructionController@store')->middleware('auth');
+Route::get('instruction/delete/{id}','InstructionController@destroy')->middleware('auth');
+Route::post('instruction/update/{id}','InstructionController@update')->middleware('auth');
 
 
 //invoices

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Regulation;
+use App\Instruction;
 use Illuminate\Http\Request;
 
-class RegulationController extends Controller
+class InstructionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class RegulationController extends Controller
      */
     public function index()
     {
-        $archives = Regulation::all();
-        return view('dashboards.regulations', compact('archives'));
+        $archives = Instruction::all();
+        return view('dashboards.Instructions', compact('archives'));
 
     }
 
@@ -40,14 +40,14 @@ class RegulationController extends Controller
         if($request->file('file')){
             $file = $request->file('file');
             $fileName = time() . "_" . $file->getClientOriginalName();
-            $file->move('storage/regulations', $fileName);
+            $file->move('storage/Instructions', $fileName);
         }else{
             $fileName = "nothing";
         }
 
-        $phoneBook = Regulation::forceCreate([
+        $phoneBook = Instruction::forceCreate([
             'title' => $request->title,
-            'file' => 'storage/regulations/' .$fileName,
+            'file' => 'storage/Instructions/' .$fileName,
             'user_id' => \Auth::user()->id,
 
         ]);
@@ -56,7 +56,7 @@ class RegulationController extends Controller
 
         \Session::flash('updateUser', array(
             'flash_title' => 'انجام شد',
-            'flash_message' => 'دستورالعمل  باموفقیت در سیستم ثبت شد',
+            'flash_message' => 'آیین نامه باموفقیت در سیستم ثبت شد',
             'flash_level' => 'success',
             'flash_button' => 'بستن'
         ));
@@ -95,7 +95,7 @@ class RegulationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $phoneBook = Regulation::findOrFail($id);
+        $phoneBook = Instruction::findOrFail($id);
 
 
         if($request->file('file'))
@@ -103,12 +103,12 @@ class RegulationController extends Controller
             $attachmentFile = $request->file('file');
 
             $attachmentFileName = time() . "_" . $attachmentFile->getClientOriginalName();
-            $attachmentFile->move('storage/regulations', $attachmentFileName);
+            $attachmentFile->move('storage/Instructions', $attachmentFileName);
 
             if (file_exists(($phoneBook->file)))
                 unlink($phoneBook->file);
 
-            $phoneBook->file = 'storage/regulations/' . $attachmentFileName;
+            $phoneBook->file = 'storage/Instructions/' . $attachmentFileName;
 
         }
 
@@ -121,7 +121,7 @@ class RegulationController extends Controller
 
         \Session::flash('updateUser', array(
             'flash_title' => 'انجام شد',
-            'flash_message' => 'دستورالعمل  باموفقیت در سیستم آپدیت شد',
+            'flash_message' => 'آیین نامه باموفقیت در سیستم آپدیت شد',
             'flash_level' => 'success',
             'flash_button' => 'بستن'
         ));
@@ -136,12 +136,12 @@ class RegulationController extends Controller
      */
     public function destroy($id)
     {
-        $contract = Regulation::findOrFail($id);
+        $contract = Instruction::findOrFail($id);
         $contract->delete();
 
         \Session::flash('updateUser', array(
             'flash_title' => 'انجام شد',
-            'flash_message' => 'دستورالعمل  مورد نظر باموفقیت از سیستم حذف شد.',
+            'flash_message' => 'آیین نامه مورد نظر باموفقیت از سیستم حذف شد.',
             'flash_level' => 'success',
             'flash_button' => 'بستن'
         ));

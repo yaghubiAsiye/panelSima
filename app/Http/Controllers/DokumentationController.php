@@ -2,24 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Certificates;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Foundation\Application;
-use Illuminate\Http\RedirectResponse;
+use App\Dokumentation;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 
-class CertificatesController extends Controller
+class DokumentationController extends Controller
 {
-  /**
+     /**
   * Display a listing of the resource.
   *
   * @return \Illuminate\Http\Response
   */
   public function index()
   {
-    $Certificates = Certificates::all();
-    return view('dashboards.certifications', compact('Certificates'));
+    $Dokumentation = Dokumentation::all();
+    return view('dashboards.Dokumentation', compact('Dokumentation'));
   }
 
   /**
@@ -44,29 +40,19 @@ class CertificatesController extends Controller
     if($request->file('file')){
       $file = $request->file('file');
       $fileName = time() . "_" . $file->getClientOriginalName();
-      $file->move('storage/Certificates', $fileName);
+      $file->move('storage/Dokumentation', $fileName);
     }else{
       $fileName = "nothing";
     }
 
-    if($request->file('file2')){
-        $file2 = $request->file('file2');
-        $fileName2 = time() . "_" . $file2->getClientOriginalName();
-        $file2->move('storage/Certificates', $fileName2);
-      }else{
-        $fileName2 = "nothing";
-      }
 
-
-    Certificates::forceCreate([
+    Dokumentation::forceCreate([
       'name' => $request->name,
       'saderKonandeh' => $request->saderKonandeh,
       'dateStart' => $request->dateStart,
       'moddateEtebar' => $request->moddateEtebar,
       'dateEnd' => $request->dateEnd,
-      'file' => 'storage/Certificates/' . $fileName,
-      'file2' => 'storage/Certificates/' . $fileName2,
-
+      'file' => 'storage/Dokumentation/' . $fileName,
     ]
   );
 
@@ -84,10 +70,10 @@ class CertificatesController extends Controller
 /**
 * Display the specified resource.
 *
-* @param  \App\Certificates  $certificates
+* @param  \App\Dokumentation  $Dokumentation
 * @return \Illuminate\Http\Response
 */
-public function show(Certificates $certificates)
+public function show(Dokumentation $Dokumentation)
 {
   //
 }
@@ -100,8 +86,8 @@ public function show(Certificates $certificates)
      */
 public function edit($id)
 {
-    $Certificate = Certificates::findOrFail($id);
-    return view('dashboards.certifications.edit', compact('Certificate'));
+    $Certificate = Dokumentation::findOrFail($id);
+    return view('dashboards.Dokumentation.edit', compact('Certificate'));
 
 
 }
@@ -115,47 +101,33 @@ public function edit($id)
      */
 public function update(Request $request, $id): RedirectResponse
 {
-    $Certificates = Certificates::findOrFail($id);
+    $Dokumentation = Dokumentation::findOrFail($id);
 
     if($request->file('file'))
     {
         $attachmentFile = $request->file('file');
 
         $attachmentFileName = time() . "_" . $attachmentFile->getClientOriginalName();
-        $attachmentFile->move('storage/Certificates', $attachmentFileName);
+        $attachmentFile->move('storage/Dokumentation', $attachmentFileName);
 
-        if (file_exists(($Certificates->file)))
-            unlink($Certificates->file);
+        if (file_exists(($Dokumentation->contractorFile)))
+            unlink($Dokumentation->contractorFile);
 
-        $Certificates->file = 'storage/Certificates/' . $attachmentFileName;
-
-    }
-
-    if($request->file('file2'))
-    {
-        $attachmentFile2 = $request->file('file2');
-
-        $attachmentFileName2 = time() . "_" . $attachmentFile2->getClientOriginalName();
-        $attachmentFile2->move('storage/Certificates', $attachmentFileName2);
-
-        if (file_exists(($Certificates->file2)))
-            unlink($Certificates->file2);
-
-        $Certificates->file2 = 'storage/Certificates/' . $attachmentFileName2;
+        $Dokumentation->file = 'storage/Dokumentation/' . $attachmentFileName;
 
     }
 
-    $Certificates->name = $request->name;
-    $Certificates->saderKonandeh = $request->saderKonandeh;
-    $Certificates->dateStart = $request->dateStart;
-    $Certificates->moddateEtebar = $request->moddateEtebar;
-    $Certificates->dateEnd = $request->dateEnd;
+    $Dokumentation->name = $request->name;
+    $Dokumentation->saderKonandeh = $request->saderKonandeh;
+    $Dokumentation->dateStart = $request->dateStart;
+    $Dokumentation->moddateEtebar = $request->moddateEtebar;
+    $Dokumentation->dateEnd = $request->dateEnd;
 
-    $Certificates->update();
+    $Dokumentation->update();
 
     \Session::flash('updateUser', array(
         'flash_title' => 'انجام شد',
-        'flash_message' => 'رتبه یا گواهینامه باموفقیت  آپدیت شد',
+        'flash_message' => 'سند   باموفقیت  آپدیت شد',
         'flash_level' => 'success',
         'flash_button' => 'بستن'
     ));
@@ -166,17 +138,17 @@ public function update(Request $request, $id): RedirectResponse
 /**
 * Remove the specified resource from storage.
 *
-* @param  \App\Certificates  $certificates
+* @param  \App\Dokumentation  $Dokumentation
 * @return \Illuminate\Http\Response
 */
 public function destroy($id)
 {
-  $Certificates = Certificates::findOrFail($id);
-  $Certificates->delete();
+  $Dokumentation = Dokumentation::findOrFail($id);
+  $Dokumentation->delete();
 
   \Session::flash('updateUser', array(
     'flash_title' => 'انجام شد',
-    'flash_message' => 'گواهینامه موردنظر باموفقیت حذف شد.',
+    'flash_message' => 'سند موردنظر باموفقیت حذف شد.',
     'flash_level' => 'success',
     'flash_button' => 'بستن'
   ));

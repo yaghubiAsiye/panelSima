@@ -21,7 +21,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel17">رتبه ها و گواهینامه ها</h4>
+        <h4 class="modal-title" id="myModalLabel17">مستندات</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -37,11 +37,11 @@
         </div>
         @endif
 
-        <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="Certificates" class="form form-horizontal form-bordered striped-rows">
+        <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="Dokumentation" class="form form-horizontal form-bordered striped-rows">
           @csrf
           <div style="font-family:byekan" class="form-body">
             <div class="form-group row">
-              <label class="col-md-3 label-control" for="name">نام رتبه یا گواهینامه</label>
+              <label class="col-md-3 label-control" for="name">نام سند  </label>
               <div class="col-md-9">
                 <input type="text" id="name" class="form-control" name="name">
               </div>
@@ -79,19 +79,11 @@
 
 
             <div  class="form-group row last">
-              <label class="col-md-3 label-control" for="file"> ۱ فایل</label>
+              <label class="col-md-3 label-control" for="file">فایل</label>
               <div class="col-md-9">
                 <input type="file" id="file" class="form-control" name="file">
               </div>
             </div>
-
-
-            <div  class="form-group row last">
-                <label class="col-md-3 label-control" for="file2"> ۲ فایل</label>
-                <div class="col-md-9">
-                  <input type="file" id="file2" class="form-control" name="file2">
-                </div>
-              </div>
 
           </div>
 
@@ -124,7 +116,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title">لیست رتبه ها و گواهینامه های اخذ شده شرکت</h4>
+              <h4 class="card-title">لیست مستندات شرکت</h4>
               <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
               <div class="heading-elements">
                 <ul class="list-inline mb-0">
@@ -142,19 +134,17 @@
                   <thead>
                     <tr style="text-align: center" >
                       <th>ردیف</th>
-                      <th>نام رتبه یا گواهینامه</th>
+                      <th>نام  سند </th>
                       <th>صادر کننده</th>
                       <th>تاریخ صدور</th>
                       <th>مدت اعتبار </th>
                       <th>تاریخ اتمام</th>
-                      <th> ۱ فایل</th>
-                      <th> ۲ فایل</th>
+                      <th>فایل</th>
                       <th>عملیات</th>
                     </tr>
                   </thead>
                   <tbody>
-
-                    @foreach($Certificates as $Certificate)
+                    @foreach($Dokumentation as $Certificate)
                     <tr>
                       <td>{{ $Certificate->id }}</td>
                       <td style="white-space: normal">{{ $Certificate->name }}</td>
@@ -163,20 +153,15 @@
                       <td>{{ $Certificate->moddateEtebar }}</td>
                       <td>{{ $Certificate->dateEnd }}</td>
                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" ><a target="_blank" href="{{ $Certificate->file }}"> <i class="ft-file-text" ></i> </a></td>
-                      <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" ><a target="_blank" href="{{ $Certificate->file2 }}"> <i class="ft-file-text" ></i> </a></td>
-
                       <td style="text-align:center;color: #3BAFDA">
-                          <a href="Certificates/delete/{{ $Certificate->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i>  </a>
-                          <a href="Certificates/edit/{{ $Certificate->id }} ">
+                          <a href="Dokumentation/delete/{{ $Certificate->id }}" onclick="return confirm('آیا برای حذف سند اطمینان دارید؟');"><i style="font-size: 20px" class="ft-x-square danger"></i>  </a>
+                          <a href="Dokumentation/edit/{{ $Certificate->id }} ">
                               <i style="font-size: 20px" class="ft-edit primary"></i>
                           </a>
                       </td>
                     </tr>
                     @endforeach
-
-
                   </tbody>
-
                 </table>
               </div>
             </div>

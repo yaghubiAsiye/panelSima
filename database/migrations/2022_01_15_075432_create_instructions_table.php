@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRegulationsTable extends Migration
+class CreateInstructionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateRegulationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('regulations', function (Blueprint $table) {
+        Schema::create('instructions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable();
             $table->string('file')->nullable();
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateRegulationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('regulations');
+        Schema::dropIfExists('instructions');
     }
 }

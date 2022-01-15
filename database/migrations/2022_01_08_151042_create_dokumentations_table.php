@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRegulationsTable extends Migration
+class CreateDokumentationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateRegulationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('regulations', function (Blueprint $table) {
+        Schema::create('dokumentations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title')->nullable();
+            $table->string('name')->nullable();
+            $table->string('saderKonandeh')->nullable();
+            $table->string('dateStart')->nullable();
+            $table->string('moddateEtebar')->nullable();
+            $table->string('dateEnd')->nullable();
             $table->string('file')->nullable();
-            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateRegulationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('regulations');
+        Schema::dropIfExists('dokumentations');
     }
 }
