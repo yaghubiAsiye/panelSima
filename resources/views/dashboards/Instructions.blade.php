@@ -199,7 +199,9 @@
                                             <th> تاریخ بارگذاری</th>
                                             <th> ثبت کننده</th>
                                             <th> فایل</th>
-                                            <th>عملیات</th>
+                                            @if(auth()->user()->id == 36 || auth()->user()->id == 6 || auth()->user()->id == 48)
+                                                <th>عملیات</th>
+                                            @endif
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -222,7 +224,7 @@
                                                 </td>
 
 
-                                                @if(auth()->user()->id == 36 || auth()->user()->id == 6)
+                                                @if(auth()->user()->id == 36 || auth()->user()->id == 6 || auth()->user()->id == 48)
 
                                                 <td style="text-align:center;color: #3BAFDA">
                                                     <a data-toggle="modal" data-target="#ReferralsTdl{{ $archive->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>
