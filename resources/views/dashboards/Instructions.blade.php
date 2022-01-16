@@ -222,6 +222,7 @@
                                                 </td>
 
 
+                                                @if(auth()->user()->id == 36 || auth()->user()->id == 6)
 
                                                 <td style="text-align:center;color: #3BAFDA">
                                                     <a data-toggle="modal" data-target="#ReferralsTdl{{ $archive->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>
@@ -232,7 +233,9 @@
                                                     <a onclick="return confirm('آیا برای حذف اطمینان دارید؟');"
                                                        href="instruction/delete/{{ $archive->id }} "><i
                                                                 style="font-size: 20px" class="ft-x-square danger"></i>
-                                                    </a></td>
+                                                    </a>
+                                                </td>
+                                                @endif
                                             </tr>
                                         @endforeach
 
