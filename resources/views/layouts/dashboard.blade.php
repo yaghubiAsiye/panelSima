@@ -436,7 +436,7 @@
             </li>
 
 
-            @if(auth()->user()->id == 51 || auth()->user()->id == 6 || auth()->user()->id == 34 || auth()->user()->id == 40 || auth()->user()->id == 39 || auth()->user()->id == 35)
+            @if(auth()->user()->id == 48 || auth()->user()->id == 53 ||auth()->user()->id == 51 || auth()->user()->id == 6 || auth()->user()->id == 34 || auth()->user()->id == 40 || auth()->user()->id == 39 || auth()->user()->id == 35)
             <li class="{{{ (Request::is('contracts') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/contracts"><i class="icon-notebook"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با کارفرمایان</span></a>
             </li>
