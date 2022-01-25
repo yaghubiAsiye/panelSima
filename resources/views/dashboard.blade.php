@@ -467,6 +467,10 @@ tspan{
     </div>
     <div class="content-body"><!-- project stats -->
 
+
+      @include('alert.alert-success')
+
+
       @if ($errors->any())
       <div style="font-family:Byekan" class="alert alert-danger">
         <ul>

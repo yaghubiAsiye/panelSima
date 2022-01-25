@@ -73,7 +73,7 @@
 
 
                                                                 <div class="col-md-1"></div>
-                                                                <label style="padding-top:0px;" class="col-md-8 label-control" >دفترتهران: خیابان کریمخان زند، خیابان نجات الهی جنوبی، خیابان اراک ، پلاک ۲۷ ،طبقه سوم</label>
+                                                                <label style="padding-top:0px;white-space:nowrap" class="col-md-8 label-control" >دفترتهران: خیابان کریمخان زند، خیابان نجات الهی جنوبی، خیابان اراک ، پلاک ۲۷ ،طبقه سوم</label>
 
                                                             </div>
 

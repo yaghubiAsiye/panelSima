@@ -263,7 +263,7 @@
 
                                 <div class="card-body card-dashboard">
                                     <table style="font-family: Byekan;text-align: center; width: 100%"
-                                           class="table display nowrap table-striped table-bordered scroll-horizontal">
+                                           class="table display nowrap table-striped table-bordered  scroll-horizontal-exportTableButton">
                                         <thead style="text-align:center">
                                         <tr style="text-align:center">
                                             <th> ردیف</th>
