@@ -88,7 +88,24 @@ $('.dynamic-height').DataTable( {
 ***************************************/
 
 $('.scroll-horizontal').DataTable( {
-    "scrollX": true
+    "scrollX": true,
+    dom: 'Bfrtip',
+    buttons: [
+        {
+            extend: 'collection',
+            className: 'btn btn-sm btn-outline-dark leftPosition',
+            text: 'ابزارها و خروجی ها',
+            buttons: [
+                'copy',
+                'excel',
+                'csv',
+                'pdf',
+                'print'
+            ]
+        }
+
+    ],
+
 } );
 
 /**************************************************

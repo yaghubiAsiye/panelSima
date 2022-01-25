@@ -280,7 +280,7 @@
                                             <th> مبلغ کل</th>
                                             <th> صادرکننده</th>
 
-                                            <th>دانلود اکسل</th>
+                                            {{-- <th>دانلود اکسل</th> --}}
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -333,12 +333,12 @@
                                                 </td>
 
 
-                                                <td style="text-align:center;color: #3BAFDA">
+                                                {{-- <td style="text-align:center;color: #3BAFDA"> --}}
 
 {{--                                                    <a href="{{ URL::to('downloadExcel/' . $invoice->id) }}" ><i style="font-size: 20px" class="ft-download-cloud"></i></a>--}}
                                                     {{--<a href="{{ URL::to('downloadExcel/xls/'. $invoice->id) }}" class="btn btn-success"> xls</a>--}}
                                                     {{--<a href="{{ URL::to('downloadExcel/xlsx/'. $invoice->id) }}" class="btn btn-success"> xlsx</a>--}}
-                                                    <a href="{{ URL::to('downloadExcel/csv/'. $invoice->id) }}" class="btn btn-success"> CSV</a>
+                                                    {{-- <a href="{{ URL::to('downloadExcel/csv/'. $invoice->id) }}" class="btn btn-success"> CSV</a> --}}
                                                     {{--<a data-toggle="modal" data-target="#ReferralsTdl{{ $invoice->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>--}}
 
 
@@ -346,7 +346,7 @@
                                                        {{--href="regulation/delete/{{ $archive->id }} "><i--}}
                                                                 {{--style="font-size: 20px" class="ft-x-square danger"></i>--}}
                                                     {{--</a>--}}
-                                                </td>
+                                                {{-- </td> --}}
                                             </tr>
                                         @endforeach
 

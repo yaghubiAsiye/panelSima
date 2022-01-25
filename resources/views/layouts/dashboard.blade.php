@@ -51,7 +51,6 @@
 
 
 
-
     <style media="screen">
 
         @font-face {
@@ -215,6 +214,17 @@
         .orangeColor{
             color:  #c2c7d0 !important;
             font-weight: bold !important;
+        }
+        .leftPosition{
+            display: inline;
+            position: absolute;
+            right: 900px;
+            top: -17px;
+        }
+        .dt-button-collection.dropdown-menu{
+            left: 0 !important;
+            width: 100px;
+            right: 1200px;
         }
 
     </style>

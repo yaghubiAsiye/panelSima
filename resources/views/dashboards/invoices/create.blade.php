@@ -64,7 +64,7 @@
                                                                 </div>
 
                                                                 <div class="col-md-1"></div>
-                                                                <label style="text-align: right;padding-top:0px;" class="col-md-4 label-control" >تلفن : 6 88814571</label>
+                                                                <label style="text-align: right;padding-top:0px;" class="col-md-4 label-control" >تلفن : 82849500 </label>
                                                                 <label style="padding-top:0px;" class="col-md-3 label-control" >شناسه ملی: 10102631409</label>
                                                                 <label style="padding-top:0px;" class="col-md-2 label-control" for="date">تاریخ : </label>
                                                                 <div class="col-md-2">
@@ -73,7 +73,7 @@
 
 
                                                                 <div class="col-md-1"></div>
-                                                                <label style="padding-top:0px;" class="col-md-8 label-control" >دفترتهران: خیابان کریمخان زند، خیابان نجات الهی جنوبی، کوچه حقیقت طلب ، پلاک 34</label>
+                                                                <label style="padding-top:0px;" class="col-md-8 label-control" >دفترتهران: خیابان کریمخان زند، خیابان نجات الهی جنوبی، خیابان اراک ، پلاک ۲۷ ،طبقه سوم</label>
 
                                                             </div>
 
