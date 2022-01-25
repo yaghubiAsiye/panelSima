@@ -11,3 +11,7 @@
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>اطلاع رسانی ! </strong> بخش پیش فاکتورهای صادر شده به روز رسانی شد.
   </div>
+  <div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>اطلاع رسانی ! </strong> بخش قراردادباکارفرمایان و پیمانکاران و گواهینامه ها به روز رسانی شد.
+  </div>

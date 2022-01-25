@@ -219,12 +219,13 @@
             display: inline;
             position: absolute;
             right: 900px;
-            top: -17px;
+            top: -60px;
         }
         .dt-button-collection.dropdown-menu{
             left: 0 !important;
             width: 100px;
             right: 1200px;
+
         }
 
     </style>
