@@ -47,7 +47,7 @@ class PurchaseRequestController extends Controller
           'mablagh' => $request->mablagh,
           'pardakht' => $request->pardakht,
           'moddat' => $request->moddat,
-          'status' => "در دست بررسی در کمیسیون",
+          'status' => "بخش کمیسیون",
 
           'from' => $request->from,
           'to' => $request->to,

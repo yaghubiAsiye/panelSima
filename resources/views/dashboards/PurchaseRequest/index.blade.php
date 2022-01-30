@@ -220,7 +220,12 @@
                      <td>{{ $contract->moddat }}</td>
                      <td>{{ $contract->from }}</td>
                      <td>{{ $contract->to }}</td>
-                     <td style="white-space: normal">{{ $contract->status }}</td>
+                     <td style="white-space: normal">
+                        <button type="button" class="btn btn-warning mr-1">
+                            {{ $contract->status }}
+                          </button>
+                       
+                    </td>
 
                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" ><a href="{{ $contract->contractorFile }}"> <i class="ft-file-text" ></i> </a></td>
                       {{-- <td style="text-align:center;color: #3BAFDA">
