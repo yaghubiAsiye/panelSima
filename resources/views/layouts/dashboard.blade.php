@@ -428,6 +428,12 @@
                 <a class="orangeColor" href="/dashboard"><i class="icofont icofont-dashboard-web"></i><span class="menu-title" data-i18n="nav.dash.main">فعالیت ارجاع شده من</span></a>
             </li>
 
+            @if(auth()->user()->id == 48 || auth()->user()->id == 6 ||auth()->user()->id == 45 || auth()->user()->id == 42 )
+            <li class="{{{ (Request::is('PurchaseRequest') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/PurchaseRequest"><i class="icon-notebook"></i><span class="menu-title" data-i18n="nav.dash.main">درخواست خرید</span></a>
+            </li>
+            @endif
+
             <li class="{{{ (Request::is('invoices') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/invoices"><i class="ft-bar-chart"></i><span class="menu-title" data-i18n="nav.dash.main">پیش فاکتورهای صادرشده </span></a>
             </li>

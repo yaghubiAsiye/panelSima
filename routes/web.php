@@ -182,3 +182,16 @@ Route::get('dailyWorkAllUser','DailyWorkController@dailyAlluser')->middleware('a
 Route::post('dailyWork','DailyWorkController@store')->middleware('auth')->name('dailyWork.store');
 // Route::get('financialGuarantee/delete/{id}','DailyWorkController@destroy')->middleware('auth');
 // Route::post('financialGuarantee/update/{id}','DailyWorkController@update')->middleware('auth');
+
+
+
+//PurchaseRequest
+Route::get('PurchaseRequest','PurchaseRequestController@index')->middleware('auth');
+Route::post('PurchaseRequest','PurchaseRequestController@store')->middleware('auth');
+Route::get('PurchaseRequest/create','PurchaseRequestController@create')->middleware('auth');
+
+
+Route::get('PurchaseRequest/delete/{id}','PurchaseRequestController@destroy')->middleware('auth');
+Route::get('PurchaseRequest/edit/{id}','PurchaseRequestController@edit')->middleware('auth');
+Route::post('PurchaseRequest/update/{id}','PurchaseRequestController@update')->middleware('auth');
+Route::get('PurchaseRequest/show/{id}','PurchaseRequestController@show')->middleware('auth');
