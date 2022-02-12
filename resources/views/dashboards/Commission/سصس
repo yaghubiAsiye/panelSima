@@ -21,7 +21,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel17">افزودن قرارداد فروشندگان</h4>
+        <h4 class="modal-title" id="myModalLabel17">افزودن کمیسیون جزیی </h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -40,101 +40,103 @@
         <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="SellersContracts" class="form form-horizontal form-bordered striped-rows">
           @csrf
           <div style="font-family:byekan" class="form-body">
-            <h4 class="form-section"><i class="ft-user"></i> توضیحات قرارداد</h4>
+            <h4 class="form-section"><i class="ft-user"></i> کمیسیون جزيي</h4>
             <div class="form-group row">
-              <label class="col-md-3 label-control" for="name">عنوان قرارداد</label>
+              <label class="col-md-3 label-control" for="name">موضوع معامله</label>
               <div class="col-md-9">
-                <input type="text" id="name" class="form-control" placeholder="عنوان قرارداد" name="onvan">
+                <input type="text" id="name" class="form-control"  name="onvan">
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-md-3 label-control" for="description">موضوع قرارداد</label>
+              <label class="col-md-3 label-control" for="description">نام درخواست کننده خرید کالا یا خدمات</label>
               <div class="col-md-9">
-                <input type="text" id="description" class="form-control" placeholder="موضوع قرارداد" name="mozoo">
+                <input type="text" id="description" class="form-control"  name="mozoo">
               </div>
             </div>
 
 
             <div class="form-group row">
-              <label class="col-md-3 label-control" for="contractor">نام پیمانکار </label>
+              <label class="col-md-3 label-control" for="contractor">ارزش معامله </label>
               <div class="col-md-9">
-                <input type="text" id="contractor" class="form-control" placeholder="نام پیمانکار" name="tarafedovvom">
+                <input type="text" id="contractor" class="form-control"  name="tarafedovvom">
               </div>
             </div>
 
 
             <div class="form-group row last">
-              <label class="col-md-3 label-control" for="from">مبلغ ماهیانه  </label>
+              <label class="col-md-3 label-control" for="from">تعداد فقره های استعلام بها  </label>
               <div class="col-md-9">
-                <input type="text" id="from" class="form-control" placeholder="مثال: ۳۰۰۰۰۰۰۰" name="mablaghMahiane">
-              </div>
-            </div>
-
-            <div class="form-group row last">
-              <label class="col-md-3 label-control" for="from">مبلغ سالیانه  </label>
-              <div class="col-md-9">
-                <input type="text" id="from" class="form-control" placeholder="مثال: ۱۳۰۰۰۰۰" name="mablaghSaliane">
-              </div>
-            </div>
-
-
-
-
-
-            <div class="form-group row last">
-              <label class="col-md-3 label-control" for="from">مدت قرارداد</label>
-              <div class="col-md-9">
-                <input type="text" id="from" class="form-control" placeholder="مثال: یکساله" name="moddat">
-              </div>
-            </div>
-
-
-            <div class="form-group row last">
-              <label class="col-md-3 label-control" for="from">تاریخ شروع</label>
-              <div class="col-md-9">
-                <input type="text" id="from" class="form-control" placeholder="مثال: ۱۳۹۷/۰۶/۲۱" name="from">
-              </div>
-            </div>
-
-
-
-            <div class="form-group row last">
-              <label class="col-md-3 label-control" for="to">تاریخ پایان</label>
-              <div class="col-md-9">
-                <input type="text" id="to" class="form-control" placeholder="مثال: ۱۳۹۷/۱۱/۲۱" name="to">
-              </div>
-            </div>
-
-
-            <div class="form-group row last">
-              <label class="col-md-3 label-control" for="from">نحوه پرداخت </label>
-              <div class="col-md-9">
-                <input type="text" id="from" class="form-control" placeholder="مثال: چک" name="pardakht">
-              </div>
-            </div>
-
-
-            <div class="form-group row last">
-              <label class="col-md-3 label-control" for="from">داور مرضی الطرفین </label>
-              <div class="col-md-9">
-                <input type="text" id="from" class="form-control" placeholder="" name="davar">
-              </div>
-            </div>
-
-            <div class="form-group row last">
-              <label class="col-md-3 label-control" for="from">توضیحات</label>
-              <div class="col-md-9">
-                <textarea name="description" rows="8"  class="form-control" cols="80"></textarea>
+                <input type="text" id="from" class="form-control"  name="mablaghMahiane">
               </div>
             </div>
 
             <div  class="form-group row last">
-              <label class="col-md-3 label-control" for="contractorFile">آپلود فایل قرارداد</label>
+                <label class="col-md-3 label-control" for="contractorFile">بارگزاری مستندات استعلام بها</label>
+                <div class="col-md-9">
+                  <input type="file" id="contractorFile" class="form-control" name="contractorFile">
+                </div>
+              </div>
+
+            <div class="form-group row last">
+              <label class="col-md-3 label-control" for="from">نوع و مشخصات کالا </label>
               <div class="col-md-9">
-                <input type="file" id="contractorFile" class="form-control" name="contractorFile">
+                <input type="text" id="from" class="form-control" name="mablaghSaliane">
               </div>
             </div>
 
+
+
+
+
+            <div class="form-group row last">
+              <label class="col-md-3 label-control" for="from">تاریخ ثبت خرید</label>
+              <div class="col-md-9">
+                <input type="text" id="from" class="form-control" name="moddat">
+              </div>
+            </div>
+
+
+            <div class="form-group row last">
+              <label class="col-md-3 label-control" for="from">محل تحویل کالا</label>
+              <div class="col-md-9">
+                <input type="text" id="from" class="form-control"  name="from">
+              </div>
+            </div>
+
+
+
+            <div class="form-group row last">
+              <label class="col-md-3 label-control" for="to">هزینه حمل</label>
+              <div class="col-md-9">
+                <input type="text" id="to" class="form-control" name="to">
+              </div>
+            </div>
+
+
+            <div class="form-group row last">
+              <label class="col-md-3 label-control" for="from">گارانتی </label>
+              <div class="col-md-9">
+                <input type="text" id="from" class="form-control"  name="pardakht">
+              </div>
+            </div>
+
+
+            <div class="form-group row last">
+              <label class="col-md-3 label-control" for="from">خدمات پس از فروش </label>
+              <div class="col-md-9">
+                <input type="text" id="from" class="form-control"  name="davar">
+              </div>
+            </div>
+
+            <div class="form-group row last">
+                <label class="col-md-3 label-control" for="from">آیا مکاتبات از طریق ایمیل tc@persiatc.com  انجام شده ؟ </label>
+                <div class="col-md-9">
+                    <select name="" id="" class="form-control">
+                        <option value="">بله</option>
+                        <option value="">خیر</option>
+                    </select>
+                </div>
+              </div>
 
 
           </div>
@@ -168,7 +170,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title">لیست قرارداد با فروشندگان یا پیمانکاران</h4>
+              <h4 class="card-title">لیست کمیسیون های جزیی</h4>
               <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
               <div class="heading-elements">
                 <ul class="list-inline mb-0">
@@ -186,19 +188,27 @@
                   <thead>
                     <tr style="text-align: center" >
                       <th>ردیف</th>
-                      <th>عنوان قرارداد</th>
-{{--                      <th>موضوع قرارداد</th>--}}
-                      <th>نام پیمانکار</th>
-{{--                      <th>مبلغ ماهیانه</th>--}}
-{{--                      <th>مبلغ سالیانه</th>--}}
-                      <th>مدت قرارداد</th>
-                      <th>تاریخ شروع</th>
-                      <th>تاریخ پایان</th>
-{{--                      <th>نحوه پرداخت </th>--}}
-{{--                      <th>داور مرضی الطرفین</th>--}}
-{{--                      <th>توضیحات</th>--}}
-                      <th>فایل قرارداد</th>
-                      <th>عملیات</th>
+                      <th>موضوع معامله</th>
+                     <th>تاریخ برگزاری مناقصه یا مزایده عمومی</th>
+                     <th>نوع مناقصه</th>
+
+                      <th>ارزش معامله</th>
+                      <th>تعداد تامین کنندگان</th>
+                      <th>مشخصات کالا</th>
+                      <th>ارزش کالا</th>
+                      <th>محل تحویل کالا</th>
+                      <th>هزینه حمل </th>
+                      <th>گارانتی</th>
+                      <th>خدمات پس از فروش</th>
+                     <th>مدت معامله</th>
+                     <th>مستندات استعلام بها</th>
+                     <th>نظر کمیته فنی و بازرگانی</th>
+                     <th>نظر کمیسیون معاملات</th>
+                     <th>نظر هیت مدیره</th>
+                     <th>عملیات</th>
+
+
+
                     </tr>
                   </thead>
                   <tbody>
@@ -207,16 +217,20 @@
                     <tr>
                       <td>{{ $loop->iteration }}</td>
                         <td style="white-space: normal"><a href="{{ url('SellerContract/show/' . $contract->id) }}">{{ $contract->onvan }}</a></td>
-{{--                      <td>{{ $contract->mozoo }}</td>--}}
+                     <td>{{ $contract->mozoo }}</td>
                       <td>{{ $contract->tarafedovvom }}</td>
-{{--                      <td>{{ $contract->mablaghMahiane }}</td>--}}
-{{--                      <td>{{ $contract->mablaghSaliane }}</td>--}}
+                     <td>{{ $contract->mablaghMahiane }}</td>
+                     <td>{{ $contract->mablaghSaliane }}</td>
                       <td style="white-space: normal">{{ $contract->moddat }}</td>
                       <td style="white-space: normal">{{ $contract->from }}</td>
                       <td style="white-space: normal">{{ $contract->to }}</td>
-{{--                      <td>{{ $contract->pardakht }}</td>--}}
-{{--                      <td>{{ $contract->davar }}</td>--}}
-{{--                      <td>{{ $contract->description }}</td>--}}
+                     <td>{{ $contract->pardakht }}</td>
+                     <td>{{ $contract->davar }}</td>
+                     <td>{{ $contract->description }}</td>
+                     <td>{{ $contract->description }}</td>
+                     <td>{{ $contract->description }}</td>
+
+                     <td>{{ $contract->description }}</td>
                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" ><a href="{{ $contract->contractorFile }}"> <i class="ft-file-text" ></i> </a></td>
                       <td style="text-align:center;color: #3BAFDA"><a href="SellerContract/edit/{{ $contract->id }}"><i style="font-size: 20px" class="ft-edit"></i></a> <a href="SellerContract/delete/{{ $contract->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i>  </a> </td>
                     </tr>
@@ -224,24 +238,7 @@
 
 
                   </tbody>
-{{--                  <tfoot>--}}
-{{--                    <tr style="text-align: center" >--}}
-{{--                      <th>ردیف</th>--}}
-{{--                      <th>عنوان قرارداد</th>--}}
-{{--                      <th>موضوع قرارداد</th>--}}
-{{--                      <th>طرف دوم قرارداد</th>--}}
-{{--                      <th>مبلغ ماهیانه</th>--}}
-{{--                      <th>مبلغ سالیانه</th>--}}
-{{--                      <th>مدت قرارداد</th>--}}
-{{--                      <th>تاریخ شروع</th>--}}
-{{--                      <th>تاریخ پایان</th>--}}
-{{--                      <th>نحوه پرداخت </th>--}}
-{{--                      <th>داور مرضی الطرفین</th>--}}
-{{--                      <th>توضیحات</th>--}}
-{{--                      <th>فایل قرارداد</th>--}}
-{{--                      <th>تغییرات</th>--}}
-{{--                    </tr>--}}
-{{--                  </tfoot>--}}
+
                 </table>
               </div>
             </div>

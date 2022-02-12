@@ -260,7 +260,7 @@
                                         @foreach($archives as $archive)
                                             <tr>
 
-                                                <td style="white-space: normal;">{{ $archive->id }}</td>
+                                                <td style="white-space: normal;">{{ $loop->iteration }}</td>
                                                 <td>
                                                     {{ jdate( $archive->created_at)->format('l j F   Y') }}
                                                 </td>

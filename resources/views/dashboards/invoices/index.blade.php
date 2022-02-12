@@ -288,7 +288,7 @@
                                             <tr>
 
 
-                                                <td style="white-space: normal;">{{ $invoice->id }}</td>
+                                                <td style="white-space: normal;">{{ $loop->iteration }}</td>
                                                 <td>
                                                     {{ $invoice->No }}
                                                 </td>

@@ -7,10 +7,10 @@
 </div> --}}
 
 
-<div class="alert alert-success alert-dismissible">
+{{-- <div class="alert alert-success alert-dismissible">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <strong>اطلاع رسانی ! </strong> بخش ثبت درخواست خرید برای مدیرپروژه و مدیربازرگانی داخلی و مدیربازرگانی خارجی افزوده شد.
-  </div>
+  </div> --}}
 
   {{-- <div class="alert alert-success alert-dismissible">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

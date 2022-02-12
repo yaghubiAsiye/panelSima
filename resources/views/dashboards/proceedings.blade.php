@@ -198,7 +198,7 @@
 
                                         @foreach($Proceedings as $Proceeding)
                                             <tr>
-                                                <td>{{ $Proceeding->id }}</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $Proceeding->date }}</td>
                                                 <td>{{ $Proceeding->number }}</td>
                                                 <td>{{ $Proceeding->MeetingType }}</td>

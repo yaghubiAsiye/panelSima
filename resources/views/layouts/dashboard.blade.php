@@ -428,11 +428,11 @@
                 <a class="orangeColor" href="/dashboard"><i class="icofont icofont-dashboard-web"></i><span class="menu-title" data-i18n="nav.dash.main">فعالیت ارجاع شده من</span></a>
             </li>
 
-            @if(auth()->user()->id == 48 || auth()->user()->id == 6 ||auth()->user()->id == 45 || auth()->user()->id == 42 )
+            {{-- @if(auth()->user()->id == 48 || auth()->user()->id == 6 ||auth()->user()->id == 45 || auth()->user()->id == 42 )
             <li class="{{{ (Request::is('PurchaseRequest') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/PurchaseRequest"><i class="icon-notebook"></i><span class="menu-title" data-i18n="nav.dash.main">درخواست خرید</span></a>
             </li>
-            @endif
+            @endif --}}
 
             <li class="{{{ (Request::is('invoices') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/invoices"><i class="ft-bar-chart"></i><span class="menu-title" data-i18n="nav.dash.main">پیش فاکتورهای صادرشده </span></a>
@@ -490,6 +490,24 @@
                     </li>
                     <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
                         <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/مالی') }}" data-i18n="nav.templates.vert.classic_menu"> مالی  </a>
+                    </li>
+
+                </ul>
+            </li>
+
+            <li class="{{{ (Request::is('*Commission*') ? 'active' : '') }}}   nav-item has-sub">
+                <a class="orangeColor" href="#"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.templates.main"> ثبت کمیسیون</span></a>
+
+                <ul class="menu-content" style="">
+                    <li style="" class="{{{ (Request::is('*CommissionPartial*') ? 'active' : '') }}} nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*CommissionPartial*') ? 'active' : '') }}}  " href="{{ url('CommissionPartial') }}" data-i18n="nav.templates.vert.classic_menu"> معاملات جزئی</a>
+                    </li>
+
+                    <li style="" class="{{{ (Request::is('*CommissionMedium*') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*CommissionMedium*') ? 'active' : '') }}}  " href="{{ url('CommissionMedium') }}" data-i18n="nav.templates.vert.classic_menu"> معاملات متوسط  </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('*CommissionMajor*') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*CommissionMajor*') ? 'active' : '') }}}  " href="{{ url('CommissionMajor') }}" data-i18n="nav.templates.vert.classic_menu"> معاملات عمده </a>
                     </li>
 
                 </ul>

@@ -262,7 +262,7 @@
                                         @foreach($archives as $archive)
                                             <tr>
 
-                                                <td style="white-space: normal;">{{ $archive->id }}</td>
+                                                <td style="white-space: normal;">{{ $loop->iteration }}</td>
                                                 <td>
                                                     {{ \App\User::where('id', $archive->user_id)->get()->pluck('name')->first() . ' ' . \App\User::where('id', $archive->user_id)->get()->pluck('family')->first() }}
 
@@ -272,7 +272,7 @@
                                                 </td>
                                                 <td>
                                                     {{ $archive->start_time }}
-                                                </td> 
+                                                </td>
                                                 <td>
                                                     {{ $archive->end_time }}
                                                 </td>

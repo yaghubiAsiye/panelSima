@@ -215,7 +215,7 @@
 
                   @foreach($avls as $avl)
                     <tr>
-                      <td>{{ $avl->id }}</td>
+                      <td>{{ $loop->iteration }}</td>
                         <td style="white-space: normal"><a href="{{ url('avl/show/' . $avl->id) }}">{{ $avl->noefaAliat }}</a></td>
                       <td>{{ $avl->olaviat }}</td>
                       <td>{{ $avl->namesherkat }}</td>

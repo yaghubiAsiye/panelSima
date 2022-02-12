@@ -205,7 +205,7 @@
 
                   @foreach($contracts as $contract)
                     <tr>
-                      <td>{{ $contract->id }}</td>
+                      <td>{{ $loop->iteration }}</td>
                         <td style="white-space: normal"><a href="{{ url('contracts/show/' . $contract->id) }}">{{ $contract->onvan }}</a></td>
 {{--                      <td>{{ $contract->mozoo }}</td>--}}
                       <td style="white-space: normal">{{ $contract->peymankar }}</td>

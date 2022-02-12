@@ -273,7 +273,7 @@
                                         @foreach($archives as $archive)
                                             <tr>
 
-                                                <td style="white-space: normal;">{{ $archive->id }}</td>
+                                                <td style="white-space: normal;">{{ $loop->iteration }}</td>
                                                 <td>
                                                     {{ $archive->number }}
                                                 </td>
