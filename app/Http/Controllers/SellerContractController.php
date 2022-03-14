@@ -96,6 +96,7 @@ class SellerContractController extends Controller
     public function edit($id)
     {
         $contract = SellerContract::findOrFail($id);
+        return  view('dashboards.sellercontract.edit', compact('contract'));
 
 
     }

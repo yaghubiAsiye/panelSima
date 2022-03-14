@@ -613,7 +613,7 @@ tspan{
                           <td><a href="{{ url('Tdl/show/' . $tdlAssignedToOther->id) }}">{{ $tdlAssignedToOther->name }}</a></td>
 {{--                        <td>{{ $tdlAssignedToOther->description }}</td>--}}
                         <td>{{ $tdlAssignedToOther->assignerName }}</td>
-                        <td>{{ $tdlAssignedToOther->user->name . " " . $tdlAssignedToOther->user->family }}</td>
+                        <td>{{ $tdlAssignedToOther->user->name ?? '' . " " . $tdlAssignedToOther->user->family ?? ''}}</td>
                         <td><span class="badge badge-danger">{{ $tdlAssignedToOther->priority }}</span></td>
                         <td>
                             <span class="badge {{ $tdlAssignedToOther->status == 'انجام شده' ? 'badge-success' : 'badge-warning' }}">{{ $tdlAssignedToOther->status }}</span>

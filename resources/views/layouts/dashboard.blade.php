@@ -453,11 +453,11 @@
             </li>
 
 
-            @if(auth()->user()->id == 48 || auth()->user()->id == 53 ||auth()->user()->id == 51 || auth()->user()->id == 6 || auth()->user()->id == 34 || auth()->user()->id == 40 || auth()->user()->id == 39 || auth()->user()->id == 35)
+            {{-- @if(auth()->user()->id == 48 || auth()->user()->id == 53 ||auth()->user()->id == 51 || auth()->user()->id == 6 || auth()->user()->id == 34 || auth()->user()->id == 40 || auth()->user()->id == 39 || auth()->user()->id == 35) --}}
             <li class="{{{ (Request::is('contracts') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/contracts"><i class="icon-notebook"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با کارفرمایان</span></a>
             </li>
-            @endif
+            {{-- @endif --}}
 
             <li class="{{{ (Request::is('SellersContracts') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/SellersContracts"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با پیمانکاران</span></a>
@@ -496,7 +496,7 @@
             </li>
 
             <li class="{{{ (Request::is('*Commission*') ? 'active' : '') }}}   nav-item has-sub">
-                <a class="orangeColor" href="#"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.templates.main"> ثبت کمیسیون</span></a>
+                <a class="orangeColor" href="#"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.templates.main"> ثبت معاملات</span></a>
 
                 <ul class="menu-content" style="">
                     <li style="" class="{{{ (Request::is('*CommissionPartial*') ? 'active' : '') }}} nav-item">

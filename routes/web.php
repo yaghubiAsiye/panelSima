@@ -190,7 +190,6 @@ Route::get('PurchaseRequest','PurchaseRequestController@index')->middleware('aut
 Route::post('PurchaseRequest','PurchaseRequestController@store')->middleware('auth');
 Route::get('PurchaseRequest/create','PurchaseRequestController@create')->middleware('auth');
 
-
 Route::get('PurchaseRequest/delete/{id}','PurchaseRequestController@destroy')->middleware('auth');
 Route::get('PurchaseRequest/edit/{id}','PurchaseRequestController@edit')->middleware('auth');
 Route::post('PurchaseRequest/update/{id}','PurchaseRequestController@update')->middleware('auth');
@@ -219,7 +218,9 @@ Route::get('CommissionMedium/show/{id}','CommissionMediumController@show')->midd
 //CommissionPartial
 Route::get('CommissionPartial','CommissionPartialController@index')->middleware('auth');
 Route::post('CommissionPartial','CommissionPartialController@store')->middleware('auth');
-Route::get('CommissionPartial/delete/{id}','CommissionPartialController@destroy')->middleware('auth');
-Route::get('CommissionPartial/edit/{id}','CommissionPartialController@edit')->middleware('auth');
-Route::post('CommissionPartial/update/{id}','CommissionPartialController@update')->middleware('auth');
-Route::get('CommissionPartial/show/{id}','CommissionPartialController@show')->middleware('auth');
+// Route::get('CommissionPartial/delete/{id}','CommissionPartialController@destroy')->middleware('auth');
+// Route::get('CommissionPartial/edit/{id}','CommissionPartialController@edit')->middleware('auth');
+Route::post('CommissionPartial/update','CommissionPartialController@update')->middleware('auth');
+// Route::get('CommissionPartial/show/{id}','CommissionPartialController@show')->middleware('auth');
+Route::get('CommissionPartial/storeIdeaComisiun','CommissionPartialController@storeIdeaComisiun')->middleware('auth');
+

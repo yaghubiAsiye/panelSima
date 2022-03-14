@@ -157,7 +157,7 @@
 
 
 
-          
+
           </div>
 
           <div style="font-family:Byekan" class="form-actions">
@@ -203,7 +203,7 @@
             <div class="card-content collapse show">
               <button  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i> افزودن </span></button>
               <div class="card-body card-dashboard"><br><br>
-                <table style="font-family:Byekan;width: 100%" class="table display nowrap table-striped table-bordered scroll-horizontal-exportTableButton file-export ">
+                <table style="font-family:Byekan;width: 100%" class="table display nowrap table-striped table-bordered table-striped table-bordered scroll-horizontal">
                   <thead>
                     <tr style="text-align: center" >
                       <th>ردیف</th>

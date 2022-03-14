@@ -148,8 +148,6 @@ class FinancialGuaranteeController extends Controller
         $phoneBook->end_date = \Morilog\Jalali\CalendarUtils::createDatetimeFromFormat('Y/n/j', $request->end_date);
         $phoneBook->update();
 
-
-
         \Session::flash('updateUser', array(
             'flash_title' => 'انجام شد',
             'flash_message' => 'ضمانت نامه مالی باموفقیت در سیستم تمدید شد',
