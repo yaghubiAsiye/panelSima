@@ -48,7 +48,7 @@
                                                         </div>
                                                     @endif
 
-                                                        <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="{{url('Dokumentation/update/' . $Certificate->id)}}" class="form form-horizontal form-bordered striped-rows">
+                                                        <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="{{url('Dokumentation/update/' . $commission->id)}}" class="form form-horizontal form-bordered striped-rows">
                                                             @csrf
                                                             <div style="font-family:byekan" class="form-body">
                                                                 <div class="form-group row">

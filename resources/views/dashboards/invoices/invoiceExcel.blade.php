@@ -17,7 +17,7 @@
         <td></td>
         <td></td>
         <td  width="20" height="30" valign="center" style="vertical-align: middle;text-align: center"> شناسه ملی : 10102631409</td>
-        <td  width="20" height="30" valign="center" style="vertical-align: middle;text-align: center"> تاریخ : {{ jDate($invoice['date']) }}</td>
+        <td  width="20" height="30" valign="center" style="vertical-align: middle;text-align: center"> تاریخ : {{ jDate($invoice['date'])->format('Y/m/d') }}</td>
         <td  width="80" height="30" valign="center" style="vertical-align: middle;text-align: right;direction: rtl">دفتر تهران : خیابان کریمخان زند، خیابان نجات الهی جنوبی، کوچه حقیقت طلب ، پلاک ۳۴ </td>
 
     </tr>
@@ -106,7 +106,7 @@
         <th width="20" height="30" valign="center" style="vertical-align: middle;text-align: center;">جمع کل</th>
 
         <th width="20" colspan="2"height="30" valign="center" style="vertical-align: middle;text-align: center;"></th>
-        <th colspan="2" width="60" height="30" valign="center" style="vertical-align: middle;text-align: right;"> مدت اعتبار {{ $invoice->validity }}</th>
+        <th colspan="2" width="60" height="30" valign="center" style="vertical-align: middle;text-align: right;"> مدت اعتبار </th>
 
     </tr>
 

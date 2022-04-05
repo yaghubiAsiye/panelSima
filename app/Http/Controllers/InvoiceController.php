@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Invoice;
 
-use Illuminate\Http\Request;
 use App\Product;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\AddInvoiceRequest;
 
 class InvoiceController extends Controller
@@ -40,8 +42,13 @@ class InvoiceController extends Controller
      */
     public function store(AddInvoiceRequest $request)
     {
-//        dd($request);
         $total = 0;
+        $name = Auth::user()->name;
+        $family = Auth::user()->family;
+
+        jdate(Carbon::now());
+        $unique_code = mb_substr($name, 0, 1, 'utf8') . '-' . mb_substr($name, -1, 1, 'utf8') . '-' . Auth::user()->id  . '-' . jdate(Carbon::now())->format('Y.m.d');
+        // dd($unique_code);
 
         $invoice = Invoice::forceCreate([
             'company_name' => $request->company_name,
@@ -55,8 +62,7 @@ class InvoiceController extends Controller
             'national_code' => $request->national_code,
             'registration_number' => $request->registration_number,
             'user_id' => \Auth::user()->id,
-
-//            'discount' => $request->discount,
+           'unique_code' => $unique_code,
 
         ]);
 

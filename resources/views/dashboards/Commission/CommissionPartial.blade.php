@@ -132,8 +132,9 @@
                 <label class="col-md-3 label-control" for="email_status">آیا مکاتبات از طریق ایمیل tc@persiatc.com  انجام شده ؟ </label>
                 <div class="col-md-9">
                     <select name="email_status" id="" class="form-control">
-                        <option value="yes">بله</option>
-                        <option value="no">خیر</option>
+                        <option>انتخاب کنید</option>
+                        <option value="بله">بله</option>
+                        <option value="خیر">خیر</option>
                     </select>
                 </div>
               </div>
@@ -171,9 +172,11 @@
         </button>
       </div>
       <div  style=" direction: rtl;" class="modal-body">
-      mozoo
+
         <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="CommissionPartial/update" class="form form-horizontal form-bordered striped-rows">
             @csrf
+            <input type="hidden" class="form-control" value="{{ $commission->id }}"  name="id">
+
             <div style="font-family:byekan" class="form-body">
               <h4 class="form-section"><i class="ft-user"></i> کمیسیون جزیی</h4>
               <div class="form-group row">
@@ -267,8 +270,9 @@
                   <label class="col-md-3 label-control" for="email_status">آیا مکاتبات از طریق ایمیل tc@persiatc.com  انجام شده ؟ </label>
                   <div class="col-md-9">
                       <select name="email_status" id="" class="form-control">
-                          <option value="yes">بله</option>
-                          <option value="no">خیر</option>
+                          <option>انتخاب کنید</option>
+                          <option value="بله">بله</option>
+                          <option value="خیر">خیر</option>
                       </select>
                   </div>
                 </div>
@@ -359,7 +363,7 @@
                      <td>{{ $contract->hazinehaml }}</td>
                      <td>{{ $contract->garanti }}</td>
                      <td>{{ $contract->khadamatpasazforosh }}</td>
-                     <td>{{ $contract->email_status == 1 ? 'بله' : 'خیر' }}</td>
+                     <td>{{ $contract->email_status ?? ''}}</td>
                     <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" >
                         <a href="CommissionPartial/storeIdeaComisiun"> ثبت نظر کمیسیون </a>
                     </td>

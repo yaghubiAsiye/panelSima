@@ -268,19 +268,22 @@
                                         <tr style="text-align:center">
                                             <th> ردیف</th>
                                             <th> شماره</th>
+                                            <th> کدویژه</th>
+
                                             <th> تاریخ</th>
                                             <th> شرکت خریدار</th>
-                                            {{--<th> آدرس</th>--}}
+                                            <th> آدرس</th>
                                             <th> تلفن</th>
                                             <th> اعتبار</th>
-                                            {{--<th> کد اقتصادی</th>--}}
-                                            {{--<th> کد پستی</th>--}}
-                                            {{--<th> شناسه ملی</th>--}}
-                                            {{--<th> شماره ثبت</th>--}}
+                                            <th> کد اقتصادی</th>
+                                            <th> کد پستی</th>
+                                            <th> شناسه ملی</th>
+                                            <th> شماره ثبت</th>
                                             <th> مبلغ کل</th>
                                             <th> صادرکننده</th>
+                                            <th> بررسی نتیجه</th>
 
-                                            {{-- <th>دانلود اکسل</th> --}}
+                                            <th> عملیات</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -292,6 +295,9 @@
                                                 <td>
                                                     {{ $invoice->No }}
                                                 </td>
+                                                <td>
+                                                    {{ $invoice->unique_code }}
+                                                </td>
 
                                                 <td style="direction: ltr;">
                                                     {{ jdate($invoice->date) }}
@@ -302,51 +308,52 @@
                                                     {{ $invoice->company_name }}
                                                     </a>
                                                 </td>
-                                                {{--<td>--}}
-                                                    {{--{{ $invoice->address}}--}}
-                                                {{--</td>--}}
+                                                <td>
+                                                    {{ $invoice->address}}
+                                                </td>
                                                 <td>
                                                     {{ $invoice->phone }}
                                                 </td>
                                                 <td>
                                                     {{ $invoice->validity }}
                                                 </td>
-                                                {{--<td>--}}
-                                                    {{--{{ $invoice->economic_code }}--}}
-                                                {{--</td>--}}
-                                                {{--<td>--}}
-                                                    {{--{{ $invoice->postal_code }}--}}
-                                                {{--</td>--}}
-                                                {{--<td>--}}
-                                                    {{--{{ $invoice->national_code }}--}}
-                                                {{--</td>--}}
-                                                {{--<td>--}}
-                                                    {{--{{ $invoice->registration_number }}--}}
-                                                {{--</td>--}}
-
-
                                                 <td>
-                                                    {{ $invoice->final_total }}
+                                                    {{ $invoice->economic_code }}
+                                                </td>
+                                                <td>
+                                                    {{ $invoice->postal_code }}
+                                                </td>
+                                                <td>
+                                                    {{ $invoice->national_code }}
+                                                </td>
+                                                <td>
+                                                    {{ $invoice->registration_number }}
+                                                </td>
+                                                <td>
+                                                    {{ number_format($invoice->final_total) }}
                                                 </td>
                                                 <td>
                                                     {{ $invoice->user->name . " " . $invoice->user->family }}
                                                 </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-warning"> نتیجه</a>
+
+                                                </td>
+
+                                                <td style="text-align:center;color: #3BAFDA">
+
+                                                    {{-- <a href="{{ URL::to('downloadExcel/' . $invoice->id) }}" ><i style="font-size: 20px" class="ft-download-cloud"></i></a> --}}
+                                                    <a href="{{ URL::to('downloadExcel/xls/'. $invoice->id) }}" class="btn btn-success"> xls</a>
+                                                    <a href="{{ URL::to('downloadExcel/xlsx/'. $invoice->id) }}" class="btn btn-success"> xlsx</a>
+                                                    <a href="{{ URL::to('downloadExcel/csv/'. $invoice->id) }}" class="btn btn-success"> CSV</a>
+                                                    <a data-toggle="modal" data-target="#ReferralsTdl{{ $invoice->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>
 
 
-                                                {{-- <td style="text-align:center;color: #3BAFDA"> --}}
-
-{{--                                                    <a href="{{ URL::to('downloadExcel/' . $invoice->id) }}" ><i style="font-size: 20px" class="ft-download-cloud"></i></a>--}}
-                                                    {{--<a href="{{ URL::to('downloadExcel/xls/'. $invoice->id) }}" class="btn btn-success"> xls</a>--}}
-                                                    {{--<a href="{{ URL::to('downloadExcel/xlsx/'. $invoice->id) }}" class="btn btn-success"> xlsx</a>--}}
-                                                    {{-- <a href="{{ URL::to('downloadExcel/csv/'. $invoice->id) }}" class="btn btn-success"> CSV</a> --}}
-                                                    {{--<a data-toggle="modal" data-target="#ReferralsTdl{{ $invoice->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>--}}
-
-
-                                                    {{--<a onclick="return confirm('آیا برای حذف اطمینان دارید؟');"--}}
-                                                       {{--href="regulation/delete/{{ $archive->id }} "><i--}}
-                                                                {{--style="font-size: 20px" class="ft-x-square danger"></i>--}}
-                                                    {{--</a>--}}
-                                                {{-- </td> --}}
+                                                    {{-- <a onclick="return confirm('آیا برای حذف اطمینان دارید؟');"
+                                                       href="regulation/delete/{{ $invoice->id }} "><i
+                                                                style="font-size: 20px" class="ft-x-square danger"></i>
+                                                    </a> --}}
+                                                </td>
                                             </tr>
                                         @endforeach
 

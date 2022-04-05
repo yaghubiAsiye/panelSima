@@ -68,7 +68,7 @@
                                                                 <label style="padding-top:0px;" class="col-md-3 label-control" >شناسه ملی: 10102631409</label>
                                                                 <label style="padding-top:0px;" class="col-md-2 label-control" for="date">تاریخ : </label>
                                                                 <div class="col-md-2">
-                                                                    <input style="font-family:Byekan" class="form-control" style="" placeholder="کلیک کنید" name="date" type="text" id="input1"/>
+                                                                    <input style="font-family:Byekan" class="form-control" autocomplete="off" placeholder="کلیک کنید" name="date" type="text" id="input1"/>
                                                                 </div>
 
 
