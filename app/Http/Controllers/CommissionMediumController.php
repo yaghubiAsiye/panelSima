@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Commission;
 use Illuminate\Http\Request;
+use App\Http\Requests\CommissionMediumRequest;
 
 class CommissionMediumController extends Controller
 {
@@ -14,8 +15,8 @@ class CommissionMediumController extends Controller
      */
     public function index()
     {
-        $contracts = Commission::all();
-        return view('dashboards.Commission.CommissionMedium', compact('contracts'));
+        $commissions = Commission::all();
+        return view('dashboards.Commission.CommissionMedium', compact('commissions'));
 
     }
 
@@ -35,7 +36,7 @@ class CommissionMediumController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CommissionMediumRequest $request)
     {
         //
     }

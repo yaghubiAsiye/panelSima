@@ -13,7 +13,7 @@ class CommissionMajorRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,17 @@ class CommissionMajorRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'mozoo' => 'required',
+            'darkhastkonande' => 'required',
+            'arzeshmoamele' => 'required',
+            'tedadestelambaha' => 'required',
+            'typekala' => 'required',
+            'datesabt' => 'required',
+            'mahaltahvil' => 'required',
+            'hazinehaml' => 'nullable',
+            'garanti' => 'required',
+            'khadamatpasazforosh' => 'required',
+            'email_status' => 'required',
         ];
     }
 }

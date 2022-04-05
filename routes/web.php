@@ -225,5 +225,5 @@ Route::post('CommissionPartial/update','CommissionPartialController@update')->mi
 // Route::get('CommissionPartial/storeIdeaComisiun','CommissionPartialController@storeIdeaComisiun')->middleware('auth');
 
 //confirm
-Route::get('CommissionPartial','ConfirmController@create')->middleware('auth');
-Route::get('CommissionPartial','ConfirmController@create')->middleware('auth');
+Route::get('CommissionPartial','ConfirmController@store')->middleware('auth');
+// Route::get('CommissionPartial','ConfirmController@create')->middleware('auth');

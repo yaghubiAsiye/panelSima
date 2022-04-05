@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Commission;
 use Illuminate\Http\Request;
+use App\Http\Requests\CommissionMajorRequest;
 
 class CommissionMajorController extends Controller
 {
@@ -35,7 +36,7 @@ class CommissionMajorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CommissionMajorRequest $request)
     {
         //
     }
