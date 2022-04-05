@@ -15,8 +15,8 @@ class CommissionMediumController extends Controller
      */
     public function index()
     {
-        $commissions = Commission::all();
-        return view('dashboards.Commission.CommissionMedium', compact('commissions'));
+        $contracts = Commission::all();
+        return view('dashboards.Commission.CommissionMedium', compact('contracts'));
 
     }
 
