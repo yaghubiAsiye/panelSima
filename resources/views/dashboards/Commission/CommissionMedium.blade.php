@@ -154,7 +154,7 @@
 
 
 <!--  Start Edit Task Assigned to Me -->
-@foreach($commissions as $commission)
+@foreach($contracts as $commission)
 <div style="font-family:Byekan" class="modal fade text-left" id="editTdl{{ $commission->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{ $commission->id }}" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
