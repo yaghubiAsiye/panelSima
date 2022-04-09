@@ -53,12 +53,12 @@
 
     </tr>
 
-    {{-- <tr>
+    <tr>
         <td></td>
         <td></td>
         <td  width="20" height="30" valign="center" style="vertical-align: middle;text-align: center"></td>
         <td  width="20" height="30" valign="center" style="vertical-align: middle;text-align: center"></td>
-        <td  width="60" height="30" valign="center" style="vertical-align: middle;text-align: right;direction: rtl">  تلفن : {{ $invoice->phone }} </td>
+        <td  width="60" height="30" valign="center" style="vertical-align: middle;text-align: right;direction: rtl">  تلفن : {{ $invoice['phone'] }} </td>
 
     </tr>
     <tr></tr>
@@ -73,63 +73,7 @@
 
     </tr>
 
-    @foreach($invoice->products as $product)
-        <tr>
-            <td width="20" height="30" valign="center" style="vertical-align: middle;text-align: center;">{{ $product->total_price }}</td>
-            <td width="20" height="30" valign="center" style="vertical-align: middle;text-align: center;">{{ $product->unit_price }}</td>
-            <td width="20" height="30" valign="center" style="vertical-align: middle;text-align: center;">{{ $product->unit }}</td>
-            <td width="20" height="30" valign="center" style="vertical-align: middle;text-align: center;">{{ $product->number }}</td>
-            <td colspan="2" width="20" height="30" valign="center" style="vertical-align: middle;text-align: center;">{{ $product->description }}</td>
-        </tr>
-    @endforeach
-
-    <tr>
-        <th width="20" height="30" valign="center" style="vertical-align: middle;text-align: center; background-color: #eee">{{ $invoice->total }}</th>
-        <th width="20" height="30" valign="center" style="vertical-align: middle;text-align: center; background-color: #eee">جمع کل</th>
-
-        <th width="20" colspan="2"height="30" valign="center" style="vertical-align: middle;text-align: center;"></th>
-        <th colspan="2" width="60" height="30" valign="center" style="vertical-align: middle;text-align: right;"> مبلغ کل به حروف</th>
-
-    </tr>
-
-    <tr>
-        <th width="20" height="30" valign="center" style="vertical-align: middle;text-align: center;">۰</th>
-        <th width="20" height="30" valign="center" style="vertical-align: middle;text-align: center;">تخفیف</th>
-
-        <th width="20" colspan="2"height="30" valign="center" style="vertical-align: middle;text-align: center;"></th>
-        <th colspan="2" width="60" height="30" valign="center" style="vertical-align: middle;text-align: right;"> فروش به صورت نقدی می باشد</th>
-
-    </tr>
-
-    <tr>
-        <th width="20" height="30" valign="center" style="vertical-align: middle;text-align: center;">{{ $invoice->total }}</th>
-        <th width="20" height="30" valign="center" style="vertical-align: middle;text-align: center;">جمع کل</th>
-
-        <th width="20" colspan="2"height="30" valign="center" style="vertical-align: middle;text-align: center;"></th>
-        <th colspan="2" width="60" height="30" valign="center" style="vertical-align: middle;text-align: right;"> مدت اعتبار </th>
-
-    </tr>
-
-    <tr>
-        <th width="20" height="30" valign="center" style="vertical-align: middle;text-align: center;">{{ $invoice->tax }}</th>
-        <th width="20" height="30" valign="center" style="vertical-align: middle;text-align: center;">ارزش افزوده 9 درصد</th>
-
-        <th width="20" colspan="2" height="30" valign="center" style="vertical-align: middle;text-align: center;"></th>
-        <th colspan="2" width="60" height="30" valign="center" style="vertical-align: middle;text-align: right;">
-            شماره شبا:IR55 0120 0200 0000 5387 8268 31
-            <br>
-            شماره حساب: 5387826831  بانک ملت شعبه مستقل مرکزی
-        </th>
-
-    </tr>
-    <tr>
-        <th width="20" height="30" valign="center" style="vertical-align: middle;text-align: center; background-color: #eee">{{ $invoice->final_total }}</th>
-        <td width="20" height="30" valign="center" style="vertical-align: middle;text-align: center; background-color: #eee">جمع کل پس از اعمال ارزش افزوده</td>
-
-        <th width="20" colspan="2" height="30" valign="center" style="vertical-align: middle;text-align: right;"></th>
-        <th colspan="2" width="60" height="30" valign="center" style="vertical-align: middle;text-align: right;">مهر يا امضاي فروشنده </th>
-
-    </tr> --}}
+  
 
 </table>
 
