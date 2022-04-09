@@ -53,7 +53,7 @@
 
     </tr>
 
-    <tr>
+    {{-- <tr>
         <td></td>
         <td></td>
         <td  width="20" height="30" valign="center" style="vertical-align: middle;text-align: center"></td>
@@ -129,7 +129,7 @@
         <th width="20" colspan="2" height="30" valign="center" style="vertical-align: middle;text-align: right;"></th>
         <th colspan="2" width="60" height="30" valign="center" style="vertical-align: middle;text-align: right;">مهر يا امضاي فروشنده </th>
 
-    </tr>
+    </tr> --}}
 
 </table>
 
