@@ -222,7 +222,7 @@ Route::post('CommissionPartial','CommissionPartialController@store')->middleware
 // Route::get('CommissionPartial/edit/{id}','CommissionPartialController@edit')->middleware('auth');
 Route::post('CommissionPartial/update','CommissionPartialController@update')->middleware('auth');
 // Route::get('CommissionPartial/show/{id}','CommissionPartialController@show')->middleware('auth');
-// Route::get('CommissionPartial/storeIdeaComisiun','CommissionPartialController@storeIdeaComisiun')->middleware('auth');
+Route::get('CommissionPartial/storeIdeaComisiun','CommissionPartialController@storeIdeaComisiun')->middleware('auth');
 
 //confirm
 Route::get('CommissionPartial/Confirm','ConfirmController@store')->middleware('auth');

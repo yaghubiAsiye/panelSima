@@ -356,7 +356,14 @@
                      <td>{{ $contract->darkhastkonande }}</td>
                       <td>{{ $contract->arzeshmoamele }}</td>
                      <td>{{ $contract->tedadestelambaha }}</td>
-                     <td>{{ $contract->fileestelambaha }}</td>
+                     <td>
+                        @if($contract->fileestelambaha == "storage/CommissionPartial/nothing")
+                        ---
+                    @else
+                        <a target="_blank" href="/{{ $contract->fileestelambaha }}"> {!! $contract->fileestelambaha !== "storage/CommissionPartial/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a>
+                    @endif
+                        
+                    </td>
                       <td style="white-space: normal">{{ $contract->typekala }}</td>
                       <td style="white-space: normal">{{ $contract->datesabt }}</td>
                       <td style="white-space: normal">{{ $contract->mahaltahvil }}</td>

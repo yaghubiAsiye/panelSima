@@ -464,11 +464,11 @@
             </li>
 
             <li class="{{{ (Request::is('regulations') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="regulations"><i class="icon-speech"></i><span class="menu-title" data-i18n="nav.dash.main">آیین نامه ها</span></a>
+                <a class="orangeColor" href="/regulations"><i class="icon-speech"></i><span class="menu-title" data-i18n="nav.dash.main">آیین نامه ها</span></a>
             </li>
 
             <li class="{{{ (Request::is('instructions') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="instructions"><i class="icon-rocket"></i><span class="menu-title" data-i18n="nav.dash.main">دستورالعمل ها  </span></a>
+                <a class="orangeColor" href="/instructions"><i class="icon-rocket"></i><span class="menu-title" data-i18n="nav.dash.main">دستورالعمل ها  </span></a>
             </li>
 
             <li class="{{{ (Request::is('*archives*') ? 'active' : '') }}}   nav-item has-sub">
