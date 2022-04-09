@@ -32,9 +32,9 @@ class AddInvoiceRequest extends FormRequest
             'validity' => 'required',
             'economic_code' => 'required',
             'postal_code' => 'required',
-            'national_code' => 'required',
+            // 'national_code' => 'required',
             'registration_number' => 'required',
-            'user_id' => 'required',
+            // 'user_id' => 'required',
 
         ];
     }
