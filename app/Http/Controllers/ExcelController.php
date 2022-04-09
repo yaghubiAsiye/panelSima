@@ -32,7 +32,7 @@ class ExcelController extends Controller
            $excel->sheet('mysheet', function($sheet) use($invoice) {
               $sheet->loadView('dashboards.invoices.invoiceExcel')->with('invoice', $invoice);
            });
-            })->download($type);
+            })->download('xls');
 
     }
 }
