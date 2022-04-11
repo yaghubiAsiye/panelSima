@@ -27,15 +27,7 @@
         </button>
       </div>
       <div class="modal-body">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-          <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
-        @endif
+
 
         <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="CommissionPartial" class="form form-horizontal form-bordered striped-rows">
           @csrf
@@ -306,7 +298,16 @@
     <div class="content-header row">
     </div>
     <div class="content-body">
-
+        
+        @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
 
       <div class="row">
         <div class="col-12">
@@ -362,7 +363,7 @@
                     @else
                         <a target="_blank" href="/{{ $contract->fileestelambaha }}"> {!! $contract->fileestelambaha !== "storage/CommissionPartial/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a>
                     @endif
-                        
+
                     </td>
                       <td style="white-space: normal">{{ $contract->typekala }}</td>
                       <td style="white-space: normal">{{ $contract->datesabt }}</td>

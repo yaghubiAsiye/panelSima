@@ -27,17 +27,9 @@
         </button>
       </div>
       <div class="modal-body">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-          <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-        </div>
-        @endif
 
-        <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="SellersContracts" class="form form-horizontal form-bordered striped-rows">
+
+        <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="CommissionMedium" class="form form-horizontal form-bordered striped-rows">
           @csrf
           <div style="font-family:byekan" class="form-body">
             <h4 class="form-section"><i class="ft-user"></i> معاملات متوسط</h4>
@@ -293,7 +285,16 @@
     <div class="content-header row">
     </div>
     <div class="content-body">
-
+        @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+        
       <div class="row">
         <div class="col-12">
           <div class="card">

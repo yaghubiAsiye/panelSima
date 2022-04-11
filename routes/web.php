@@ -200,19 +200,19 @@ Route::get('PurchaseRequest/show/{id}','PurchaseRequestController@show')->middle
 //CommissionMajor
 Route::get('CommissionMajor','CommissionMajorController@index')->middleware('auth');
 Route::post('CommissionMajor','CommissionMajorController@store')->middleware('auth');
-Route::get('CommissionMajor/delete/{id}','CommissionMajorController@destroy')->middleware('auth');
-Route::get('CommissionMajor/edit/{id}','CommissionMajorController@edit')->middleware('auth');
+// Route::get('CommissionMajor/delete/{id}','CommissionMajorController@destroy')->middleware('auth');
+// Route::get('CommissionMajor/edit/{id}','CommissionMajorController@edit')->middleware('auth');
 Route::post('CommissionMajor/update/{id}','CommissionMajorController@update')->middleware('auth');
-Route::get('CommissionMajor/show/{id}','CommissionMajorController@show')->middleware('auth');
+// Route::get('CommissionMajor/show/{id}','CommissionMajorController@show')->middleware('auth');
 
 
 //CommissionMedium
 Route::get('CommissionMedium','CommissionMediumController@index')->middleware('auth');
 Route::post('CommissionMedium','CommissionMediumController@store')->middleware('auth');
-Route::get('CommissionMedium/delete/{id}','CommissionMediumController@destroy')->middleware('auth');
-Route::get('CommissionMedium/edit/{id}','CommissionMediumController@edit')->middleware('auth');
+// Route::get('CommissionMedium/delete/{id}','CommissionMediumController@destroy')->middleware('auth');
+// Route::get('CommissionMedium/edit/{id}','CommissionMediumController@edit')->middleware('auth');
 Route::post('CommissionMedium/update/{id}','CommissionMediumController@update')->middleware('auth');
-Route::get('CommissionMedium/show/{id}','CommissionMediumController@show')->middleware('auth');
+// Route::get('CommissionMedium/show/{id}','CommissionMediumController@show')->middleware('auth');
 
 
 //CommissionPartial
