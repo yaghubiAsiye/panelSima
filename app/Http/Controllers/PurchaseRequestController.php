@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\PurchaseRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\AddPurchaseRequest;
 
 class PurchaseRequestController extends Controller
 {
@@ -34,7 +35,7 @@ class PurchaseRequestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddPurchaseRequest $request)
     {
         $attachmentFile = $request->file('contractorFile');
         $attachmentFileName = time() . "_" . $attachmentFile->getClientOriginalName();
@@ -107,6 +108,14 @@ class PurchaseRequestController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Suggestion = PurchaseRequest::findOrFail($id);
+        $Suggestion->delete();
+        \Session::flash('updateUser', array(
+          'flash_title' => 'انجام شد',
+          'flash_message' => ' با موفقیت از سیستم حذف شد.',
+          'flash_level' => 'success',
+          'flash_button' => 'بستن'
+        ));
+        return redirect()->back();
     }
 }

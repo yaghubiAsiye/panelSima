@@ -31,6 +31,8 @@ class CreateCommissionMajorsTable extends Migration
             $table->string('status_confirmation')->nullable()->comment('تایید کمیسیون');
 
             $table->unsignedInteger('user_id')->comment('ثبت کننده مناقصه');
+            $table->unsignedInteger('purchase_requests_id')->comment('شناسه درخواست خرید');
+
 
             $table->timestamps();
         });

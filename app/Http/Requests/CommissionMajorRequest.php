@@ -25,16 +25,16 @@ class CommissionMajorRequest extends FormRequest
     {
         return [
             'mozoo' => 'required',
-            'darkhastkonande' => 'required',
+            'datebargozari' => 'required',
+            'typemonaqese' => 'required',
             'arzeshmoamele' => 'required',
-            'tedadestelambaha' => 'required',
-            'typekala' => 'required',
-            'datesabt' => 'required',
+            'tedadtaminkonandegan' => 'required',
             'mahaltahvil' => 'required',
-            'hazinehaml' => 'nullable',
-            'garanti' => 'required',
+            'hazinehaml' => 'required',
+            'garanti' => 'nullable',
             'khadamatpasazforosh' => 'required',
-            'email_status' => 'required',
+            'modatmoamele' => 'required',
+            'fileestelambaha' => 'required',
         ];
     }
 }

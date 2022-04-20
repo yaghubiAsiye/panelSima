@@ -298,7 +298,7 @@
     <div class="content-header row">
     </div>
     <div class="content-body">
-        
+
         @if ($errors->any())
         <div class="alert alert-danger">
           <ul>
@@ -373,7 +373,7 @@
                      <td>{{ $contract->khadamatpasazforosh }}</td>
                      <td>{{ $contract->email_status ?? ''}}</td>
                     <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" >
-                        <a href="CommissionPartial/storeIdeaComisiun"> ثبت نظر کمیسیون </a>
+                        <a href="Commission/storeIdeaComision"> ثبت نظر کمیسیون </a>
                     </td>
 
                       <td style="text-align:center;color: #3BAFDA">

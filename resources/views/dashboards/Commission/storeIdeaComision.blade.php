@@ -48,15 +48,18 @@
                                                         </div>
                                                     @endif
 
-                                                        <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="{{url('Dokumentation/update/' . $commission->id)}}" class="form form-horizontal form-bordered striped-rows">
+                                                        <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="/Commission/Confirm" class="form form-horizontal form-bordered striped-rows">
                                                             @csrf
+                                                            <input type="hidden" name="confirmable_type" value="{{ $type}}">
+                                                            <input type="hidden" name="confirmable_id" value="{{ $id}}">
+
                                                             <div style="font-family:byekan" class="form-body">
                                                                 <div class="form-group row">
-                                                                    <label class="col-md-3 label-control" for="name">تاییدیه  </label>
+                                                                    <label class="col-md-3 label-control" for="status">تاییدیه  </label>
                                                                     <div class="col-md-9">
-                                                                        <select name="" id="" class="form-control">
-                                                                            <option value="yes">بله</option>
-                                                                            <option value="no">خیر</option>
+                                                                        <select name="status" id="status" class="form-control">
+                                                                            <option value="تایید شده">بله</option>
+                                                                            <option value="تایید نشده">خیر</option>
                                                                         </select>
                                                                     </div>
                                                                 </div>
@@ -66,10 +69,6 @@
                                                                         <textarea name="description"  rows="8"  class="form-control" cols="80"></textarea>
                                                                     </div>
                                                                 </div>
-
-
-
-
                                                             </div>
 
                                                             <div style="font-family:Byekan" class="form-actions">
@@ -77,9 +76,7 @@
                                                                     <i class="fa fa-check-square-o"></i> افزودن
                                                                 </button>
 
-                                                                <button type="button" class="btn btn-warning mr-1">
-                                                                    <i class="ft-x"></i> لغو
-                                                                </button>
+
                                                             </div>
                                                         </form>
 

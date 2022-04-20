@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Commission;
+use App\CommissionMajor;
+use App\PurchaseRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\CommissionMajorRequest;
 
@@ -15,7 +17,7 @@ class CommissionMajorController extends Controller
      */
     public function index()
     {
-        $contracts = Commission::all();
+        $contracts = CommissionMajor::all();
         return view('dashboards.Commission.CommissionMajor', compact('contracts'));
 
     }
@@ -25,9 +27,11 @@ class CommissionMajorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $PurchaseRequest = PurchaseRequest::find($id);
+        return view('dashboards.Commission.CommissionMajorCreate', compact('PurchaseRequest'));
+
     }
 
     /**
@@ -38,7 +42,41 @@ class CommissionMajorController extends Controller
      */
     public function store(CommissionMajorRequest $request)
     {
-        //
+        if ($request->file('fileestelambaha')) {
+            $attachmentFile = $request->file('fileestelambaha');
+            $fileestelambaha = time() . "_" . $attachmentFile->getClientOriginalName();
+            $attachmentFile->move('storage/CommissionMajor ', $fileestelambaha);
+        } else {
+            $fileestelambaha = "nothing";
+        }
+
+
+
+        $tdl = CommissionMajor::create([
+            'mozoo' => $request->mozoo,
+            'datebargozari' => $request->datebargozari,
+            'typemonaqese' => $request->typemonaqese,
+            'arzeshmoamele' => $request->arzeshmoamele,
+            'user_id' => \Auth::user()->id,
+            'fileestelambaha' => 'storage/CommissionMajor/' . $fileestelambaha,
+            'tedadtaminkonandegan' => $request->tedadtaminkonandegan,
+            'mahaltahvil' => $request->mahaltahvil,
+            'hazinehaml' => $request->hazinehaml,
+            'garanti' => $request->garanti,
+            'modatmoamele' => $request->modatmoamele,
+            'khadamatpasazforosh' => $request->khadamatpasazforosh,
+            'status_confirmation' => 'بررسی نشده',
+            'purchase_requests_id' => $request->purchase_requests_id
+        ]);
+
+
+        \Session::flash('updateUser', array(
+            'flash_title' => 'انجام شد',
+            'flash_message' => ' با موفقیت به سیستم اضافه شد',
+            'flash_level' => 'success',
+            'flash_button' => 'بستن'
+        ));
+        return redirect()->route('CommissionMajor', ['id' => $request->purchase_requests_id]);
     }
 
     /**
@@ -83,6 +121,24 @@ class CommissionMajorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Suggestion = CommissionMajor::findOrFail($id);
+        $Suggestion->delete();
+        \Session::flash('updateUser', array(
+          'flash_title' => 'انجام شد',
+          'flash_message' => ' با موفقیت از سیستم حذف شد.',
+          'flash_level' => 'success',
+          'flash_button' => 'بستن'
+        ));
+        return redirect()->back();
+    }
+    public function listCommissionsMajorFromPurchase($id)
+    {
+        $contracts = CommissionMajor::where('purchase_requests_id', $id)
+        ->with('confirms')
+        ->get();
+        // $contracts = CommissionMajor::find(1);
+
+        // var_dump($contracts->first()->confirms->first()->id);
+        return view('dashboards.Commission.PurchaseCommissionMajor', compact('contracts'));
     }
 }

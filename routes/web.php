@@ -200,10 +200,12 @@ Route::get('PurchaseRequest/show/{id}','PurchaseRequestController@show')->middle
 //CommissionMajor
 Route::get('CommissionMajor','CommissionMajorController@index')->middleware('auth');
 Route::post('CommissionMajor','CommissionMajorController@store')->middleware('auth');
-// Route::get('CommissionMajor/delete/{id}','CommissionMajorController@destroy')->middleware('auth');
+Route::get('CommissionMajor/delete/{id}','CommissionMajorController@destroy')->middleware('auth');
 // Route::get('CommissionMajor/edit/{id}','CommissionMajorController@edit')->middleware('auth');
 Route::post('CommissionMajor/update/{id}','CommissionMajorController@update')->middleware('auth');
-// Route::get('CommissionMajor/show/{id}','CommissionMajorController@show')->middleware('auth');
+Route::get('CommissionMajor/create/{id}','CommissionMajorController@create')->middleware('auth');
+Route::get('PurchaseRequest/CommissionMajorList/{id}','CommissionMajorController@listCommissionsMajorFromPurchase')->name('CommissionMajor')->middleware('auth');
+
 
 
 //CommissionMedium
@@ -222,8 +224,10 @@ Route::post('CommissionPartial','CommissionPartialController@store')->middleware
 // Route::get('CommissionPartial/edit/{id}','CommissionPartialController@edit')->middleware('auth');
 Route::post('CommissionPartial/update','CommissionPartialController@update')->middleware('auth');
 // Route::get('CommissionPartial/show/{id}','CommissionPartialController@show')->middleware('auth');
-Route::get('CommissionPartial/storeIdeaComisiun','CommissionPartialController@storeIdeaComisiun')->middleware('auth');
+Route::get('Commission/storeIdeaComision/{type}/{id}','ConfirmController@create')->name('storeIdeaComision')->middleware('auth');
 
 //confirm
-Route::get('CommissionPartial/Confirm','ConfirmController@store')->middleware('auth');
+Route::post('Commission/Confirm','ConfirmController@store')->middleware('auth');
+Route::get('Confirm/index/{type}/{id}','ConfirmController@index')->name('Confirm.index')->middleware('auth');
+
 // Route::get('CommissionPartial','ConfirmController@create')->middleware('auth');

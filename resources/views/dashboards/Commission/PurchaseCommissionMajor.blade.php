@@ -189,7 +189,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title">لیست کمیسیون های عمده</h4>
+              <h4 class="card-title">لیست کمیسیون های عمده درخواست خرید با عنوان {{ $contracts->first()->purchaseRequest->onvan }} </h4>
               <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
               <div class="heading-elements">
                 <ul class="list-inline mb-0">
@@ -201,7 +201,7 @@
               </div>
             </div>
             <div class="card-content collapse show">
-              {{-- <button  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i> افزودن </span></button> --}}
+              <button  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i> افزودن </span></button>
               <div class="card-body card-dashboard"><br><br>
                 <table style="font-family:Byekan;width: 100%" class="table display nowrap table-striped table-bordered table-striped table-bordered scroll-horizontal">
                   <thead>
@@ -236,7 +236,7 @@
                         <td style="white-space: normal">{{ $contract->mozoo }}</td>
                      <td>{{ ($contract->datebargozari )}}</td>
                       <td>{{ $contract->typemonaqese }}</td>
-                     <td>{{ $contract->	arzeshmoamele }}</td>
+                     <td>{{ $contract->arzeshmoamele }}</td>
                      <td>{{ $contract->tedadtaminkonandegan }}</td>
                       <td style="white-space: normal">{{ $contract->mahaltahvil }}</td>
                       <td style="white-space: normal">{{ $contract->hazinehaml }}</td>
@@ -252,15 +252,25 @@
                     </td>
 
                      <td>
-                         {{ $contract->status_confirmation }} <br>
-                         <a class="btn btn-primary btn-sm"href="/Commission/storeIdeaComisiun"> ثبت نظر کمیسیون </a>
+                         @if($contract->confirms->first()->status && $contract->confirms->first()->status  == 'تایید شده')
+                         <a class="btn btn-sm btn-success">{{ $contract->confirms->first()->status }}</a>
+                         @elseif($contract->confirms->first()->status && $contract->confirms->first()->status  == 'تایید نشده')
+                         <a class="btn btn-sm btn-danger">{{ $contract->confirms->first()->status }}</a>
+                         @else
+                         <a class="btn btn-sm btn-warning">بررسی نشده</a>
+                         @endif
+                         <br>
+                         <a class="btn btn-primary btn-sm" href="{{route('storeIdeaComision', ['type'=> get_class($contract), 'id' => $contract->id])}}"> ثبت نظر کمیسیون </a>
+                         <br>
+                         <a class="btn btn-info btn-sm" href="{{route('Confirm.index', ['type'=> get_class($contract), 'id' => $contract->id])}}"> نمایش نظرات </a>
+
                     </td>
 
                     <td>{{ $contract->user->name . " " . $contract->user->family }}</td>
 
                      <td>{{ $contract->purchaseRequest->onvan }} </td>
                     <td style="text-align:center;color: #3BAFDA">
-                        {{-- <a href="CommissionMajor/edit/{{ $contract->id }}"><i style="font-size: 20px" class="ft-edit"></i></a> --}}
+                        {{-- <a href="/CommissionMajor/edit/{{ $contract->id }}"><i style="font-size: 20px" class="ft-edit"></i></a> --}}
                         <a href="/CommissionMajor/delete/{{ $contract->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i>  </a>
                     </td>
                     </tr>

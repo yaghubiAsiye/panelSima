@@ -160,7 +160,7 @@
   <div class="content-wrapper">
     <div class="content-header row">
     </div>
-    <div class="content-body"><!-- project stats -->
+    <div class="content-body">
 
 
       <div class="row">
@@ -180,9 +180,7 @@
             </div>
             <div class="card-content collapse show">
 
-                <a href="PurchaseRequest/create"  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button" ><span class="ladda-label">  <i class="ft-plus"></i> افزودن </span></a>
-
-              {{-- <button  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button"  data-target="#addUser" data-toggle="modal" ><span class="ladda-label">  <i class="ft-plus"></i> افزودن </span></button> --}}
+            <a href="PurchaseRequest/create"  style="float: left;margin-left: 40px!important;"   class="btn btn-success btn-min-width mr-1 mb-1 ladda-button" ><span class="ladda-label">  <i class="ft-plus"></i> افزودن </span></a>
               <div class="card-body card-dashboard"><br><br>
                 <table style="font-family:Byekan;width: 100%" class="table display nowrap table-striped table-bordered scroll-horizontal-exportTableButton file-export ">
                   <thead>
@@ -196,11 +194,10 @@
                       <th>مدت زمان</th>
                       <th>تاریخ شروع</th>
                       <th>تاریخ پایان</th>
-{{--                      <th>نوع تضمین</th>--}}
-{{--                      <th>ناظر قرارداد </th>--}}
-                     <th>وضعیت</th>
+
+                     {{-- <th>وضعیت</th> --}}
                       <th>فایل</th>
-                      {{-- <th>عملیات</th> --}}
+                      <th>عملیات</th>
 
                     </tr>
                   </thead>
@@ -209,32 +206,29 @@
                   @foreach($contracts as $contract)
                     <tr>
                       <td> {{ $loop->iteration }}</td>
-                        {{-- <td style="white-space: normal"><a href="{{ url('contracts/show/' . $contract->id) }}">{{ $contract->onvan }}</a></td> --}}
                      <td>{{ $contract->onvan }}</td>
                       <td style="white-space: normal">{{ $contract->description }}</td>
-                      {{--<td>{{ $contract->mablagh }}</td>--}}
-{{--                      <td>{{ $contract->pardakht }}</td>--}}
+
                       <td style="white-space: normal">{{ $contract->peymankar }}</td>
                       <td style="white-space: normal">{{ $contract->mablagh }}</td>
                       <td style="white-space: normal">{{ $contract->pardakht }}</td>
                      <td>{{ $contract->moddat }}</td>
                      <td>{{ $contract->from }}</td>
                      <td>{{ $contract->to }}</td>
-                     <td style="white-space: normal">
+                     {{-- <td style="white-space: normal">
                         <button type="button" class="btn btn-warning mr-1">
                             {{ $contract->status }}
                           </button>
-                       
-                    </td>
+
+                    </td> --}}
 
                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" ><a href="{{ $contract->contractorFile }}"> <i class="ft-file-text" ></i> </a></td>
-                      {{-- <td style="text-align:center;color: #3BAFDA">
-
-                          <a href="contracts/delete/{{ $contract->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i>  </a>
-                          <a href="contracts/edit/{{ $contract->id }} ">
-                              <i style="font-size: 20px" class="ft-edit primary"></i>
+                      <td style="text-align:center;color: #3BAFDA">
+                          <a href="CommissionMajor/create/{{ $contract->id }}" title="افزودن معامله"><i style="font-size: 20px" class="ft-plus-square success"></i>  </a>
+                          <a href="PurchaseRequest/CommissionMajorList/{{ $contract->id }}" title="نمایش لیست معاملات  خرید">
+                              <i style="font-size: 20px" class="ft-list primary"></i>
                           </a>
-                      </td> --}}
+                      </td>
 
                     </tr>
                   @endforeach

@@ -155,9 +155,5 @@ class CommissionPartialController extends Controller
         //
     }
 
-    public function storeIdeaComisiun()
-    {
-        $commission = CommissionPartial::find(1);
-        return view('dashboards.Commission.storeIdeaComisiun', compact('commission'));
-    }
+   
 }

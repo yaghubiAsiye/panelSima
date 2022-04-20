@@ -206,7 +206,7 @@
                                                                 <div class="form-group row last">
                                                                     <label class="col-md-3 label-control" for="from">تاریخ شروع</label>
                                                                     <div class="col-md-9">
-                                                                        <input type="text" id="from"  class="form-control" placeholder="مثال: ۱۳۹۷/۰۶/۲۱" name="from">
+                                                                        <input style="font-family:Byekan" class="form-control" style="" placeholder="کلیک کنید" autocomplete="off" name="from" type="text" id="input1"/>
                                                                     </div>
                                                                 </div>
 
@@ -215,7 +215,8 @@
                                                                 <div class="form-group row last">
                                                                     <label class="col-md-3 label-control" for="to">تاریخ پایان</label>
                                                                     <div class="col-md-9">
-                                                                        <input type="text" id="to"  class="form-control" placeholder="مثال: ۱۳۹۷/۱۱/۲۱" name="to">
+                                                                        <input style="font-family:Byekan" class="form-control" style="" placeholder="کلیک کنید" autocomplete="off" name="to" type="text" id="input1"/>
+
                                                                     </div>
                                                                 </div>
 

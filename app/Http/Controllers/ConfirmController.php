@@ -3,12 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Confirm;
+use App\CommissionPartial;
 use Illuminate\Http\Request;
+use App\Http\Requests\ConfirmRequest;
 
 class ConfirmController extends Controller
 {
-    public function store(Request $request)
+    public function index($type, $id)
     {
+        $confirms = Confirm::where('confirmable_id', $id)->where('confirmable_type', $type)->get();
+        $commission = $type::find($id);
+        // dd($commission);
+        return view('dashboards.Commission.confirmList', compact('confirms', 'commission'));
+
+    }
+    public function create($type, $id)
+    {
+        return view('dashboards.Commission.storeIdeaComision', compact('type', 'id'));
+    }
+    public function store(ConfirmRequest $request)
+    {
+
         Confirm::forceCreate([
             'confirmable_type' => $request->confirmable_type,
             'confirmable_id' => $request->confirmable_id,
