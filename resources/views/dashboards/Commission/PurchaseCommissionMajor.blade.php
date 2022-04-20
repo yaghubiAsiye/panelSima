@@ -252,9 +252,9 @@
                     </td>
 
                      <td>
-                         @if($contract->confirms->first()->status && $contract->confirms->first()->status  == 'تایید شده')
+                         @if($contract->confirms->first()->status != '' && $contract->confirms->first()->status  == 'تایید شده')
                          <a class="btn btn-sm btn-success">{{ $contract->confirms->first()->status }}</a>
-                         @elseif($contract->confirms->first()->status && $contract->confirms->first()->status  == 'تایید نشده')
+                         @elseif($contract->confirms->first()->status != '' && $contract->confirms->first()->status  == 'تایید نشده')
                          <a class="btn btn-sm btn-danger">{{ $contract->confirms->first()->status }}</a>
                          @else
                          <a class="btn btn-sm btn-warning">بررسی نشده</a>
