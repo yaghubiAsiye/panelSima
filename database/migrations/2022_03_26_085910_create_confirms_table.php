@@ -18,6 +18,8 @@ class CreateConfirmsTable extends Migration
             $table->morphs('confirmable');
             $table->string('status')->nullable();
             $table->text('description')->nullable();
+            $table->unsignedInteger('user_id')->comment('ثبت کننده ');
+
             $table->timestamps();
         });
     }

@@ -32,6 +32,9 @@ public function ResidenceMembers(){
     public function commissionMajors(){
         return $this->hasMany('App\CommissionMajor');
     }
+    public function confirms(){
+        return $this->hasMany('App\Confirm');
+    }
 
 
     // public static function isAdmin(){

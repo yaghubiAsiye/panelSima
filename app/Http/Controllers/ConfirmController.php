@@ -29,6 +29,8 @@ class ConfirmController extends Controller
             'confirmable_id' => $request->confirmable_id,
             'status' => $request->status,
             'description' => $request->description,
+            'user_id' => \Auth::user()->id,
+
           ]);
 
           \Session::flash('updateUser', array(
