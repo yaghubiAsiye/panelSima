@@ -252,8 +252,17 @@
                     </td>
 
                      <td>
-                         {{ $contract->status_confirmation }} <br>
-                         <a class="btn btn-primary btn-sm"href="/Commission/storeIdeaComisiun"> ثبت نظر کمیسیون </a>
+                        @if($contract->confirms->first() && $contract->confirms->first()->status  == 'تایید شده')
+                        <a class="btn btn-sm btn-success">{{ $contract->confirms->first()->status ?? '' }}</a>
+                        @elseif($contract->confirms->first() && $contract->confirms->first()->status  == 'تایید نشده')
+                        <a class="btn btn-sm btn-danger">{{ $contract->confirms->first()->status ?? '' }}</a>
+                        @else
+                        <a class="btn btn-sm btn-warning">بررسی نشده</a>
+                        @endif
+                        <br>
+                        <a class="btn btn-primary btn-sm" href="{{route('storeIdeaComision', ['type'=> get_class($contract), 'id' => $contract->id])}}"> ثبت نظر کمیسیون </a>
+                        <br>
+                        <a class="btn btn-info btn-sm" href="{{route('Confirm.index', ['type'=> get_class($contract), 'id' => $contract->id])}}"> نمایش نظرات </a>
                     </td>
 
                     <td>{{ $contract->user->name . " " . $contract->user->family }}</td>

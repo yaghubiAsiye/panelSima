@@ -29,7 +29,7 @@ class LoginController extends Controller
   */
   protected $redirectTo = '/dashboard';
 
-    // sudo git push https://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@github.com/persiatc/panelSima.git
+    // sudo git push https://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@github.com/persiatc/panelSima.git
 
 
   /**
