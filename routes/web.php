@@ -112,6 +112,12 @@ Route::get('Suggestions','SuggestionController@index')->middleware('auth');
 Route::post('Suggestions','SuggestionController@store')->middleware('auth');
 Route::get('Suggestions/delete/{id}','SuggestionController@destroy')->middleware('auth');
 
+//Forms
+Route::get('forms','FormController@index')->middleware('auth');
+Route::post('forms','FormController@store')->middleware('auth');
+Route::get('forms/delete/{id}','FormController@destroy')->middleware('auth');
+
+
 
 
 //Income Contracts

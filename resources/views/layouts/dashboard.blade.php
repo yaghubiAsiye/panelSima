@@ -534,6 +534,10 @@
                 <a class="orangeColor" href="/Suggestions"><i class="icon-feed"></i><span class="menu-title" data-i18n="nav.dash.main"> پیشنهادات و انتقادات</span></a>
             </li>
 
+            <li style="" class="{{{ (Request::is('forms') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/forms"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main"> فرم ها</span></a>
+            </li>
+
             <li style="" class="{{{ (Request::is('dailyWork') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/dailyWork"><i class="ft-tablet"></i><span class="menu-title" data-i18n="nav.dash.main"> گزارش روزانه</span></a>
             </li>
