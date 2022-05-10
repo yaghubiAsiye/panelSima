@@ -35,7 +35,7 @@ class CommissionPartialRequest extends FormRequest
             'project_manager' => 'nullable',
             'amount' => 'required',
             'to_buy' => 'required',
-            'email_status' => 'required',
+            // 'email_status' => 'required',
 
             'fileestelambaha1' => 'required',
             'fileestelambaha2' => 'required',
