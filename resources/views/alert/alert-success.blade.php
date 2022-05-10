@@ -1,10 +1,10 @@
-{{-- <div class="alert alert-success">
+<div class="alert alert-success">
     <ul>
 
-        <li>بخش پیش فاکتورهای صادر شده به روز رسانی شد.</li>
+        <li>سیستم به روز رسانی شد.</li>
 
     </ul>
-</div> --}}
+</div>
 
 
 {{-- <div class="alert alert-success alert-dismissible">
