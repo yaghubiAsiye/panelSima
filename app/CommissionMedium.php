@@ -10,4 +10,8 @@ class CommissionMedium extends Model
     public function confirms() {
         return $this->morphMany('App/Confirm' , 'confirmable');
     }
+    public function purchaseRequest()
+    {
+        return $this->belongsTo('App\PurchaseRequest', 'purchase_requests_id');
+    }
 }

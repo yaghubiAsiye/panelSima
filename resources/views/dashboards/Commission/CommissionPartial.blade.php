@@ -132,7 +132,8 @@
               </div>
 
 
-          </div>
+
+            </div>
 
           <div style="font-family:Byekan" class="form-actions">
             <button type="submit" class="btn btn-success">
@@ -154,7 +155,7 @@
 
 <!--  Start Edit Task Assigned to Me -->
 @foreach($commissions as $commission)
-<div style="font-family:Byekan" class="modal fade text-left" id="editTdl{{ $commission->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{ $commission->id }}" aria-hidden="true">
+<div style="font-family:Byekan" class="modal fade text-left" id="editid{{ $commission->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{ $commission->id }}" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div style="text-align: center!important;" class="modal-header">
@@ -291,6 +292,58 @@
 @endforeach
 <!--  End Edit Task Assigned to Me -->
 
+<!--  Start Edit Task Assigned to Me -->
+@foreach($commissions as $commission)
+<div style="font-family:Byekan" class="modal fade text-left" id="PurchaseRequestFormsStatus{{ $commission->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{ $commission->id }}" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div style="text-align: center!important;" class="modal-header">
+        <h4 style="text-align: center!important;" class="modal-title" id="myModalLabel{{ $commission->id }}">بروزرسانی وضعیت فرم درخواست خرید</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div  style=" direction: rtl;" class="modal-body">
+
+        <form style="vertical-align:center;text-align:center"  method="post" action="CommissionPartial/update" class="form form-horizontal form-bordered striped-rows">
+            @csrf
+            <input type="hidden" class="form-control" value="{{ $commission->id }}"  name="id">
+            <input type="hidden" class="form-control" value="{{ get_class($commission) }}"  name="type">
+
+
+            <div style="font-family:byekan" class="form-body">
+
+
+                <div class="form-group row">
+                    <label class="col-md-3 label-control" for="status">تاییدیه  </label>
+                    <div class="col-md-9">
+                        <select name="status" id="status" class="form-control">
+                            <option value="تایید شده">بله</option>
+                            <option value="تایید نشده">خیر</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="font-family:Byekan" class="form-actions">
+              <button type="submit" class="btn btn-success">
+                <i class="fa fa-check-square-o"></i> افزودن
+              </button>
+
+              <button type="button" class="btn btn-warning mr-1">
+                <i class="ft-x"></i> لغو
+              </button>
+            </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
+<!--  End Edit Task Assigned to Me -->
 
 
 <div class="app-content content">
@@ -336,15 +389,19 @@
                       <th>ارزش معامله</th>
                      <th>تعداد فقره های استعلام بها</th>
                      <th>مستندات استعلام بها</th>
-                      <th>نوع و مشخصات کالا</th>
+                      {{-- <th>نوع و مشخصات کالا</th> --}}
                       <th>تاریخ ثبت خرید</th>
-                      <th>محل تحویل کالا</th>
+                      <th>وضعیت فرم درخواست پرداخت</th>
+                      <th>وضعیت فرم درخواست خرید</th>
+                      <th>درخواست خرید</th>
+                      <th>ثبت کننده </th>
+                      {{-- <th>محل تحویل کالا</th>
                      <th>هزینه حمل </th>
                      <th>گارانتی</th>
                      <th>خدمات پس از فروش</th>
                       <th>نحوه انجام مکاتبات از طریق ایمیل شرکت</th>
                       <th>نظر کمیسیون معاملات</th>
-                      <th>عملیات</th>
+                      <th>عملیات</th> --}}
 
                     </tr>
                   </thead>
@@ -358,16 +415,31 @@
                       <td>{{ $contract->arzeshmoamele }}</td>
                      <td>{{ $contract->tedadestelambaha }}</td>
                      <td>
-                        @if($contract->fileestelambaha == "storage/CommissionPartial/nothing")
+                        {{-- @if($contract->fileestelambaha == "storage/CommissionPartial/nothing")
                         ---
-                    @else
-                        <a target="_blank" href="/{{ $contract->fileestelambaha }}"> {!! $contract->fileestelambaha !== "storage/CommissionPartial/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a>
-                    @endif
+                    @else --}}
+                    <a target="_blank" href="/{{ $contract->fileestelambaha1 }}"> {!! $contract->fileestelambaha1 !== "storage/CommissionPartial/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a>
+                    <a target="_blank" href="/{{ $contract->fileestelambaha2 }}"> {!! $contract->fileestelambaha2 !== "storage/CommissionPartial/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a>
+                    <a target="_blank" href="/{{ $contract->fileestelambaha3 }}"> {!! $contract->fileestelambaha3 !== "storage/CommissionPartial/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a>
+                    {{-- @endif --}}
 
                     </td>
-                      <td style="white-space: normal">{{ $contract->typekala }}</td>
-                      <td style="white-space: normal">{{ $contract->datesabt }}</td>
-                      <td style="white-space: normal">{{ $contract->mahaltahvil }}</td>
+                      {{-- <td style="white-space: normal">{{ $contract->typekala }}</td> --}}
+
+                    <td style="white-space: normal">{{ $contract->datesabt }}</td>
+                    <td><a class="btn btn-sm btn-warning">{{ $contract->PaymentOrderForms->first()->status ?? ''  }}</a></td>
+                    <td>
+                        {{-- <a class="btn btn-sm btn-warning" data-toggle="modal" data-target="#PurchaseRequestFormsStatus{{ $contract->id }}" >{{ $contract->PurchaseRequestForms->first()->status ?? ''  }}</a> --}}
+
+                        <a class="btn btn-sm btn-warning" href="{{route('updatePurchaseRequestFormsStatus', ['type'=> get_class($contract), 'id' => $contract->id])}}">
+                            {{-- {{ $contract->PurchaseRequestForms->first()->status ?? ''  }} --}}
+                            پیگیری فرم درخواست خرید
+                        </a>
+                    </td>
+                    <td>{{ $contract->purchaseRequest->onvan }} </td>
+                    <td>{{ $contract->user->name . " " . $contract->user->family }}</td>
+
+                      {{-- <td style="white-space: normal">{{ $contract->mahaltahvil }}</td>
                      <td>{{ $contract->hazinehaml }}</td>
                      <td>{{ $contract->garanti }}</td>
                      <td>{{ $contract->khadamatpasazforosh }}</td>
@@ -378,7 +450,7 @@
 
                       <td style="text-align:center;color: #3BAFDA">
                         <a data-toggle="modal" data-target="#editTdl{{ $contract->id }}" ><i style="font-size: 20px; color: #007bff" class="ft-edit"></i></a>
-                    </td>
+                    </td> --}}
                     </tr>
                   @endforeach
 

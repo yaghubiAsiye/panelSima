@@ -10,5 +10,12 @@ class PurchaseRequest extends Model
     public function commissionMajors(){
         return $this->hasMany('App\CommissionMajor');
     }
+    public function CommissionMedium(){
+        return $this->hasMany('App\CommissionMajor');
+    }
+    public function commissionPartials(){
+        return $this->hasMany('App\CommissionPartial');
+    }
+
 }
 

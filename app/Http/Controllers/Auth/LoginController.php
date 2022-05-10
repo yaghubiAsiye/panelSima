@@ -48,10 +48,10 @@ class LoginController extends Controller
 
   public function __construct()
   {
-    //  Auth::loginUsingId(6);
+    // Auth::loginUsingId(6);
 
 
-      $this->middleware('guest')->except('logout');
+   $this->middleware('guest')->except('logout');
   }
 
   public function username()

@@ -32,8 +32,14 @@ public function ResidenceMembers(){
     public function commissionMajors(){
         return $this->hasMany('App\CommissionMajor');
     }
+    public function commissionPartials(){
+        return $this->hasMany('App\CommissionPartial');
+    }
     public function confirms(){
         return $this->hasMany('App\Confirm');
+    }
+    public function PurchaseRequestForms(){
+        return $this->hasMany('App\PurchaseRequestForm');
     }
 
 

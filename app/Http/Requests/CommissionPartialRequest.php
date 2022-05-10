@@ -28,13 +28,19 @@ class CommissionPartialRequest extends FormRequest
             'darkhastkonande' => 'required',
             'arzeshmoamele' => 'required',
             'tedadestelambaha' => 'required',
-            'typekala' => 'required',
+
             'datesabt' => 'required',
-            'mahaltahvil' => 'required',
-            'hazinehaml' => 'nullable',
-            'garanti' => 'required',
-            'khadamatpasazforosh' => 'required',
+            'purchase_requests_id' => 'required',
+
+            'project_manager' => 'nullable',
+            'amount' => 'required',
+            'to_buy' => 'required',
             'email_status' => 'required',
+
+            'fileestelambaha1' => 'required',
+            'fileestelambaha2' => 'required',
+            'fileestelambaha3' => 'required',
+
 
         ];
     }

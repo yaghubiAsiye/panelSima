@@ -41,7 +41,7 @@ class PurchaseRequestController extends Controller
         $attachmentFileName = time() . "_" . $attachmentFile->getClientOriginalName();
         $attachmentFile->move('storage/PurchaseRequest', $attachmentFileName);
 
-        PurchaseRequest::forceCreate([
+        $request = PurchaseRequest::forceCreate([
           'onvan' => $request->onvan,
           'description' => $request->description,
           'peymankar' => $request->peymankar,
@@ -58,10 +58,13 @@ class PurchaseRequestController extends Controller
 
         \Session::flash('updateUser', array(
           'flash_title' => 'انجام شد',
-          'flash_message' => 'درخواست خرید جدید باموفقیت در سیستم ثبت شد',
+          'flash_message' => 'درخواست خرید جدید باموفقیت در سیستم ثبت شد معامله مربوطه را ثبت کنید!',
           'flash_level' => 'success',
           'flash_button' => 'بستن'
         ));
+        if($request->mablagh <= 100000000) {
+            return redirect()->route('CommissionPartial.create', $request->id);
+        }
 
         return redirect()->back();
     }

@@ -180,7 +180,7 @@
                                                                 <div class="form-group row last">
                                                                     <label class="col-md-3 label-control" for="mablagh">ارزش خرید </label>
                                                                     <div class="col-md-9">
-                                                                        <input type="text" id="mablagh"  class="form-control" placeholder="مثال: ۳۰۰۰۰۰۰" name="mablagh">
+                                                                        <input type="text" id="mablagh"  class="form-control" placeholder="به تومان وارد شود" name="mablagh">
                                                                     </div>
                                                                 </div>
 

@@ -218,11 +218,6 @@ tspan{
 
 
 
-
-
-
-
-
       <!-- Start TimeSheet Table -->
       <section>
         <div class="row">

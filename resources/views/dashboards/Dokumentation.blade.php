@@ -144,6 +144,7 @@
                     </tr>
                   </thead>
                   <tbody>
+               
                     @foreach($Dokumentation as $Certificate)
                     <tr>
                       <td>{{ $loop->iteration }}</td>
@@ -155,7 +156,7 @@
                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" ><a target="_blank" href="{{ $Certificate->file }}"> <i class="ft-file-text" ></i> </a></td>
                       <td style="text-align:center;color: #3BAFDA">
                           <a href="Dokumentation/delete/{{ $Certificate->id }}" onclick="return confirm('آیا برای حذف سند اطمینان دارید؟');"><i style="font-size: 20px" class="ft-x-square danger"></i>  </a>
-                          <a href="Dokumentation/edit/{{ $Certificate->id }} ">
+                          <a href="Dokumentation/edit/{{ $Certificate->id }}">
                               <i style="font-size: 20px" class="ft-edit primary"></i>
                           </a>
                       </td>
@@ -174,6 +175,8 @@
     </div>
   </div>
 </div>
+
+
 
 @endsection
 

@@ -192,7 +192,7 @@ Route::post('dailyWork','DailyWorkController@store')->middleware('auth')->name('
 
 
 //PurchaseRequest
-Route::get('PurchaseRequest','PurchaseRequestController@index')->middleware('auth');
+Route::get('PurchaseRequest','PurchaseRequestController@index')->middleware('auth')->name('PurchaseRequest');
 Route::post('PurchaseRequest','PurchaseRequestController@store')->middleware('auth');
 Route::get('PurchaseRequest/create','PurchaseRequestController@create')->middleware('auth');
 
@@ -224,16 +224,33 @@ Route::post('CommissionMedium/update/{id}','CommissionMediumController@update')-
 
 
 //CommissionPartial
-Route::get('CommissionPartial','CommissionPartialController@index')->middleware('auth');
+Route::get('CommissionPartial','CommissionPartialController@index')->middleware('auth')->name('CommissionPartial');
 Route::post('CommissionPartial','CommissionPartialController@store')->middleware('auth');
 // Route::get('CommissionPartial/delete/{id}','CommissionPartialController@destroy')->middleware('auth');
 // Route::get('CommissionPartial/edit/{id}','CommissionPartialController@edit')->middleware('auth');
 Route::post('CommissionPartial/update','CommissionPartialController@update')->middleware('auth');
 // Route::get('CommissionPartial/show/{id}','CommissionPartialController@show')->middleware('auth');
-Route::get('Commission/storeIdeaComision/{type}/{id}','ConfirmController@create')->name('storeIdeaComision')->middleware('auth');
+Route::get('CommissionPartial/create/{id}','CommissionPartialController@create')->name('CommissionPartial.create')->middleware('auth');
+Route::get('CommissionPartial/updatePurchaseRequestFormsStatus/{type}/{id}','CommissionPartialController@editPurchaseRequestFormsStatus')->middleware('auth')->name('updatePurchaseRequestFormsStatus');
+Route::post('CommissionPartial/updatePurchaseRequestFormsStatus','CommissionPartialController@updatePurchaseRequestFormsStatus')->middleware('auth');
+
+
 
 //confirm
+Route::get('Commission/storeIdeaComision/{type}/{id}','ConfirmController@create')->name('storeIdeaComision')->middleware('auth');
 Route::post('Commission/Confirm','ConfirmController@store')->middleware('auth');
 Route::get('Confirm/index/{type}/{id}','ConfirmController@index')->name('Confirm.index')->middleware('auth');
 
 // Route::get('CommissionPartial','ConfirmController@create')->middleware('auth');
+
+
+
+//InfoCompany
+Route::get('InfoCompany','InfoCompanyController@index')->middleware('auth')->name('InfoCompany');
+Route::post('InfoCompany','InfoCompanyController@store')->middleware('auth');
+Route::get('InfoCompany/create','InfoCompanyController@create')->middleware('auth');
+
+Route::get('InfoCompany/delete/{id}','InfoCompanyController@destroy')->middleware('auth');
+Route::get('InfoCompany/edit/{id}','InfoCompanyController@edit')->middleware('auth');
+Route::post('InfoCompany/update/{id}','InfoCompanyController@update')->middleware('auth');
+Route::get('InfoCompany/show/{id}','InfoCompanyController@show')->middleware('auth');

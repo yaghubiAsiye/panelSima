@@ -487,6 +487,10 @@
                     <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
                         <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/مالی') }}" data-i18n="nav.templates.vert.classic_menu"> مالی  </a>
                     </li>
+                    <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/متفرقه') }}" data-i18n="nav.templates.vert.classic_menu"> متفرقه  </a>
+                    </li>
+
 
                 </ul>
             </li>
@@ -540,6 +544,9 @@
 
             <li style="" class="{{{ (Request::is('dailyWork') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/dailyWork"><i class="ft-tablet"></i><span class="menu-title" data-i18n="nav.dash.main"> گزارش روزانه</span></a>
+            </li>
+            <li style="" class="{{{ (Request::is('InfoCompany') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/InfoCompany"><i class="ft-tablet"></i><span class="menu-title" data-i18n="nav.dash.main"> اطلاعات دفتر</span></a>
             </li>
 
             @can('administrator')

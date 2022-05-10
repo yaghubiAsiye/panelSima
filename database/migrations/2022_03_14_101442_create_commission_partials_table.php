@@ -19,7 +19,10 @@ class CreateCommissionPartialsTable extends Migration
             $table->string('darkhastkonande')->nullable()->comment('درخواست کننده');
             $table->string('arzeshmoamele')->nullable()->comment('ارزش معامله');
             $table->string('tedadestelambaha')->nullable()->comment('تعداد استعلام بها');
-            $table->string('fileestelambaha')->nullable()->comment('فایل استعلام بها');
+            $table->string('fileestelambaha1')->nullable()->comment('فایل استعلام بها');
+            $table->string('fileestelambaha2')->nullable()->comment('فایل استعلام بها');
+            $table->string('fileestelambaha3')->nullable()->comment('فایل استعلام بها');
+
             $table->string('typekala')->nullable()->comment('نوع کالا');
             $table->string('datesabt')->nullable()->comment('تاریخ ثبت خرید');
 
@@ -32,6 +35,7 @@ class CreateCommissionPartialsTable extends Migration
             $table->string('status_confirmation')->nullable()->comment('تایید کمیسیون');
 
             $table->unsignedInteger('user_id')->comment('ثبت کننده مناقصه');
+            $table->unsignedInteger('purchase_requests_id')->comment('شناسه درخواست خرید');
 
             $table->timestamps();
         });
