@@ -29,9 +29,9 @@ class AddFinancialGuaranteeRequest extends FormRequest
             'status' => 'required',
             'active_status' => 'required',
             'validity_duration' => 'required',
-            'name_of_issuing_bank' => 'required',
+            'name_of_issuing_bank' => 'nullable',
             'beneficiary_name' => 'required',
-            'price' => 'required',
+            'price' => 'required|integer',
             // 'end_date' => 'nullable',
 
         ];
