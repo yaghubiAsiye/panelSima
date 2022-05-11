@@ -62,6 +62,11 @@
                                         <option value="حسن انجام کار "> حسن انجام کار</option>
                                         <option value="شرکت در مناقصه">شرکت درمناقصه</option>
                                         <option value="حسن انجام تعهدات">حسن انجام تعهدات</option>
+                                        <option value="کسر از محل مطالبات"> کسر از محل مطالبات</option>
+                                        <option value="چک"> چک</option>
+                                        <option value="سفته"> سفته</option>
+
+
                                       </select>
                                 </div>
                             </div>
@@ -72,6 +77,8 @@
                                         <option value="سه ماه">سه ماه</option>
                                         <option value="شش ماه ">شش ماه </option>
                                         <option value="یک سال">یک سال</option>
+                                        <option value="بدون تاریخ"> بدون تاریخ</option>
+
 
                                       </select>
                                 </div>
@@ -379,7 +386,7 @@
                                                 <td>
                                                     {{ $archive->price }}
                                                 </td>
-                                                <td>{{ jdate($archive->end_date) }}</td>
+                                                <td>{{ $archive->end_date ? jdate($archive->end_date) : '-' }}</td>
                                                 <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA; " >
                                                     @if($archive->image == "storage/FinancialGuarantee/nothing")
                                                         ---

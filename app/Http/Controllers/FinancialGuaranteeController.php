@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\FinancialGuarantee;
 use Illuminate\Http\Request;
 use Morilog\Jalali\CalendarUtils;
+use App\Http\Requests\AddFinancialGuaranteeRequest;
 
 class FinancialGuaranteeController extends Controller
 {
@@ -35,7 +36,7 @@ class FinancialGuaranteeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddFinancialGuaranteeRequest $request)
     {
 
         if($request->file('image')){
@@ -44,6 +45,11 @@ class FinancialGuaranteeController extends Controller
             $file->move('storage/FinancialGuarantee', $fileName);
         }else{
             $fileName = "nothing";
+        }
+        if($request->end_date) {
+            $end_date = \Morilog\Jalali\CalendarUtils::createDatetimeFromFormat('Y/n/j', $request->end_date);
+        } else {
+            $end_date = null;
         }
 
         $phoneBook = FinancialGuarantee::forceCreate([
@@ -57,7 +63,7 @@ class FinancialGuaranteeController extends Controller
             'beneficiary_name' => $request->beneficiary_name,
             'price' => $request->price,
             'image' => 'storage/FinancialGuarantee/' .$fileName,
-            'end_date' => \Morilog\Jalali\CalendarUtils::createDatetimeFromFormat('Y/n/j', $request->end_date),
+            'end_date' => $end_date,
 
         ]);
 

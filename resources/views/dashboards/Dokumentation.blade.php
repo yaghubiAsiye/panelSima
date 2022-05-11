@@ -144,7 +144,7 @@
                     </tr>
                   </thead>
                   <tbody>
-               
+                   {{--  --}}
                     @foreach($Dokumentation as $Certificate)
                     <tr>
                       <td>{{ $loop->iteration }}</td>
