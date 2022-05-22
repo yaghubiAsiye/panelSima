@@ -596,7 +596,10 @@ tspan{
 {{--                        <th>مستندات متولی انجام</th>--}}
 {{--                        <th>تاریخ ایجاد</th>--}}
 {{--                        <th>آخرین بروزرسانی</th>--}}
+                        @if(auth()->user()->id == 6 || auth()->user()->id == 48 )
                         <th>عملیات</th>
+                        @endif
+
                       </tr>
                     </thead>
                     <tbody style="text-align: center" >
@@ -607,7 +610,7 @@ tspan{
                           <td><a href="{{ url('Tdl/show/' . $tdlAssignedToOther->id) }}">{{ $tdlAssignedToOther->name }}</a></td>
 {{--                        <td>{{ $tdlAssignedToOther->description }}</td>--}}
                         <td>{{ $tdlAssignedToOther->assignerName }}</td>
-                        <td>{{ $tdlAssignedToOther->user->name ?? '' . " " . $tdlAssignedToOther->user->family ?? ''}}</td>
+                        <td>{{ $tdlAssignedToOther->user->name  . " " . $tdlAssignedToOther->user->family }}</td>
                         <td><span class="badge badge-danger">{{ $tdlAssignedToOther->priority }}</span></td>
                         <td>
                             <span class="badge {{ $tdlAssignedToOther->status == 'انجام شده' ? 'badge-success' : 'badge-warning' }}">{{ $tdlAssignedToOther->status }}</span>
@@ -618,9 +621,11 @@ tspan{
 {{--                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #007bff; " ><a target="_blank" href="{{ $tdlAssignedToOther->doerAttachment }}"> {!! $tdlAssignedToOther->doerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
 {{--                        <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->created_at) }}</td>--}}
 {{--                        <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->updated_at) }}</td>--}}
+                        @if(auth()->user()->id == 6 || auth()->user()->id == 48 )
                         <td style="text-align:center;" > <a href="/Tdl/delete/{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px;color: red" class="ft-x-square"></i></a>
                           <a data-toggle="modal" data-target="#EditOtherTask{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px; color: #007bff" class="ft-edit"></i></a>
                         </td>
+                        @endif
 
                       </tr>
                       @endforeach
