@@ -35,7 +35,7 @@ class TdlEmail extends Mailable
      */
     public function build()
     {
-        return $this->from('mail.persiatelecom.ir')
+        return $this->from('emailuser@persiatelecom.ir')
                     ->view('mails.demo')
                     ->text('mails.demo_plain')
                     ->with(
