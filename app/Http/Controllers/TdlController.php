@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\TimeSheet;
 use App\Tdl;
 use App\User;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Foundation\Application;
+use App\TimeSheet;
+use App\Mail\TdlEmail;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddTdlRequest;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Foundation\Application;
 use App\Http\Requests\UpdateTdlRequest;
-use Illuminate\View\View;
-
+use Illuminate\Support\Facades\Mail;
 class TdlController extends Controller
 {
     /**
@@ -67,6 +68,14 @@ class TdlController extends Controller
             'doerAttachment' => 'storage/TdlAttachments/nothing',
             'jDate' => $jDateToday
         ]);
+
+        $objDemo = new \stdClass();
+        $objDemo->demo_one = 'Demo One Value';
+        $objDemo->demo_two = 'Demo Two Value';
+        $objDemo->sender = 'SenderUserName';
+        $objDemo->receiver = 'ReceiverUserName';
+
+        Mail::to("yaghoubi@persiatc.com")->send(new TdlEmail($objDemo));
 
 
         \Session::flash('updateUser', array(

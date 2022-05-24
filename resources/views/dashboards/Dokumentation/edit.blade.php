@@ -95,6 +95,7 @@
                                                                         @endif
                                                                     </div>
                                                                 </div>
+                                                                {{-- appropriate: when a thing is appropriate it is right or normal -> --}}
 
                                                                 <div  class="form-group row last">
                                                                     <label class="col-md-3 label-control" for="file">فایل</label>
