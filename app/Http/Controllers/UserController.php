@@ -32,7 +32,7 @@ class UserController extends Controller
 
       }
 
-        $users = User::all();
+        $users = User::where('name' , '!=', 'delete user')->get();
         return view('users', compact('users'));
 
   }

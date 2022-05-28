@@ -9,10 +9,12 @@ use App\Mail\TdlEmail;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddTdlRequest;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
 use App\Http\Requests\UpdateTdlRequest;
-use Illuminate\Support\Facades\Mail;
+use Ipecompany\Smsirlaravel\Smsirlaravel;
+
 class TdlController extends Controller
 {
     /**
@@ -69,13 +71,15 @@ class TdlController extends Controller
             'jDate' => $jDateToday
         ]);
 
-        $objDemo = new \stdClass();
-        $objDemo->demo_one = 'Demo One Value';
-        $objDemo->demo_two = 'Demo Two Value';
-        $objDemo->sender = 'SenderUserName';
-        $objDemo->receiver = 'ReceiverUserName';
+        // $objDemo = new \stdClass();
+        // $objDemo->demo_one = 'Demo One Value';
+        // $objDemo->demo_two = 'Demo Two Value';
+        // $objDemo->sender = 'SenderUserName';
+        // $objDemo->receiver = 'ReceiverUserName';
 
-        Mail::to("yaghoubi@persiatc.com")->send(new TdlEmail($objDemo));
+        // Mail::to("yaghoubi@persiatc.com")->send(new TdlEmail($objDemo));
+
+        // Smsirlaravel::send(['test1'],['09330945684']);
 
 
         \Session::flash('updateUser', array(
@@ -257,6 +261,30 @@ class TdlController extends Controller
             return redirect()->back();
         }
 
+
+    }
+
+
+    public function updateAssignerStatus(Request $request)
+    {
+
+
+        Tdl::where('id', $request->id)
+            ->update([
+                'statusAssigner' => $request->statusAssigner,
+                'descriptionAssigner' => $request->descriptionAssigner,
+            ]);
+
+
+
+
+        \Session::flash('updateUser', array(
+            'flash_title' => 'انجام شد',
+            'flash_message' => 'فعالیت با موفقیت بروز شد.',
+            'flash_level' => 'success',
+            'flash_button' => 'بستن'
+        ));
+        return redirect()->back();
 
     }
 }

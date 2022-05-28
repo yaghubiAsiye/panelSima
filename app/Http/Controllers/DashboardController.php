@@ -26,7 +26,7 @@ class DashboardController extends Controller
 
     public function index()
     {
-      $users = User::all();
+      $users = User::where('name', '!=', 'delete user')->get();
 
       $tdlsAssignedToThisUser = Tdl::where('user_id', '=', \Auth::user()->id)->get();
       $tdlsAssignedToOther = Tdl::where('assignerId', '=', \Auth::user()->id)->with('user')->get();
@@ -52,6 +52,8 @@ class DashboardController extends Controller
       $box['2'] = Tdl::where("jDate", "like", "$dayNumberStr")->where('user_id', \Auth::user()->id)->where('status', 'انجام شده')->count('id');
       $box['5'] = Tdl::where("jDate", "like", "$monthNumberStr")->where('user_id', \Auth::user()->id)->count('id');
       $box['6'] = Tdl::where("jDate", "like", "$monthNumberStr")->where('user_id', \Auth::user()->id)->where('status', 'انجام شده')->count('id');
+      $box['7'] = Tdl::where("jDate", "like", "$monthNumberStr")->where('user_id', \Auth::user()->id)->where('status', 'بررسی نشده')->count('id');
+
       return view('dashboard', compact('tdlsAssignedToThisUser', 'tdlsAssignedToOther', 'users', 'chart', 'box'));
 
     }

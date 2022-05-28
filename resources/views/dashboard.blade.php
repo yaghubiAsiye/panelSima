@@ -289,9 +289,6 @@ tspan{
 <!--  End Edit Task Assigned to Me -->
 
 
-
-
-
 <!--  Start Edit Task Assigned to Other -->
 @foreach($tdlsAssignedToOther as $tdlAssignedToOther)
 <div class="modal fade text-left" id="EditOtherTask{{ $tdlAssignedToOther->id }}" tabindex="-1" role="dialog" aria-labelledby="EditOtherTask{{ $tdlAssignedToOther->id }}" aria-hidden="true">
@@ -387,6 +384,84 @@ tspan{
 
 
 
+<!--  Start Edit EditOtherTaskForAssigner -->
+@foreach($tdlsAssignedToOther as $tdlAssignedToOther)
+<div class="modal fade text-left" id="EditOtherTaskForAssigner{{ $tdlAssignedToOther->id }}" tabindex="-1" role="dialog" aria-labelledby="EditOtherTask{{ $tdlAssignedToOther->id }}" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div   class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel17">تایید فعالیت ارجاع شده با نام {{ $tdlAssignedToOther->name ?? ''}} به {{$tdlAssignedToOther->user->name . ' '. $tdlAssignedToOther->user->family}}</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div style="font-family:Byekan; direction: rtl" class="modal-body">
+
+        <form  style="vertical-align:center;text-align:center" method="post" enctype="multipart/form-data" action="/Tdl/updateAssignerStatus" class="form form-horizontal form-bordered striped-rows">
+          @csrf
+          <div class="form-body">
+
+
+            {{-- <div class="form-group row">
+              <label class="col-md-3 label-control" for="name">نام فعالیت <sup style="color: red; font-size: 18px" >*</sup> </label>
+              <div class="col-md-9">
+                <input type="text" id="name" value=" {{ $tdlAssignedToOther->name  }} "  class="form-control" name="name">
+              </div>
+            </div> --}}
+
+            <input style="display: none" value="{{  $tdlAssignedToOther->id }}" name="id" hidden type="text">
+
+            <div class="form-group row">
+                <label class="col-md-3 label-control" for="statusAssigner">وضعیت <sup style="color: red; font-size: 18px" >*</sup> </label>
+                <div class="col-md-9">
+                  <select class="form-control" name="statusAssigner" >
+                    <option class="form-control" {{  $tdlAssignedToOther->statusAssigner == "تایید شده" ? "selected"  : ""  }}  value="تایید شده">تایید شده</option>
+                    <option class="form-control" {{  $tdlAssignedToOther->statusAssigner == "رد شده" ? "selected"  : ""  }} value="رد شده">رد شده</option>
+                    <option class="form-control" {{  $tdlAssignedToOther->statusAssigner == "متوقف" ? "selected"  : ""  }} value="متوقف">متوقف</option>
+                  </select>
+                </div>
+
+              </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 label-control" for="descriptionAssigner">توضیحات ضمیمه </label>
+              <div class="col-md-9">
+                <textarea class="form-control" name="descriptionAssigner" rows="3" cols="30">{{ $tdlAssignedToOther->descriptionAssigner  }}</textarea>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+          </div>
+
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success">
+              <i class="fa fa-check-square-o"></i>بروزرسانی
+            </button>
+
+
+            <button type="button" class="btn btn-warning mr-1">
+              <i class="ft-x"></i> لغو
+            </button>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
+<!--  End Edit EditOtherTaskForAssigner -->
+
+
+
 <!--  Start ReferralsTdl -->
 @foreach($tdlsAssignedToThisUser as $tdlAssignedToThisUser)
 <div style="font-family:Byekan" class="modal fade text-left" id="ReferralsTdl{{ $tdlAssignedToThisUser->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{ $tdlAssignedToThisUser->id }}" aria-hidden="true">
@@ -471,6 +546,14 @@ tspan{
           @foreach ($errors->all() as $error)
           <li>{{ $error }}</li>
           @endforeach
+        </ul>
+      </div>
+      @endif
+
+      @if ($box['7'])
+      <div style="font-family:Byekan" class="alert alert-danger">
+        <ul>
+            <li>{{auth()->user()->name .' '. auth()->user()->family}} شما {{ $box['7'] }} فعالیت بررسی نشده در این ماه دارید لطفا فعالیت های خود را بررسی کنید</li>
         </ul>
       </div>
       @endif
@@ -585,17 +668,18 @@ tspan{
                       <tr style="text-align: center;">
                         <th>ردیف</th>
                         <th>نام فعالیت</th>
-{{--                        <th>شرح</th>--}}
+                       {{-- <th>شرح</th> --}}
                         <th>ارجاع دهنده</th>
                         <th>متولی انجام</th>
                         <th>اهمیت</th>
                         <th>آخرین وضعیت</th>
-{{--                        <th>دلیل عدم تحقق</th>--}}
-{{--                        <th>نتیجه</th>--}}
-{{--                        <th>مستندات ارجاع دهنده</th>--}}
-{{--                        <th>مستندات متولی انجام</th>--}}
-{{--                        <th>تاریخ ایجاد</th>--}}
-{{--                        <th>آخرین بروزرسانی</th>--}}
+                        <th> وضعیت بررسی ارجاع دهنده</th>
+                       {{-- <th>دلیل عدم تحقق</th> --}}
+                       <th>نتیجه</th>
+                       <th>مستندات ارجاع دهنده</th>
+                       <th>مستندات متولی انجام</th>
+                       <th>تاریخ ایجاد</th>
+                       {{-- <th>آخرین بروزرسانی</th> --}}
                         @if(auth()->user()->id == 6 || auth()->user()->id == 48 )
                         <th>عملیات</th>
                         @endif
@@ -607,20 +691,30 @@ tspan{
                       @foreach($tdlsAssignedToOther as $tdlAssignedToOther)
                       <tr>
                         <td>{{ $tdlAssignedToOther->id }}</td>
-                          <td><a href="{{ url('Tdl/show/' . $tdlAssignedToOther->id) }}">{{ $tdlAssignedToOther->name }}</a></td>
-{{--                        <td>{{ $tdlAssignedToOther->description }}</td>--}}
+                          <td style="white-space: pre-wrap"><a href="{{ url('Tdl/show/' . $tdlAssignedToOther->id) }}">{{ $tdlAssignedToOther->name }}</a></td>
+                       {{-- <td style="white-space: pre-wrap">{{ $tdlAssignedToOther->description }}</td> --}}
                         <td>{{ $tdlAssignedToOther->assignerName }}</td>
                         <td>{{ $tdlAssignedToOther->user->name  . " " . $tdlAssignedToOther->user->family }}</td>
                         <td><span class="badge badge-danger">{{ $tdlAssignedToOther->priority }}</span></td>
                         <td>
                             <span class="badge {{ $tdlAssignedToOther->status == 'انجام شده' ? 'badge-success' : 'badge-warning' }}">{{ $tdlAssignedToOther->status }}</span>
                         </td>
-{{--                        <td>{{ $tdlAssignedToOther->holdPoint }}</td>--}}
-{{--                        <td>{{ $tdlAssignedToOther->doerDescription }}</td>--}}
-{{--                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #007bff; " ><a target="_blank" href="{{ $tdlAssignedToOther->assignerAttachment }}"> {!! $tdlAssignedToOther->assignerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
-{{--                        <td style="text-align: center;vertical-align: center;font-size: 20px;color: #007bff; " ><a target="_blank" href="{{ $tdlAssignedToOther->doerAttachment }}"> {!! $tdlAssignedToOther->doerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>--}}
-{{--                        <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->created_at) }}</td>--}}
-{{--                        <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->updated_at) }}</td>--}}
+                        <td>
+                            <span class="badge {{ $tdlAssignedToOther->statusAssigner == 'تایید شده' ? 'badge-success' : 'badge-warning' }}">
+                                {{ $tdlAssignedToOther->statusAssigner?? 'بررسی نشده' }}
+                            </span>
+                            @if($tdlAssignedToOther->status == 'انجام شده')
+                                <a data-toggle="modal" data-target="#EditOtherTaskForAssigner{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px; color: #007bff" class="ft-edit"></i></a>
+                                <br>
+                               ({{$tdlAssignedToOther->descriptionAssigner ?? ''}})
+                            @endif
+                        </td>
+                       {{-- <td>{{ $tdlAssignedToOther->holdPoint }}</td> --}}
+                       <td>{{ $tdlAssignedToOther->doerDescription }}</td>
+                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #007bff; " ><a target="_blank" href="{{ $tdlAssignedToOther->assignerAttachment }}"> {!! $tdlAssignedToOther->assignerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
+                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #007bff; " ><a target="_blank" href="{{ $tdlAssignedToOther->doerAttachment }}"> {!! $tdlAssignedToOther->doerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
+                       <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->created_at) }}</td>
+                       {{-- <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->updated_at) }}</td> --}}
                         @if(auth()->user()->id == 6 || auth()->user()->id == 48 )
                         <td style="text-align:center;" > <a href="/Tdl/delete/{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px;color: red" class="ft-x-square"></i></a>
                           <a data-toggle="modal" data-target="#EditOtherTask{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px; color: #007bff" class="ft-edit"></i></a>
@@ -634,24 +728,7 @@ tspan{
 
 
                     </tbody>
-{{--                    <tfoot>--}}
-{{--                      <tr style="text-align: center;">--}}
-{{--                        <th>ردیف</th>--}}
-{{--                        <th>نام فعالیت</th>--}}
-{{--                        <th>شرح</th>--}}
-{{--                        <th>ارجاع دهنده</th>--}}
-{{--                        <th>متولی انجام</th>--}}
-{{--                        <th>اهمیت</th>--}}
-{{--                        <th>آخرین وضعیت</th>--}}
-{{--                        <th>دلیل عدم تحقق</th>--}}
-{{--                        <th>نتیجه</th>--}}
-{{--                        <th>مستندات ارجاع دهنده</th>--}}
-{{--                        <th>مستندات متولی انجام</th>--}}
-{{--                        <th>تاریخ ایجاد</th>--}}
-{{--                        <th>آخرین بروزرسانی</th>--}}
-{{--                        <th>حذف</th>--}}
-{{--                      </tr>--}}
-{{--                    </tfoot>--}}
+
                   </table>
                 </div>
               </div>
@@ -732,24 +809,7 @@ tspan{
 
 
                           </tbody>
-{{--                          <tfoot>--}}
-{{--                            <tr style="text-align: center;">--}}
-{{--                              <th>ردیف</th>--}}
-{{--                              <th>نام فعالیت</th>--}}
-{{--                              <th>شرح</th>--}}
-{{--                              <th>ارجاع دهنده</th>--}}
-{{--                              <th>اهمیت</th>--}}
-{{--                              <th>آخرین وضعیت</th>--}}
-{{--                              <th>ارجاع</th>--}}
-{{--                              <th>دلیل عدم تحقق</th>--}}
-{{--                              <th>نتیجه</th>--}}
-{{--                              <th>مستندات ارجاع دهنده</th>--}}
-{{--                              <th>مستندات متولی انجام</th>--}}
-{{--                              <th>تاریخ ایجاد</th>--}}
-{{--                              <th>آخرین بروزرسانی</th>--}}
-{{--                              <th>بروزرسانی</th>--}}
-{{--                            </tr>--}}
-{{--                          </tfoot>--}}
+
                         </table>
                       </div>
                     </div>

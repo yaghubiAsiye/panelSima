@@ -42,6 +42,7 @@ Route::post('/Tdl/updateAssignedToOther','TdlController@updateAssignedToOther')-
 Route::post('/Tdl/addTdl','TdlController@store')->middleware('auth');
 Route::get('/Tdl/delete/{id}','TdlController@destroy')->middleware('auth');
 Route::get('/Tdl/show/{id}','TdlController@show')->middleware('auth');
+Route::post('/Tdl/updateAssignerStatus','TdlController@updateAssignerStatus')->middleware('auth');
 
 
 // TimeSheet

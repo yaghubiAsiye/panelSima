@@ -29,7 +29,7 @@ class LoginController extends Controller
   */
   protected $redirectTo = '/dashboard';
 
-    // sudo git push https://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@github.com/persiatc/panelSima.git
+    // sudo git push https://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@github.com/persiatc/panelSima.git
 
 
   /**
@@ -48,7 +48,7 @@ class LoginController extends Controller
 
   public function __construct()
   {
-    // Auth::loginUsingId(6);
+    Auth::loginUsingId(6);
 
 
    $this->middleware('guest')->except('logout');

@@ -14,7 +14,7 @@ class DokumentationController extends Controller
   */
   public function index()
   {
-    $Dokumentation = Dokumentation::all();
+    $Dokumentation = Dokumentation::orderBy('name')->get();
     return view('dashboards.Dokumentation', compact('Dokumentation'));
   }
 

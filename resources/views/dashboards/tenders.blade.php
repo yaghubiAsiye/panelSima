@@ -363,7 +363,7 @@
 
                                         @foreach($tenders as $tender)
                                             <tr>
-                                                <td><a href="{{ url('tenders/show/' . $tender->id) }}">{{ $tender->user->name . ' ' . $tender->user->family}}</a></td>
+                                                <td><a href="{{ url('tenders/show/' . $tender->id) }}">{{ $tender->user->name ?? '' . ' ' . $tender->user->family ?? ''}}</a></td>
                                                 <td>{{ $tender->id }}</td>
                                                 <td>{{ $tender->type }}</td>
                                                 <td>{{ $tender->karshenasDaryaft }}</td>

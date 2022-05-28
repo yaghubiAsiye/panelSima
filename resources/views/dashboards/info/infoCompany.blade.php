@@ -90,7 +90,7 @@
                                                             </div>
                                                             <div style="font-family:byekan" class="form-body">
                                                                 <div class="form-group row">
-                                                                    <label class="col-md-3 label-control" for="status">ادرس خرم شهر  </label>
+                                                                    <label class="col-md-3 label-control" for="status">ادرس خرمشهر   </label>
                                                                     <div class="col-md-9">
                                                                         <div class="form-control">{{ $InfoCompany->address_khoram ?? ''}}</div>
                                                                     </div>

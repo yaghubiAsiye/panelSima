@@ -430,18 +430,18 @@
 
 
 
-            <li class="{{{ (Request::is('invoices') ? 'active' : '') }}}  nav-item">
+            {{-- <li class="{{{ (Request::is('invoices') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/invoices"><i class="ft-bar-chart"></i><span class="menu-title" data-i18n="nav.dash.main">پیش فاکتورهای صادرشده </span></a>
-            </li>
+            </li> --}}
 
             <li class="{{{ (Request::is('Dokumentation') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/Dokumentation"><i class=" icon-picture"></i><span class="menu-title" data-i18n="nav.dash.main">مستندات </span></a>
             </li>
 
 
-            <li class="{{{ (Request::is('*tenders*') ? 'active' : '') }}}  nav-item">
+            {{-- <li class="{{{ (Request::is('*tenders*') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/tenders"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.dash.main">کار پذیری</span></a>
-            </li>
+            </li> --}}
 
             <li class="{{{ (Request::is('avl') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/avl"><i class="icon-basket"></i><span class="menu-title" data-i18n="nav.dash.main">تامین کنندگان کالا  </span></a>
@@ -471,22 +471,32 @@
                 <a class="orangeColor" href="#"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.templates.main"> صورتجلسات</span></a>
 
                 <ul class="menu-content" style="">
-                    <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}} nav-item">
-                        <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/هیئت مدیره') }}" data-i18n="nav.templates.vert.classic_menu"> هیات مدیره</a>
-                    </li>
-
+                    @if(auth()->user()->id == 48 || auth()->user()->id == 6 )
+                        <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}} nav-item">
+                            <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/هیئت مدیره') }}" data-i18n="nav.templates.vert.classic_menu"> هیات مدیره</a>
+                        </li>
+                    @endif
+                    @if(auth()->user()->id == 48 || auth()->user()->id == 6|| auth()->user()->id == 30|| auth()->user()->id == 35|| auth()->user()->id == 40|| auth()->user()->id == 45 )
                     <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
                         <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/شورای مدیران') }}" data-i18n="nav.templates.vert.classic_menu"> شورای مدیران  </a>
                     </li>
+                    @endif
+                    @if(auth()->user()->id == 48 || auth()->user()->id == 6 || auth()->user()->id == 50|| auth()->user()->id == 30 )
                     <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
                         <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/بخش فنی') }}" data-i18n="nav.templates.vert.classic_menu"> بخش فنی  </a>
                     </li>
+                    @endif
+                    @if(auth()->user()->id == 48 || auth()->user()->id == 6 || auth()->user()->id == 35 || auth()->user()->id == 28 || auth()->user()->id == 39 || auth()->user()->id == 34 || auth()->user()->id == 45 || auth()->user()->id == 53)
                     <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
                         <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/بازرگانی') }}" data-i18n="nav.templates.vert.classic_menu"> بازرگانی  </a>
                     </li>
+                    @endif
+                    @if(auth()->user()->id == 48 || auth()->user()->id == 6 || auth()->user()->id == 25 || auth()->user()->id == 23 || auth()->user()->id == 40)
                     <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
                         <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/مالی') }}" data-i18n="nav.templates.vert.classic_menu"> مالی  </a>
                     </li>
+                    @endif
+
                     <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
                         <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/متفرقه') }}" data-i18n="nav.templates.vert.classic_menu"> متفرقه  </a>
                     </li>
@@ -495,7 +505,7 @@
                 </ul>
             </li>
 
-            <li class="{{{ (Request::is('PurchaseRequest') ? 'active' : '') }}}  nav-item">
+            {{-- <li class="{{{ (Request::is('PurchaseRequest') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/PurchaseRequest"><i class="icon-notebook"></i><span class="menu-title" data-i18n="nav.dash.main">درخواست خرید</span></a>
             </li>
 
@@ -515,7 +525,7 @@
                     </li>
 
                 </ul>
-            </li>
+            </li> --}}
 
             <li style="" class="{{{ (Request::is('financialGuarantes') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/financialGuarantes"><i class="icon-wallet"></i><span class="menu-title" data-i18n="nav.dash.main">ضمانت نامه مالی</span></a>
@@ -542,9 +552,9 @@
                 <a class="orangeColor" href="/forms"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main"> فرم ها</span></a>
             </li>
 
-            <li style="" class="{{{ (Request::is('dailyWork') ? 'active' : '') }}}  nav-item">
+            {{-- <li style="" class="{{{ (Request::is('dailyWork') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/dailyWork"><i class="ft-tablet"></i><span class="menu-title" data-i18n="nav.dash.main"> گزارش روزانه</span></a>
-            </li>
+            </li> --}}
             <li style="" class="{{{ (Request::is('InfoCompany') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/InfoCompany"><i class="ft-tablet"></i><span class="menu-title" data-i18n="nav.dash.main"> اطلاعات دفتر</span></a>
             </li>
