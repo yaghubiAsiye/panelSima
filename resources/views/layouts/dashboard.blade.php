@@ -463,27 +463,27 @@
                 <a class="orangeColor" href="#"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.templates.main"> صورتجلسات</span></a>
 
                 <ul class="menu-content" style="">
-                    @if(auth()->user()->id == 48 || auth()->user()->id == 6 )
+                    @if(auth()->user()->id == 48 || auth()->user()->id == 6 || auth()->user()->id == 36 )
                         <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}} nav-item">
                             <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/هیئت مدیره') }}" data-i18n="nav.templates.vert.classic_menu"> هیات مدیره</a>
                         </li>
                     @endif
-                    @if(auth()->user()->id == 48 || auth()->user()->id == 6|| auth()->user()->id == 30|| auth()->user()->id == 35|| auth()->user()->id == 40|| auth()->user()->id == 45 )
+                    @if(auth()->user()->id == 48 || auth()->user()->id == 6|| auth()->user()->id == 30|| auth()->user()->id == 35|| auth()->user()->id == 40|| auth()->user()->id == 45 || auth()->user()->id == 36  )
                     <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
                         <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/شورای مدیران') }}" data-i18n="nav.templates.vert.classic_menu"> شورای مدیران  </a>
                     </li>
                     @endif
-                    @if(auth()->user()->id == 48 || auth()->user()->id == 6 || auth()->user()->id == 50|| auth()->user()->id == 30 )
+                    @if(auth()->user()->id == 48 || auth()->user()->id == 6 || auth()->user()->id == 50|| auth()->user()->id == 30  || auth()->user()->id == 36 )
                     <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
                         <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/بخش فنی') }}" data-i18n="nav.templates.vert.classic_menu"> بخش فنی  </a>
                     </li>
                     @endif
-                    @if(auth()->user()->id == 48 || auth()->user()->id == 6 || auth()->user()->id == 35 || auth()->user()->id == 28 || auth()->user()->id == 39 || auth()->user()->id == 34 || auth()->user()->id == 45 || auth()->user()->id == 53)
+                    @if(auth()->user()->id == 48 || auth()->user()->id == 6 || auth()->user()->id == 35 || auth()->user()->id == 28 || auth()->user()->id == 39 || auth()->user()->id == 34 || auth()->user()->id == 45 || auth()->user()->id == 53 || auth()->user()->id == 36 )
                     <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
                         <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/بازرگانی') }}" data-i18n="nav.templates.vert.classic_menu"> بازرگانی  </a>
                     </li>
                     @endif
-                    @if(auth()->user()->id == 48 || auth()->user()->id == 6 || auth()->user()->id == 25 || auth()->user()->id == 23 || auth()->user()->id == 40)
+                    @if(auth()->user()->id == 48 || auth()->user()->id == 6 || auth()->user()->id == 25 || auth()->user()->id == 23 || auth()->user()->id == 40 || auth()->user()->id == 36 )
                     <li style="" class="{{{ (Request::is('*archives*') ? 'active' : '') }}}  nav-item">
                         <a class="menu-item orangeColor {{{ (Request::is('*archives*') ? 'active' : '') }}}  " href="{{ url('archives/مالی') }}" data-i18n="nav.templates.vert.classic_menu"> مالی  </a>
                     </li>
