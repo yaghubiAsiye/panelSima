@@ -434,9 +434,7 @@
                 <a class="orangeColor" href="/invoices"><i class="ft-bar-chart"></i><span class="menu-title" data-i18n="nav.dash.main">پیش فاکتورهای صادرشده </span></a>
             </li> --}}
 
-            <li class="{{{ (Request::is('Dokumentation') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/Dokumentation"><i class=" icon-picture"></i><span class="menu-title" data-i18n="nav.dash.main">مستندات </span></a>
-            </li>
+
 
 
             {{-- <li class="{{{ (Request::is('*tenders*') ? 'active' : '') }}}  nav-item">
@@ -459,13 +457,7 @@
                 <a class="orangeColor" href="/SellersContracts"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با پیمانکاران</span></a>
             </li>
 
-            <li class="{{{ (Request::is('regulations') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/regulations"><i class="icon-speech"></i><span class="menu-title" data-i18n="nav.dash.main">آیین نامه ها</span></a>
-            </li>
 
-            <li class="{{{ (Request::is('instructions') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/instructions"><i class="icon-rocket"></i><span class="menu-title" data-i18n="nav.dash.main">دستورالعمل ها  </span></a>
-            </li>
 
             <li class="{{{ (Request::is('*archives*') ? 'active' : '') }}}   nav-item has-sub">
                 <a class="orangeColor" href="#"><i class="icon-equalizer"></i><span class="menu-title" data-i18n="nav.templates.main"> صورتجلسات</span></a>
@@ -538,6 +530,16 @@
             <li class="{{{ (Request::is('Certificates') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/Certificates"><i class="icon-badge"></i><span class="menu-title" data-i18n="nav.dash.main">رتبه ها و گواهینامه ها</span></a>
             </li>
+            <li class="{{{ (Request::is('Dokumentation') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/Dokumentation"><i class=" icon-picture"></i><span class="menu-title" data-i18n="nav.dash.main">مستندات </span></a>
+            </li>
+             <li class="{{{ (Request::is('regulations') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/regulations"><i class="icon-speech"></i><span class="menu-title" data-i18n="nav.dash.main">آیین نامه ها</span></a>
+            </li>
+
+            <li class="{{{ (Request::is('instructions') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/instructions"><i class="icon-rocket"></i><span class="menu-title" data-i18n="nav.dash.main">دستورالعمل ها  </span></a>
+            </li>
 
             <li class="{{{ (Request::is('phoneBooks') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/phoneBooks"><i class="icon-phone"></i><span class="menu-title" data-i18n="nav.dash.main">دفترچه تلفن</span></a>
@@ -550,6 +552,9 @@
 
             <li style="" class="{{{ (Request::is('forms') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/forms"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main"> فرم ها</span></a>
+            </li>
+            <li style="" class="{{{ (Request::is('consent') ? 'active' : '') }}}  nav-item">
+                <a class="orangeColor" href="/consent"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main"> رضایت نامه ها</span></a>
             </li>
 
             {{-- <li style="" class="{{{ (Request::is('dailyWork') ? 'active' : '') }}}  nav-item">

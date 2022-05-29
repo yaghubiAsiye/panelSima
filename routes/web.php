@@ -255,3 +255,14 @@ Route::get('InfoCompany/delete/{id}','InfoCompanyController@destroy')->middlewar
 Route::get('InfoCompany/edit/{id}','InfoCompanyController@edit')->middleware('auth');
 Route::post('InfoCompany/update/{id}','InfoCompanyController@update')->middleware('auth');
 Route::get('InfoCompany/show/{id}','InfoCompanyController@show')->middleware('auth');
+
+
+//Avl
+Route::get('consent','ConsentController@index')->middleware('auth');
+Route::post('consent','ConsentController@store')->middleware('auth');
+Route::get('consent/delete/{id}','ConsentController@destroy')->middleware('auth');
+Route::get('consent/edit/{id}','ConsentController@edit')->middleware('auth');
+Route::post('consent/update/{id}','ConsentController@update')->middleware('auth');
+Route::get('consent/show/{id}','ConsentController@show')->middleware('auth');
+
+
