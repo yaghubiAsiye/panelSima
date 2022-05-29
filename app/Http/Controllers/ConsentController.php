@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Consent;
 use Illuminate\Http\Request;
+use App\Http\Requests\ConsentRequest;
 use Illuminate\Http\RedirectResponse;
 
 class ConsentController extends Controller
@@ -35,7 +36,7 @@ class ConsentController extends Controller
     * @param Request $request
     * @return \Illuminate\Http\Response
     */
-    public function store(Request $request)
+    public function store(ConsentRequest $request)
     {
 
       if($request->file('file')){
