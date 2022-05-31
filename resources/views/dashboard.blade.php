@@ -527,6 +527,140 @@ tspan{
 <!--  End ReferralsTdl -->
 
 
+<!--  Start DetailOtherTaskAssigned to Other -->
+@foreach($tdlsAssignedToOther as $tdlAssignedToOther)
+<div class="modal fade text-left" id="DetailOtherTask{{ $tdlAssignedToOther->id }}" tabindex="-1" role="dialog" aria-labelledby="DetailOtherTask{{ $tdlAssignedToOther->id }}" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div   class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel17">جزییات  فعالیت های ارجاع داده شده از طرف شما به دیگران </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div style="font-family:Byekan; direction: rtl" class="modal-body">
+
+        <form  style="vertical-align:center;text-align:center" class="form form-horizontal form-bordered striped-rows">
+          @csrf
+          <div class="form-body">
+
+
+            <div class="form-group row">
+                <label class="col-md-3 label-control" for="description">ردیف  </label>
+                <div class="col-md-9">
+                    {{ $tdlAssignedToOther->id ?? ''}}
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-md-3 label-control" for="description">  نام فعالیت  </label>
+                <div class="col-md-9">
+                    {{ $tdlAssignedToOther->name ?? ''}}
+
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-md-3 label-control"  for="startHour">شرح  </label>
+                <div class="col-md-9">
+                    {{ $tdlAssignedToOther->description ?? ''}}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-3 label-control"  for="startHour">ارجاع دهنده  </label>
+                <div class="col-md-9">
+                    {{ $tdlAssignedToOther->assignerName}}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 label-control"  for="startHour"> متولی انجام  </label>
+                <div class="col-md-9">
+                    {{ $tdlAssignedToOther->user->name  . " " . $tdlAssignedToOther->user->family }}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 label-control"  for="startHour"> اهمیت  </label>
+                <div class="col-md-9">
+                    <span class="badge badge-danger">{{ $tdlAssignedToOther->priority }}</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 label-control"  for="startHour">آخرین وضعیت   </label>
+                <div class="col-md-9">
+                    <span class="badge {{ $tdlAssignedToOther->status == 'انجام شده' ? 'badge-success' : 'badge-warning' }}">{{ $tdlAssignedToOther->status }}</span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 label-control"  for="startHour">دلیل عدم تحقق   </label>
+                <div class="col-md-9">
+                    {{ $tdlAssignedToOther->holdPoint ?? ''}}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 label-control"  for="startHour">نتیجه   </label>
+                <div class="col-md-9">
+                    {{ $tdlAssignedToOther->doerDescription ?? ''}}
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 label-control"  for="startHour">مستندات ارجاع دهنده   </label>
+                <div class="col-md-9">
+                    <a target="_blank" href="{{ $tdlAssignedToOther->assignerAttachment }}"> {!! $tdlAssignedToOther->assignerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-md-3 label-control" for="result"> مستندات متولی انجام </label>
+                <div class="col-md-9">
+                    <a target="_blank" href="{{ $tdlAssignedToOther->doerAttachment }}"> {!! $tdlAssignedToOther->doerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-md-3 label-control"  for="startHour">تاریخ ایجاد  </label>
+                <div class="col-md-9">
+                    {{ jdate($tdlAssignedToOther->created_at) ?? ''}}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-3 label-control"  for="endHour">آخرین بروزرسانی   </label>
+                <div class="col-md-9">
+                    {{ jdate($tdlAssignedToOther->updated_at) ?? ''}}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-3 label-control"  for="startHour">توضیحات ارجاع دهنده   </label>
+                <div class="col-md-9">
+                    {{ $tdlAssignedToOther->descriptionAssigner ?? ''}}
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-md-3 label-control"  for="startHour">وضعیت بررسی ارجاع دهنده   </label>
+                <div class="col-md-9">
+                    {{ $tdlAssignedToOther->statusAssigner ?? ''}}
+                </div>
+            </div>
+
+
+
+        </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
+<!--  End Edit Task Assigned to Other -->
 
 
 <!--  Body -->
@@ -675,9 +809,9 @@ tspan{
                         <th>آخرین وضعیت</th>
                         <th> وضعیت بررسی ارجاع دهنده</th>
                        {{-- <th>دلیل عدم تحقق</th> --}}
-                       <th>نتیجه</th>
-                       <th>مستندات ارجاع دهنده</th>
-                       <th>مستندات متولی انجام</th>
+                       {{-- <th>نتیجه</th> --}}
+                       {{-- <th style="width:20px !important;white-space: pre-wrap ">مستندات ارجاع دهنده</th> --}}
+                       {{-- <th style="width:20px !important;white-space: pre-wrap ">مستندات متولی انجام</th> --}}
                        <th>تاریخ ایجاد</th>
                        {{-- <th>آخرین بروزرسانی</th> --}}
                         @if(auth()->user()->id == 6 || auth()->user()->id == 48 )
@@ -691,7 +825,9 @@ tspan{
                       @foreach($tdlsAssignedToOther as $tdlAssignedToOther)
                       <tr>
                         <td>{{ $tdlAssignedToOther->id }}</td>
-                          <td style="white-space: pre-wrap"><a href="{{ url('Tdl/show/' . $tdlAssignedToOther->id) }}">{{ $tdlAssignedToOther->name }}</a></td>
+                          {{-- <td style="white-space: pre-wrap"><a href="{{ url('Tdl/show/' . $tdlAssignedToOther->id) }}">{{ $tdlAssignedToOther->name }}</a></td> --}}
+                          <td style="white-space: pre-wrap"><a style="color:#007bff !important" data-toggle="modal" data-target="#DetailOtherTask{{ $tdlAssignedToOther->id }}">{{ $tdlAssignedToOther->name }}</a></td>
+
                        {{-- <td style="white-space: pre-wrap">{{ $tdlAssignedToOther->description }}</td> --}}
                         <td>{{ $tdlAssignedToOther->assignerName }}</td>
                         <td>{{ $tdlAssignedToOther->user->name  . " " . $tdlAssignedToOther->user->family }}</td>
@@ -699,20 +835,21 @@ tspan{
                         <td>
                             <span class="badge {{ $tdlAssignedToOther->status == 'انجام شده' ? 'badge-success' : 'badge-warning' }}">{{ $tdlAssignedToOther->status }}</span>
                         </td>
-                        <td>
+                        <td style="white-space: pre-wrap">
                             <span class="badge {{ $tdlAssignedToOther->statusAssigner == 'تایید شده' ? 'badge-success' : 'badge-warning' }}">
                                 {{ $tdlAssignedToOther->statusAssigner?? 'بررسی نشده' }}
-                            </span>
-                            @if($tdlAssignedToOther->status == 'انجام شده')
+                                @if($tdlAssignedToOther->status == 'انجام شده')
                                 <a data-toggle="modal" data-target="#EditOtherTaskForAssigner{{ $tdlAssignedToOther->id }}" ><i style="font-size: 20px; color: #007bff" class="ft-edit"></i></a>
-                                <br>
-                               ({{$tdlAssignedToOther->descriptionAssigner ?? ''}})
+
+                               {{-- {{$tdlAssignedToOther->descriptionAssigner ?? ''}} --}}
                             @endif
+                            </span>
+
                         </td>
                        {{-- <td>{{ $tdlAssignedToOther->holdPoint }}</td> --}}
-                       <td>{{ $tdlAssignedToOther->doerDescription }}</td>
-                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #007bff; " ><a target="_blank" href="{{ $tdlAssignedToOther->assignerAttachment }}"> {!! $tdlAssignedToOther->assignerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
-                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #007bff; " ><a target="_blank" href="{{ $tdlAssignedToOther->doerAttachment }}"> {!! $tdlAssignedToOther->doerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td>
+                       {{-- <td style="white-space: pre-wrap">{{ $tdlAssignedToOther->doerDescription }}</td> --}}
+                       {{-- <td style="color: #007bff;width:30px !important;white-space: pre-wrap " ><a target="_blank" href="{{ $tdlAssignedToOther->assignerAttachment }}"> {!! $tdlAssignedToOther->assignerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td> --}}
+                       {{-- <td style="color: #007bff;width:30px !important;white-space: pre-wrap "  ><a target="_blank" href="{{ $tdlAssignedToOther->doerAttachment }}"> {!! $tdlAssignedToOther->doerAttachment !== "storage/TdlAttachments/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a></td> --}}
                        <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->created_at) }}</td>
                        {{-- <td style="direction: ltr" >{{ jdate($tdlAssignedToOther->updated_at) }}</td> --}}
                         @if(auth()->user()->id == 6 || auth()->user()->id == 48 )

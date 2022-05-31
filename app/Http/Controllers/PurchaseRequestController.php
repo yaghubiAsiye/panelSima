@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Invoice;
 use App\PurchaseRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\AddPurchaseRequest;
@@ -24,9 +25,10 @@ class PurchaseRequestController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return  view('dashboards.PurchaseRequest.create');
+        $invoice = Invoice::findOrFail($id);
+        return  view('dashboards.PurchaseRequest.create', compact('invoice'));
     }
 
     /**
@@ -52,6 +54,8 @@ class PurchaseRequestController extends Controller
 
           'from' => $request->from,
           'to' => $request->to,
+          'invoice_id' => $request->invoice_id,
+
 
           'contractorFile' => 'storage/PurchaseRequest/' . $attachmentFileName,
         ]);

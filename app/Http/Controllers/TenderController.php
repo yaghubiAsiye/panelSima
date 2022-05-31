@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\TenderRequest;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
+use App\Http\Requests\InvoiceStatusUpdateRequest;
 
 class TenderController extends Controller
 {
@@ -262,4 +263,24 @@ class TenderController extends Controller
 
 
     }
+
+     //update status tender
+     public function updateStatusTender(InvoiceStatusUpdateRequest $request)
+     {
+         $item = Tender::find($request->id);
+         $item->status = $request->status;
+
+         $item->update();
+
+
+
+         \Session::flash('updateUser', array(
+             'flash_title' => 'انجام شد',
+             'flash_message' => 'وضعیت   باموفقیت در سیستم ثبت شد',
+             'flash_level' => 'success',
+             'flash_button' => 'بستن'
+         ));
+         return redirect()->back();
+
+     }
 }

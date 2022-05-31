@@ -282,6 +282,51 @@
         </div>
     </div>
 
+      <!--  Start Edit $invoices -->
+      @foreach($tenders as $invoice)
+      <div style="font-family:Byekan" class="modal fade text-left" id="statusInvoiceModal{{ $invoice->id }}" tabindex="-1" role="dialog" aria-labelledby="statusInvoiceModal{{ $invoice->id }}" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                  <div style="text-align: center!important;" class="modal-header">
+                      <h4 style="text-align: center!important;" class="modal-title" id="statusInvoiceModal{{ $invoice->id }}"> ثبت وضعیت  مناقصه</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div  style=" direction: rtl;" class="modal-body">
+
+
+                      <form style="vertical-align:center;text-align:center" method="post" action="/tenders/updateStatusTender" class="form form-horizontal form-bordered striped-rows">
+                          @csrf
+                          <div class="form-body">
+                            <input type="hidden" name="id" value="{{ $invoice->id }}">
+                            <div class="form-group row">
+                                <label class="col-md-3 label-control" for="number">تعیین وضعیت </label>
+                                <div class="col-md-9">
+                                    <select  class="form-control" name="status">
+                                        <option value="">وضعیت مناقصه  انتخاب شده را انتخاب کنید</option>
+                                        <option value="برنده">برنده </option>
+                                        <option value="بازنده"> بازنده </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                          </div>
+                          <div style="font-family:Byekan" class="form-actions">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-check-square-o"></i> ثبت
+                            </button>
+
+
+                        </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  @endforeach
+  <!--  End Edit $invoices -->
+
 
     <div class="app-content content">
         <div class="content-wrapper">
@@ -356,6 +401,8 @@
 {{--                                            <th>تاریخ استرداد ضمانتنامه</th>--}}
 {{--                                            <th>تاریخ ایجاد</th>--}}
 {{--                                            <th>تاریخ آخرین ویرایش</th>--}}
+                                                <th>وضعیت</th>
+
                                             <th>عملیات</th>
                                         </tr>
                                         </thead>
@@ -393,6 +440,25 @@
 {{--                                                <td>{{ $tender->tarikhEsterdadZemanat }}</td>--}}
 {{--                                                <td>{{ jdate($tender->created_at) }}</td>--}}
 {{--                                                <td>{{ jdate($tender->updated_at) }}</td>--}}
+
+                                                    <td>
+                                                        @if($tender->status == 'مشخص نشده')
+                                                        <a data-toggle="modal" data-target="#statusInvoiceModal{{ $tender->id }}"  class="btn @if($tender->status == 'برنده') btn-success @elseif($tender->status == 'بازنده') btn-danger @else btn-warning @endif ">
+                                                            {{$tender->status}}
+                                                        </a>
+                                                        @elseif($tender->status == 'برنده')
+                                                            <span class="badge badge-success">
+                                                               ( {{ $tender->status }})
+                                                                <a href="#" >ثبت معامله</a>
+                                                            </span>
+
+                                                        @else
+                                                        <a href="#" class="btn @if($tender->status == 'برنده') btn-success @elseif($tender->status == 'بازنده') btn-danger @else btn-warning @endif ">
+                                                            {{$tender->status}}
+                                                        </a>
+                                                        @endif
+
+                                                    </td>
 
                                                 <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;">
                                                     <a href="{{ route('tenders.edit', $tender->id) }}"> <i class="fa fa-edit"></i> </a>

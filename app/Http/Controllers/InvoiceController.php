@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\AddInvoiceRequest;
+use App\Http\Requests\InvoiceStatusUpdateRequest;
 
 class InvoiceController extends Controller
 {
@@ -47,7 +48,7 @@ class InvoiceController extends Controller
         $family = Auth::user()->family;
 
         jdate(Carbon::now());
-        $unique_code = mb_substr($name, 0, 1, 'utf8') . '-' . mb_substr($name, -1, 1, 'utf8') . '-' . Auth::user()->id  . '-' . jdate(Carbon::now())->format('Y.m.d');
+        $unique_code = mb_substr($name, 0, 1, 'utf8') . '-' . mb_substr($family, -1, 1, 'utf8') . '-' . Auth::user()->id  . '-' . jdate(Carbon::now())->format('Y.m.d');
         // dd($unique_code);
 
         $invoice = Invoice::forceCreate([
@@ -137,7 +138,7 @@ class InvoiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $phoneBook = Regulation::findOrFail($id);
+        $phoneBook = Invoice::findOrFail($id);
 
 
         if($request->file('file'))
@@ -179,5 +180,25 @@ class InvoiceController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    //update status invoice
+    public function updateStatusInvoice(InvoiceStatusUpdateRequest $request)
+    {
+        $invoice = Invoice::find($request->id);
+        $invoice->status = $request->status;
+
+        $invoice->update();
+
+
+
+        \Session::flash('updateUser', array(
+            'flash_title' => 'انجام شد',
+            'flash_message' => 'وضعیت استعلام  باموفقیت در سیستم ثبت شد',
+            'flash_level' => 'success',
+            'flash_button' => 'بستن'
+        ));
+        return redirect()->back();
+
     }
 }

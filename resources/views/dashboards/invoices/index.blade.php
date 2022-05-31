@@ -91,8 +91,6 @@
 
 
     <!--  Start Edit $invoices -->
-
-
     @foreach($invoices as $invoice)
         <div style="font-family:Byekan" class="modal fade text-left" id="ReferralsTdl{{ $invoice->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel{{ $invoice->id }}" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
@@ -220,8 +218,53 @@
             </div>
         </div>
     @endforeach
-
     <!--  End Edit $invoices -->
+
+      <!--  Start Edit $invoices -->
+      @foreach($invoices as $invoice)
+      <div style="font-family:Byekan" class="modal fade text-left" id="statusInvoiceModal{{ $invoice->id }}" tabindex="-1" role="dialog" aria-labelledby="statusInvoiceModal{{ $invoice->id }}" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                  <div style="text-align: center!important;" class="modal-header">
+                      <h4 style="text-align: center!important;" class="modal-title" id="statusInvoiceModal{{ $invoice->id }}"> تعیین وضعیت پیش فاکتور</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div  style=" direction: rtl;" class="modal-body">
+
+
+                      <form style="vertical-align:center;text-align:center" method="post" action="/invoice/updateStatusInvoice" class="form form-horizontal form-bordered striped-rows">
+                          @csrf
+                          <div class="form-body">
+                            <input type="hidden" name="id" value="{{ $invoice->id }}">
+                            <div class="form-group row">
+                                <label class="col-md-3 label-control" for="number">تعیین وضعیت </label>
+                                <div class="col-md-9">
+                                    <select  class="form-control" name="status">
+                                        <option value="">وضعیت پیش فاکتور انتخاب شده را انتخاب کنید</option>
+                                        <option value="تایید شده">تایید استعلام</option>
+                                        <option value="بایگانی">عدم تایید استعلام</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                          </div>
+                          <div style="font-family:Byekan" class="form-actions">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-check-square-o"></i> ثبت
+                            </button>
+
+
+                        </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  @endforeach
+  <!--  End Edit $invoices -->
+
 
 
 
@@ -281,7 +324,7 @@
                                             <th> شماره ثبت</th>
                                             <th> مبلغ کل</th>
                                             <th> صادرکننده</th>
-                                            <th> بررسی نتیجه</th>
+                                            <th>  نتیجه</th>
 
                                             <th> عملیات</th>
                                         </tr>
@@ -300,7 +343,7 @@
                                                 </td>
 
                                                 <td style="direction: ltr;">
-                                                    {{ jdate($invoice->date) }}
+                                                    {{ jdate($invoice->date)->format('Y-m-d') }}
                                                 </td>
 
                                                 <td>
@@ -336,7 +379,21 @@
                                                     {{ $invoice->user->name . " " . $invoice->user->family }}
                                                 </td>
                                                 <td>
-                                                    <a href="#" class="btn btn-warning"> نتیجه</a>
+
+                                                        @if($invoice->status == 'تایید شده')
+                                                        <a href="/PurchaseRequest/create/{{$invoice->id}}"  class="btn @if($invoice->status == 'تایید شده') btn-success @elseif($invoice->status == 'بایگانی') btn-danger @else btn-warning @endif ">
+                                                            {{$invoice->status}}<br> (ثبت درخواست خرید)
+                                                        </a>
+                                                        @elseif($invoice->status == 'عدم استعلام')
+                                                            <a data-toggle="modal" data-target="#statusInvoiceModal{{ $invoice->id }}"  class="btn @if($invoice->status == 'تایید شده') btn-success @elseif($invoice->status == 'بایگانی') btn-danger @else btn-warning @endif ">
+                                                                {{$invoice->status}}
+                                                            </a>
+                                                        @else
+                                                            <a href="#"  class="btn @if($invoice->status == 'تایید شده') btn-success @elseif($invoice->status == 'بایگانی') btn-danger @else btn-warning @endif ">
+                                                                {{$invoice->status}}
+                                                            </a>
+                                                        @endif
+
 
                                                 </td>
 
@@ -346,7 +403,7 @@
                                                     <a href="{{ URL::to('downloadExcel/xls/'. $invoice->id) }}" class="btn btn-success"> xls</a>
                                                     <a href="{{ URL::to('downloadExcel/xlsx/'. $invoice->id) }}" class="btn btn-success"> xlsx</a>
                                                     <a href="{{ URL::to('downloadExcel/csv/'. $invoice->id) }}" class="btn btn-success"> CSV</a>
-                                                    <a data-toggle="modal" data-target="#ReferralsTdl{{ $invoice->id }}" ><i style="font-size: 20px" class="ft-external-link"></i></a>
+                                                    <a class="btn btn-info text-white" data-toggle="modal" data-target="#ReferralsTdl{{ $invoice->id }}" >جزییات</a>
 
 
                                                     {{-- <a onclick="return confirm('آیا برای حذف اطمینان دارید؟');"

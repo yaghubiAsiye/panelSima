@@ -31,7 +31,7 @@
             <div class="content-body"><!-- project stats -->
 
                 <div class="row">
-                    <div class="col-12">
+                    {{-- <div class="col-12">
                         <div class="row">
                             <div class="col-12">
                               <div class="card">
@@ -105,7 +105,7 @@
                             </div>
                           </div>
 
-                    </div>
+                    </div> --}}
 
 
                     <div class="col-12">
@@ -130,7 +130,7 @@
                                         <div class="modal-dialog modal-lg" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel17">ثبت درخواست خرید</h4>
+                                                    <h4 class="modal-title" id="myModalLabel17">ثبت درخواست خرید برای پیش فاکتور با کدویژه {{ $invoice->unique_code }}</h4>
 
                                                 </div>
                                                 <div class="modal-body">
@@ -146,6 +146,7 @@
 
                                                         <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="{{url('PurchaseRequest')}}" class="form form-horizontal form-bordered striped-rows">
                                                             @csrf
+                                                            <input type="hidden" name="invoice_id" value="{{ $invoice->id}}">
                                                             <div style="font-family:byekan" class="form-body">
                                                                 <div class="form-group row">
                                                                     <label class="col-md-3 label-control" for="onvan">عنوان خرید</label>

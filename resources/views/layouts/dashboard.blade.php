@@ -428,6 +428,24 @@
                 <a class="orangeColor" href="/dashboard"><i class="icofont icofont-dashboard-web"></i><span class="menu-title" data-i18n="nav.dash.main">فعالیت ارجاع شده من</span></a>
             </li>
 
+            <li class="{{{ (Request::is('*archives*') ? 'active' : '') }}}   nav-item has-sub">
+                <a class="orangeColor" href="#"><i class="icon-list"></i><span class="menu-title" data-i18n="nav.templates.main"> ارجاع کار</span></a>
+
+                <ul class="menu-content" style="">
+
+                    <li style="" class="{{{ (Request::is('*invoices*') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*invoices*') ? 'active' : '') }}}  " href="{{ url('/invoices') }}" data-i18n="nav.templates.vert.classic_menu"> استعلام /صدورپیش فاکتور  </a>
+                    </li>
+                    <li style="" class="{{{ (Request::is('*tenders*') ? 'active' : '') }}}  nav-item">
+                        <a class="menu-item orangeColor {{{ (Request::is('*tenders*') ? 'active' : '') }}}  " href="{{ url('/tenders') }}" data-i18n="nav.templates.vert.classic_menu"> مناقصه/کارپذیری  </a>
+                    </li>
+
+
+
+                </ul>
+            </li>
+
+
 
 
             {{-- <li class="{{{ (Request::is('invoices') ? 'active' : '') }}}  nav-item">
@@ -456,7 +474,7 @@
             <li class="{{{ (Request::is('SellersContracts') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/SellersContracts"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main">قرارداد با پیمانکاران</span></a>
             </li>
-
+               
 
 
             <li class="{{{ (Request::is('*archives*') ? 'active' : '') }}}   nav-item has-sub">
@@ -496,6 +514,7 @@
 
                 </ul>
             </li>
+
 
             {{-- <li class="{{{ (Request::is('PurchaseRequest') ? 'active' : '') }}}  nav-item">
                 <a class="orangeColor" href="/PurchaseRequest"><i class="icon-notebook"></i><span class="menu-title" data-i18n="nav.dash.main">درخواست خرید</span></a>
@@ -554,7 +573,7 @@
                 <a class="orangeColor" href="/forms"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main"> فرم ها</span></a>
             </li>
             <li style="" class="{{{ (Request::is('consent') ? 'active' : '') }}}  nav-item">
-                <a class="orangeColor" href="/consent"><i class="icon-docs"></i><span class="menu-title" data-i18n="nav.dash.main"> رضایت نامه ها</span></a>
+                <a class="orangeColor" href="/consent"><i class="ft-bar-chart"></i><span class="menu-title" data-i18n="nav.dash.main"> رضایت نامه ها</span></a>
             </li>
 
             {{-- <li style="" class="{{{ (Request::is('dailyWork') ? 'active' : '') }}}  nav-item">

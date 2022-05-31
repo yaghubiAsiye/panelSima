@@ -118,7 +118,7 @@
                                                                 <div class="col-md-1"></div>
                                                                 <label style="padding-top:0px;" class="col-md-2 label-control" >شناسه ملی : </label>
                                                                 <div class="col-md-9" style="padding-top:0px;">
-                                                                    <input type="text" id="national_code" class="form-control" name="onnational_codevan">
+                                                                    <input type="text" id="national_code" class="form-control" name="national_code">
                                                                 </div>
 
                                                                 <div class="col-md-1"></div>

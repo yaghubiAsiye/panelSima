@@ -134,6 +134,7 @@ Route::get('tenders/edit/{id}','TenderController@edit')->middleware('auth')->nam
 Route::post('tenders/update/{id}','TenderController@update')->middleware('auth')->name('tenders.update');
 Route::get('tenders/delete/{id}','TenderController@destroy')->middleware('auth');
 Route::get('tenders/show/{id}','TenderController@show')->middleware('auth');
+Route::post('tenders/updateStatusTender','TenderController@updateStatusTender')->middleware('auth');
 
 
 //phone book
@@ -168,6 +169,8 @@ Route::post('invoices','InvoiceController@store')->middleware('auth');
 Route::get('invoice/create','InvoiceController@create')->middleware('auth');
 Route::get('invoice/delete/{id}','InvoiceController@destroy')->middleware('auth');
 Route::post('invoice/update/{id}','InvoiceController@update')->middleware('auth');
+Route::post('invoice/updateStatusInvoice','InvoiceController@updateStatusInvoice')->middleware('auth');
+
 
 //excel
 Route::get('downloadExcel/{type}/{id}', 'ExcelController@downloadExcel');
@@ -195,7 +198,7 @@ Route::post('dailyWork','DailyWorkController@store')->middleware('auth')->name('
 //PurchaseRequest
 Route::get('PurchaseRequest','PurchaseRequestController@index')->middleware('auth')->name('PurchaseRequest');
 Route::post('PurchaseRequest','PurchaseRequestController@store')->middleware('auth');
-Route::get('PurchaseRequest/create','PurchaseRequestController@create')->middleware('auth');
+Route::get('PurchaseRequest/create/{id}','PurchaseRequestController@create')->middleware('auth');
 
 Route::get('PurchaseRequest/delete/{id}','PurchaseRequestController@destroy')->middleware('auth');
 Route::get('PurchaseRequest/edit/{id}','PurchaseRequestController@edit')->middleware('auth');

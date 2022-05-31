@@ -79,13 +79,13 @@
                                                         <div class="form-group row">
                                                             <label class="col-md-3 label-control"  for="startHour">ارجاع دهنده  </label>
                                                             <div class="col-md-9">
-                                                                {{ $tld->user->name . " " . $tld->user->family ?? ''}}
+                                                                {{ $tld->assignerName}}
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
                                                             <label class="col-md-3 label-control"  for="startHour"> متولی انجام  </label>
                                                             <div class="col-md-9">
-                                                                {{ $tld->priority ?? ''}}
+                                                                {{ $tld->user->name  . " " . $tld->user->family }}
                                                             </div>
                                                         </div>
                                                         <div class="form-group row">
@@ -139,6 +139,20 @@
                                                             <label class="col-md-3 label-control"  for="endHour">آخرین بروزرسانی   </label>
                                                             <div class="col-md-9">
                                                                 {{ jdate($tld->updated_at) ?? ''}}
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label class="col-md-3 label-control"  for="startHour">توضیحات ارجاع دهنده   </label>
+                                                            <div class="col-md-9">
+                                                                {{ $tld->descriptionAssigner ?? ''}}
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label class="col-md-3 label-control"  for="startHour">وضعیت بررسی ارجاع دهنده   </label>
+                                                            <div class="col-md-9">
+                                                                {{ $tld->statusAssigner ?? ''}}
                                                             </div>
                                                         </div>
 

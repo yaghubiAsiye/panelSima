@@ -99,7 +99,7 @@
                                                             </div>
                                                             <div style="font-family:byekan" class="form-body">
                                                                 <div class="form-group row">
-                                                                    <label class="col-md-3 label-control" for="status">کد پستی خرم شهر  </label>
+                                                                    <label class="col-md-3 label-control" for="status">کد پستی خرمشهر   </label>
                                                                     <div class="col-md-9">
                                                                         <div class="form-control">{{ $InfoCompany->code_posti_khoram ?? ''}}</div>
                                                                     </div>
@@ -108,7 +108,7 @@
                                                             </div>
                                                             <div style="font-family:byekan" class="form-body">
                                                                 <div class="form-group row">
-                                                                    <label class="col-md-3 label-control" for="status">تلفن خرم شهر  </label>
+                                                                    <label class="col-md-3 label-control" for="status">تلفن خرمشهر   </label>
                                                                     <div class="col-md-9">
                                                                         <div class="form-control">{{ $InfoCompany->phone_khoram ?? ''}}</div>
                                                                     </div>
