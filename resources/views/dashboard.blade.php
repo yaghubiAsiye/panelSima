@@ -835,7 +835,7 @@ tspan{
                         <td>
                             <span class="badge {{ $tdlAssignedToOther->status == 'انجام شده' ? 'badge-success' : 'badge-warning' }}">{{ $tdlAssignedToOther->status }}</span>
                         </td>
-                        <td style="white-space: pre-wrap">
+                        <td >
                             <span class="badge {{ $tdlAssignedToOther->statusAssigner == 'تایید شده' ? 'badge-success' : 'badge-warning' }}">
                                 {{ $tdlAssignedToOther->statusAssigner?? 'بررسی نشده' }}
                                 @if($tdlAssignedToOther->status == 'انجام شده')
