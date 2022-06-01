@@ -68,9 +68,46 @@ class InfoCompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        if($request->file('file')){
+            $file = $request->file('file');
+            $fileName = time() . "_" . $file->getClientOriginalName();
+            $file->move('storage/info', $fileName);
+        }else{
+            $fileName = "nothing";
+        }
+
+        $tender = InfoCompany::find($request->id);
+        $tender->user_id = \Auth::user()->id;
+        $tender->address = $request->address;
+        $tender->code_posti = $request->code_posti;
+
+        $tender->phone = $request->phone;
+        $tender->fax = $request->fax;
+        $tender->address_khoram = $request->address_khoram;
+        $tender->code_posti_khoram = $request->code_posti_khoram;
+        $tender->phone_khoram = $request->phone_khoram;
+        $tender->shomare_sabt = $request->shomare_sabt;
+        $tender->shomare_hesab_tejarat = $request->shomare_hesab_tejarat;
+        $tender->shomare_shaba = $request->shomare_shaba;
+        $tender->code_eqtesadi = $request->code_eqtesadi;
+        $tender->email = $request->email;
+        $tender->website = $request->website;
+        $tender->shenase_meli = $request->shenase_meli;
+        $tender->file = 'storage/info/' .$fileName;
+
+
+        $tender->save();
+
+
+        \Session::flash('updateUser', array(
+            'flash_title' => 'انجام شد',
+            'flash_message' => ' با موفقیت در سیستم آپدیت شد.',
+            'flash_level' => 'success',
+            'flash_button' => 'بستن'
+        ));
+        return redirect()->back();
     }
 
     /**

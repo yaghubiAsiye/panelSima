@@ -66,11 +66,12 @@ class PurchaseRequestController extends Controller
           'flash_level' => 'success',
           'flash_button' => 'بستن'
         ));
-        if($request->mablagh <= 100000000) {
-            return redirect()->route('CommissionPartial.create', $request->id);
-        }
+        // if($request->mablagh <= 100000000) {
+        //     return redirect()->route('CommissionPartial.create', $request->id);
+        // }
 
-        return redirect()->back();
+        // return redirect()->back();
+        return redirect(url('PurchaseRequest'));
     }
 
     /**

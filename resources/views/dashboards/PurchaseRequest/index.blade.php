@@ -161,13 +161,15 @@
     <div class="content-header row">
     </div>
     <div class="content-body">
-
+        <h4 class="card-title alert alert-danger">برای خرید های ثبت شده معامله باید ثبت کنید!</h4>
 
       <div class="row">
         <div class="col-12">
           <div class="card">
             <div class="card-header">
               <h4 class="card-title">خرید های ثبت شده</h4>
+
+
               <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
               <div class="heading-elements">
                 <ul class="list-inline mb-0">
@@ -194,6 +196,7 @@
                       <th>مدت زمان</th>
                       <th>تاریخ شروع</th>
                       <th>تاریخ پایان</th>
+                      <th>ثبت معامله جزیی مرتبط</th>
 
                      {{-- <th>وضعیت</th> --}}
                       <th>فایل</th>
@@ -215,6 +218,14 @@
                      <td>{{ $contract->moddat }}</td>
                      <td>{{ $contract->from }}</td>
                      <td>{{ $contract->to }}</td>
+
+
+                     <td style="white-space: normal">
+                        <a href="{{route('CommissionPartial.create', $contract->id)}}" type="button" class="btn btn-warning mr-1">
+                           +
+                        </a>
+
+                    </td>
                      {{-- <td style="white-space: normal">
                         <button type="button" class="btn btn-warning mr-1">
                             {{ $contract->status }}

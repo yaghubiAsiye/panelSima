@@ -341,12 +341,13 @@
                                             <th> ردیف</th>
                                             <th> موضوع قرارداد</th>
                                             <th> نوع ضمانت نامه</th>
+                                            <th> نام ذینفع</th>
+
                                             <th> مدت اعتبار</th>
                                             <th> آخرین وضعیت</th>
                                             <th> وضعیت فعال</th>
 
                                             <th>  نام بانک صادر کننده</th>
-                                            <th> نام ذینفع</th>
                                             <th> مبلغ</th>
                                             <th>  تاریخ اتمام</th>
                                             <th>مشاهده تصویر</th>
@@ -365,6 +366,9 @@
                                                     {{ $archive->type }}
                                                 </td>
                                                 <td>
+                                                    {{ $archive->name_of_issuing_bank }}
+                                                </td>
+                                                <td>
                                                     {{ $archive->validity_duration }}
                                                 </td>
                                                 <td>
@@ -377,9 +381,7 @@
 
                                                 </td>
 
-                                                <td>
-                                                    {{ $archive->name_of_issuing_bank }}
-                                                </td>
+
                                                 <td>
                                                     {{ $archive->beneficiary_name }}
                                                 </td>

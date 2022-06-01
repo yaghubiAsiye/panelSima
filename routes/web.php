@@ -251,13 +251,15 @@ Route::get('Confirm/index/{type}/{id}','ConfirmController@index')->name('Confirm
 
 //InfoCompany
 Route::get('InfoCompany','InfoCompanyController@index')->middleware('auth')->name('InfoCompany');
-Route::post('InfoCompany','InfoCompanyController@store')->middleware('auth');
-Route::get('InfoCompany/create','InfoCompanyController@create')->middleware('auth');
+Route::post('InfoCompany/update','InfoCompanyController@update')->middleware('auth');
 
-Route::get('InfoCompany/delete/{id}','InfoCompanyController@destroy')->middleware('auth');
-Route::get('InfoCompany/edit/{id}','InfoCompanyController@edit')->middleware('auth');
-Route::post('InfoCompany/update/{id}','InfoCompanyController@update')->middleware('auth');
-Route::get('InfoCompany/show/{id}','InfoCompanyController@show')->middleware('auth');
+// Route::post('InfoCompany','InfoCompanyController@store')->middleware('auth');
+// Route::get('InfoCompany/create','InfoCompanyController@create')->middleware('auth');
+
+// Route::get('InfoCompany/delete/{id}','InfoCompanyController@destroy')->middleware('auth');
+// Route::get('InfoCompany/edit/{id}','InfoCompanyController@edit')->middleware('auth');
+// Route::post('InfoCompany/update','InfoCompanyController@update')->middleware('auth');
+// Route::get('InfoCompany/show/{id}','InfoCompanyController@show')->middleware('auth');
 
 
 //Avl
