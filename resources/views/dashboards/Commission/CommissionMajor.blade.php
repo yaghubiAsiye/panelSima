@@ -224,7 +224,7 @@
                      {{-- <th>نظر کمیته فنی و بازرگانی</th> --}}
                      <th>نظر کمیسیون معاملات</th>
                      <th>ثبت کننده مناقصه</th>
-                     <th>درخواست خرید</th>
+                     {{-- <th>درخواست خرید</th> --}}
                      <th>عملیات</th>
                     </tr>
                   </thead>
@@ -267,7 +267,7 @@
 
                     <td>{{ $contract->user->name . " " . $contract->user->family }}</td>
 
-                     <td>{{ $contract->purchaseRequest->onvan }} </td>
+                     {{-- <td>{{ $contract->purchaseRequest->onvan }} </td> --}}
                     <td style="text-align:center;color: #3BAFDA">
                         {{-- <a href="CommissionMajor/edit/{{ $contract->id }}"><i style="font-size: 20px" class="ft-edit"></i></a> --}}
                         <a href="/CommissionMajor/delete/{{ $contract->id }} "><i style="font-size: 20px" class="ft-x-square danger"></i>  </a>

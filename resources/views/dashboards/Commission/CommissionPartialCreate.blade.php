@@ -35,7 +35,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">ثبت معامله جزیی برای خرید با عنوان {{ $PurchaseRequest->onvan}} </h4>
+                                <h4 class="card-title">ثبت معامله جزیی</h4>
                                 <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
                                 <div class="heading-elements">
                                     <ul class="list-inline mb-0">
@@ -70,7 +70,9 @@
 
                                                     <form style="vertical-align:center;text-align:center" enctype="multipart/form-data" method="post" action="/CommissionPartial" class="form form-horizontal form-bordered striped-rows">
                                                         @csrf
-                                                        <input type="hidden" name="purchase_requests_id" value="{{ $PurchaseRequest->id }}" >
+                                                        <input type="hidden" name="id" value="{{ $id }}" >
+                                                        <input type="hidden" name="type" value="{{ $type }}" >
+
                                                         <div style="font-family:byekan" class="form-body productDivBody">
                                                           <h4 class="form-section"><i class="ft-user"></i> کمیسیون جزیی</h4>
 
@@ -191,7 +193,7 @@
                                                                 </div>
 
 
-                                                                <br><br><h4 class="form-section"><i class="fa fa-file-text-o"></i> مشخصات درخواست خرید</h4>
+                                                                {{-- <br><br><h4 class="form-section"><i class="fa fa-file-text-o"></i> مشخصات درخواست خرید</h4>
                                                                 <div class="row">
                                                                     <div class="col-md-6">
                                                                         <div class="form-group">
@@ -224,7 +226,7 @@
 
 
 
-                                                                </div>
+                                                                </div> --}}
 
                                                                 <br><br><h4 class="form-section"><i class="fa fa-file-text-o"></i> فرم دستور پرداخت</h4>
                                                                 <div class="row border m-1 p-1">

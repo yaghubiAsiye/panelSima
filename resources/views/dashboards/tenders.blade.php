@@ -197,7 +197,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-md-3 label-control" for="number">مبلغ استعلام بها</label>
+                                <label class="col-md-3 label-control" for="number">مبلغ استعلام بها(تومان)</label>
                                 <div class="col-md-9">
                                     <input type="text" id="number" class="form-control" name="mablaghEstelam">
                                 </div>
@@ -449,7 +449,29 @@
                                                         @elseif($tender->status == 'برنده')
                                                             <span class="badge badge-success">
                                                                ( {{ $tender->status }})
-                                                                <a href="#" >ثبت معامله</a>
+
+                                                                    @if($tender->mablaghEstelam <= 100000000)
+                                                                    <a href="{{route('CommissionPartial.create', ['type'=> get_class($tender), 'id' => $tender->id])}}" >
+                                                                        ثبت معامله
+                                                                        <span class="badge badge-danger">
+                                                                        جزیی
+                                                                        </span>
+                                                                    </a>
+                                                                    <a href="{{route('CommissionMajor', ['type'=>get_class($tender),'id' => $tender->id])}}" title="نمایش لیست معاملات  ">
+                                                                        <i style="font-size: 20px" class="ft-list primary"></i>
+                                                                    </a>
+                                                                    @else
+                                                                    <a href="{{route('CommissionMajor.create', ['type'=> get_class($tender), 'id' => $tender->id])}}" >
+                                                                        ثبت معامله
+                                                                        <span class="badge badge-danger">
+                                                                        کلی
+                                                                        </span>
+                                                                    </a>
+                                                                    <a href="{{route('CommissionMajor', ['type'=>get_class($tender),'id' => $tender->id])}}" title="نمایش لیست معاملات  ">
+                                                                        <i style="font-size: 20px" class="ft-list primary"></i>
+                                                                    </a>
+                                                                    @endif
+
                                                             </span>
 
                                                         @else

@@ -325,6 +325,7 @@
                                             <th> مبلغ کل</th>
                                             <th> صادرکننده</th>
                                             <th>  نتیجه</th>
+                                            <th>  لیست درخواست خرید</th>
 
                                             <th> عملیات</th>
                                         </tr>
@@ -396,7 +397,10 @@
 
 
                                                 </td>
+                                                <td>
+                                                    <a href="{{ route('PurchaseRequest', ['id'=> $invoice->id]) }}" class="btn btn-success"> لیست درخواست خرید</a>
 
+                                                </td>
                                                 <td style="text-align:center;color: #3BAFDA">
 
                                                     {{-- <a href="{{ URL::to('downloadExcel/' . $invoice->id) }}" ><i style="font-size: 20px" class="ft-download-cloud"></i></a> --}}

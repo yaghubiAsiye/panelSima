@@ -41,7 +41,7 @@ class TenderRequest extends FormRequest
             'moddatGharardad' => 'nullable',
             'nazarieKomisionTavan' => 'nullable',
             'karshenasPaygiri' => 'nullable',
-            'mablaghEstelam' => 'nullable',
+            'mablaghEstelam' => 'required|numeric',
             'tasvirZemanat' => 'nullable|mimes:doc,docx,xls,xlsx,pdf,jpg,JPG,png,PNG,jpeg',
             'tasvirPishnahadFanni' => 'nullable|mimes:doc,docx,xls,xlsx,pdf,jpg,JPG,png,PNG,jpeg',
             'tasvirPishnahadGheymat' => 'nullable|mimes:doc,docx,xls,xlsx,pdf,jpg,JPG,png,PNG,jpeg',

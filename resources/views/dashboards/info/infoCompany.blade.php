@@ -357,10 +357,10 @@
                                                             </div>
                                                             <div style="font-family:byekan" class="form-body">
                                                                 <div class="form-group row">
-                                                                    <label class="col-md-3 label-control" for="status">فایل پیوست   </label>
+                                                                    <label class="col-md-3 label-control" for="status">دانلود فایل پیوست   </label>
                                                                     <div class="col-md-9">
                                                                         <div class="form-control">
-                                                                            <a target="_blank" href="{{ $InfoCompany->file }}"> {!! $InfoCompany->file !== "storage/info/nothing" ? "<i class='ft-file-text' ></i>" : "" !!} </a>
+                                                                            <a target="_blank" href="{{ $InfoCompany->file }}"> {!! $InfoCompany->file !== "storage/info/nothing" ? "<i style='font-size:50px' class='ft-file-text' ></i>" : "" !!} </a>
                                                                         </div>
                                                                     </div>
                                                                 </div>

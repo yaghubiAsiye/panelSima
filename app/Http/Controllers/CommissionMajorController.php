@@ -15,9 +15,11 @@ class CommissionMajorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($type, $id)
     {
-        $contracts = CommissionMajor::all();
+        $contracts = CommissionMajor::where(['commissionable_type'=>$type, 'commissionable_id'=>$id])
+        ->with('confirms')
+        ->get();
         return view('dashboards.Commission.CommissionMajor', compact('contracts'));
 
     }
@@ -27,10 +29,10 @@ class CommissionMajorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($type,$id)
     {
-        $PurchaseRequest = PurchaseRequest::find($id);
-        return view('dashboards.Commission.CommissionMajorCreate', compact('PurchaseRequest'));
+        // $PurchaseRequest = PurchaseRequest::find($id);
+        return view('dashboards.Commission.CommissionMajorCreate', compact('id', 'type'));
 
     }
 
@@ -66,7 +68,9 @@ class CommissionMajorController extends Controller
             'modatmoamele' => $request->modatmoamele,
             'khadamatpasazforosh' => $request->khadamatpasazforosh,
             'status_confirmation' => 'بررسی نشده',
-            'purchase_requests_id' => $request->purchase_requests_id
+            'commissionable_type' => $request->type,
+            'commissionable_id' => $request->id
+
         ]);
 
 
@@ -76,7 +80,7 @@ class CommissionMajorController extends Controller
             'flash_level' => 'success',
             'flash_button' => 'بستن'
         ));
-        return redirect()->route('CommissionMajor', ['id' => $request->purchase_requests_id]);
+        return redirect()->route('CommissionMajor', ['type'=>$request->type,'id' => $request->id]);
     }
 
     /**
@@ -131,9 +135,9 @@ class CommissionMajorController extends Controller
         ));
         return redirect()->back();
     }
-    public function listCommissionsMajorFromPurchase($id)
+    public function listCommissionsMajorFromPurchase($type,$id)
     {
-        $contracts = CommissionMajor::where('purchase_requests_id', $id)
+        $contracts = CommissionMajor::where(['commissionable_type'=>$type, 'commissionable_id'=>$id])
         ->with('confirms')
         ->get();
         // $contracts = CommissionMajor::find(1);

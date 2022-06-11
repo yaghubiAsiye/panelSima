@@ -235,8 +235,8 @@
 
                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" ><a href="{{ $contract->contractorFile }}"> <i class="ft-file-text" ></i> </a></td>
                       <td style="text-align:center;color: #3BAFDA">
-                          <a href="CommissionMajor/create/{{ $contract->id }}" title="افزودن معامله"><i style="font-size: 20px" class="ft-plus-square success"></i>  </a>
-                          <a href="PurchaseRequest/CommissionMajorList/{{ $contract->id }}" title="نمایش لیست معاملات  خرید">
+                          <a href="/CommissionMajor/create/{{ $contract->id }}" title="افزودن معامله"><i style="font-size: 20px" class="ft-plus-square success"></i>  </a>
+                          <a href="/PurchaseRequest/CommissionMajorList/{{ $contract->id }}" title="نمایش لیست معاملات  خرید">
                               <i style="font-size: 20px" class="ft-list primary"></i>
                           </a>
                       </td>

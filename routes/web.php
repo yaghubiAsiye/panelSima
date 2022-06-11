@@ -196,7 +196,7 @@ Route::post('dailyWork','DailyWorkController@store')->middleware('auth')->name('
 
 
 //PurchaseRequest
-Route::get('PurchaseRequest','PurchaseRequestController@index')->middleware('auth')->name('PurchaseRequest');
+Route::get('PurchaseRequest/{id}','PurchaseRequestController@index')->middleware('auth')->name('PurchaseRequest');
 Route::post('PurchaseRequest','PurchaseRequestController@store')->middleware('auth');
 Route::get('PurchaseRequest/create/{id}','PurchaseRequestController@create')->middleware('auth');
 
@@ -208,13 +208,14 @@ Route::get('PurchaseRequest/show/{id}','PurchaseRequestController@show')->middle
 
 
 //CommissionMajor
-Route::get('CommissionMajor','CommissionMajorController@index')->middleware('auth');
+Route::get('CommissionMajor/create/{type}/{id}','CommissionMajorController@create')->name('CommissionMajor.create')->middleware('auth');
+// Route::get('PurchaseRequest/CommissionMajorList/{type}/{id}','CommissionMajorController@listCommissionsMajorFromPurchase')->name('CommissionMajor')->middleware('auth');
 Route::post('CommissionMajor','CommissionMajorController@store')->middleware('auth');
+Route::get('CommissionMajor/{type}/{id}','CommissionMajorController@index')->name('CommissionMajor')->middleware('auth');
+
 Route::get('CommissionMajor/delete/{id}','CommissionMajorController@destroy')->middleware('auth');
 // Route::get('CommissionMajor/edit/{id}','CommissionMajorController@edit')->middleware('auth');
 Route::post('CommissionMajor/update/{id}','CommissionMajorController@update')->middleware('auth');
-Route::get('CommissionMajor/create/{id}','CommissionMajorController@create')->middleware('auth');
-Route::get('PurchaseRequest/CommissionMajorList/{id}','CommissionMajorController@listCommissionsMajorFromPurchase')->name('CommissionMajor')->middleware('auth');
 
 
 
@@ -228,13 +229,15 @@ Route::post('CommissionMedium/update/{id}','CommissionMediumController@update')-
 
 
 //CommissionPartial
+Route::get('CommissionPartial/create/{type}/{id}','CommissionPartialController@create')->name('CommissionPartial.create')->middleware('auth');
+
+
 Route::get('CommissionPartial','CommissionPartialController@index')->middleware('auth')->name('CommissionPartial');
 Route::post('CommissionPartial','CommissionPartialController@store')->middleware('auth');
 // Route::get('CommissionPartial/delete/{id}','CommissionPartialController@destroy')->middleware('auth');
 // Route::get('CommissionPartial/edit/{id}','CommissionPartialController@edit')->middleware('auth');
 Route::post('CommissionPartial/update','CommissionPartialController@update')->middleware('auth');
 // Route::get('CommissionPartial/show/{id}','CommissionPartialController@show')->middleware('auth');
-Route::get('CommissionPartial/create/{id}','CommissionPartialController@create')->name('CommissionPartial.create')->middleware('auth');
 Route::get('CommissionPartial/updatePurchaseRequestFormsStatus/{type}/{id}','CommissionPartialController@editPurchaseRequestFormsStatus')->middleware('auth')->name('updatePurchaseRequestFormsStatus');
 Route::post('CommissionPartial/updatePurchaseRequestFormsStatus','CommissionPartialController@updatePurchaseRequestFormsStatus')->middleware('auth');
 
@@ -271,3 +274,11 @@ Route::post('consent/update/{id}','ConsentController@update')->middleware('auth'
 Route::get('consent/show/{id}','ConsentController@show')->middleware('auth');
 
 
+
+//Commission
+Route::get('Commission','CommissionController@index')->middleware('auth');
+Route::post('Commission','CommissionController@store')->middleware('auth');
+Route::get('Commission/delete/{id}','CommissionController@destroy')->middleware('auth');
+Route::get('Commission/edit/{id}','CommissionController@edit')->middleware('auth');
+Route::post('Commission/update/{id}','CommissionController@update')->middleware('auth');
+Route::get('Commission/show/{id}','CommissionController@show')->middleware('auth');

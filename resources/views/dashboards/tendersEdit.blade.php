@@ -195,7 +195,7 @@
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-md-3 label-control" for="number">مبلغ استعلام بها</label>
+                                                    <label class="col-md-3 label-control" for="number">مبلغ استعلام بها(تومان)</label>
                                                     <div class="col-md-9">
                                                         <input type="text" id="number" class="form-control" value="{{ $tender->mablaghEstelam }}" name="mablaghEstelam">
                                                     </div>

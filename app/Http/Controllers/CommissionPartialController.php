@@ -29,10 +29,10 @@ class CommissionPartialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($type, $id)
     {
-        $PurchaseRequest = PurchaseRequest::find($id);
-        return view('dashboards.Commission.CommissionPartialCreate', compact('PurchaseRequest'));
+        // $PurchaseRequest = PurchaseRequest::find($id);
+        return view('dashboards.Commission.CommissionPartialCreate', compact('id', 'type'));
     }
 
     /**
