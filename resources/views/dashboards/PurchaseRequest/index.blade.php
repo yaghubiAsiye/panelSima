@@ -200,7 +200,7 @@
 
                      {{-- <th>وضعیت</th> --}}
                       <th>فایل</th>
-                      <th>عملیات</th>
+                      {{-- <th>عملیات</th> --}}
 
                     </tr>
                   </thead>
@@ -221,10 +221,27 @@
 
 
                      <td style="white-space: normal">
-                        <a href="{{route('CommissionPartial.create', $contract->id)}}" type="button" class="btn btn-warning mr-1">
-                           +
-                        </a>
-
+                        @if($contract->mablagh <= 100000000)
+                            <a href="{{route('CommissionPartial.create', ['type'=> get_class($contract), 'id' => $contract->id])}}" >
+                                ثبت معامله
+                                <span class="badge badge-danger">
+                                جزیی
+                                </span>
+                            </a>
+                            <a href="{{route('CommissionMajor', ['type'=>get_class($contract),'id' => $contract->id])}}" title="نمایش لیست معاملات  ">
+                                <i style="font-size: 20px" class="ft-list primary"></i>
+                            </a>
+                        @else
+                            <a href="{{route('CommissionMajor.create', ['type'=> get_class($contract), 'id' => $contract->id])}}" >
+                                ثبت معامله
+                                <span class="badge badge-danger">
+                                کلی
+                                </span>
+                            </a>
+                            <a href="{{route('CommissionMajor', ['type'=>get_class($contract),'id' => $contract->id])}}" title="نمایش لیست معاملات  ">
+                                <i style="font-size: 20px" class="ft-list primary"></i>
+                            </a>
+                        @endif
                     </td>
                      {{-- <td style="white-space: normal">
                         <button type="button" class="btn btn-warning mr-1">
@@ -234,12 +251,12 @@
                     </td> --}}
 
                       <td style="text-align: center;vertical-align: center;font-size: 20px;color: #3BAFDA;" ><a href="{{ $contract->contractorFile }}"> <i class="ft-file-text" ></i> </a></td>
-                      <td style="text-align:center;color: #3BAFDA">
+                      {{-- <td style="text-align:center;color: #3BAFDA">
                           <a href="/CommissionMajor/create/{{ $contract->id }}" title="افزودن معامله"><i style="font-size: 20px" class="ft-plus-square success"></i>  </a>
                           <a href="/PurchaseRequest/CommissionMajorList/{{ $contract->id }}" title="نمایش لیست معاملات  خرید">
                               <i style="font-size: 20px" class="ft-list primary"></i>
                           </a>
-                      </td>
+                      </td> --}}
 
                     </tr>
                   @endforeach

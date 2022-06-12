@@ -71,7 +71,7 @@ class PurchaseRequestController extends Controller
         // }
 
         // return redirect()->back();
-        return redirect(url('PurchaseRequest'));
+        return redirect(route('invoices'));
     }
 
     /**

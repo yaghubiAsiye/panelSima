@@ -30,7 +30,7 @@ class CommissionPartialRequest extends FormRequest
             'tedadestelambaha' => 'required',
 
             'datesabt' => 'required',
-            'purchase_requests_id' => 'required',
+            // 'purchase_requests_id' => 'required',
 
             'project_manager' => 'nullable',
             'amount' => 'required',

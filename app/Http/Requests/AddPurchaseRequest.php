@@ -27,7 +27,7 @@ class AddPurchaseRequest extends FormRequest
             'onvan' => 'required',
             'description' => 'required',
             'peymankar' => 'required',
-            'mablagh' => 'required',
+            'mablagh' => 'required|numeric',
             'pardakht' => 'required',
             'moddat' => 'required',
             'from' => 'required',

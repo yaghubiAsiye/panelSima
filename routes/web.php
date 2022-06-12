@@ -164,7 +164,7 @@ Route::post('instruction/update/{id}','InstructionController@update')->middlewar
 
 
 //invoices
-Route::get('invoices','InvoiceController@index')->middleware('auth');
+Route::get('invoices','InvoiceController@index')->name('invoices')->middleware('auth');
 Route::post('invoices','InvoiceController@store')->middleware('auth');
 Route::get('invoice/create','InvoiceController@create')->middleware('auth');
 Route::get('invoice/delete/{id}','InvoiceController@destroy')->middleware('auth');
