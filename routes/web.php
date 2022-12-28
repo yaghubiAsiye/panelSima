@@ -14,7 +14,7 @@
 Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-//Index
+//Index 
 Route::get('/','DashboardController@index')->middleware('auth');
 
 // Dashboards
